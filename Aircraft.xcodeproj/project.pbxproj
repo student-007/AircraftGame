@@ -34,6 +34,8 @@
 		9F049D391684367F007F5AC2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF016843296007F5AC2 /* Default.png */; };
 		9F049D3A1684367F007F5AC2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF21684329A007F5AC2 /* Default@2x.png */; };
 		9F049D5C16850A8E007F5AC2 /* AircraftPlusInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */; };
+		9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
+		9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		9F049CF21684329A007F5AC2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		9F049D3E1684367F007F5AC2 /* AircraftPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AircraftPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AircraftPlusInfo.plist; sourceTree = SOURCE_ROOT; };
+		9F57A008168516C20069DA95 /* AAircraftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftModel.h; path = Model/AAircraftModel.h; sourceTree = "<group>"; };
+		9F57A009168516C20069DA95 /* AAircraftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftModel.m; path = Model/AAircraftModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 		9F049CCB16842BBA007F5AC2 /* Aircraft */ = {
 			isa = PBXGroup;
 			children = (
+				9F57A0061685164D0069DA95 /* Model */,
 				9F049CD416842BBA007F5AC2 /* AAppDelegate.h */,
 				9F049CD516842BBA007F5AC2 /* AAppDelegate.m */,
 				9F049CDD16842BBA007F5AC2 /* AViewController.h */,
@@ -139,6 +144,15 @@
 				9F049CDB16842BBA007F5AC2 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9F57A0061685164D0069DA95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F57A008168516C20069DA95 /* AAircraftModel.h */,
+				9F57A009168516C20069DA95 /* AAircraftModel.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +260,7 @@
 				9F049CD216842BBA007F5AC2 /* main.m in Sources */,
 				9F049CD616842BBA007F5AC2 /* AAppDelegate.m in Sources */,
 				9F049CDF16842BBA007F5AC2 /* AViewController.m in Sources */,
+				9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +271,7 @@
 				9F049D2C1684367F007F5AC2 /* main.m in Sources */,
 				9F049D2D1684367F007F5AC2 /* AAppDelegate.m in Sources */,
 				9F049D2E1684367F007F5AC2 /* AViewController.m in Sources */,
+				9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "AViewController.h"
+#import "AAircraftModel.h"
 
 @interface AViewController ()
 
@@ -18,6 +19,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    AAircraftModel *air = [AAircraftModel aircraftWithOrgin:CGPointMake(0, 0) direction:AircraftDirectionUp];
+    NSLog(@"main view loaded.");
 }
 
 - (void)didReceiveMemoryWarning
