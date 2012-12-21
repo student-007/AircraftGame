@@ -20,6 +20,12 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
+#ifdef LITE_VERSION
+    NSLog(@"lite version");
+#elif PLUS_VERSION
+    NSLog(@"plus version");
+#endif
+    
     [UIApplication sharedApplication].statusBarHidden = NO;
     return YES;
 }

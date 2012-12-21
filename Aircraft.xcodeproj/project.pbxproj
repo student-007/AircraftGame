@@ -20,6 +20,19 @@
 		9F049CEF1684323E007F5AC2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CEE1684323E007F5AC2 /* icon@2x.png */; };
 		9F049CF116843296007F5AC2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF016843296007F5AC2 /* Default.png */; };
 		9F049CF31684329A007F5AC2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF21684329A007F5AC2 /* Default@2x.png */; };
+		9F049D2C1684367F007F5AC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F049CD116842BBA007F5AC2 /* main.m */; };
+		9F049D2D1684367F007F5AC2 /* AAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F049CD516842BBA007F5AC2 /* AAppDelegate.m */; };
+		9F049D2E1684367F007F5AC2 /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F049CDE16842BBA007F5AC2 /* AViewController.m */; };
+		9F049D301684367F007F5AC2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F049CC516842BBA007F5AC2 /* UIKit.framework */; };
+		9F049D311684367F007F5AC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F049CC716842BBA007F5AC2 /* Foundation.framework */; };
+		9F049D321684367F007F5AC2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F049CC916842BBA007F5AC2 /* CoreGraphics.framework */; };
+		9F049D341684367F007F5AC2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CCE16842BBA007F5AC2 /* InfoPlist.strings */; };
+		9F049D351684367F007F5AC2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CDB16842BBA007F5AC2 /* Default-568h@2x.png */; };
+		9F049D361684367F007F5AC2 /* AViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CE016842BBA007F5AC2 /* AViewController.xib */; };
+		9F049D371684367F007F5AC2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CEC1684322F007F5AC2 /* icon.png */; };
+		9F049D381684367F007F5AC2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CEE1684323E007F5AC2 /* icon@2x.png */; };
+		9F049D391684367F007F5AC2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF016843296007F5AC2 /* Default.png */; };
+		9F049D3A1684367F007F5AC2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF21684329A007F5AC2 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +54,8 @@
 		9F049CEE1684323E007F5AC2 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 		9F049CF016843296007F5AC2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		9F049CF21684329A007F5AC2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		9F049D3E1684367F007F5AC2 /* AircraftPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AircraftPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F049D401684367F007F5AC2 /* AircraftPlusInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = AircraftPlusInfo.plist; path = "/Users/ylang/Desktop/Yufei's Files/Aircraft/AircraftPlusInfo.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +66,16 @@
 				9F049CC616842BBA007F5AC2 /* UIKit.framework in Frameworks */,
 				9F049CC816842BBA007F5AC2 /* Foundation.framework in Frameworks */,
 				9F049CCA16842BBA007F5AC2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F049D2F1684367F007F5AC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F049D301684367F007F5AC2 /* UIKit.framework in Frameworks */,
+				9F049D311684367F007F5AC2 /* Foundation.framework in Frameworks */,
+				9F049D321684367F007F5AC2 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				9F049CC116842BBA007F5AC2 /* Aircraft.app */,
+				9F049D3E1684367F007F5AC2 /* AircraftPlus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,6 +131,7 @@
 				9F049CEE1684323E007F5AC2 /* icon@2x.png */,
 				9F049CEC1684322F007F5AC2 /* icon.png */,
 				9F049CCD16842BBA007F5AC2 /* Aircraft-Info.plist */,
+				9F049D401684367F007F5AC2 /* AircraftPlusInfo.plist */,
 				9F049CCE16842BBA007F5AC2 /* InfoPlist.strings */,
 				9F049CD116842BBA007F5AC2 /* main.m */,
 				9F049CD316842BBA007F5AC2 /* Aircraft-Prefix.pch */,
@@ -133,6 +160,23 @@
 			productReference = 9F049CC116842BBA007F5AC2 /* Aircraft.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9F049D2A1684367F007F5AC2 /* AircraftPlus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F049D3B1684367F007F5AC2 /* Build configuration list for PBXNativeTarget "AircraftPlus" */;
+			buildPhases = (
+				9F049D2B1684367F007F5AC2 /* Sources */,
+				9F049D2F1684367F007F5AC2 /* Frameworks */,
+				9F049D331684367F007F5AC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AircraftPlus;
+			productName = Aircraft;
+			productReference = 9F049D3E1684367F007F5AC2 /* AircraftPlus.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -156,6 +200,7 @@
 			projectRoot = "";
 			targets = (
 				9F049CC016842BBA007F5AC2 /* Aircraft */,
+				9F049D2A1684367F007F5AC2 /* AircraftPlus */,
 			);
 		};
 /* End PBXProject section */
@@ -175,6 +220,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9F049D331684367F007F5AC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F049D341684367F007F5AC2 /* InfoPlist.strings in Resources */,
+				9F049D351684367F007F5AC2 /* Default-568h@2x.png in Resources */,
+				9F049D361684367F007F5AC2 /* AViewController.xib in Resources */,
+				9F049D371684367F007F5AC2 /* icon.png in Resources */,
+				9F049D381684367F007F5AC2 /* icon@2x.png in Resources */,
+				9F049D391684367F007F5AC2 /* Default.png in Resources */,
+				9F049D3A1684367F007F5AC2 /* Default@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -185,6 +244,16 @@
 				9F049CD216842BBA007F5AC2 /* main.m in Sources */,
 				9F049CD616842BBA007F5AC2 /* AAppDelegate.m in Sources */,
 				9F049CDF16842BBA007F5AC2 /* AViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F049D2B1684367F007F5AC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F049D2C1684367F007F5AC2 /* main.m in Sources */,
+				9F049D2D1684367F007F5AC2 /* AAppDelegate.m in Sources */,
+				9F049D2E1684367F007F5AC2 /* AViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +334,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yufei Lang (827R9JZACL)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Aircraft/Aircraft-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"LITE_VERSION=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "Aircraft/Aircraft-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -280,9 +354,45 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yufei Lang (827R9JZACL)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Aircraft/Aircraft-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "LITE_VERSION=1";
 				INFOPLIST_FILE = "Aircraft/Aircraft-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "51896ED7-608C-4297-A809-A089693113C3";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9F049D3C1684367F007F5AC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yufei Lang (827R9JZACL)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Aircraft/Aircraft-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"PLUS_VERSION=1",
+				);
+				INFOPLIST_FILE = AircraftPlusInfo.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = AircraftPlus;
+				PROVISIONING_PROFILE = "51896ED7-608C-4297-A809-A089693113C3";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9F049D3D1684367F007F5AC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yufei Lang (827R9JZACL)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Aircraft/Aircraft-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "PLUS_VERSION=1";
+				INFOPLIST_FILE = AircraftPlusInfo.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = AircraftPlus;
 				PROVISIONING_PROFILE = "51896ED7-608C-4297-A809-A089693113C3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -308,6 +418,16 @@
 				9F049CE716842BBA007F5AC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9F049D3B1684367F007F5AC2 /* Build configuration list for PBXNativeTarget "AircraftPlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F049D3C1684367F007F5AC2 /* Debug */,
+				9F049D3D1684367F007F5AC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
