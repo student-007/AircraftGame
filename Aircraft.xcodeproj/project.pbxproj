@@ -33,6 +33,7 @@
 		9F049D381684367F007F5AC2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CEE1684323E007F5AC2 /* icon@2x.png */; };
 		9F049D391684367F007F5AC2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF016843296007F5AC2 /* Default.png */; };
 		9F049D3A1684367F007F5AC2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF21684329A007F5AC2 /* Default@2x.png */; };
+		9F049D5C16850A8E007F5AC2 /* AircraftPlusInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +56,7 @@
 		9F049CF016843296007F5AC2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		9F049CF21684329A007F5AC2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		9F049D3E1684367F007F5AC2 /* AircraftPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AircraftPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F049D401684367F007F5AC2 /* AircraftPlusInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = AircraftPlusInfo.plist; path = "/Users/ylang/Desktop/Yufei's Files/Aircraft/AircraftPlusInfo.plist"; sourceTree = "<absolute>"; };
+		9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AircraftPlusInfo.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +132,7 @@
 				9F049CEE1684323E007F5AC2 /* icon@2x.png */,
 				9F049CEC1684322F007F5AC2 /* icon.png */,
 				9F049CCD16842BBA007F5AC2 /* Aircraft-Info.plist */,
-				9F049D401684367F007F5AC2 /* AircraftPlusInfo.plist */,
+				9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */,
 				9F049CCE16842BBA007F5AC2 /* InfoPlist.strings */,
 				9F049CD116842BBA007F5AC2 /* main.m */,
 				9F049CD316842BBA007F5AC2 /* Aircraft-Prefix.pch */,
@@ -217,6 +218,7 @@
 				9F049CEF1684323E007F5AC2 /* icon@2x.png in Resources */,
 				9F049CF116843296007F5AC2 /* Default.png in Resources */,
 				9F049CF31684329A007F5AC2 /* Default@2x.png in Resources */,
+				9F049D5C16850A8E007F5AC2 /* AircraftPlusInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
