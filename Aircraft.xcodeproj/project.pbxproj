@@ -13,11 +13,13 @@
 		9F049CD016842BBA007F5AC2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CCE16842BBA007F5AC2 /* InfoPlist.strings */; };
 		9F049CD216842BBA007F5AC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F049CD116842BBA007F5AC2 /* main.m */; };
 		9F049CD616842BBA007F5AC2 /* AAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F049CD516842BBA007F5AC2 /* AAppDelegate.m */; };
-		9F049CD816842BBA007F5AC2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CD716842BBA007F5AC2 /* Default.png */; };
-		9F049CDA16842BBA007F5AC2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CD916842BBA007F5AC2 /* Default@2x.png */; };
 		9F049CDC16842BBA007F5AC2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CDB16842BBA007F5AC2 /* Default-568h@2x.png */; };
 		9F049CDF16842BBA007F5AC2 /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F049CDE16842BBA007F5AC2 /* AViewController.m */; };
 		9F049CE216842BBA007F5AC2 /* AViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CE016842BBA007F5AC2 /* AViewController.xib */; };
+		9F049CED1684322F007F5AC2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CEC1684322F007F5AC2 /* icon.png */; };
+		9F049CEF1684323E007F5AC2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CEE1684323E007F5AC2 /* icon@2x.png */; };
+		9F049CF116843296007F5AC2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF016843296007F5AC2 /* Default.png */; };
+		9F049CF31684329A007F5AC2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF21684329A007F5AC2 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,12 +33,14 @@
 		9F049CD316842BBA007F5AC2 /* Aircraft-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Aircraft-Prefix.pch"; sourceTree = "<group>"; };
 		9F049CD416842BBA007F5AC2 /* AAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAppDelegate.h; sourceTree = "<group>"; };
 		9F049CD516842BBA007F5AC2 /* AAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAppDelegate.m; sourceTree = "<group>"; };
-		9F049CD716842BBA007F5AC2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		9F049CD916842BBA007F5AC2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9F049CDB16842BBA007F5AC2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9F049CDD16842BBA007F5AC2 /* AViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AViewController.h; sourceTree = "<group>"; };
 		9F049CDE16842BBA007F5AC2 /* AViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
 		9F049CE116842BBA007F5AC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AViewController.xib; sourceTree = "<group>"; };
+		9F049CEC1684322F007F5AC2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		9F049CEE1684323E007F5AC2 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
+		9F049CF016843296007F5AC2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		9F049CF21684329A007F5AC2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,12 +100,14 @@
 		9F049CCC16842BBA007F5AC2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9F049CF21684329A007F5AC2 /* Default@2x.png */,
+				9F049CF016843296007F5AC2 /* Default.png */,
+				9F049CEE1684323E007F5AC2 /* icon@2x.png */,
+				9F049CEC1684322F007F5AC2 /* icon.png */,
 				9F049CCD16842BBA007F5AC2 /* Aircraft-Info.plist */,
 				9F049CCE16842BBA007F5AC2 /* InfoPlist.strings */,
 				9F049CD116842BBA007F5AC2 /* main.m */,
 				9F049CD316842BBA007F5AC2 /* Aircraft-Prefix.pch */,
-				9F049CD716842BBA007F5AC2 /* Default.png */,
-				9F049CD916842BBA007F5AC2 /* Default@2x.png */,
 				9F049CDB16842BBA007F5AC2 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
@@ -160,10 +166,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F049CD016842BBA007F5AC2 /* InfoPlist.strings in Resources */,
-				9F049CD816842BBA007F5AC2 /* Default.png in Resources */,
-				9F049CDA16842BBA007F5AC2 /* Default@2x.png in Resources */,
 				9F049CDC16842BBA007F5AC2 /* Default-568h@2x.png in Resources */,
 				9F049CE216842BBA007F5AC2 /* AViewController.xib in Resources */,
+				9F049CED1684322F007F5AC2 /* icon.png in Resources */,
+				9F049CEF1684323E007F5AC2 /* icon@2x.png in Resources */,
+				9F049CF116843296007F5AC2 /* Default.png in Resources */,
+				9F049CF31684329A007F5AC2 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,10 +262,14 @@
 		9F049CE616842BBA007F5AC2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yufei Lang (827R9JZACL)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Aircraft/Aircraft-Prefix.pch";
 				INFOPLIST_FILE = "Aircraft/Aircraft-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "51896ED7-608C-4297-A809-A089693113C3";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -265,10 +277,14 @@
 		9F049CE716842BBA007F5AC2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yufei Lang (827R9JZACL)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Aircraft/Aircraft-Prefix.pch";
 				INFOPLIST_FILE = "Aircraft/Aircraft-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "51896ED7-608C-4297-A809-A089693113C3";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
