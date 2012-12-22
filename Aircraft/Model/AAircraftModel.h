@@ -36,7 +36,14 @@ typedef enum
  */
 @property (strong, nonatomic) NSArray *gridArray;
 
+/*!
+ @discussion make a dictionary that can be saved into a plist 
+ (keys are 1. orginPos:array[number, number] 2.direction:number)
+ */
+@property (readonly, nonatomic) NSDictionary *savableDictionary;
+
 
 + (AAircraftModel *)aircraftWithOrgin:(CGPoint)orgin direction:(AircraftDirection)direction;
++ (AAircraftModel *)aircraftWithSavableDictionary:(NSDictionary *)savableDictionary;
 
 @end

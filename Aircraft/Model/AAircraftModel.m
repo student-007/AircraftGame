@@ -94,6 +94,26 @@
     }
 }
 
+- (NSDictionary *)savableDictionary
+{
+    NSArray *orginPos = [NSArray arrayWithObjects:[NSNumber numberWithInt:_orginPos.x],
+                         [NSNumber numberWithInt:_orginPos.y], nil];
+    NSNumber *direction = [NSNumber numberWithInt:_direction];
+    
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+                         orginPos, @"orginPos",
+                         direction, @"direction", nil];
+}
+
++ (AAircraftModel *)aircraftWithSavableDictionary:(NSDictionary *)savableDictionary
+{
+    NSArray *orginPosAry = [savableDictionary valueForKey:@"orginPos"];
+    CGPoint orginPos = CGPointMake([(NSNumber *)[orginPosAry objectAtIndex:0] intValue],
+                                   [(NSNumber *)[orginPosAry objectAtIndex:1] intValue]);
+    AircraftDirection direction = [((NSNumber *)[savableDictionary valueForKey:@"direction"]) intValue];
+    return [AAircraftModel aircraftWithOrgin:orginPos direction:direction];
+}
+
  - (NSString *)description
 {
     return [NSString stringWithFormat:@"[AAircraftModel] direction value: %d, orgin: (%f,%f)", _direction, _orginPos.x, _orginPos.y];
