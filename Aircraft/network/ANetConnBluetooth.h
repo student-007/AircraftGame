@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GameKit/GameKit.h>
 #import "ANetBaseConnection.h"
 
 @interface ANetConnBluetooth : ANetBaseConnection <GKPeerPickerControllerDelegate, GKSessionDelegate>
+{
+    
+}
 
 @property (nonatomic, strong) GKPeerPickerController *peerPicker;
 @property (nonatomic, strong) GKSession *sessionConnection;

@@ -46,6 +46,7 @@
 		9F99BE8F168AAB1500A0FD2F /* ANetMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */; };
 		9F99BE92168AB41500A0FD2F /* ANetBaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE91168AB41500A0FD2F /* ANetBaseConnection.m */; };
 		9F99BE93168AB41500A0FD2F /* ANetBaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE91168AB41500A0FD2F /* ANetBaseConnection.m */; };
+		9F99BE95168AC77F00A0FD2F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F99BE94168AC77F00A0FD2F /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANetMessage.m; path = network/ANetMessage.m; sourceTree = "<group>"; };
 		9F99BE90168AB41500A0FD2F /* ANetBaseConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANetBaseConnection.h; path = network/ANetBaseConnection.h; sourceTree = "<group>"; };
 		9F99BE91168AB41500A0FD2F /* ANetBaseConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANetBaseConnection.m; path = network/ANetBaseConnection.m; sourceTree = "<group>"; };
+		9F99BE94168AC77F00A0FD2F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F99BE95168AC77F00A0FD2F /* GameKit.framework in Frameworks */,
 				9F049CC616842BBA007F5AC2 /* UIKit.framework in Frameworks */,
 				9F049CC816842BBA007F5AC2 /* Foundation.framework in Frameworks */,
 				9F049CCA16842BBA007F5AC2 /* CoreGraphics.framework in Frameworks */,
@@ -128,6 +131,7 @@
 		9F049CC416842BBA007F5AC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F99BE94168AC77F00A0FD2F /* GameKit.framework */,
 				9F049CC516842BBA007F5AC2 /* UIKit.framework */,
 				9F049CC716842BBA007F5AC2 /* Foundation.framework */,
 				9F049CC916842BBA007F5AC2 /* CoreGraphics.framework */,

@@ -7,11 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GameKit/GameKit.h>
+
+@protocol connectionListener <NSObject>
+- (void)connectionEstablished;
+- (void)connectionDisconnected;
+- (void)receivedData:(NSData *)data;
+@end
 
 @interface ANetBaseConnection : NSObject
+{
+    BOOL _isConnect;
+}
 
 @property (nonatomic, readonly) BOOL isConnect;
+@property (nonatomic, weak) id<connectionListener> listener;
 
 // base class functions [Yufei Lang]
 - (void)makeConnection;

@@ -10,10 +10,19 @@
 
 @implementation ANetBaseConnection
 
+- (id)init
+{
+    if (self = [super init])
+    {
+        _isConnect = NO;
+    }
+    return self;
+}
+
 - (BOOL)isConnect
 {
     NSAssert(NO, @"Sub class of base connection should implement perpoty isConnect.");
-    return NO;
+    return _isConnect;
 }
 
 // base class functions [Yufei Lang]
