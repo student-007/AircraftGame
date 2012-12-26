@@ -7,7 +7,6 @@
 //
 
 #import "AViewController.h"
-#import "AAircraftModel.h"
 
 @interface AViewController ()
 
@@ -19,8 +18,32 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    AAircraftModel *air = [AAircraftModel aircraftWithOrgin:CGPointMake(0, 0) direction:AircraftDirectionUp];
-    NSLog(@"main view loaded.");
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint touchPt = [touch locationInView:self.view];
+    _aircraftImgView = [[AAircraftImageView alloc] initWithImage:[UIImage imageNamed:@"Aircraft.png"]];
+    _aircraftImgView.direction = AircraftDirectionDown;
+    CGRect aFrame = _aircraftImgView.frame;
+    aFrame.origin = touchPt;
+    _aircraftImgView.frame = aFrame;
+    [self.view addSubview:_aircraftImgView];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint touchPt = [touch locationInView:self.view];
+    CGRect aFrame = _aircraftImgView.frame;
+    aFrame.origin = touchPt;
+    _aircraftImgView.frame = aFrame;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
 }
 
 - (void)didReceiveMemoryWarning

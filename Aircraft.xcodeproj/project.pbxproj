@@ -36,6 +36,10 @@
 		9F049D5C16850A8E007F5AC2 /* AircraftPlusInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */; };
 		9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
+		9F57A01816863EF50069DA95 /* AAircraftImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A01716863EF50069DA95 /* AAircraftImageView.m */; };
+		9F57A01916863EF50069DA95 /* AAircraftImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A01716863EF50069DA95 /* AAircraftImageView.m */; };
+		9F99BE8516879D6500A0FD2F /* Aircraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F99BE8416879D6500A0FD2F /* Aircraft.png */; };
+		9F99BE8616879D6500A0FD2F /* Aircraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F99BE8416879D6500A0FD2F /* Aircraft.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +65,9 @@
 		9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AircraftPlusInfo.plist; sourceTree = SOURCE_ROOT; };
 		9F57A008168516C20069DA95 /* AAircraftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftModel.h; path = Model/AAircraftModel.h; sourceTree = "<group>"; };
 		9F57A009168516C20069DA95 /* AAircraftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftModel.m; path = Model/AAircraftModel.m; sourceTree = "<group>"; };
+		9F57A01616863EF50069DA95 /* AAircraftImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftImageView.h; path = ViewModel/AAircraftImageView.h; sourceTree = "<group>"; };
+		9F57A01716863EF50069DA95 /* AAircraftImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftImageView.m; path = ViewModel/AAircraftImageView.m; sourceTree = "<group>"; };
+		9F99BE8416879D6500A0FD2F /* Aircraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Aircraft.png; path = Aircraft/res/Aircraft.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +97,7 @@
 		9F049CB616842BBA007F5AC2 = {
 			isa = PBXGroup;
 			children = (
+				9F99BE8216879D4400A0FD2F /* res */,
 				9F049CCB16842BBA007F5AC2 /* Aircraft */,
 				9F049CC416842BBA007F5AC2 /* Frameworks */,
 				9F049CC216842BBA007F5AC2 /* Products */,
@@ -118,6 +126,7 @@
 		9F049CCB16842BBA007F5AC2 /* Aircraft */ = {
 			isa = PBXGroup;
 			children = (
+				9F57A01516863E870069DA95 /* ViewModel */,
 				9F57A0061685164D0069DA95 /* Model */,
 				9F049CD416842BBA007F5AC2 /* AAppDelegate.h */,
 				9F049CD516842BBA007F5AC2 /* AAppDelegate.m */,
@@ -153,6 +162,23 @@
 				9F57A009168516C20069DA95 /* AAircraftModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		9F57A01516863E870069DA95 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9F57A01616863EF50069DA95 /* AAircraftImageView.h */,
+				9F57A01716863EF50069DA95 /* AAircraftImageView.m */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		9F99BE8216879D4400A0FD2F /* res */ = {
+			isa = PBXGroup;
+			children = (
+				9F99BE8416879D6500A0FD2F /* Aircraft.png */,
+			);
+			name = res;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +259,7 @@
 				9F049CF116843296007F5AC2 /* Default.png in Resources */,
 				9F049CF31684329A007F5AC2 /* Default@2x.png in Resources */,
 				9F049D5C16850A8E007F5AC2 /* AircraftPlusInfo.plist in Resources */,
+				9F99BE8516879D6500A0FD2F /* Aircraft.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +274,7 @@
 				9F049D381684367F007F5AC2 /* icon@2x.png in Resources */,
 				9F049D391684367F007F5AC2 /* Default.png in Resources */,
 				9F049D3A1684367F007F5AC2 /* Default@2x.png in Resources */,
+				9F99BE8616879D6500A0FD2F /* Aircraft.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +289,7 @@
 				9F049CD616842BBA007F5AC2 /* AAppDelegate.m in Sources */,
 				9F049CDF16842BBA007F5AC2 /* AViewController.m in Sources */,
 				9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */,
+				9F57A01816863EF50069DA95 /* AAircraftImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +301,7 @@
 				9F049D2D1684367F007F5AC2 /* AAppDelegate.m in Sources */,
 				9F049D2E1684367F007F5AC2 /* AViewController.m in Sources */,
 				9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */,
+				9F57A01916863EF50069DA95 /* AAircraftImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

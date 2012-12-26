@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AAircraftModel.h"
+#import "AAircraftImageView.h"
 
 @interface AViewController : UIViewController
+{
+    AAircraftImageView *_aircraftImgView;
+}
 
 @end

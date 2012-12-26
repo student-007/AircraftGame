@@ -11,14 +11,15 @@
 @implementation AAircraftModel
 
 @synthesize orginPos = _orginPos;
-@synthesize direction = _direction;
+//@synthesize direction = _direction;
 @synthesize gridArray = _gridArray;
 
 - (id)init
 {
     if (self = [super init])
     {
-        
+        _direction = -1;
+        _orginPos = CGPointMake(-1, -1);
     }
     return self;
 }
@@ -45,8 +46,8 @@
 
 - (void)setAircraftOrginPosition:(CGPoint)orgin direction:(AircraftDirection)direction
 {
-    self.orginPos = orgin;
-    switch (self.direction = direction)
+    _orginPos = orgin;
+    switch (_direction = direction)
     {
         case AircraftDirectionUp:
         {
@@ -105,7 +106,7 @@
                          direction, @"direction", nil];
 }
 
-+ (AAircraftModel *)aircraftWithSavableDictionary:(NSDictionary *)savableDictionary
++ (AAircraftModel *)aircraftFromSavableDictionary:(NSDictionary *)savableDictionary
 {
     NSArray *orginPosAry = [savableDictionary valueForKey:@"orginPos"];
     CGPoint orginPos = CGPointMake([(NSNumber *)[orginPosAry objectAtIndex:0] intValue],
@@ -117,6 +118,23 @@
  - (NSString *)description
 {
     return [NSString stringWithFormat:@"[AAircraftModel] direction value: %d, orgin: (%f,%f)", _direction, _orginPos.x, _orginPos.y];
+}
+
+- (NSInteger)elementAtRow:(NSInteger)row col:(NSInteger)col
+{
+    return [[[self.gridArray objectAtIndex:row] objectAtIndex:col] intValue];
+}
+
+#pragma mark - property synthesizer
+
+ - (AircraftDirection)direction
+{
+    return _direction;
+}
+
+- (void)setDirection:(AircraftDirection)direction
+{
+    [self setAircraftOrginPosition:_orginPos direction:(_direction = direction)];
 }
 
 @end

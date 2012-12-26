@@ -20,6 +20,9 @@ typedef enum
 #define kAircraftHead    2
 
 @interface AAircraftModel : NSObject
+{
+    AircraftDirection _direction;
+}
 
 /*!
  @discussion orgin point at top left of the aircraft grid
@@ -44,6 +47,8 @@ typedef enum
 
 
 + (AAircraftModel *)aircraftWithOrgin:(CGPoint)orgin direction:(AircraftDirection)direction;
-+ (AAircraftModel *)aircraftWithSavableDictionary:(NSDictionary *)savableDictionary;
++ (AAircraftModel *)aircraftFromSavableDictionary:(NSDictionary *)savableDictionary;
+
+- (NSInteger)elementAtRow:(NSInteger)row col:(NSInteger)col;
 
 @end
