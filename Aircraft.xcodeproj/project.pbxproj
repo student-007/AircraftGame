@@ -40,6 +40,10 @@
 		9F57A01916863EF50069DA95 /* AAircraftImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A01716863EF50069DA95 /* AAircraftImageView.m */; };
 		9F99BE8516879D6500A0FD2F /* Aircraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F99BE8416879D6500A0FD2F /* Aircraft.png */; };
 		9F99BE8616879D6500A0FD2F /* Aircraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F99BE8416879D6500A0FD2F /* Aircraft.png */; };
+		9F99BE8A168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */; };
+		9F99BE8B168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */; };
+		9F99BE8E168AAB1500A0FD2F /* ANetMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */; };
+		9F99BE8F168AAB1500A0FD2F /* ANetMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,10 @@
 		9F57A01616863EF50069DA95 /* AAircraftImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftImageView.h; path = ViewModel/AAircraftImageView.h; sourceTree = "<group>"; };
 		9F57A01716863EF50069DA95 /* AAircraftImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftImageView.m; path = ViewModel/AAircraftImageView.m; sourceTree = "<group>"; };
 		9F99BE8416879D6500A0FD2F /* Aircraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Aircraft.png; path = Aircraft/res/Aircraft.png; sourceTree = "<group>"; };
+		9F99BE88168A8C4B00A0FD2F /* ANetConnBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANetConnBluetooth.h; path = network/ANetConnBluetooth.h; sourceTree = "<group>"; };
+		9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANetConnBluetooth.m; path = network/ANetConnBluetooth.m; sourceTree = "<group>"; };
+		9F99BE8C168AAB1500A0FD2F /* ANetMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANetMessage.h; path = network/ANetMessage.h; sourceTree = "<group>"; };
+		9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANetMessage.m; path = network/ANetMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +134,7 @@
 		9F049CCB16842BBA007F5AC2 /* Aircraft */ = {
 			isa = PBXGroup;
 			children = (
+				9F99BE87168A8BB700A0FD2F /* network */,
 				9F57A01516863E870069DA95 /* ViewModel */,
 				9F57A0061685164D0069DA95 /* Model */,
 				9F049CD416842BBA007F5AC2 /* AAppDelegate.h */,
@@ -179,6 +188,17 @@
 				9F99BE8416879D6500A0FD2F /* Aircraft.png */,
 			);
 			name = res;
+			sourceTree = "<group>";
+		};
+		9F99BE87168A8BB700A0FD2F /* network */ = {
+			isa = PBXGroup;
+			children = (
+				9F99BE88168A8C4B00A0FD2F /* ANetConnBluetooth.h */,
+				9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */,
+				9F99BE8C168AAB1500A0FD2F /* ANetMessage.h */,
+				9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */,
+			);
+			name = network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +310,8 @@
 				9F049CDF16842BBA007F5AC2 /* AViewController.m in Sources */,
 				9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */,
 				9F57A01816863EF50069DA95 /* AAircraftImageView.m in Sources */,
+				9F99BE8A168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */,
+				9F99BE8E168AAB1500A0FD2F /* ANetMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +324,8 @@
 				9F049D2E1684367F007F5AC2 /* AViewController.m in Sources */,
 				9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */,
 				9F57A01916863EF50069DA95 /* AAircraftImageView.m in Sources */,
+				9F99BE8B168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */,
+				9F99BE8F168AAB1500A0FD2F /* ANetMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
