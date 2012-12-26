@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ANetMessage.h"
+#import "ANetBaseConnection.h"
 
-@interface ANetConnBluetooth : NSObject
+@interface ANetConnBluetooth : ANetBaseConnection <GKPeerPickerControllerDelegate, GKSessionDelegate>
+
+@property (nonatomic, strong) GKPeerPickerController *peerPicker;
+@property (nonatomic, strong) GKSession *sessionConnection;
 
 @end

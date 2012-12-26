@@ -44,6 +44,8 @@
 		9F99BE8B168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */; };
 		9F99BE8E168AAB1500A0FD2F /* ANetMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */; };
 		9F99BE8F168AAB1500A0FD2F /* ANetMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */; };
+		9F99BE92168AB41500A0FD2F /* ANetBaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE91168AB41500A0FD2F /* ANetBaseConnection.m */; };
+		9F99BE93168AB41500A0FD2F /* ANetBaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE91168AB41500A0FD2F /* ANetBaseConnection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANetConnBluetooth.m; path = network/ANetConnBluetooth.m; sourceTree = "<group>"; };
 		9F99BE8C168AAB1500A0FD2F /* ANetMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANetMessage.h; path = network/ANetMessage.h; sourceTree = "<group>"; };
 		9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANetMessage.m; path = network/ANetMessage.m; sourceTree = "<group>"; };
+		9F99BE90168AB41500A0FD2F /* ANetBaseConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANetBaseConnection.h; path = network/ANetBaseConnection.h; sourceTree = "<group>"; };
+		9F99BE91168AB41500A0FD2F /* ANetBaseConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANetBaseConnection.m; path = network/ANetBaseConnection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +197,8 @@
 		9F99BE87168A8BB700A0FD2F /* network */ = {
 			isa = PBXGroup;
 			children = (
+				9F99BE90168AB41500A0FD2F /* ANetBaseConnection.h */,
+				9F99BE91168AB41500A0FD2F /* ANetBaseConnection.m */,
 				9F99BE88168A8C4B00A0FD2F /* ANetConnBluetooth.h */,
 				9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */,
 				9F99BE8C168AAB1500A0FD2F /* ANetMessage.h */,
@@ -312,6 +318,7 @@
 				9F57A01816863EF50069DA95 /* AAircraftImageView.m in Sources */,
 				9F99BE8A168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */,
 				9F99BE8E168AAB1500A0FD2F /* ANetMessage.m in Sources */,
+				9F99BE92168AB41500A0FD2F /* ANetBaseConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +333,7 @@
 				9F57A01916863EF50069DA95 /* AAircraftImageView.m in Sources */,
 				9F99BE8B168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */,
 				9F99BE8F168AAB1500A0FD2F /* ANetMessage.m in Sources */,
+				9F99BE93168AB41500A0FD2F /* ANetBaseConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
