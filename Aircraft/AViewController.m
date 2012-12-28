@@ -17,7 +17,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ALocalisedString(@"welcome")
+                                                    message:nil
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Dismiss"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

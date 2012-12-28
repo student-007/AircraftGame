@@ -34,6 +34,10 @@
 		9F049D391684367F007F5AC2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF016843296007F5AC2 /* Default.png */; };
 		9F049D3A1684367F007F5AC2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF21684329A007F5AC2 /* Default@2x.png */; };
 		9F049D5C16850A8E007F5AC2 /* AircraftPlusInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */; };
+		9F4436C2168E1A920006D521 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436C0168E1A920006D521 /* Localizable.strings */; };
+		9F4436C3168E1A920006D521 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436C0168E1A920006D521 /* Localizable.strings */; };
+		9F4436C8168E21F00006D521 /* ALocale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436C7168E21F00006D521 /* ALocale.m */; };
+		9F4436C9168E21F00006D521 /* ALocale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436C7168E21F00006D521 /* ALocale.m */; };
 		9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A01816863EF50069DA95 /* AAircraftImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A01716863EF50069DA95 /* AAircraftImageView.m */; };
@@ -72,6 +76,10 @@
 		9F049CF21684329A007F5AC2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		9F049D3E1684367F007F5AC2 /* AircraftPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AircraftPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AircraftPlusInfo.plist; sourceTree = SOURCE_ROOT; };
+		9F4436C1168E1A920006D521 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Aircraft/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9F4436C4168E1B770006D521 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Aircraft/zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9F4436C6168E21F00006D521 /* ALocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALocale.h; path = Aircraft/Locale/ALocale.h; sourceTree = "<group>"; };
+		9F4436C7168E21F00006D521 /* ALocale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALocale.m; path = Aircraft/Locale/ALocale.m; sourceTree = "<group>"; };
 		9F57A008168516C20069DA95 /* AAircraftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftModel.h; path = Model/AAircraftModel.h; sourceTree = "<group>"; };
 		9F57A009168516C20069DA95 /* AAircraftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftModel.m; path = Model/AAircraftModel.m; sourceTree = "<group>"; };
 		9F57A01616863EF50069DA95 /* AAircraftImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftImageView.h; path = ViewModel/AAircraftImageView.h; sourceTree = "<group>"; };
@@ -116,6 +124,7 @@
 		9F049CB616842BBA007F5AC2 = {
 			isa = PBXGroup;
 			children = (
+				9F4436C5168E21B60006D521 /* Locale */,
 				9F99BE8216879D4400A0FD2F /* res */,
 				9F049CCB16842BBA007F5AC2 /* Aircraft */,
 				9F049CC416842BBA007F5AC2 /* Frameworks */,
@@ -174,6 +183,16 @@
 				9F049CDB16842BBA007F5AC2 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9F4436C5168E21B60006D521 /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				9F4436C0168E1A920006D521 /* Localizable.strings */,
+				9F4436C6168E21F00006D521 /* ALocale.h */,
+				9F4436C7168E21F00006D521 /* ALocale.m */,
+			);
+			name = Locale;
 			sourceTree = "<group>";
 		};
 		9F57A0061685164D0069DA95 /* Model */ = {
@@ -270,6 +289,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 9F049CB616842BBA007F5AC2;
 			productRefGroup = 9F049CC216842BBA007F5AC2 /* Products */;
@@ -296,6 +316,7 @@
 				9F049CF31684329A007F5AC2 /* Default@2x.png in Resources */,
 				9F049D5C16850A8E007F5AC2 /* AircraftPlusInfo.plist in Resources */,
 				9F99BE8516879D6500A0FD2F /* Aircraft.png in Resources */,
+				9F4436C2168E1A920006D521 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +332,7 @@
 				9F049D391684367F007F5AC2 /* Default.png in Resources */,
 				9F049D3A1684367F007F5AC2 /* Default@2x.png in Resources */,
 				9F99BE8616879D6500A0FD2F /* Aircraft.png in Resources */,
+				9F4436C3168E1A920006D521 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +352,7 @@
 				9F99BE8E168AAB1500A0FD2F /* ANetMessage.m in Sources */,
 				9F99BE92168AB41500A0FD2F /* ANetBaseConnection.m in Sources */,
 				9F99BE9D168B6E2A00A0FD2F /* AMessageParser.m in Sources */,
+				9F4436C8168E21F00006D521 /* ALocale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +369,7 @@
 				9F99BE8F168AAB1500A0FD2F /* ANetMessage.m in Sources */,
 				9F99BE93168AB41500A0FD2F /* ANetBaseConnection.m in Sources */,
 				9F99BE9E168B6E2A00A0FD2F /* AMessageParser.m in Sources */,
+				9F4436C9168E21F00006D521 /* ALocale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +390,15 @@
 				9F049CE116842BBA007F5AC2 /* en */,
 			);
 			name = AViewController.xib;
+			sourceTree = "<group>";
+		};
+		9F4436C0168E1A920006D521 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F4436C1168E1A920006D521 /* en */,
+				9F4436C4168E1B770006D521 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
