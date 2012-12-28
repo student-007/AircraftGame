@@ -38,6 +38,8 @@
 		9F4436C3168E1A920006D521 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436C0168E1A920006D521 /* Localizable.strings */; };
 		9F4436C8168E21F00006D521 /* ALocale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436C7168E21F00006D521 /* ALocale.m */; };
 		9F4436C9168E21F00006D521 /* ALocale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436C7168E21F00006D521 /* ALocale.m */; };
+		9F4436CD168E48350006D521 /* ACommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436CC168E48350006D521 /* ACommunicator.m */; };
+		9F4436CE168E48350006D521 /* ACommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436CC168E48350006D521 /* ACommunicator.m */; };
 		9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A01816863EF50069DA95 /* AAircraftImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A01716863EF50069DA95 /* AAircraftImageView.m */; };
@@ -80,6 +82,8 @@
 		9F4436C4168E1B770006D521 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Aircraft/zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9F4436C6168E21F00006D521 /* ALocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALocale.h; path = Aircraft/Locale/ALocale.h; sourceTree = "<group>"; };
 		9F4436C7168E21F00006D521 /* ALocale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALocale.m; path = Aircraft/Locale/ALocale.m; sourceTree = "<group>"; };
+		9F4436CB168E48350006D521 /* ACommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACommunicator.h; path = Coordinators/ACommunicator.h; sourceTree = "<group>"; };
+		9F4436CC168E48350006D521 /* ACommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACommunicator.m; path = Coordinators/ACommunicator.m; sourceTree = "<group>"; };
 		9F57A008168516C20069DA95 /* AAircraftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftModel.h; path = Model/AAircraftModel.h; sourceTree = "<group>"; };
 		9F57A009168516C20069DA95 /* AAircraftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftModel.m; path = Model/AAircraftModel.m; sourceTree = "<group>"; };
 		9F57A01616863EF50069DA95 /* AAircraftImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftImageView.h; path = ViewModel/AAircraftImageView.h; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 		9F049CCB16842BBA007F5AC2 /* Aircraft */ = {
 			isa = PBXGroup;
 			children = (
+				9F4436CA168E47BC0006D521 /* Coordinators */,
 				9F99BE87168A8BB700A0FD2F /* network */,
 				9F57A01516863E870069DA95 /* ViewModel */,
 				9F57A0061685164D0069DA95 /* Model */,
@@ -193,6 +198,15 @@
 				9F4436C7168E21F00006D521 /* ALocale.m */,
 			);
 			name = Locale;
+			sourceTree = "<group>";
+		};
+		9F4436CA168E47BC0006D521 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				9F4436CB168E48350006D521 /* ACommunicator.h */,
+				9F4436CC168E48350006D521 /* ACommunicator.m */,
+			);
+			name = Coordinators;
 			sourceTree = "<group>";
 		};
 		9F57A0061685164D0069DA95 /* Model */ = {
@@ -353,6 +367,7 @@
 				9F99BE92168AB41500A0FD2F /* ANetBaseConnection.m in Sources */,
 				9F99BE9D168B6E2A00A0FD2F /* AMessageParser.m in Sources */,
 				9F4436C8168E21F00006D521 /* ALocale.m in Sources */,
+				9F4436CD168E48350006D521 /* ACommunicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +385,7 @@
 				9F99BE93168AB41500A0FD2F /* ANetBaseConnection.m in Sources */,
 				9F99BE9E168B6E2A00A0FD2F /* AMessageParser.m in Sources */,
 				9F4436C9168E21F00006D521 /* ALocale.m in Sources */,
+				9F4436CE168E48350006D521 /* ACommunicator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
