@@ -47,6 +47,8 @@
 		9F99BE92168AB41500A0FD2F /* ANetBaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE91168AB41500A0FD2F /* ANetBaseConnection.m */; };
 		9F99BE93168AB41500A0FD2F /* ANetBaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE91168AB41500A0FD2F /* ANetBaseConnection.m */; };
 		9F99BE95168AC77F00A0FD2F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F99BE94168AC77F00A0FD2F /* GameKit.framework */; };
+		9F99BE9D168B6E2A00A0FD2F /* AMessageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE9C168B6E2900A0FD2F /* AMessageParser.m */; };
+		9F99BE9E168B6E2A00A0FD2F /* AMessageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE9C168B6E2900A0FD2F /* AMessageParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,8 @@
 		9F99BE90168AB41500A0FD2F /* ANetBaseConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANetBaseConnection.h; path = network/ANetBaseConnection.h; sourceTree = "<group>"; };
 		9F99BE91168AB41500A0FD2F /* ANetBaseConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANetBaseConnection.m; path = network/ANetBaseConnection.m; sourceTree = "<group>"; };
 		9F99BE94168AC77F00A0FD2F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		9F99BE9B168B6E2900A0FD2F /* AMessageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMessageParser.h; path = Model/AMessageParser.h; sourceTree = "<group>"; };
+		9F99BE9C168B6E2900A0FD2F /* AMessageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMessageParser.m; path = Model/AMessageParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,8 @@
 		9F57A0061685164D0069DA95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9F99BE9B168B6E2900A0FD2F /* AMessageParser.h */,
+				9F99BE9C168B6E2900A0FD2F /* AMessageParser.m */,
 				9F57A008168516C20069DA95 /* AAircraftModel.h */,
 				9F57A009168516C20069DA95 /* AAircraftModel.m */,
 			);
@@ -323,6 +329,7 @@
 				9F99BE8A168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */,
 				9F99BE8E168AAB1500A0FD2F /* ANetMessage.m in Sources */,
 				9F99BE92168AB41500A0FD2F /* ANetBaseConnection.m in Sources */,
+				9F99BE9D168B6E2A00A0FD2F /* AMessageParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +345,7 @@
 				9F99BE8B168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */,
 				9F99BE8F168AAB1500A0FD2F /* ANetMessage.m in Sources */,
 				9F99BE93168AB41500A0FD2F /* ANetBaseConnection.m in Sources */,
+				9F99BE9E168B6E2A00A0FD2F /* AMessageParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

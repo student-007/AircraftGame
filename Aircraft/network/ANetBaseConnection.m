@@ -21,7 +21,7 @@
 
 - (BOOL)isConnect
 {
-    NSAssert(NO, @"Sub class of base connection should implement perpoty isConnect.");
+//    NSAssert(NO, @"Sub class of base connection should implement perpoty isConnect.");
     return _isConnect;
 }
 

@@ -62,7 +62,12 @@
 
 - (void)peerPickerControllerDidCancel:(GKPeerPickerController *)picker
 {
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Canceled"
+                                                    message:@"A connection has been canceled, please retry if you'd like to continue."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Dismiss"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 #pragma mark - GKSessionDelegate
