@@ -16,7 +16,7 @@
 {
     if (self = [super initWithImage:image])
     {
-        NSAssert((image.size.width == 5*kMappingFactor && image.size.height == 4*kAircraftBody), @"[error]: wrong size of aircraft image, should be (%d, %d).", 5*kMappingFactor,4*kAircraftBody);
+        NSAssert((image.size.width == 5*kMappingFactor && image.size.height == 4*kMappingFactor), @"[error]: wrong size of aircraft image, should be (%d, %d).", 5*kMappingFactor,4*kAircraftBody);
         self.userInteractionEnabled = YES;
         _aircraftImage = image;
         _isTouchingAircraftBody = NO;
