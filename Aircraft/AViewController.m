@@ -7,6 +7,7 @@
 //
 
 #import "AViewController.h"
+#import "ACommunicator.h"
 
 @interface AViewController ()
 
@@ -17,12 +18,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ALocalisedString(@"welcome")
-                                                    message:nil
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Dismiss"
-                                          otherButtonTitles:nil];
-    [alert show];
+
+    ACommunicator *com = [ACommunicator sharedInstance];
+    [com makeConnWithType:ConnectionTypeBluetooth];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

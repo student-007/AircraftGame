@@ -160,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				9F4436CA168E47BC0006D521 /* Coordinators */,
-				9F99BE87168A8BB700A0FD2F /* network */,
+				9F99BE87168A8BB700A0FD2F /* Network */,
 				9F57A01516863E870069DA95 /* ViewModel */,
 				9F57A0061685164D0069DA95 /* Model */,
 				9F049CD416842BBA007F5AC2 /* AAppDelegate.h */,
@@ -237,7 +237,7 @@
 			name = res;
 			sourceTree = "<group>";
 		};
-		9F99BE87168A8BB700A0FD2F /* network */ = {
+		9F99BE87168A8BB700A0FD2F /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				9F99BE90168AB41500A0FD2F /* ANetBaseConnection.h */,
@@ -247,7 +247,7 @@
 				9F99BE8C168AAB1500A0FD2F /* ANetMessage.h */,
 				9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */,
 			);
-			name = network;
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

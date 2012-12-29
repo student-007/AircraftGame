@@ -72,6 +72,11 @@
 
 #pragma mark - GKSessionDelegate
 
+- (void)session:(GKSession *)session didReceiveConnectionRequestFromPeer:(NSString *)peerID
+{
+    
+}
+
 - (void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state
 {
     switch (state) {
@@ -91,9 +96,24 @@
                 [self.listener connectionDisconnected];
         }
             break;
+        case GKPeerStateConnecting:
+        {
+            // if being called, goes here then go to -session:didReceiveConnectionRequestFromPeer:
+        }
+            break;
         default:
             break;
     }
+}
+
+- (void)session:(GKSession *)session connectionWithPeerFailed:(NSString *)peerID withError:(NSError *)error
+{
+    
+}
+
+- (void)session:(GKSession *)session didFailWithError:(NSError *)error
+{
+    
 }
 
 - (void) receiveData:(NSData *)data fromPeer:(NSString *)peer inSession: (GKSession *)session context:(void *)context

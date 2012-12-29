@@ -16,6 +16,14 @@
 @synthesize count = _count;
 @synthesize timestamp = _timestamp;
 
++ (ANetMessage *)messageWithFlag:(NSString *)flag message:(id)message
+{
+    ANetMessage *msg = [[ANetMessage alloc] init];
+    msg.flag = flag;
+    msg.message = message;
+    return msg;
+}
+
 @end
 
 

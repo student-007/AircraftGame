@@ -29,6 +29,8 @@
 @property (strong, nonatomic) NSNumber *count;
 @property (strong, nonatomic) NSDate *timestamp;
 
++ (ANetMessage *)messageWithFlag:(NSString *)flag message:(id)message;
+
 @end
 
 #pragma mark - base request/reply message

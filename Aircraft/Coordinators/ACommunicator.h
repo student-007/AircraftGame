@@ -7,9 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ANetConnBluetooth.h"
+#import "AMessageParser.h"
 
-@interface ACommunicator : NSObject
+typedef enum
+{
+    ConnectionTypeBluetooth     = 1
+}ConnectionType;
+
+@interface ACommunicator : NSObject<connectionListener>
+{
+    id _Conn;
+    AMessageParser *_msgParser;
+}
 
 + (ACommunicator *)sharedInstance;
+
+- (void)makeConnWithType:(ConnectionType)type;
+- (BOOL)sendMessage:(id)message;
 
 @end

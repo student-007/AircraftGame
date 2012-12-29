@@ -10,6 +10,15 @@
 
 @implementation ACommunicator
 
+- (id)init
+{
+    if (self = [super init])
+    {
+        _msgParser = [[AMessageParser alloc] init];
+    }
+    return self;
+}
+
 + (ACommunicator *)sharedInstance
 {
     static ACommunicator *communicator = nil;
@@ -19,6 +28,60 @@
         communicator = [[ACommunicator alloc]init];
     }
     return  communicator;
+}
+
+- (void)makeConnWithType:(ConnectionType)type
+{
+    switch (type) {
+        case ConnectionTypeBluetooth:
+        {
+            _Conn = [[ANetConnBluetooth alloc] init];
+            ((ANetConnBluetooth *)_Conn).listener = self;
+            [_Conn makeConnection];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (BOOL)sendMessage:(id)message
+{
+    if (_msgParser)
+        return [((ANetConnBluetooth *)_Conn) sendData:[_msgParser prepareMessage:message]];
+    else
+    {
+        NSAssert(NO, @"[error]:No parser found while sending message.");
+        return NO;
+    }
+}
+
+#pragma mark - connectionListener protocol/delegate
+
+- (void)connectionEstablished
+{
+    ANetMessageChat *interalMsg = [[ANetMessageChat alloc] init];
+    interalMsg.message = @"let us talk!";
+    
+    ANetMessage *msg = [ANetMessage messageWithFlag:kFlagChat message:interalMsg];
+    [self sendMessage:msg];
+}
+
+- (void)connectionDisconnected
+{
+    
+}
+
+- (void)receivedData:(NSData *)data
+{
+    ANetMessage *msg = [_msgParser parseData:data];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:msg.flag
+                                                    message:((ANetMessageChat *)msg.message).message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"cancel"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

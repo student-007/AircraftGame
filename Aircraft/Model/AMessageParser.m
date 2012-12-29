@@ -50,7 +50,9 @@
         
         DICT_GET_OBJECT(dicData, msg.sender, kKeySender);
         DICT_GET_OBJECT(dicData, msg.count, kKeyCount);
-        DICT_GET_OBJECT(dicData, msg.timestamp, kKeyTimestamp);
+        NSString *timestampStr = nil;
+        DICT_GET_OBJECT(dicData, timestampStr, kKeyTimestamp);
+        msg.timestamp = [NSDate dateWithTimeIntervalSince1970:[timestampStr doubleValue]];
         return msg;
     }
     else
@@ -80,9 +82,11 @@
     message.timestamp = [NSDate date];
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(dic, message.flag, kKeyFlag);
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(dic, message.sender, kKeySender);
-    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(dic, [AMessageParser prepareInternalMsg:message.message], kKeyValue);
+    NSDictionary *msgDic = [AMessageParser prepareInternalMsg:message.message];
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(dic, msgDic, kKeyValue);
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(dic, message.count, kKeyCount);
-    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(dic, message.timestamp, kKeyTimestamp);
+    NSString *timestampStr = [NSString stringWithFormat:@"%f",[message.timestamp timeIntervalSince1970]];
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(dic, timestampStr, kKeyTimestamp);
     
     NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error];
     if (!error)
