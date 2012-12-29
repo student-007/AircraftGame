@@ -42,4 +42,10 @@
     return NO;
 }
 
+- (void)setListener:(id<connectionListenerDelegate>)listener
+{
+    if (_listener != listener)
+        _listener = listener;
+}
+
 @end

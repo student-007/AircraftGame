@@ -15,9 +15,9 @@ typedef enum
     ConnectionTypeBluetooth     = 1
 }ConnectionType;
 
-@interface ACommunicator : NSObject<connectionListener>
+@interface ACommunicator : NSObject<connectionListenerDelegate>
 {
-    id _Conn;
+    id<connectionOperationProtocol> _Conn;
     AMessageParser *_msgParser;
 }
 

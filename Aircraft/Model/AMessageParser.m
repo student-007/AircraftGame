@@ -19,8 +19,13 @@
     if (!error)
     {
         NSDictionary *internalMsgDic = nil;
+        NSString *timestampStr = nil;
         DICT_GET_OBJECT(dicData, msg.flag, kKeyFlag);
         DICT_GET_OBJECT(dicData, internalMsgDic, kKeyValue);
+        DICT_GET_OBJECT(dicData, msg.sender, kKeySender);
+        DICT_GET_OBJECT(dicData, msg.count, kKeyCount);
+        DICT_GET_OBJECT(dicData, timestampStr, kKeyTimestamp);
+        
         if ([msg.flag isEqualToString:kFlagInitial])
             msg.message = CREATE_INTERNAL_MSG(ANetMessageInitial, internalMsgDic);
         else if ([msg.flag isEqualToString:kFlagInitialR])
@@ -46,18 +51,16 @@
         else if ([msg.flag isEqualToString:kFlagLoadR])
             msg.message = [NSNull null];//CREATE_INTERNAL_MSG(ANetMessageLoadR, internalMsgDic);
         else
-            NSAssert(NO, @"[error]: unrecognized message flag found while parsing message data");
+            NSAssert(NO, [AErrorFacade errorMessageFromKnownErrorCode:kECParserCantFindFlag]);
         
-        DICT_GET_OBJECT(dicData, msg.sender, kKeySender);
-        DICT_GET_OBJECT(dicData, msg.count, kKeyCount);
-        NSString *timestampStr = nil;
-        DICT_GET_OBJECT(dicData, timestampStr, kKeyTimestamp);
         msg.timestamp = [NSDate dateWithTimeIntervalSince1970:[timestampStr doubleValue]];
+        
         return msg;
     }
     else
     {
-        NSLog(@"[error]: error while parsing JSON data. reason: %@", error.description);
+//        NSLog(@"[error]: error while parsing JSON data. reason: %@", error.description);
+        [AErrorFacade LogError:error];
         return nil;
     }
 }
@@ -70,7 +73,8 @@
         return data;
     else
     {
-        NSLog(@"[error]: error while preparing JSON dictionary message. reason: %@", error.description);
+//        NSLog(@"[error]: error while preparing JSON dictionary message. reason: %@", error.description);
+        [AErrorFacade LogError:error];
         return nil;
     }
 }
@@ -79,13 +83,14 @@
 {
     NSError *error = nil;
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    message.timestamp = [NSDate date];
+//    message.timestamp = [NSDate date];
+    NSString *timestampStr = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
+    NSDictionary *msgDic = [AMessageParser prepareInternalMsg:message.message];
+    
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(dic, message.flag, kKeyFlag);
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(dic, message.sender, kKeySender);
-    NSDictionary *msgDic = [AMessageParser prepareInternalMsg:message.message];
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(dic, msgDic, kKeyValue);
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(dic, message.count, kKeyCount);
-    NSString *timestampStr = [NSString stringWithFormat:@"%f",[message.timestamp timeIntervalSince1970]];
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(dic, timestampStr, kKeyTimestamp);
     
     NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:0 error:&error];
@@ -93,7 +98,8 @@
         return data;
     else
     {
-        NSLog(@"[error]: error while preparing JSON message. reason: %@", error.description);
+//        NSLog(@"[error]: error while preparing JSON message. reason: %@", error.description);
+        [AErrorFacade LogError:error];
         return nil;
     }
 }
@@ -195,8 +201,7 @@
     }
     else
     {
-        NSString *errorMsg = [NSString stringWithFormat:@"[error]:could not find the matching class for %@", InternalMsg];
-        NSAssert(NO, errorMsg);
+        NSAssert(NO, [AErrorFacade errorMessageFromKnownErrorCode:kECParserCantFindInternalClass]);
         return nil;
     }
 }
@@ -296,7 +301,7 @@
     }
     else
     {
-        NSLog(@"[error]:could not find internal message class named %@", className);
+        NSAssert(NO, [AErrorFacade errorMessageFromKnownErrorCode:kECParserCantFindInternalClass]);
         return nil;
     }
 }

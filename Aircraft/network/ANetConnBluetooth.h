@@ -10,7 +10,7 @@
 #import <GameKit/GameKit.h>
 #import "ANetBaseConnection.h"
 
-@interface ANetConnBluetooth : ANetBaseConnection <GKPeerPickerControllerDelegate, GKSessionDelegate>
+@interface ANetConnBluetooth : ANetBaseConnection <GKPeerPickerControllerDelegate, GKSessionDelegate, connectionOperationProtocol>
 {
     
 }

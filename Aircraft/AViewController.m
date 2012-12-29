@@ -19,6 +19,7 @@
 {
     [super viewDidLoad];
 
+    NSLog(@"中文");
     ACommunicator *com = [ACommunicator sharedInstance];
     [com makeConnWithType:ConnectionTypeBluetooth];
 }

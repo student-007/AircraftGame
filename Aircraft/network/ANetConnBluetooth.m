@@ -15,7 +15,7 @@
     return _isConnect;
 }
 
-// base class functions [Yufei Lang]
+#pragma mark - connection Operation protocol
 - (void)makeConnection
 {
     self.peerPicker = [[GKPeerPickerController alloc] init];
@@ -38,14 +38,15 @@
         [self.sessionConnection sendDataToAllPeers:data withDataMode:GKSendDataUnreliable error:&error];
         if (error.description)
         {
-            NSLog(@"[error]: error while sending message, reason: %@.", error.description);
+//            NSLog(@"[error]: error while sending message, reason: %@.", error.description);
+            [AErrorFacade LogError:error];
             return NO;
         }
         return YES;
     }
     else
     {
-        NSLog(@"[error]: can not send data, empty session or not connected.");
+        [AErrorFacade errorWithDomain:kErrorDomainNet knownCode:kECConnEptSessionOrDisconnected];
         return NO;
     }
 }
@@ -61,20 +62,18 @@
 }
 
 - (void)peerPickerControllerDidCancel:(GKPeerPickerController *)picker
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Canceled"
-                                                    message:@"A connection has been canceled, please retry if you'd like to continue."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Dismiss"
-                                          otherButtonTitles:nil];
-    [alert show];
+{   
+    NSError *error = [AErrorFacade errorWithDomain:kErrorDomainNet knownCode:kECConnCanceledByUser];
+    if ([self.listener respondsToSelector:@selector(connectionCanceled:)])
+        [self.listener connectionCanceled:error];
 }
 
 #pragma mark - GKSessionDelegate
 
 - (void)session:(GKSession *)session didReceiveConnectionRequestFromPeer:(NSString *)peerID
 {
-    
+    NSLog(@"[notice]: received a connection from peerID: %@", peerID);
+#warning TODO: handle when receive connection request, dismiss the peer picker may be.
 }
 
 - (void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state
@@ -84,6 +83,7 @@
         {
             _isConnect = YES;
             [self.sessionConnection setDataReceiveHandler:self withContext:nil];
+            self.sessionConnection.available = NO;
             [self.peerPicker dismiss];
             if ([self.listener respondsToSelector:@selector(connectionEstablished)])
                 [self.listener connectionEstablished];
@@ -92,8 +92,8 @@
         case GKPeerStateDisconnected:
         {
             _isConnect = NO;
-            if ([self.listener respondsToSelector:@selector(connectionDisconnected)])
-                [self.listener connectionDisconnected];
+            if ([self.listener respondsToSelector:@selector(connectionDisconnected:)])
+                [self.listener connectionDisconnected:nil];
         }
             break;
         case GKPeerStateConnecting:

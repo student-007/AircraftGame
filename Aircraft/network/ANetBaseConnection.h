@@ -8,23 +8,33 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol connectionListener <NSObject>
+@protocol connectionListenerDelegate <NSObject>
+@required
 - (void)connectionEstablished;
-- (void)connectionDisconnected;
+- (void)connectionDisconnected:(NSError *)errorOrNil;
 - (void)receivedData:(NSData *)data;
+@optional
+- (void)connectionCanceled:(NSError *)errorOrNil;
 @end
 
-@interface ANetBaseConnection : NSObject
+@protocol connectionOperationProtocol <NSObject>
+@required
+- (void)makeConnection;
+- (void)closeConnection;
+- (BOOL)sendData:(NSData *)data;
+@optional
+- (void)setListener:(id<connectionListenerDelegate>)listener;
+@end
+
+@interface ANetBaseConnection : NSObject<connectionOperationProtocol>
 {
     BOOL _isConnect;
 }
 
 @property (nonatomic, readonly) BOOL isConnect;
-@property (nonatomic, weak) id<connectionListener> listener;
+@property (nonatomic, weak) id<connectionListenerDelegate> listener;
 
-// base class functions [Yufei Lang]
 - (void)makeConnection;
 - (void)closeConnection;
 - (BOOL)sendData:(NSData *)data;
-
 @end

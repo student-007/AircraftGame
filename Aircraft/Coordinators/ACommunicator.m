@@ -36,7 +36,8 @@
         case ConnectionTypeBluetooth:
         {
             _Conn = [[ANetConnBluetooth alloc] init];
-            ((ANetConnBluetooth *)_Conn).listener = self;
+//            ((ANetConnBluetooth *)_Conn).listener = self;
+            [_Conn setListener:self];
             [_Conn makeConnection];
         }
             break;
@@ -52,7 +53,7 @@
         return [((ANetConnBluetooth *)_Conn) sendData:[_msgParser prepareMessage:message]];
     else
     {
-        NSAssert(NO, @"[error]:No parser found while sending message.");
+        NSAssert(NO, [AErrorFacade errorMessageFromKnownErrorCode:kECConnCanceledByUser]);
         return NO;
     }
 }
@@ -68,7 +69,7 @@
     [self sendMessage:msg];
 }
 
-- (void)connectionDisconnected
+- (void)connectionDisconnected:(NSError *)errorOrNil
 {
     
 }
@@ -82,6 +83,11 @@
                                           cancelButtonTitle:@"cancel"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+- (void)connectionCanceled:(NSError *)errorOrNil
+{
+    
 }
 
 @end

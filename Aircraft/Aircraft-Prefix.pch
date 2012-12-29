@@ -13,4 +13,5 @@
     #import <Foundation/Foundation.h>
 
     #import "ALocale.h"
+    #import "AErrorFacade.h"
 #endif

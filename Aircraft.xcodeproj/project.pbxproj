@@ -40,6 +40,8 @@
 		9F4436C9168E21F00006D521 /* ALocale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436C7168E21F00006D521 /* ALocale.m */; };
 		9F4436CD168E48350006D521 /* ACommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436CC168E48350006D521 /* ACommunicator.m */; };
 		9F4436CE168E48350006D521 /* ACommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436CC168E48350006D521 /* ACommunicator.m */; };
+		9F4436D2168F8EC40006D521 /* AErrorFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436D1168F8EC40006D521 /* AErrorFacade.m */; };
+		9F4436D3168F8EC40006D521 /* AErrorFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436D1168F8EC40006D521 /* AErrorFacade.m */; };
 		9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A01816863EF50069DA95 /* AAircraftImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A01716863EF50069DA95 /* AAircraftImageView.m */; };
@@ -84,6 +86,8 @@
 		9F4436C7168E21F00006D521 /* ALocale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALocale.m; path = Aircraft/Locale/ALocale.m; sourceTree = "<group>"; };
 		9F4436CB168E48350006D521 /* ACommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACommunicator.h; path = Coordinators/ACommunicator.h; sourceTree = "<group>"; };
 		9F4436CC168E48350006D521 /* ACommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACommunicator.m; path = Coordinators/ACommunicator.m; sourceTree = "<group>"; };
+		9F4436D0168F8EC40006D521 /* AErrorFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AErrorFacade.h; path = Error/AErrorFacade.h; sourceTree = "<group>"; };
+		9F4436D1168F8EC40006D521 /* AErrorFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AErrorFacade.m; path = Error/AErrorFacade.m; sourceTree = "<group>"; };
 		9F57A008168516C20069DA95 /* AAircraftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftModel.h; path = Model/AAircraftModel.h; sourceTree = "<group>"; };
 		9F57A009168516C20069DA95 /* AAircraftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftModel.m; path = Model/AAircraftModel.m; sourceTree = "<group>"; };
 		9F57A01616863EF50069DA95 /* AAircraftImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftImageView.h; path = ViewModel/AAircraftImageView.h; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 		9F049CCB16842BBA007F5AC2 /* Aircraft */ = {
 			isa = PBXGroup;
 			children = (
+				9F4436CF168F8E980006D521 /* Error */,
 				9F4436CA168E47BC0006D521 /* Coordinators */,
 				9F99BE87168A8BB700A0FD2F /* Network */,
 				9F57A01516863E870069DA95 /* ViewModel */,
@@ -209,9 +214,20 @@
 			name = Coordinators;
 			sourceTree = "<group>";
 		};
+		9F4436CF168F8E980006D521 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				9F4436D0168F8EC40006D521 /* AErrorFacade.h */,
+				9F4436D1168F8EC40006D521 /* AErrorFacade.m */,
+			);
+			name = Error;
+			sourceTree = "<group>";
+		};
 		9F57A0061685164D0069DA95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9F99BE8C168AAB1500A0FD2F /* ANetMessage.h */,
+				9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */,
 				9F99BE9B168B6E2900A0FD2F /* AMessageParser.h */,
 				9F99BE9C168B6E2900A0FD2F /* AMessageParser.m */,
 				9F57A008168516C20069DA95 /* AAircraftModel.h */,
@@ -244,8 +260,6 @@
 				9F99BE91168AB41500A0FD2F /* ANetBaseConnection.m */,
 				9F99BE88168A8C4B00A0FD2F /* ANetConnBluetooth.h */,
 				9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */,
-				9F99BE8C168AAB1500A0FD2F /* ANetMessage.h */,
-				9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -368,6 +382,7 @@
 				9F99BE9D168B6E2A00A0FD2F /* AMessageParser.m in Sources */,
 				9F4436C8168E21F00006D521 /* ALocale.m in Sources */,
 				9F4436CD168E48350006D521 /* ACommunicator.m in Sources */,
+				9F4436D2168F8EC40006D521 /* AErrorFacade.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +401,7 @@
 				9F99BE9E168B6E2A00A0FD2F /* AMessageParser.m in Sources */,
 				9F4436C9168E21F00006D521 /* ALocale.m in Sources */,
 				9F4436CE168E48350006D521 /* ACommunicator.m in Sources */,
+				9F4436D3168F8EC40006D521 /* AErrorFacade.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
