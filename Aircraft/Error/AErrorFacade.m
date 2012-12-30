@@ -37,8 +37,6 @@
     NSString *errorCodeString = [NSString stringWithFormat:@"ErrorCode%d", errorCode];
     NSString *errorLocalizedMsg = ALocalisedString(errorCodeString);
     
-    NSLog(@"[error]: %@", errorLocalizedMsg);
-    
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:errorLocalizedMsg forKey:NSLocalizedDescriptionKey];
     
     NSError *error = [NSError errorWithDomain:domain code:errorCode userInfo:userInfo];

@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "AAircraftModel.h"
 #import "AAircraftImageView.h"
+#import "AChattingViewController.h"
 
 @interface AViewController : UIViewController
 {
     AAircraftImageView *_aircraftImgView;
+    AChattingViewController *_chatVC;
 }
+@property (weak, nonatomic) IBOutlet UILabel *testLabel;
 
 @end

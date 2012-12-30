@@ -9,7 +9,9 @@
 */
 "welcome" = "Welcome";
 
-
+// chatting view
+"chat_view_txtFld_holder" = "Chatting message here...";
+"chat_view_send_btn" = "Send";
 
 
 

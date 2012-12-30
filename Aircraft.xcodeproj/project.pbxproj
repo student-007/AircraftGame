@@ -42,10 +42,26 @@
 		9F4436CE168E48350006D521 /* ACommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436CC168E48350006D521 /* ACommunicator.m */; };
 		9F4436D2168F8EC40006D521 /* AErrorFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436D1168F8EC40006D521 /* AErrorFacade.m */; };
 		9F4436D3168F8EC40006D521 /* AErrorFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436D1168F8EC40006D521 /* AErrorFacade.m */; };
+		9F4436DC168FA6AA0006D521 /* AChattingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436DA168FA6AA0006D521 /* AChattingViewController.m */; };
+		9F4436DD168FA6AA0006D521 /* AChattingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436DA168FA6AA0006D521 /* AChattingViewController.m */; };
+		9F4436DE168FA6AA0006D521 /* AChattingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436DB168FA6AA0006D521 /* AChattingViewController.xib */; };
+		9F4436DF168FA6AA0006D521 /* AChattingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436DB168FA6AA0006D521 /* AChattingViewController.xib */; };
+		9F4436E7168FB32D0006D521 /* UIFont+AUIColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */; };
+		9F4436E8168FB32D0006D521 /* UIFont+AUIColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */; };
 		9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A01816863EF50069DA95 /* AAircraftImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A01716863EF50069DA95 /* AAircraftImageView.m */; };
 		9F57A01916863EF50069DA95 /* AAircraftImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A01716863EF50069DA95 /* AAircraftImageView.m */; };
+		9F5FE23E1690DBA6006A4961 /* pencil_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F5FE23D1690DBA6006A4961 /* pencil_image@2x.png */; };
+		9F5FE23F1690DBA6006A4961 /* pencil_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F5FE23D1690DBA6006A4961 /* pencil_image@2x.png */; };
+		9F5FE2411690DBEF006A4961 /* pencil_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F5FE2401690DBEF006A4961 /* pencil_image.png */; };
+		9F5FE2421690DBEF006A4961 /* pencil_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F5FE2401690DBEF006A4961 /* pencil_image.png */; };
+		9F5FE24D1690F456006A4961 /* AUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE24C1690F456006A4961 /* AUIButton.m */; };
+		9F5FE24E1690F456006A4961 /* AUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE24C1690F456006A4961 /* AUIButton.m */; };
+		9F5FE2551690F67F006A4961 /* UIButton+AUIColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE2541690F67F006A4961 /* UIButton+AUIColorTheme.m */; };
+		9F5FE2561690F67F006A4961 /* UIButton+AUIColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE2541690F67F006A4961 /* UIButton+AUIColorTheme.m */; };
+		9F5FE2591690F875006A4961 /* AUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE2581690F875006A4961 /* AUITextField.m */; };
+		9F5FE25A1690F875006A4961 /* AUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE2581690F875006A4961 /* AUITextField.m */; };
 		9F99BE8516879D6500A0FD2F /* Aircraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F99BE8416879D6500A0FD2F /* Aircraft.png */; };
 		9F99BE8616879D6500A0FD2F /* Aircraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F99BE8416879D6500A0FD2F /* Aircraft.png */; };
 		9F99BE8A168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */; };
@@ -88,10 +104,23 @@
 		9F4436CC168E48350006D521 /* ACommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACommunicator.m; path = Coordinators/ACommunicator.m; sourceTree = "<group>"; };
 		9F4436D0168F8EC40006D521 /* AErrorFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AErrorFacade.h; path = Error/AErrorFacade.h; sourceTree = "<group>"; };
 		9F4436D1168F8EC40006D521 /* AErrorFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AErrorFacade.m; path = Error/AErrorFacade.m; sourceTree = "<group>"; };
+		9F4436D9168FA6AA0006D521 /* AChattingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AChattingViewController.h; path = Screens/AChattingViewController.h; sourceTree = "<group>"; };
+		9F4436DA168FA6AA0006D521 /* AChattingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AChattingViewController.m; path = Screens/AChattingViewController.m; sourceTree = "<group>"; };
+		9F4436DB168FA6AA0006D521 /* AChattingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AChattingViewController.xib; path = Screens/AChattingViewController.xib; sourceTree = "<group>"; };
+		9F4436E5168FB32D0006D521 /* UIFont+AUIColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+AUIColorTheme.h"; path = "Base/UIFont+AUIColorTheme.h"; sourceTree = "<group>"; };
+		9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+AUIColorTheme.m"; path = "Base/UIFont+AUIColorTheme.m"; sourceTree = "<group>"; };
 		9F57A008168516C20069DA95 /* AAircraftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftModel.h; path = Model/AAircraftModel.h; sourceTree = "<group>"; };
 		9F57A009168516C20069DA95 /* AAircraftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftModel.m; path = Model/AAircraftModel.m; sourceTree = "<group>"; };
 		9F57A01616863EF50069DA95 /* AAircraftImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftImageView.h; path = ViewModel/AAircraftImageView.h; sourceTree = "<group>"; };
 		9F57A01716863EF50069DA95 /* AAircraftImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftImageView.m; path = ViewModel/AAircraftImageView.m; sourceTree = "<group>"; };
+		9F5FE23D1690DBA6006A4961 /* pencil_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pencil_image@2x.png"; path = "Aircraft/Res/pencil_image@2x.png"; sourceTree = "<group>"; };
+		9F5FE2401690DBEF006A4961 /* pencil_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pencil_image.png; path = Aircraft/Res/pencil_image.png; sourceTree = "<group>"; };
+		9F5FE24B1690F456006A4961 /* AUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUIButton.h; path = Base/AUIButton.h; sourceTree = "<group>"; };
+		9F5FE24C1690F456006A4961 /* AUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AUIButton.m; path = Base/AUIButton.m; sourceTree = "<group>"; };
+		9F5FE2531690F67F006A4961 /* UIButton+AUIColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+AUIColorTheme.h"; path = "Base/UIButton+AUIColorTheme.h"; sourceTree = "<group>"; };
+		9F5FE2541690F67F006A4961 /* UIButton+AUIColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AUIColorTheme.m"; path = "Base/UIButton+AUIColorTheme.m"; sourceTree = "<group>"; };
+		9F5FE2571690F875006A4961 /* AUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUITextField.h; path = Base/AUITextField.h; sourceTree = "<group>"; };
+		9F5FE2581690F875006A4961 /* AUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AUITextField.m; path = Base/AUITextField.m; sourceTree = "<group>"; };
 		9F99BE8416879D6500A0FD2F /* Aircraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Aircraft.png; path = Aircraft/res/Aircraft.png; sourceTree = "<group>"; };
 		9F99BE88168A8C4B00A0FD2F /* ANetConnBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANetConnBluetooth.h; path = network/ANetConnBluetooth.h; sourceTree = "<group>"; };
 		9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANetConnBluetooth.m; path = network/ANetConnBluetooth.m; sourceTree = "<group>"; };
@@ -163,6 +192,8 @@
 		9F049CCB16842BBA007F5AC2 /* Aircraft */ = {
 			isa = PBXGroup;
 			children = (
+				9F4436E4168FB2C30006D521 /* Base */,
+				9F4436D8168FA6540006D521 /* Screens */,
 				9F4436CF168F8E980006D521 /* Error */,
 				9F4436CA168E47BC0006D521 /* Coordinators */,
 				9F99BE87168A8BB700A0FD2F /* Network */,
@@ -223,6 +254,31 @@
 			name = Error;
 			sourceTree = "<group>";
 		};
+		9F4436D8168FA6540006D521 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				9F4436D9168FA6AA0006D521 /* AChattingViewController.h */,
+				9F4436DA168FA6AA0006D521 /* AChattingViewController.m */,
+				9F4436DB168FA6AA0006D521 /* AChattingViewController.xib */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		9F4436E4168FB2C30006D521 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9F4436E5168FB32D0006D521 /* UIFont+AUIColorTheme.h */,
+				9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */,
+				9F5FE24B1690F456006A4961 /* AUIButton.h */,
+				9F5FE24C1690F456006A4961 /* AUIButton.m */,
+				9F5FE2531690F67F006A4961 /* UIButton+AUIColorTheme.h */,
+				9F5FE2541690F67F006A4961 /* UIButton+AUIColorTheme.m */,
+				9F5FE2571690F875006A4961 /* AUITextField.h */,
+				9F5FE2581690F875006A4961 /* AUITextField.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
 		9F57A0061685164D0069DA95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +304,8 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				9F5FE2401690DBEF006A4961 /* pencil_image.png */,
+				9F5FE23D1690DBA6006A4961 /* pencil_image@2x.png */,
 				9F99BE8416879D6500A0FD2F /* Aircraft.png */,
 			);
 			name = res;
@@ -345,6 +403,9 @@
 				9F049D5C16850A8E007F5AC2 /* AircraftPlusInfo.plist in Resources */,
 				9F99BE8516879D6500A0FD2F /* Aircraft.png in Resources */,
 				9F4436C2168E1A920006D521 /* Localizable.strings in Resources */,
+				9F4436DE168FA6AA0006D521 /* AChattingViewController.xib in Resources */,
+				9F5FE23E1690DBA6006A4961 /* pencil_image@2x.png in Resources */,
+				9F5FE2411690DBEF006A4961 /* pencil_image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +422,9 @@
 				9F049D3A1684367F007F5AC2 /* Default@2x.png in Resources */,
 				9F99BE8616879D6500A0FD2F /* Aircraft.png in Resources */,
 				9F4436C3168E1A920006D521 /* Localizable.strings in Resources */,
+				9F4436DF168FA6AA0006D521 /* AChattingViewController.xib in Resources */,
+				9F5FE23F1690DBA6006A4961 /* pencil_image@2x.png in Resources */,
+				9F5FE2421690DBEF006A4961 /* pencil_image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +447,11 @@
 				9F4436C8168E21F00006D521 /* ALocale.m in Sources */,
 				9F4436CD168E48350006D521 /* ACommunicator.m in Sources */,
 				9F4436D2168F8EC40006D521 /* AErrorFacade.m in Sources */,
+				9F4436DC168FA6AA0006D521 /* AChattingViewController.m in Sources */,
+				9F4436E7168FB32D0006D521 /* UIFont+AUIColorTheme.m in Sources */,
+				9F5FE24D1690F456006A4961 /* AUIButton.m in Sources */,
+				9F5FE2551690F67F006A4961 /* UIButton+AUIColorTheme.m in Sources */,
+				9F5FE2591690F875006A4961 /* AUITextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +471,11 @@
 				9F4436C9168E21F00006D521 /* ALocale.m in Sources */,
 				9F4436CE168E48350006D521 /* ACommunicator.m in Sources */,
 				9F4436D3168F8EC40006D521 /* AErrorFacade.m in Sources */,
+				9F4436DD168FA6AA0006D521 /* AChattingViewController.m in Sources */,
+				9F4436E8168FB32D0006D521 /* UIFont+AUIColorTheme.m in Sources */,
+				9F5FE24E1690F456006A4961 /* AUIButton.m in Sources */,
+				9F5FE2561690F67F006A4961 /* UIButton+AUIColorTheme.m in Sources */,
+				9F5FE25A1690F875006A4961 /* AUITextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
