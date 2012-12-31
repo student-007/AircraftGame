@@ -8,6 +8,10 @@
 
 #import "AChattingViewController.h"
 
+#define kChatTxtFldWidthEditing     227.0f
+#define kChatTxtFldWidthNormal      280.0f
+#define kPadOfTxtFldAndSendBtn      12.0f
+
 @interface AChattingViewController ()
 
 @end
@@ -25,7 +29,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        
+        _competitorName = ALocalisedString(@"chat_view_user_name");
+        _competitorName = ALocalisedString(@"chat_view_competitor_name");
     }
     return self;
 }
@@ -59,7 +64,7 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     [self adjustSendHideBtnStatus];
-    [self signTxtFldFirstResponder];
+    [self signTxtFldToFirstResponder];
 }
 
 - (IBAction)textFieldDidChange:(NSNotification*)aNotification
@@ -74,6 +79,11 @@
     return YES;
 }
 
+- (void)receivedNewChattingMsg:(ANetMessageChat *)message
+{
+#warning TODO: deal with the new coming message, display them. be noticed, "sender" in ANetMessageChat may be nil
+}
+
 - (IBAction)sendMsgOrHideKeyBoard:(AUIButton *)sender
 {
     if (self.isEmptyMsg)
@@ -82,7 +92,14 @@
     }
     else
     {
-#warning TODO: call a delegate to send out the message
+#warning TODO: pass the valid message. Or call userInputCheatCode
+        // if user wants to send a message to competitor
+        if ([self.delegate respondsToSelector:@selector(userWantsToSendMsg:)])
+            [self.delegate userWantsToSendMsg:[ANetMessageChat message:@"chatting msg here" andSenderName:_userName]];
+        
+        // if user(most likely developer or QA) wants to input a cheat code
+        if ([self.delegate respondsToSelector:@selector(userInputCheatCode::)])
+            [self.delegate userInputCheatCode:@"cheat code here"];
     }
 }
 
@@ -102,7 +119,7 @@
     }
 }
 
-- (void)signTxtFldFirstResponder
+- (void)signTxtFldToFirstResponder
 {
     CGRect txtFldFrame = self.chatTxtFld.frame;
     CGRect btnFrame = self.sendHideBtn.frame;
@@ -110,8 +127,8 @@
     [UIView beginAnimations:@"showSendHideButton" context:nil];
     [UIView setAnimationDuration:0.3f];
     
-    txtFldFrame.size.width = 227.0f;
-    float centerX = txtFldFrame.origin.x + txtFldFrame.size.width + 12.0f + btnFrame.size.width / 2.0f;
+    txtFldFrame.size.width = kChatTxtFldWidthEditing;
+    float centerX = txtFldFrame.origin.x + txtFldFrame.size.width + kPadOfTxtFldAndSendBtn + btnFrame.size.width / 2.0f;
     float centerY = self.chatTxtFld.center.y;
     self.sendHideBtn.center = CGPointMake(centerX, centerY);
     
@@ -131,17 +148,25 @@
     [UIView beginAnimations:@"hideSendHideButton" context:nil];
     [UIView setAnimationDuration:0.3f];
     
-    txtFldFrame.size.width = 280.0f;
-    float centerX = txtFldFrame.origin.x + txtFldFrame.size.width + 12.0f + btnFrame.size.width / 2.0f;
+    txtFldFrame.size.width = kChatTxtFldWidthNormal;
+    float centerX = txtFldFrame.origin.x + txtFldFrame.size.width + kPadOfTxtFldAndSendBtn + btnFrame.size.width / 2.0f;
     float centerY = self.chatTxtFld.center.y;
     self.sendHideBtn.center = CGPointMake(centerX, centerY);
     
-    self.sendHideBtn.alpha = 0;
     self.chatTxtFld.frame = txtFldFrame;
     
     [UIView commitAnimations];
     
+    self.sendHideBtn.alpha = 0;
     self.sendHideBtn.hidden = YES;
+}
+
+- (void)setNickNameForUser:(NSString *)userName andCompetitor:(NSString *)competitorName
+{
+    if (_userName != userName)
+        _userName = userName;
+    if (_competitorName != competitorName)
+        _competitorName = competitorName;
 }
 
 - (BOOL)isEmptyMsg

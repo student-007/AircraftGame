@@ -62,6 +62,8 @@
 		9F5FE2561690F67F006A4961 /* UIButton+AUIColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE2541690F67F006A4961 /* UIButton+AUIColorTheme.m */; };
 		9F5FE2591690F875006A4961 /* AUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE2581690F875006A4961 /* AUITextField.m */; };
 		9F5FE25A1690F875006A4961 /* AUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE2581690F875006A4961 /* AUITextField.m */; };
+		9F5FE25D16920570006A4961 /* ATableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE25C16920570006A4961 /* ATableViewAdapter.m */; };
+		9F5FE25E16920570006A4961 /* ATableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE25C16920570006A4961 /* ATableViewAdapter.m */; };
 		9F99BE8516879D6500A0FD2F /* Aircraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F99BE8416879D6500A0FD2F /* Aircraft.png */; };
 		9F99BE8616879D6500A0FD2F /* Aircraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F99BE8416879D6500A0FD2F /* Aircraft.png */; };
 		9F99BE8A168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */; };
@@ -121,6 +123,8 @@
 		9F5FE2541690F67F006A4961 /* UIButton+AUIColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AUIColorTheme.m"; path = "Base/UIButton+AUIColorTheme.m"; sourceTree = "<group>"; };
 		9F5FE2571690F875006A4961 /* AUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUITextField.h; path = Base/AUITextField.h; sourceTree = "<group>"; };
 		9F5FE2581690F875006A4961 /* AUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AUITextField.m; path = Base/AUITextField.m; sourceTree = "<group>"; };
+		9F5FE25B16920570006A4961 /* ATableViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATableViewAdapter.h; path = Base/ATableViewAdapter.h; sourceTree = "<group>"; };
+		9F5FE25C16920570006A4961 /* ATableViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATableViewAdapter.m; path = Base/ATableViewAdapter.m; sourceTree = "<group>"; };
 		9F99BE8416879D6500A0FD2F /* Aircraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Aircraft.png; path = Aircraft/res/Aircraft.png; sourceTree = "<group>"; };
 		9F99BE88168A8C4B00A0FD2F /* ANetConnBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANetConnBluetooth.h; path = network/ANetConnBluetooth.h; sourceTree = "<group>"; };
 		9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANetConnBluetooth.m; path = network/ANetConnBluetooth.m; sourceTree = "<group>"; };
@@ -275,6 +279,8 @@
 				9F5FE2541690F67F006A4961 /* UIButton+AUIColorTheme.m */,
 				9F5FE2571690F875006A4961 /* AUITextField.h */,
 				9F5FE2581690F875006A4961 /* AUITextField.m */,
+				9F5FE25B16920570006A4961 /* ATableViewAdapter.h */,
+				9F5FE25C16920570006A4961 /* ATableViewAdapter.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -452,6 +458,7 @@
 				9F5FE24D1690F456006A4961 /* AUIButton.m in Sources */,
 				9F5FE2551690F67F006A4961 /* UIButton+AUIColorTheme.m in Sources */,
 				9F5FE2591690F875006A4961 /* AUITextField.m in Sources */,
+				9F5FE25D16920570006A4961 /* ATableViewAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +483,7 @@
 				9F5FE24E1690F456006A4961 /* AUIButton.m in Sources */,
 				9F5FE2561690F67F006A4961 /* UIButton+AUIColorTheme.m in Sources */,
 				9F5FE25A1690F875006A4961 /* AUITextField.m in Sources */,
+				9F5FE25E16920570006A4961 /* ATableViewAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

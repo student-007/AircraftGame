@@ -72,6 +72,8 @@
 @interface ANetMessageChat : ANetMessageBaseMessage
 @property (strong, nonatomic) NSString *sender;         // can be NULL
 @property (strong, nonatomic) NSString *message;
+
++ (ANetMessageChat *)message:(NSString *)message andSenderName:(NSString *)senderName;
 @end
 
 @interface ANetMessageChatR : ANetMessageBaseReply

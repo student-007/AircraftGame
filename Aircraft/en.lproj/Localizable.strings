@@ -13,6 +13,8 @@
 "chat_view_txtFld_holder" = "Chatting message here...";
 "chat_view_send_btn" = "Send";
 "chat_view_send_btn_hide" = "Hide";
+"chat_view_user_name" = "Me";
+"chat_view_competitor_name" = "Competitor";
 
 
 

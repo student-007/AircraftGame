@@ -71,6 +71,14 @@
 @implementation ANetMessageChat
 @synthesize sender = _sender;
 @synthesize message = _message;
+
++ (ANetMessageChat *)message:(NSString *)message andSenderName:(NSString *)senderName
+{
+    ANetMessageChat *msg = [[ANetMessageChat alloc] init];
+    msg.message = message;
+    msg.sender = senderName;
+    return msg;
+}
 @end
 
 @implementation ANetMessageChatR
