@@ -14,4 +14,8 @@
 @property (weak, nonatomic) IBOutlet AUITextField *chatTxtFld;
 @property (strong, nonatomic) IBOutlet AUIButton *sendHideBtn;
 
+@property (nonatomic, readonly, getter = isEmptyMsg) BOOL emptyMsg;
+
+- (void)resignTxtFldFirstResponder;
+
 @end
