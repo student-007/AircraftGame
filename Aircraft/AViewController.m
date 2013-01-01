@@ -22,7 +22,9 @@
     
     self.organizer = [[AGameOrganizer alloc] init];
     AChattingViewController *chatVC = [self.organizer getChatVC];
-    
+    CGRect chatViewFrame = chatVC.view.frame;
+    chatViewFrame.origin.y = [UIScreen mainScreen].bounds.size.height - chatViewFrame.size.height;
+    chatVC.view.frame = chatViewFrame;
     [self.view addSubview:chatVC.view];
     
 //    [self.organizer makeConnectionWithType:ConnectionTypeBluetooth];

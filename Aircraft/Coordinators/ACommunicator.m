@@ -16,6 +16,7 @@
     {
         _msgParser = [[AMessageParser alloc] init];
         _delegate = nil;
+        _type = ConnectionTypeNone;
     }
     return self;
 }
@@ -31,13 +32,27 @@
     return  communicator;
 }
 
+- (void)closeConnection
+{
+    [_Conn closeConnection];
+    _type = ConnectionTypeNone;
+    _Conn = nil;
+}
+
 - (void)makeConnWithType:(ConnectionType)type
 {
-    switch (type) {
+    _type = type;
+    
+    switch (type)
+    {
+        case ConnectionTypeNone:
+        {
+            
+        }
+            break;
         case ConnectionTypeBluetooth:
         {
             _Conn = [[ANetConnBluetooth alloc] init];
-//            ((ANetConnBluetooth *)_Conn).listener = self;
             [_Conn setListener:self];
             [_Conn makeConnection];
         }
@@ -51,10 +66,26 @@
 - (BOOL)sendMessage:(id)message
 {
     if (_msgParser)
-        return [((ANetConnBluetooth *)_Conn) sendData:[_msgParser prepareMessage:message]];
+    {
+        switch (_type)
+        {
+            case ConnectionTypeNone:
+            {
+                return NO;
+            }
+                break;
+            case ConnectionTypeBluetooth:
+            {
+                return [((ANetConnBluetooth *)_Conn) sendData:[_msgParser prepareMessage:message]];
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }
     else
     {
-        NSAssert(NO, [AErrorFacade errorMessageFromKnownErrorCode:kECConnCanceledByUser]);
         return NO;
     }
 }
@@ -102,7 +133,7 @@
     }
     else
     {
-        
+        NSAssert(NO, [AErrorFacade errorMessageFromKnownErrorCode:kECConnCanceledByUser]);
     }
 }
 

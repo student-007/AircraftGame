@@ -18,7 +18,9 @@
 
 - (void)reset
 {
+    [self.communicator closeConnection];
     self.chatVC = nil;
+    
 }
 
 #pragma mark - communication controls
@@ -33,6 +35,11 @@
     
     switch (type)
     {
+        case ConnectionTypeNone:
+        {
+            
+        }
+            break;
         case ConnectionTypeBluetooth:
         {
             [self.communicator makeConnWithType:ConnectionTypeBluetooth];
@@ -120,6 +127,7 @@
 
 - (void)connectionCanceled:(NSError *)errorOrNil
 {
+    self.chatVC = nil;
     
 }
 

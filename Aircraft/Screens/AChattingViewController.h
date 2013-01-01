@@ -34,11 +34,9 @@
 #pragma mark - chat view protocol/delegate
 
 @protocol ChatViewDelegate <NSObject>
-
 @required
 - (void)userWantsToSendChatMsg:(ANetMessageChat *)message;
 
 @optional
 - (void)userInputCheatCode:(NSString *)cheatCode;
-
 @end

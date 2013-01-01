@@ -13,6 +13,7 @@
 
 typedef enum
 {
+    ConnectionTypeNone          = 0,
     ConnectionTypeBluetooth     = 1
 }ConnectionType;
 
@@ -21,6 +22,7 @@ typedef enum
 @interface ACommunicator : NSObject<connectionListenerDelegate>
 {
     id<connectionOperationProtocol> _Conn;
+    ConnectionType _type;
     AMessageParser *_msgParser;
 }
 
@@ -29,12 +31,13 @@ typedef enum
 + (ACommunicator *)sharedInstance;
 
 - (void)makeConnWithType:(ConnectionType)type;
+- (void)closeConnection;
 - (BOOL)sendMessage:(id)message;
-
 @end
 
-@protocol communicatorListenerDelegate <NSObject>
 
+
+@protocol communicatorListenerDelegate <NSObject>
 @optional
 - (void)connectionEstablished;
 - (void)connectionDisconnected:(NSError *)errorOrNil;
@@ -42,5 +45,4 @@ typedef enum
 
 @required
 - (void)receivedNetMessage:(ANetMessage *)netMessage;
-
 @end
