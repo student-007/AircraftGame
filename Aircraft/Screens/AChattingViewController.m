@@ -43,11 +43,11 @@
     [self loadLocalizedInfo];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:_chatTxtFld];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.chatTxtFld];
 
     // add a pencil icon at left of the chatting text field
-    [_chatTxtFld setLeftViewWithImageNamed:@"pencil_image"];
-    [_chatTxtFld setDelegate:self];
+    [self.chatTxtFld setLeftViewWithImageNamed:@"pencil_image"];
+    [self.chatTxtFld setDelegate:self];
     
 }
 
@@ -95,7 +95,7 @@
 #warning TODO: pass the valid message. Or call userInputCheatCode
         // if user wants to send a message to competitor
         if ([self.delegate respondsToSelector:@selector(userWantsToSendChatMsg:)])
-            [self.delegate userWantsToSendChatMsg:[ANetMessageChat message:@"chatting msg here" andSenderName:_userName]];
+            [self.delegate userWantsToSendChatMsg:[ANetMessageChat message:self.chatTxtFld.text andSenderName:_userName]];
         
         // if user(most likely developer or QA) wants to input a cheat code
         if ([self.delegate respondsToSelector:@selector(userInputCheatCode::)])

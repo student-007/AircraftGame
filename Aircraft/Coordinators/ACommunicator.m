@@ -8,6 +8,12 @@
 
 #import "ACommunicator.h"
 
+@interface ACommunicator ()
+
+@property (strong, nonatomic) id<connectionOperationProtocol> conn;
+
+@end
+
 @implementation ACommunicator
 
 - (id)init
@@ -34,9 +40,9 @@
 
 - (void)closeConnection
 {
-    [_Conn closeConnection];
+    [self.conn closeConnection];
     _type = ConnectionTypeNone;
-    _Conn = nil;
+    self.conn = nil;
 }
 
 - (void)makeConnWithType:(ConnectionType)type
@@ -52,9 +58,9 @@
             break;
         case ConnectionTypeBluetooth:
         {
-            _Conn = [[ANetConnBluetooth alloc] init];
-            [_Conn setListener:self];
-            [_Conn makeConnection];
+            self.conn = [[ANetConnBluetooth alloc] init];
+            [self.conn setListener:self];
+            [self.conn makeConnection];
         }
             break;
             
@@ -76,7 +82,7 @@
                 break;
             case ConnectionTypeBluetooth:
             {
-                return [((ANetConnBluetooth *)_Conn) sendData:[_msgParser prepareMessage:message]];
+                return [((ANetConnBluetooth *)self.conn) sendData:[_msgParser prepareMessage:message]];
             }
                 break;
                 
@@ -114,7 +120,7 @@
 
 - (void)receivedData:(NSData *)data
 {
-    if ([self.delegate respondsToSelector:@selector(receivedData:)])
+    if ([self.delegate respondsToSelector:@selector(receivedNetMessage:)])
     {
         ANetMessage *msg = [_msgParser parseData:data];
         [self.delegate receivedNetMessage:msg];

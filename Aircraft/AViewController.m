@@ -27,7 +27,7 @@
     chatVC.view.frame = chatViewFrame;
     [self.view addSubview:chatVC.view];
     
-//    [self.organizer makeConnectionWithType:ConnectionTypeBluetooth];
+    [self.organizer makeConnectionWithType:ConnectionTypeBluetooth];
 }
 
 

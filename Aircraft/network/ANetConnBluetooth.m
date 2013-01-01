@@ -78,12 +78,13 @@
 
 - (void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state
 {
-    switch (state) {
+    switch (state)
+    {
         case GKPeerStateConnected:
         {
             _isConnect = YES;
             [self.sessionConnection setDataReceiveHandler:self withContext:nil];
-            self.sessionConnection.available = NO;
+//            self.sessionConnection.available = NO;
             [self.peerPicker dismiss];
             if ([self.listener respondsToSelector:@selector(connectionEstablished)])
                 [self.listener connectionEstablished];

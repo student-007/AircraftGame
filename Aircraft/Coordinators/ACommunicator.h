@@ -21,7 +21,7 @@ typedef enum
 
 @interface ACommunicator : NSObject<connectionListenerDelegate>
 {
-    id<connectionOperationProtocol> _Conn;
+    id<connectionOperationProtocol> _conn;
     ConnectionType _type;
     AMessageParser *_msgParser;
 }
