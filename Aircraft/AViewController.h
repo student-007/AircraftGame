@@ -10,6 +10,7 @@
 #import "AAircraftModel.h"
 #import "AAircraftImageView.h"
 #import "AChattingViewController.h"
+#import "AGameOrganizer.h"
 
 @interface AViewController : UIViewController
 {
@@ -17,5 +18,6 @@
     AChattingViewController *_chatVC;
 }
 @property (weak, nonatomic) IBOutlet UILabel *testLabel;
+@property (strong, nonatomic) AGameOrganizer *organizer;
 
 @end

@@ -94,8 +94,8 @@
     {
 #warning TODO: pass the valid message. Or call userInputCheatCode
         // if user wants to send a message to competitor
-        if ([self.delegate respondsToSelector:@selector(userWantsToSendMsg:)])
-            [self.delegate userWantsToSendMsg:[ANetMessageChat message:@"chatting msg here" andSenderName:_userName]];
+        if ([self.delegate respondsToSelector:@selector(userWantsToSendChatMsg:)])
+            [self.delegate userWantsToSendChatMsg:[ANetMessageChat message:@"chatting msg here" andSenderName:_userName]];
         
         // if user(most likely developer or QA) wants to input a cheat code
         if ([self.delegate respondsToSelector:@selector(userInputCheatCode::)])

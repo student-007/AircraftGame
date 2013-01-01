@@ -9,16 +9,21 @@
 #import <Foundation/Foundation.h>
 
 // define error domains
-#define kErrorDomainNet     @"Net"
+#define kErrorDomainNet         @"Net"
+#define kErrorDomainOrganizer   @"Organizer"
 
 // define error codes
+// connections errors
 #define kECConnCanceledByUser           1000    // bluetooth connection canceled by user
 #define kECConnEptSessionOrDisconnected 1001
 
-
+// parser errors
 #define kECParserNotFoundOrEmpty        2000    // parser in communicator is not found or empty
 #define kECParserCantFindFlag           2001    //
 #define kECParserCantFindInternalClass  2002    //
+
+// organizer errors
+#define kECOrganizerCommunicatorNotFoundOrEnpty     3001
 
 typedef enum
 {

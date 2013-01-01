@@ -52,7 +52,7 @@
 
 + (void)LogError:(NSError *)error
 {
-    NSLog(@"[error]: %@\n[domain]: %@", error.description, error.domain);
+    NSLog(@"[error]: %@\n", error.description);
 }
 
 @end

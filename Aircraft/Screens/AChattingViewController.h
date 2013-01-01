@@ -36,7 +36,7 @@
 @protocol ChatViewDelegate <NSObject>
 
 @required
-- (void)userWantsToSendMsg:(ANetMessageChat *)message;
+- (void)userWantsToSendChatMsg:(ANetMessageChat *)message;
 
 @optional
 - (void)userInputCheatCode:(NSString *)cheatCode;

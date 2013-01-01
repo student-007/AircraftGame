@@ -15,6 +15,7 @@
     if (self = [super init])
     {
         _msgParser = [[AMessageParser alloc] init];
+        _delegate = nil;
     }
     return self;
 }
@@ -25,7 +26,7 @@
     
     if (!communicator)
     {
-        communicator = [[ACommunicator alloc]init];
+        communicator = [[ACommunicator alloc] init];
     }
     return  communicator;
 }
@@ -62,32 +63,47 @@
 
 - (void)connectionEstablished
 {
-    ANetMessageChat *interalMsg = [[ANetMessageChat alloc] init];
-    interalMsg.message = @"let us talk!";
-    
-    ANetMessage *msg = [ANetMessage messageWithFlag:kFlagChat message:interalMsg];
-    [self sendMessage:msg];
+    if ([self.delegate respondsToSelector:@selector(connectionEstablished)])
+    {
+        [self.delegate connectionEstablished];
+    }
 }
 
 - (void)connectionDisconnected:(NSError *)errorOrNil
 {
-    
+    if ([self.delegate respondsToSelector:@selector(connectionDisconnected:)])
+    {
+        [self.delegate connectionDisconnected:errorOrNil];
+    }
+    else
+    {
+        
+    }
 }
 
 - (void)receivedData:(NSData *)data
 {
-    ANetMessage *msg = [_msgParser parseData:data];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:msg.flag
-                                                    message:((ANetMessageChat *)msg.message).message
-                                                   delegate:nil
-                                          cancelButtonTitle:@"cancel"
-                                          otherButtonTitles:nil];
-    [alert show];
+    if ([self.delegate respondsToSelector:@selector(receivedData:)])
+    {
+        ANetMessage *msg = [_msgParser parseData:data];
+        [self.delegate receivedNetMessage:msg];
+    }
+    else
+    {
+        
+    }
 }
 
 - (void)connectionCanceled:(NSError *)errorOrNil
 {
-    
+    if ([self.delegate respondsToSelector:@selector(connectionCanceled:)])
+    {
+        [self.delegate connectionCanceled:errorOrNil];
+    }
+    else
+    {
+        
+    }
 }
 
 @end

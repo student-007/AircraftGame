@@ -20,12 +20,12 @@
 {
     [super viewDidLoad];
     
-    _chatVC = [[AChattingViewController alloc] initWithNibName:@"AChattingViewController" bundle:nil];
-    [self.view addSubview:_chatVC.view];
-
-    NSLog(@"中文");
-    ACommunicator *com = [ACommunicator sharedInstance];
-    [com makeConnWithType:ConnectionTypeBluetooth];
+    self.organizer = [[AGameOrganizer alloc] init];
+    AChattingViewController *chatVC = [self.organizer getChatVC];
+    
+    [self.view addSubview:chatVC.view];
+    
+//    [self.organizer makeConnectionWithType:ConnectionTypeBluetooth];
 }
 
 

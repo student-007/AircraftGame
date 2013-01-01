@@ -48,6 +48,8 @@
 		9F4436DF168FA6AA0006D521 /* AChattingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436DB168FA6AA0006D521 /* AChattingViewController.xib */; };
 		9F4436E7168FB32D0006D521 /* UIFont+AUIColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */; };
 		9F4436E8168FB32D0006D521 /* UIFont+AUIColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */; };
+		9F4F8AB91692A9F5006254D4 /* AGameOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8AB81692A9F5006254D4 /* AGameOrganizer.m */; };
+		9F4F8ABA1692A9F5006254D4 /* AGameOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8AB81692A9F5006254D4 /* AGameOrganizer.m */; };
 		9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A01816863EF50069DA95 /* AAircraftImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A01716863EF50069DA95 /* AAircraftImageView.m */; };
@@ -111,6 +113,8 @@
 		9F4436DB168FA6AA0006D521 /* AChattingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AChattingViewController.xib; path = Screens/AChattingViewController.xib; sourceTree = "<group>"; };
 		9F4436E5168FB32D0006D521 /* UIFont+AUIColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+AUIColorTheme.h"; path = "Base/UIFont+AUIColorTheme.h"; sourceTree = "<group>"; };
 		9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+AUIColorTheme.m"; path = "Base/UIFont+AUIColorTheme.m"; sourceTree = "<group>"; };
+		9F4F8AB71692A9F5006254D4 /* AGameOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGameOrganizer.h; path = Coordinators/AGameOrganizer.h; sourceTree = "<group>"; };
+		9F4F8AB81692A9F5006254D4 /* AGameOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGameOrganizer.m; path = Coordinators/AGameOrganizer.m; sourceTree = "<group>"; };
 		9F57A008168516C20069DA95 /* AAircraftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftModel.h; path = Model/AAircraftModel.h; sourceTree = "<group>"; };
 		9F57A009168516C20069DA95 /* AAircraftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftModel.m; path = Model/AAircraftModel.m; sourceTree = "<group>"; };
 		9F57A01616863EF50069DA95 /* AAircraftImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftImageView.h; path = ViewModel/AAircraftImageView.h; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 			children = (
 				9F4436CB168E48350006D521 /* ACommunicator.h */,
 				9F4436CC168E48350006D521 /* ACommunicator.m */,
+				9F4F8AB71692A9F5006254D4 /* AGameOrganizer.h */,
+				9F4F8AB81692A9F5006254D4 /* AGameOrganizer.m */,
 			);
 			name = Coordinators;
 			sourceTree = "<group>";
@@ -459,6 +465,7 @@
 				9F5FE2551690F67F006A4961 /* UIButton+AUIColorTheme.m in Sources */,
 				9F5FE2591690F875006A4961 /* AUITextField.m in Sources */,
 				9F5FE25D16920570006A4961 /* ATableViewAdapter.m in Sources */,
+				9F4F8AB91692A9F5006254D4 /* AGameOrganizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +491,7 @@
 				9F5FE2561690F67F006A4961 /* UIButton+AUIColorTheme.m in Sources */,
 				9F5FE25A1690F875006A4961 /* AUITextField.m in Sources */,
 				9F5FE25E16920570006A4961 /* ATableViewAdapter.m in Sources */,
+				9F4F8ABA1692A9F5006254D4 /* AGameOrganizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

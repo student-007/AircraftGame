@@ -27,3 +27,6 @@
 "ErrorCode2000" = "Parser in communicator is not found or empty while trying to send a message.";
 "ErrorCode2001" = "Unrecognized message flag found while parsing message data.";
 "ErrorCode2002" = "Parser could not find the matching internal message class (based on class or the given name).";
+
+// organizer
+"ErrorCode3001" = "Communicator empty or not found in organizer when try to use.";

@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "ANetConnBluetooth.h"
 #import "AMessageParser.h"
+#import "ANetMessage.h"
 
 typedef enum
 {
     ConnectionTypeBluetooth     = 1
 }ConnectionType;
+
+@protocol communicatorListenerDelegate;
 
 @interface ACommunicator : NSObject<connectionListenerDelegate>
 {
@@ -21,9 +24,23 @@ typedef enum
     AMessageParser *_msgParser;
 }
 
+@property (assign, nonatomic) id<communicatorListenerDelegate> delegate;
+
 + (ACommunicator *)sharedInstance;
 
 - (void)makeConnWithType:(ConnectionType)type;
 - (BOOL)sendMessage:(id)message;
+
+@end
+
+@protocol communicatorListenerDelegate <NSObject>
+
+@optional
+- (void)connectionEstablished;
+- (void)connectionDisconnected:(NSError *)errorOrNil;
+- (void)connectionCanceled:(NSError *)errorOrNil;
+
+@required
+- (void)receivedNetMessage:(ANetMessage *)netMessage;
 
 @end
