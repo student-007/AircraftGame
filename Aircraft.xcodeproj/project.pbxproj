@@ -50,6 +50,10 @@
 		9F4436E8168FB32D0006D521 /* UIFont+AUIColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */; };
 		9F4F8AB91692A9F5006254D4 /* AGameOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8AB81692A9F5006254D4 /* AGameOrganizer.m */; };
 		9F4F8ABA1692A9F5006254D4 /* AGameOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8AB81692A9F5006254D4 /* AGameOrganizer.m */; };
+		9F4F8AD116936B71006254D4 /* APlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8ACF16936B71006254D4 /* APlayViewController.m */; };
+		9F4F8AD216936B71006254D4 /* APlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8ACF16936B71006254D4 /* APlayViewController.m */; };
+		9F4F8AD316936B71006254D4 /* APlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4F8AD016936B71006254D4 /* APlayViewController.xib */; };
+		9F4F8AD416936B71006254D4 /* APlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4F8AD016936B71006254D4 /* APlayViewController.xib */; };
 		9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A01816863EF50069DA95 /* AAircraftImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A01716863EF50069DA95 /* AAircraftImageView.m */; };
@@ -115,6 +119,9 @@
 		9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+AUIColorTheme.m"; path = "Base/UIFont+AUIColorTheme.m"; sourceTree = "<group>"; };
 		9F4F8AB71692A9F5006254D4 /* AGameOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGameOrganizer.h; path = Coordinators/AGameOrganizer.h; sourceTree = "<group>"; };
 		9F4F8AB81692A9F5006254D4 /* AGameOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGameOrganizer.m; path = Coordinators/AGameOrganizer.m; sourceTree = "<group>"; };
+		9F4F8ACE16936B71006254D4 /* APlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APlayViewController.h; path = Screens/APlayViewController.h; sourceTree = "<group>"; };
+		9F4F8ACF16936B71006254D4 /* APlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APlayViewController.m; path = Screens/APlayViewController.m; sourceTree = "<group>"; };
+		9F4F8AD016936B71006254D4 /* APlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APlayViewController.xib; path = Screens/APlayViewController.xib; sourceTree = "<group>"; };
 		9F57A008168516C20069DA95 /* AAircraftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftModel.h; path = Model/AAircraftModel.h; sourceTree = "<group>"; };
 		9F57A009168516C20069DA95 /* AAircraftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftModel.m; path = Model/AAircraftModel.m; sourceTree = "<group>"; };
 		9F57A01616863EF50069DA95 /* AAircraftImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftImageView.h; path = ViewModel/AAircraftImageView.h; sourceTree = "<group>"; };
@@ -270,6 +277,9 @@
 				9F4436D9168FA6AA0006D521 /* AChattingViewController.h */,
 				9F4436DA168FA6AA0006D521 /* AChattingViewController.m */,
 				9F4436DB168FA6AA0006D521 /* AChattingViewController.xib */,
+				9F4F8ACE16936B71006254D4 /* APlayViewController.h */,
+				9F4F8ACF16936B71006254D4 /* APlayViewController.m */,
+				9F4F8AD016936B71006254D4 /* APlayViewController.xib */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -418,6 +428,7 @@
 				9F4436DE168FA6AA0006D521 /* AChattingViewController.xib in Resources */,
 				9F5FE23E1690DBA6006A4961 /* pencil_image@2x.png in Resources */,
 				9F5FE2411690DBEF006A4961 /* pencil_image.png in Resources */,
+				9F4F8AD316936B71006254D4 /* APlayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +448,7 @@
 				9F4436DF168FA6AA0006D521 /* AChattingViewController.xib in Resources */,
 				9F5FE23F1690DBA6006A4961 /* pencil_image@2x.png in Resources */,
 				9F5FE2421690DBEF006A4961 /* pencil_image.png in Resources */,
+				9F4F8AD416936B71006254D4 /* APlayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +478,7 @@
 				9F5FE2591690F875006A4961 /* AUITextField.m in Sources */,
 				9F5FE25D16920570006A4961 /* ATableViewAdapter.m in Sources */,
 				9F4F8AB91692A9F5006254D4 /* AGameOrganizer.m in Sources */,
+				9F4F8AD116936B71006254D4 /* APlayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +505,7 @@
 				9F5FE25A1690F875006A4961 /* AUITextField.m in Sources */,
 				9F5FE25E16920570006A4961 /* ATableViewAdapter.m in Sources */,
 				9F4F8ABA1692A9F5006254D4 /* AGameOrganizer.m in Sources */,
+				9F4F8AD216936B71006254D4 /* APlayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
