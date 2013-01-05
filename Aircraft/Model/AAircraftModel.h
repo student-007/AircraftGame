@@ -25,7 +25,8 @@ typedef enum
 }
 
 /*!
- @discussion orgin point at top left of the aircraft grid
+ @discussion this is the orgin which is the place where to put top left connor of the aircraft in battle field
+ points are human readable integers like (1, 2) or (3, 7) in the 10*10 grid.
  */
 @property (nonatomic) CGPoint orginPos;
 

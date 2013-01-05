@@ -54,6 +54,12 @@
 		9F4F8AD216936B71006254D4 /* APlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8ACF16936B71006254D4 /* APlayViewController.m */; };
 		9F4F8AD316936B71006254D4 /* APlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4F8AD016936B71006254D4 /* APlayViewController.xib */; };
 		9F4F8AD416936B71006254D4 /* APlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4F8AD016936B71006254D4 /* APlayViewController.xib */; };
+		9F4F8AE0169373EF006254D4 /* ABattleFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8ADE169373EF006254D4 /* ABattleFieldViewController.m */; };
+		9F4F8AE1169373EF006254D4 /* ABattleFieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8ADE169373EF006254D4 /* ABattleFieldViewController.m */; };
+		9F4F8AE2169373EF006254D4 /* ABattleFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4F8ADF169373EF006254D4 /* ABattleFieldViewController.xib */; };
+		9F4F8AE3169373EF006254D4 /* ABattleFieldViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4F8ADF169373EF006254D4 /* ABattleFieldViewController.xib */; };
+		9F4F8AE6169378C8006254D4 /* AUIBattleFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8AE5169378C8006254D4 /* AUIBattleFieldView.m */; };
+		9F4F8AE7169378C8006254D4 /* AUIBattleFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8AE5169378C8006254D4 /* AUIBattleFieldView.m */; };
 		9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A009168516C20069DA95 /* AAircraftModel.m */; };
 		9F57A01816863EF50069DA95 /* AAircraftImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57A01716863EF50069DA95 /* AAircraftImageView.m */; };
@@ -122,6 +128,11 @@
 		9F4F8ACE16936B71006254D4 /* APlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APlayViewController.h; path = Screens/APlayViewController.h; sourceTree = "<group>"; };
 		9F4F8ACF16936B71006254D4 /* APlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APlayViewController.m; path = Screens/APlayViewController.m; sourceTree = "<group>"; };
 		9F4F8AD016936B71006254D4 /* APlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APlayViewController.xib; path = Screens/APlayViewController.xib; sourceTree = "<group>"; };
+		9F4F8ADD169373EF006254D4 /* ABattleFieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABattleFieldViewController.h; path = Screens/ABattleFieldViewController.h; sourceTree = "<group>"; };
+		9F4F8ADE169373EF006254D4 /* ABattleFieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABattleFieldViewController.m; path = Screens/ABattleFieldViewController.m; sourceTree = "<group>"; };
+		9F4F8ADF169373EF006254D4 /* ABattleFieldViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ABattleFieldViewController.xib; path = Screens/ABattleFieldViewController.xib; sourceTree = "<group>"; };
+		9F4F8AE4169378C8006254D4 /* AUIBattleFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUIBattleFieldView.h; path = ViewModel/AUIBattleFieldView.h; sourceTree = "<group>"; };
+		9F4F8AE5169378C8006254D4 /* AUIBattleFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AUIBattleFieldView.m; path = ViewModel/AUIBattleFieldView.m; sourceTree = "<group>"; };
 		9F57A008168516C20069DA95 /* AAircraftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftModel.h; path = Model/AAircraftModel.h; sourceTree = "<group>"; };
 		9F57A009168516C20069DA95 /* AAircraftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftModel.m; path = Model/AAircraftModel.m; sourceTree = "<group>"; };
 		9F57A01616863EF50069DA95 /* AAircraftImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftImageView.h; path = ViewModel/AAircraftImageView.h; sourceTree = "<group>"; };
@@ -280,6 +291,9 @@
 				9F4F8ACE16936B71006254D4 /* APlayViewController.h */,
 				9F4F8ACF16936B71006254D4 /* APlayViewController.m */,
 				9F4F8AD016936B71006254D4 /* APlayViewController.xib */,
+				9F4F8ADD169373EF006254D4 /* ABattleFieldViewController.h */,
+				9F4F8ADE169373EF006254D4 /* ABattleFieldViewController.m */,
+				9F4F8ADF169373EF006254D4 /* ABattleFieldViewController.xib */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -319,6 +333,8 @@
 			children = (
 				9F57A01616863EF50069DA95 /* AAircraftImageView.h */,
 				9F57A01716863EF50069DA95 /* AAircraftImageView.m */,
+				9F4F8AE4169378C8006254D4 /* AUIBattleFieldView.h */,
+				9F4F8AE5169378C8006254D4 /* AUIBattleFieldView.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -429,6 +445,7 @@
 				9F5FE23E1690DBA6006A4961 /* pencil_image@2x.png in Resources */,
 				9F5FE2411690DBEF006A4961 /* pencil_image.png in Resources */,
 				9F4F8AD316936B71006254D4 /* APlayViewController.xib in Resources */,
+				9F4F8AE2169373EF006254D4 /* ABattleFieldViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +466,7 @@
 				9F5FE23F1690DBA6006A4961 /* pencil_image@2x.png in Resources */,
 				9F5FE2421690DBEF006A4961 /* pencil_image.png in Resources */,
 				9F4F8AD416936B71006254D4 /* APlayViewController.xib in Resources */,
+				9F4F8AE3169373EF006254D4 /* ABattleFieldViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +497,8 @@
 				9F5FE25D16920570006A4961 /* ATableViewAdapter.m in Sources */,
 				9F4F8AB91692A9F5006254D4 /* AGameOrganizer.m in Sources */,
 				9F4F8AD116936B71006254D4 /* APlayViewController.m in Sources */,
+				9F4F8AE0169373EF006254D4 /* ABattleFieldViewController.m in Sources */,
+				9F4F8AE6169378C8006254D4 /* AUIBattleFieldView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +526,8 @@
 				9F5FE25E16920570006A4961 /* ATableViewAdapter.m in Sources */,
 				9F4F8ABA1692A9F5006254D4 /* AGameOrganizer.m in Sources */,
 				9F4F8AD216936B71006254D4 /* APlayViewController.m in Sources */,
+				9F4F8AE1169373EF006254D4 /* ABattleFieldViewController.m in Sources */,
+				9F4F8AE7169378C8006254D4 /* AUIBattleFieldView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

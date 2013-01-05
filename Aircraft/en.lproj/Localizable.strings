@@ -30,3 +30,6 @@
 
 // organizer
 "ErrorCode3001" = "Communicator empty or not found in organizer when try to use.";
+
+// aircraft
+"ErrorCode4001" = "Aircraft image can not be mapped to the battle field view";

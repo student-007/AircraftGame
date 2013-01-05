@@ -55,6 +55,7 @@
 
 - (void)setOrgin:(CGPoint)orgin
 {
+    NSAssert((((int)orgin.x % kMappingFactor == 0) || ((int)orgin.y % kMappingFactor == 0)), [AErrorFacade errorMessageFromKnownErrorCode:4001]);
     if (!_aircraft)
         _aircraft = [[AAircraftModel alloc] init];
     

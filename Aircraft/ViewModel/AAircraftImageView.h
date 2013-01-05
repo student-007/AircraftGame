@@ -24,7 +24,7 @@
 @property (nonatomic) AircraftDirection direction;
 
 /*!
- @discussion aircraft's orgin, set this equal to frame's orgin ONLY after calculated position in battle grid
+ @discussion aircraft's orgin, set this EQUAL TO FRAME's ORGIN ONLY after calculated position in battle grid
  */
 @property (nonatomic) CGPoint orgin;
 
