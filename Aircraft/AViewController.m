@@ -12,6 +12,8 @@
 
 @interface AViewController ()
 
+@property (nonatomic, strong) AChattingViewController *chatVC;
+
 @end
 
 @implementation AViewController
@@ -21,15 +23,34 @@
     [super viewDidLoad];
     
     self.organizer = [[AGameOrganizer alloc] init];
-    AChattingViewController *chatVC = [self.organizer getChatVC];
-    CGRect chatViewFrame = chatVC.view.frame;
+    self.chatVC = [self.organizer getChatVC];
+    CGRect chatViewFrame = self.chatVC.view.frame;
     chatViewFrame.origin.y = [UIScreen mainScreen].bounds.size.height - chatViewFrame.size.height;
-    chatVC.view.frame = chatViewFrame;
-    [self.view addSubview:chatVC.view];
+    self.chatVC.view.frame = chatViewFrame;
+    [self.view addSubview:self.chatVC.view];
     
-    [self.organizer makeConnectionWithType:ConnectionTypeBluetooth];
+//    [self.organizer makeConnectionWithType:ConnectionTypeBluetooth];
 }
 
+- (IBAction)tapped:(UITapGestureRecognizer *)sender
+{
+    NSLog(@"tapped!");
+}
+
+- (IBAction)panGesture:(UIPanGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateChanged)
+    {
+        CGPoint translate = [sender translationInView:self.view];
+        
+        CGRect newFrame = self.testLabel.frame;
+        newFrame.origin.x += translate.x;
+        newFrame.origin.y += translate.y;
+        self.testLabel.frame = newFrame;
+        
+        [sender setTranslation:CGPointZero inView:self.view];
+    }
+}
 
 //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 //{

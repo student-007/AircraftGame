@@ -21,6 +21,10 @@
 #define kFlagLoad           @"load"
 #define kFlagLoadR          @"loadR"
 
+#define kAttackRMiss        @"miss"
+#define kAttackRHit         @"hit"
+#define kAttackRDestroy     @"destroy"
+
 @interface ANetMessage : NSObject
 
 @property (strong, nonatomic) NSString *sender;
