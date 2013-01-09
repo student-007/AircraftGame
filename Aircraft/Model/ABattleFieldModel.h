@@ -14,12 +14,41 @@ typedef enum
 }BattleFieldType;
 
 #import <Foundation/Foundation.h>
+#import "AAircraftModel.h"
+#import "ANetMessage.h"
 
 @interface ABattleFieldModel : NSObject
+{
+    int _battleFieldGrid[10][10];
+}
 
 @property (nonatomic) CGPoint attackPoint;
 @property (nonatomic) BattleFieldType type;     // default: BattleFieldNone
+@property (strong, nonatomic, readonly) NSMutableArray *aircraftModelAry;
 
+/*!
+ @discussion ONLY call this method after setting up the property 'attackPoint', then attack will be recoreded for saving game.
+ */
 - (void)addAttackRecordPoint;//:(CGPoint)attackPoint;
+
+/*!
+ @discussion return the defined string: kAttackRMiss kAttackRHit kAttackRDestroy. points are row and col(intgers value)
+ */
+- (NSString *)attackResultInGridAtPoint:(CGPoint)point;
+
+/*!
+ @discussion add aircraft model to array and update the gird. This method does not check if the aircraft can fit into the gird.
+ */
+- (void)addAircraft:(AAircraftModel *)aircraft;
+
+/*!
+ @discussion delete aircraft model from array(if the array contains it) and update the gird.
+ */
+- (void)removeAircraft:(AAircraftModel *)aircraft;
+
+/*!
+ @discussion check if an aircraft model can fit into the _battleFieldGrid.
+ */
+- (BOOL)checkPositionForAircraft:(AAircraftModel *)aircraft;
 
 @end

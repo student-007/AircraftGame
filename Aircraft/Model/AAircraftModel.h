@@ -30,7 +30,9 @@ typedef enum
 @interface AAircraftModel : NSObject
 {
     AircraftDirection _direction;
+    int _grid[5][5];
 }
+
 
 /*!
  @discussion this is the orgin which is the place where to put top left connor of the aircraft in battle field
@@ -44,7 +46,7 @@ typedef enum
 @property (nonatomic) AircraftDirection direction;
 
 /*!
- @discussion 2D array represents a 5*5 grid (NSNumber values stored)
+ @discussion 2D array represents a 5*5 grid (5 * 5 NSNumbers)
  */
 @property (strong, nonatomic) NSArray *gridArray;
 

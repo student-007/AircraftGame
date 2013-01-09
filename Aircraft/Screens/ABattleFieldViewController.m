@@ -13,8 +13,6 @@
     CGRect _tempAircraftImgViewFrame;
 }
 
-@property (strong, nonatomic) NSMutableArray *aircraftModelAry;
-
 @end
 
 @implementation ABattleFieldViewController
@@ -155,7 +153,7 @@
             if ([self.delegate respondsToSelector:@selector(userWantsToRemoveAircraft:)])
                 if ([self.delegate userWantsToRemoveAircraft:aircraftImgView.aircraft])
                 {
-                    [self.aircraftModelAry removeObject:aircraftImgView.aircraft];
+                    [_battleFldModel removeAircraft:aircraftImgView.aircraft];
                     [aircraftImgView removeFromSuperview];
                 }
         }
@@ -168,18 +166,17 @@
 
 - (BOOL)checkPositionForAircraft:(AAircraftModel *)aircraft
 {
-    
+    return [_battleFldModel checkPositionForAircraft:aircraft];
 }
 
 - (BOOL)addAircraft:(AAircraftModel *)aircraft
 {
-    if ([self checkPositionForAircraft:aircraft])
+    if ([_battleFldModel checkPositionForAircraft:aircraft])
     {
-        if (!self.aircraftModelAry)
-            self.aircraftModelAry = [NSMutableArray arrayWithObject:aircraft];
-        else
-            [self.aircraftModelAry addObject:aircraft];
+        // add aircraft model to battle field model
+        [_battleFldModel addAircraft:aircraft];
         
+        // add the aircraft image view to battle field
         AAircraftImageView *aircraftImgView = [[AAircraftImageView alloc] initWithAircraftModel:aircraft];
         [self addPanGestureToView:aircraftImgView];
         [self.battleFieldImgView addSubview:aircraftImgView];
@@ -197,6 +194,6 @@
  */
 - (NSString *)attackResultInGridAtPoint:(CGPoint)point
 {
-    
+    return [_battleFldModel attackResultInGridAtPoint:point];
 }
 @end

@@ -23,6 +23,11 @@
     {
         _type = BattleFieldNone;
         _attackPoint = CGPointMake(-1, -1);
+        
+        for (int i = 0; i < 10; i++)
+            for (int j = 0; j < 10; j++)
+                _battleFieldGrid[i][j] = AircraftNone;
+        
     }
     return self;
 }
@@ -40,6 +45,107 @@
         [self.attackRecord addObject:pointArray];
     
     _attackPoint = CGPointMake(-1, -1);
+}
+
+- (NSString *)attackResultInGridAtPoint:(CGPoint)point
+{
+    AircraftPart part = _battleFieldGrid[(int)point.x][(int)point.y];
+    switch (part)
+    {
+        case AircraftNone:
+        {
+            return kAttackRMiss;
+        }
+            break;
+        case AircraftHead:
+        {
+            return kAttackRDestroy;
+        }
+            break;
+        case AircraftBody:
+        {
+            return kAttackRHit;
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)addAircraft:(AAircraftModel *)aircraft
+{
+    if (_aircraftModelAry)
+    {
+        [_aircraftModelAry addObject:aircraft];
+        
+        // add to gird
+        int offsetX = aircraft.orginPos.x;
+        int offsetY = aircraft.orginPos.y;
+        
+        for (int row = offsetX, aRow = 0; row < offsetX + 5; row++, aRow++)
+            for (int col = offsetY, aCol = 0; col < offsetY + 5; col++, aCol++)
+            {
+                _battleFieldGrid[row][col] = [aircraft elementAtRow:aRow col:aCol];
+            }
+    }
+    else
+    {
+        _aircraftModelAry = [NSMutableArray arrayWithObject:aircraft];
+    }
+}
+
+- (void)removeAircraft:(AAircraftModel *)aircraft
+{
+    if (_aircraftModelAry)
+    {
+        if ([_aircraftModelAry containsObject:aircraft])
+        {
+            [_aircraftModelAry removeObject:aircraft];
+            
+            // remove from gird
+            int offsetX = aircraft.orginPos.x;
+            int offsetY = aircraft.orginPos.y;
+            
+            for (int row = offsetX, aRow = 0; row < offsetX + 5; row++, aRow++)
+                for (int col = offsetY, aCol = 0; col < offsetY + 5; col++, aCol++)
+                {
+                    if ([aircraft elementAtRow:aRow col:aCol] != AircraftNone) 
+                        _battleFieldGrid[row][col] = AircraftNone;
+                }
+        }
+    }
+}
+
+- (BOOL)checkPositionForAircraft:(AAircraftModel *)aircraft
+{
+    if (_aircraftModelAry)
+    {
+        if (_aircraftModelAry.count != 0)
+        {
+            int offsetX = aircraft.orginPos.x;
+            int offsetY = aircraft.orginPos.y;
+            
+            for (int row = offsetX, aRow = 0; row < offsetX + 5; row++, aRow++)
+                for (int col = offsetY, aCol = 0; col < offsetY + 5; col++, aCol++)
+                {
+                    if ([aircraft elementAtRow:aRow col:aCol] != AircraftNone &&
+                        _battleFieldGrid[row][col] != AircraftNone)
+                        return NO;
+                }
+            
+            return YES;
+        }
+        else
+        {
+            return YES;
+        }
+    }
+    else
+    {
+        _aircraftModelAry = [NSMutableArray array];
+        return YES;
+    }
 }
 
 @end

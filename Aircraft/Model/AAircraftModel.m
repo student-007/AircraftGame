@@ -34,11 +34,11 @@
 - (NSMutableArray *)arrayForGrid:(int [5][5])grid
 {
     NSMutableArray *res = [NSMutableArray arrayWithCapacity:5];
-    for (int i = 0; i < 5; i++)
+    for (int row = 0; row < 5; row++)
     {
         NSMutableArray *line = [NSMutableArray arrayWithCapacity:5];
-        for (int j = 0; j < 5; j++)
-            [line addObject:[NSNumber numberWithInt:grid[i][j]]];
+        for (int col = 0; col < 5; col++)
+            [line addObject:[NSNumber numberWithInt:grid[row][col]]];
         [res addObject:line];
     }
     return res;
@@ -56,6 +56,7 @@
                 AircraftNone,AircraftNone,AircraftBody,AircraftNone,AircraftNone,
                 AircraftNone,AircraftBody,AircraftBody,AircraftBody,AircraftNone,
                 AircraftNone,AircraftNone,AircraftNone,AircraftNone,AircraftNone};
+            memcpy(_grid, grid, sizeof(int)*25);
             self.gridArray = [NSArray arrayWithArray:[self arrayForGrid:grid]];
         }
             break;
@@ -66,6 +67,7 @@
                 AircraftBody,AircraftBody,AircraftBody,AircraftBody,AircraftBody,
                 AircraftNone,AircraftNone,AircraftHead,AircraftNone,AircraftNone,
                 AircraftNone,AircraftNone,AircraftNone,AircraftNone,AircraftNone};
+            memcpy(_grid, grid, sizeof(int)*25);
             self.gridArray = [NSArray arrayWithArray:[self arrayForGrid:grid]];
         }
             break;
@@ -76,6 +78,7 @@
                 AircraftHead,AircraftBody,AircraftBody,AircraftBody,AircraftNone,
                 AircraftNone,AircraftBody,AircraftNone,AircraftBody,AircraftNone,
                 AircraftNone,AircraftBody,AircraftNone,AircraftNone,AircraftNone};
+            memcpy(_grid, grid, sizeof(int)*25);
             self.gridArray = [NSArray arrayWithArray:[self arrayForGrid:grid]];
         }
             break;
@@ -86,6 +89,7 @@
                 AircraftBody,AircraftBody,AircraftBody,AircraftHead,AircraftNone,
                 AircraftBody,AircraftNone,AircraftBody,AircraftNone,AircraftNone,
                 AircraftNone,AircraftNone,AircraftBody,AircraftNone,AircraftNone};
+            memcpy(_grid, grid, sizeof(int)*25);
             self.gridArray = [NSArray arrayWithArray:[self arrayForGrid:grid]];
         }
             break;
