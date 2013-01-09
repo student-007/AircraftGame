@@ -22,14 +22,34 @@
 {
     [super viewDidLoad];
     
-    self.organizer = [[AGameOrganizer alloc] init];
-    self.chatVC = [self.organizer getChatVC];
-    CGRect chatViewFrame = self.chatVC.view.frame;
-    chatViewFrame.origin.y = [UIScreen mainScreen].bounds.size.height - chatViewFrame.size.height;
-    self.chatVC.view.frame = chatViewFrame;
-    [self.view addSubview:self.chatVC.view];
+//    self.organizer = [[AGameOrganizer alloc] init];
+//    self.chatVC = [self.organizer getChatVC];
+//    CGRect chatViewFrame = self.chatVC.view.frame;
+//    chatViewFrame.origin.y = [UIScreen mainScreen].bounds.size.height - chatViewFrame.size.height;
+//    self.chatVC.view.frame = chatViewFrame;
+//    [self.view addSubview:self.chatVC.view];
     
 //    [self.organizer makeConnectionWithType:ConnectionTypeBluetooth];
+    self.testLabel.userInteractionEnabled = YES;
+    
+//    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
+//    pan.delegate = self;
+//    [self.testImageView addGestureRecognizer:pan];
+//    
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+//    tap.delegate = self;
+//    [self.testImageView addGestureRecognizer:tap];
+    
+}
+- (IBAction)testBtnClicked:(id)sender
+{
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.2 target:self selector:@selector(timerDone) userInfo:nil repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)timerDone
+{
+    NSLog(@"timer done.");
 }
 
 - (IBAction)tapped:(UITapGestureRecognizer *)sender
@@ -50,6 +70,11 @@
         
         [sender setTranslation:CGPointZero inView:self.view];
     }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
 }
 
 //- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -86,6 +111,7 @@
 
 - (void)viewDidUnload {
     [self setTestLabel:nil];
+    [self setTestImageView:nil];
     [super viewDidUnload];
 }
 @end

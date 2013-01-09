@@ -8,19 +8,60 @@
 
 #import "AAircraftImageView.h"
 
-#define kMappingFactor 29
+#define kAircraftUpImageName      @"AircraftUp.png"
+#define kAircraftDownImageName      @"AircraftDown.png"
+#define kAircraftLeftImageName      @"AircraftLeft.png"
+#define kAircraftRightImageName      @"AircraftRight.png"
 
 @implementation AAircraftImageView
 
-- (id)initWithImage:(UIImage *)image
+@synthesize aircraft = _aircraft;
+
+- (AAircraftImageView *)initWithAircraftModel:(AAircraftModel *)aircraft
 {
-    if (self = [super initWithImage:image])
+    UIImage *aircraftImg = nil;
+    switch (aircraft.direction)
     {
-        NSAssert((image.size.width == 5*kMappingFactor && image.size.height == 4*kMappingFactor),
+        case AircraftDirectionNone:
+        {
+            NSAssert(NO, [AErrorFacade errorMessageFromKnownErrorCode:kECAircraftVNoneDirection]);
+        }
+            break;
+        case AircraftDirectionUp:
+        {
+            aircraftImg = [UIImage imageNamed:kAircraftUpImageName];
+        }
+            break;
+        case AircraftDirectionDown:
+        {
+            
+            aircraftImg = [UIImage imageNamed:kAircraftDownImageName];
+        }
+            break;
+        case AircraftDirectionLeft:
+        {
+            
+            aircraftImg = [UIImage imageNamed:kAircraftLeftImageName];
+        }
+            break;
+        case AircraftDirectionRight:
+        {
+            
+            aircraftImg = [UIImage imageNamed:kAircraftRightImageName];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    if (self = [super initWithImage:aircraftImg])
+    {
+        NSAssert((aircraftImg.size.width == 5 * kMappingFactor &&
+                  aircraftImg.size.height == 4 * kMappingFactor),
                  @"[error]: wrong size of aircraft image, should be (%d, %d).", 5*kMappingFactor,4*kMappingFactor);
         self.userInteractionEnabled = YES;
-        _aircraftImage = image;
-        _isTouchingAircraftBody = NO;
         
         // create a aircraft path has a dircetion of UP
         _pathRef=CGPathCreateMutable();
@@ -42,45 +83,31 @@
         CGPathAddLineToPoint(_pathRef, NULL, 0, 2 * kMappingFactor);
         CGPathAddLineToPoint(_pathRef, NULL, 0, kMappingFactor);
         CGPathCloseSubpath(_pathRef);
+        
+        _aircraft = aircraft;
+        
+        [self setDirection:aircraft.direction];
+        [self adjustFrameBasedOnAircraftOrginPos:aircraft.orginPos];
     }
     return self;
 }
 
-- (CGPoint)orgin
+- (void)adjustFrameBasedOnAircraftOrginPos:(CGPoint)orgin
 {
-    return _aircraft ?
-    CGPointMake(_aircraft.orginPos.x * kMappingFactor, _aircraft.orginPos.y * kMappingFactor) :
-    CGPointMake(-1, -1);
-}
-
-- (void)setOrgin:(CGPoint)orgin
-{
-    NSAssert((((int)orgin.x % kMappingFactor == 0) || ((int)orgin.y % kMappingFactor == 0)), [AErrorFacade errorMessageFromKnownErrorCode:4001]);
-    if (!_aircraft)
-        _aircraft = [[AAircraftModel alloc] init];
-    
-    _aircraft.orginPos = CGPointMake(orgin.x / kMappingFactor, orgin.y / kMappingFactor);
-}
-
-#pragma mark - property
-
-- (AAircraftModel *)aircraft
-{
-    return _aircraft ? _aircraft : nil;
-}
-
-- (AircraftDirection)direction
-{
-    return _aircraft ? _aircraft.direction : -1;
+    int orginX = orgin.x * kMappingFactor;
+    int orginY = orgin.y * kMappingFactor;
+    self.frame = CGRectMake(orginX, orginY, self.frame.size.width, self.frame.size.height);
 }
 
 - (void)setDirection:(AircraftDirection)direction
 {
-    if (!_aircraft)
-        _aircraft = [[AAircraftModel alloc] init];
-    
-    switch (_aircraft.direction = direction)
+    switch (direction)
     {
+        case AircraftDirectionNone:
+        {
+            NSLog(@"[warning]: set aircraft direction none at aircraft image view!");
+        }
+            break;
         case AircraftDirectionUp:
         {
             
@@ -108,6 +135,60 @@
         default:
             break;
     }
+}
+
+- (BOOL)isTouchingAircraftBodyForPoint:(CGPoint)point
+{
+    switch (self.aircraft.direction)
+    {
+        case AircraftDirectionNone:
+        {
+            return NO;
+        }
+            break;
+        case AircraftDirectionUp:
+        {
+            if (CGPathContainsPoint(_pathRef, NULL, point, NO))
+                return YES;
+            else
+                return NO;
+        }
+            break;
+        case AircraftDirectionDown:
+        {
+            //            CGAffineTransform transf = CGAffineTransformMakeRotation(M_PI);
+            if (CGPathContainsPoint(_pathRef, NULL, point, NO))
+                return YES;
+            else
+                return NO;
+        }
+            break;
+        case AircraftDirectionLeft:
+        {
+            //            CGAffineTransform transf = CGAffineTransformMakeRotation(-M_PI_2);
+            if (CGPathContainsPoint(_pathRef, NULL, point, NO))
+                return YES;
+            else
+                return NO;
+        }
+            break;
+        case AircraftDirectionRight:
+        {
+            //            CGAffineTransform transf = CGAffineTransformMakeRotation(M_PI_2);
+            if (CGPathContainsPoint(_pathRef, NULL, point, NO))
+                return YES;
+            else
+                return NO;
+        }
+            break;
+        default:
+            return NO;
+    }
+}
+
+- (AAircraftModel *)aircraft
+{
+    return _aircraft ? _aircraft : nil;
 }
 
 @end

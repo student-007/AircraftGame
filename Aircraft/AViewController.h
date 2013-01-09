@@ -12,12 +12,13 @@
 #import "AChattingViewController.h"
 #import "AGameOrganizer.h"
 
-@interface AViewController : UIViewController
+@interface AViewController : UIViewController <UIGestureRecognizerDelegate>
 {
     AAircraftImageView *_aircraftImgView;
     AChattingViewController *_chatVC;
 }
-@property (weak, nonatomic) IBOutlet UILabel *testLabel;
+@property (strong, nonatomic) IBOutlet UILabel *testLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *testImageView;
 @property (strong, nonatomic) AGameOrganizer *organizer;
 
 @end

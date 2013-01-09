@@ -25,6 +25,11 @@
 // organizer errors
 #define kECOrganizerCommunicatorNotFoundOrEnpty     3001
 
+// aircraft
+
+// aircraft view
+#define kECAircraftVNoneDirection       5001
+
 typedef enum
 {
     ErrorTrivial    = 1,

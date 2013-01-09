@@ -10,14 +10,22 @@
 
 typedef enum
 {
+    AircraftDirectionNone = -1,
     AircraftDirectionUp = 8,
     AircraftDirectionDown = 2,
     AircraftDirectionLeft = 4,
     AircraftDirectionRight = 6,
 }AircraftDirection;
 
-#define kAircraftBody    1
-#define kAircraftHead    2
+typedef enum
+{
+    AircraftNone        = 0,
+    AircraftHead        = 1,
+    AircraftBody        = 2
+}AircraftPart;
+
+//#define kAircraftBody    1
+//#define kAircraftHead    2
 
 @interface AAircraftModel : NSObject
 {
@@ -50,6 +58,6 @@ typedef enum
 + (AAircraftModel *)aircraftWithOrgin:(CGPoint)orgin direction:(AircraftDirection)direction;
 + (AAircraftModel *)aircraftFromSavableDictionary:(NSDictionary *)savableDictionary;
 
-- (NSInteger)elementAtRow:(NSInteger)row col:(NSInteger)col;
+- (AircraftPart)elementAtRow:(NSInteger)row col:(NSInteger)col;
 
 @end

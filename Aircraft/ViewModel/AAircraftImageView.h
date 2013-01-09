@@ -9,24 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "AAircraftModel.h"
 
+#define kMappingFactor 29
+
 @interface AAircraftImageView : UIImageView
 {
     AAircraftModel *_aircraft;
     CGMutablePathRef _pathRef;
-    UIImage *_aircraftImage;
-    BOOL _isTouchingAircraftBody;
 }
 
 #pragma mark - properties
-/*!
- @discussion aircraft's direction. setting this can effect how image show
- */
-@property (nonatomic) AircraftDirection direction;
-
-/*!
- @discussion aircraft's orgin, set this EQUAL TO FRAME's ORGIN ONLY after calculated position in battle grid
- */
-@property (nonatomic) CGPoint orgin;
 
 /*!
  @discussion aircraft model stored within self
@@ -35,5 +26,11 @@
 
 #pragma mark - methods
 
+- (AAircraftImageView *)initWithAircraftModel:(AAircraftModel *)aircraft;
+
+/*!
+ @discussion check if the point is currently touching aircraft body. The point is based on self's coordinate system.
+ */
+- (BOOL)isTouchingAircraftBodyForPoint:(CGPoint)point;
 
 @end

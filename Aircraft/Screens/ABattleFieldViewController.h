@@ -8,18 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "AUIBattleFieldView.h"
-#import "AAircraftModel.h"
+#import "AAircraftImageView.h"
+#import "ABattleFieldModel.h"
 
 @protocol ABattleFieldVCDelegate;
 
-@interface ABattleFieldViewController : UIViewController
+@interface ABattleFieldViewController : UIViewController <UIGestureRecognizerDelegate>
+{
+    ABattleFieldModel *_battleFldModel;
+}
 
 @property (assign, nonatomic) id<ABattleFieldVCDelegate> delegate;
 @property (strong, nonatomic) IBOutlet AUIBattleFieldView *view;
-@property (nonatomic) CGPoint attackPoint;
+@property (strong, nonatomic) IBOutlet UIImageView *battleFieldImgView;
 
-- (BOOL)addAircraft:(AAircraftModel *)aircraft error:(NSError **)error; // error: aircraft cant fit 
-- (BOOL)removeAircraft:(AAircraftModel *)aircraft error:(NSError **)error; // error: no such aircraft at position
+
+- (BOOL)addAircraft:(AAircraftModel *)aircraft;
 
 /*!
  @discussion return the defined string: kAttackRMiss kAttackRHit kAttackRDestroy. points are row and col(intgers value)
@@ -35,7 +39,7 @@
 
 @required
 - (void)userWantsToSwitchFieldFrom:(ABattleFieldViewController *)currentBattleField;
-
+- (BOOL)userWantsToRemoveAircraft:(AAircraftModel *)aircraft;
 /*!
  @discussion this point is the row and col in grid(intgers value)
  */

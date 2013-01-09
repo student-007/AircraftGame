@@ -87,6 +87,8 @@
 		9F99BE95168AC77F00A0FD2F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F99BE94168AC77F00A0FD2F /* GameKit.framework */; };
 		9F99BE9D168B6E2A00A0FD2F /* AMessageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE9C168B6E2900A0FD2F /* AMessageParser.m */; };
 		9F99BE9E168B6E2A00A0FD2F /* AMessageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE9C168B6E2900A0FD2F /* AMessageParser.m */; };
+		9FB0B4F5169CFBAD00416B93 /* ABattleFieldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */; };
+		9FB0B4F6169CFBAD00416B93 /* ABattleFieldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +159,8 @@
 		9F99BE94168AC77F00A0FD2F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		9F99BE9B168B6E2900A0FD2F /* AMessageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMessageParser.h; path = Model/AMessageParser.h; sourceTree = "<group>"; };
 		9F99BE9C168B6E2900A0FD2F /* AMessageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMessageParser.m; path = Model/AMessageParser.m; sourceTree = "<group>"; };
+		9FB0B4F3169CFBAC00416B93 /* ABattleFieldModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABattleFieldModel.h; path = Model/ABattleFieldModel.h; sourceTree = "<group>"; };
+		9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABattleFieldModel.m; path = Model/ABattleFieldModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +328,8 @@
 				9F99BE9C168B6E2900A0FD2F /* AMessageParser.m */,
 				9F57A008168516C20069DA95 /* AAircraftModel.h */,
 				9F57A009168516C20069DA95 /* AAircraftModel.m */,
+				9FB0B4F3169CFBAC00416B93 /* ABattleFieldModel.h */,
+				9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -499,6 +505,7 @@
 				9F4F8AD116936B71006254D4 /* APlayViewController.m in Sources */,
 				9F4F8AE0169373EF006254D4 /* ABattleFieldViewController.m in Sources */,
 				9F4F8AE6169378C8006254D4 /* AUIBattleFieldView.m in Sources */,
+				9FB0B4F5169CFBAD00416B93 /* ABattleFieldModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +535,7 @@
 				9F4F8AD216936B71006254D4 /* APlayViewController.m in Sources */,
 				9F4F8AE1169373EF006254D4 /* ABattleFieldViewController.m in Sources */,
 				9F4F8AE7169378C8006254D4 /* AUIBattleFieldView.m in Sources */,
+				9FB0B4F6169CFBAD00416B93 /* ABattleFieldModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

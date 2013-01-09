@@ -33,3 +33,6 @@
 
 // aircraft
 "ErrorCode4001" = "Aircraft image can not be mapped to the battle field view";
+
+// aircraft view
+"ErrorCode5001" = "Have not setup aircraft direction(currently NONE) at aircraft image view!";

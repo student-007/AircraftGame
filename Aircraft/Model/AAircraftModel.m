@@ -18,7 +18,7 @@
 {
     if (self = [super init])
     {
-        _direction = -1;
+        _direction = AircraftDirectionNone;
         _orginPos = CGPointMake(-1, -1);
     }
     return self;
@@ -51,41 +51,41 @@
     {
         case AircraftDirectionUp:
         {
-            int grid[5][5] = {0,0,kAircraftHead,0,0,
-                kAircraftBody,kAircraftBody,kAircraftBody,kAircraftBody,kAircraftBody,
-                0,0,kAircraftBody,0,0,
-                0,kAircraftBody,kAircraftBody,kAircraftBody,0,
-                0,0,0,0,0};
+            int grid[5][5] = {AircraftNone,AircraftNone,AircraftHead,AircraftNone,AircraftNone,
+                AircraftBody,AircraftBody,AircraftBody,AircraftBody,AircraftBody,
+                AircraftNone,AircraftNone,AircraftBody,AircraftNone,AircraftNone,
+                AircraftNone,AircraftBody,AircraftBody,AircraftBody,AircraftNone,
+                AircraftNone,AircraftNone,AircraftNone,AircraftNone,AircraftNone};
             self.gridArray = [NSArray arrayWithArray:[self arrayForGrid:grid]];
         }
             break;
         case AircraftDirectionDown:
         {
-            int grid[5][5] =  {0,kAircraftBody,kAircraftBody,kAircraftBody,0,
-                0,0,kAircraftBody,0,0,
-                kAircraftBody,kAircraftBody,kAircraftBody,kAircraftBody,kAircraftBody,
-                0,0,kAircraftHead,0,0,
-                0,0,0,0,0};
+            int grid[5][5] =  {AircraftNone,AircraftBody,AircraftBody,AircraftBody,AircraftNone,
+                AircraftNone,AircraftNone,AircraftBody,AircraftNone,AircraftNone,
+                AircraftBody,AircraftBody,AircraftBody,AircraftBody,AircraftBody,
+                AircraftNone,AircraftNone,AircraftHead,AircraftNone,AircraftNone,
+                AircraftNone,AircraftNone,AircraftNone,AircraftNone,AircraftNone};
             self.gridArray = [NSArray arrayWithArray:[self arrayForGrid:grid]];
         }
             break;
         case AircraftDirectionLeft:
         {
-            int grid[5][5] =  {0,kAircraftBody,0,0,0,
-                0,kAircraftBody,0,kAircraftBody,0,
-                kAircraftHead,kAircraftBody,kAircraftBody,kAircraftBody,0,
-                0,kAircraftBody,0,kAircraftBody,0,
-                0,kAircraftBody,0,0,0};
+            int grid[5][5] =  {AircraftNone,AircraftBody,AircraftNone,AircraftNone,AircraftNone,
+                AircraftNone,AircraftBody,AircraftNone,AircraftBody,AircraftNone,
+                AircraftHead,AircraftBody,AircraftBody,AircraftBody,AircraftNone,
+                AircraftNone,AircraftBody,AircraftNone,AircraftBody,AircraftNone,
+                AircraftNone,AircraftBody,AircraftNone,AircraftNone,AircraftNone};
             self.gridArray = [NSArray arrayWithArray:[self arrayForGrid:grid]];
         }
             break;
         case AircraftDirectionRight:
         {
-            int grid[5][5] =  {0,0,kAircraftBody,0,0,
-                kAircraftBody,0,kAircraftBody,0,0,
-                kAircraftBody,kAircraftBody,kAircraftBody,kAircraftHead,0,
-                kAircraftBody,0,kAircraftBody,0,0,
-                0,0,kAircraftBody,0,0};
+            int grid[5][5] =  {AircraftNone,AircraftNone,AircraftBody,AircraftNone,AircraftNone,
+                AircraftBody,AircraftNone,AircraftBody,AircraftNone,AircraftNone,
+                AircraftBody,AircraftBody,AircraftBody,AircraftHead,AircraftNone,
+                AircraftBody,AircraftNone,AircraftBody,AircraftNone,AircraftNone,
+                AircraftNone,AircraftNone,AircraftBody,AircraftNone,AircraftNone};
             self.gridArray = [NSArray arrayWithArray:[self arrayForGrid:grid]];
         }
             break;
@@ -120,7 +120,7 @@
     return [NSString stringWithFormat:@"[AAircraftModel] direction value: %d, orgin: (%f,%f)", _direction, _orginPos.x, _orginPos.y];
 }
 
-- (NSInteger)elementAtRow:(NSInteger)row col:(NSInteger)col
+- (AircraftPart)elementAtRow:(NSInteger)row col:(NSInteger)col
 {
     return [[[self.gridArray objectAtIndex:row] objectAtIndex:col] intValue];
 }
