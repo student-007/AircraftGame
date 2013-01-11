@@ -192,7 +192,7 @@
     
     // be noticed, the original keyboard is 216 tall [Yufei Lang 4/10/2012]
     CGRect selfViewRect = self.view.frame;
-    selfViewRect.origin.y = keyboardRect.origin.y - selfViewRect.size.height;
+    selfViewRect.origin.y = keyboardRect.origin.y - 20.0f - selfViewRect.size.height;
     [self.view setFrame:selfViewRect];
     
     [UIView commitAnimations];

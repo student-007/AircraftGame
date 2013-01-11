@@ -11,18 +11,29 @@
 @interface AGameOrganizer ()
 
 @property (strong, nonatomic) AChattingViewController *chatVC;
-@property (strong, nonatomic) ABattleFieldViewController *BattleFldVCEnemy;
-@property (strong, nonatomic) ABattleFieldViewController *BattleFldVCSelf;
+@property (strong, nonatomic) ABattleFieldViewController *battleFldVCEnemy;
+@property (strong, nonatomic) ABattleFieldViewController *battleFldVCSelf;
 
 @end
 
 @implementation AGameOrganizer
 
++ (AGameOrganizer *)sharedInstance
+{
+    static AGameOrganizer *organizer = nil;
+    if (!organizer)
+    {
+        organizer = [[AGameOrganizer alloc] init];
+    }
+    return organizer;
+}
+
 - (void)reset
 {
     [self.communicator closeConnection];
     self.chatVC = nil;
-    
+    self.battleFldVCEnemy = nil;
+    self.battleFldVCSelf = nil;
 }
 
 #pragma mark - communication controls
@@ -139,25 +150,25 @@
 {
     if (faction == BattleFieldEnemy)
     {
-        if (!self.BattleFldVCEnemy)
+        if (!self.battleFldVCEnemy)
         {
-            self.BattleFldVCEnemy = [[ABattleFieldViewController alloc] initWithNibName:@"ABattleFieldViewController" bundle:nil];
-            self.BattleFldVCEnemy.faction = faction;
-            self.BattleFldVCEnemy.delegate = self;
+            self.battleFldVCEnemy = [[ABattleFieldViewController alloc] initWithNibName:@"ABattleFieldViewController" bundle:nil];
+            self.battleFldVCEnemy.faction = faction;
+            self.battleFldVCEnemy.delegate = self;
         }
         
-        return self.BattleFldVCEnemy;
+        return self.battleFldVCEnemy;
     }
     else if (faction == BattleFieldSelf)
     {
-        if (!self.BattleFldVCSelf)
+        if (!self.battleFldVCSelf)
         {
-            self.BattleFldVCSelf = [[ABattleFieldViewController alloc] initWithNibName:@"ABattleFieldViewController" bundle:nil];
-            self.BattleFldVCSelf.faction = faction;
-            self.BattleFldVCSelf.delegate = self;
+            self.battleFldVCSelf = [[ABattleFieldViewController alloc] initWithNibName:@"ABattleFieldViewController" bundle:nil];
+            self.battleFldVCSelf.faction = faction;
+            self.battleFldVCSelf.delegate = self;
         }
         
-        return self.BattleFldVCSelf;
+        return self.battleFldVCSelf;
     }
     else
         return nil;

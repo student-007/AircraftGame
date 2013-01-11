@@ -14,11 +14,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.viewController = [[AViewController alloc] initWithNibName:@"AViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
+    [UIApplication sharedApplication].statusBarHidden = NO;
     
 #ifdef LITE_VERSION
     NSLog(@"lite version");
@@ -26,7 +22,11 @@
     NSLog(@"plus version");
 #endif
     
-    [UIApplication sharedApplication].statusBarHidden = NO;
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.playScreenVC = [[APlayScreenViewController alloc] initWithNibName:@"APlayScreenViewController" bundle:nil];
+    self.window.rootViewController = self.playScreenVC;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

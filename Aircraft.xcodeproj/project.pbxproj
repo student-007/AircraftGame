@@ -34,6 +34,10 @@
 		9F049D391684367F007F5AC2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF016843296007F5AC2 /* Default.png */; };
 		9F049D3A1684367F007F5AC2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF21684329A007F5AC2 /* Default@2x.png */; };
 		9F049D5C16850A8E007F5AC2 /* AircraftPlusInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */; };
+		9F34C351169FD0BB00908B8C /* APlayScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F34C34F169FD0BB00908B8C /* APlayScreenViewController.m */; };
+		9F34C352169FD0BB00908B8C /* APlayScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F34C34F169FD0BB00908B8C /* APlayScreenViewController.m */; };
+		9F34C353169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F34C350169FD0BB00908B8C /* APlayScreenViewController.xib */; };
+		9F34C354169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F34C350169FD0BB00908B8C /* APlayScreenViewController.xib */; };
 		9F4436C2168E1A920006D521 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436C0168E1A920006D521 /* Localizable.strings */; };
 		9F4436C3168E1A920006D521 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436C0168E1A920006D521 /* Localizable.strings */; };
 		9F4436C8168E21F00006D521 /* ALocale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436C7168E21F00006D521 /* ALocale.m */; };
@@ -112,6 +116,9 @@
 		9F049CF21684329A007F5AC2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		9F049D3E1684367F007F5AC2 /* AircraftPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AircraftPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AircraftPlusInfo.plist; sourceTree = SOURCE_ROOT; };
+		9F34C34E169FD0BB00908B8C /* APlayScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APlayScreenViewController.h; path = Screens/APlayScreenViewController.h; sourceTree = "<group>"; };
+		9F34C34F169FD0BB00908B8C /* APlayScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APlayScreenViewController.m; path = Screens/APlayScreenViewController.m; sourceTree = "<group>"; };
+		9F34C350169FD0BB00908B8C /* APlayScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APlayScreenViewController.xib; path = Screens/APlayScreenViewController.xib; sourceTree = "<group>"; };
 		9F4436C1168E1A920006D521 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Aircraft/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F4436C4168E1B770006D521 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Aircraft/zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9F4436C6168E21F00006D521 /* ALocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALocale.h; path = Aircraft/Locale/ALocale.h; sourceTree = "<group>"; };
@@ -298,6 +305,9 @@
 				9F4F8ADD169373EF006254D4 /* ABattleFieldViewController.h */,
 				9F4F8ADE169373EF006254D4 /* ABattleFieldViewController.m */,
 				9F4F8ADF169373EF006254D4 /* ABattleFieldViewController.xib */,
+				9F34C34E169FD0BB00908B8C /* APlayScreenViewController.h */,
+				9F34C34F169FD0BB00908B8C /* APlayScreenViewController.m */,
+				9F34C350169FD0BB00908B8C /* APlayScreenViewController.xib */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -452,6 +462,7 @@
 				9F5FE2411690DBEF006A4961 /* pencil_image.png in Resources */,
 				9F4F8AD316936B71006254D4 /* APlayViewController.xib in Resources */,
 				9F4F8AE2169373EF006254D4 /* ABattleFieldViewController.xib in Resources */,
+				9F34C353169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +484,7 @@
 				9F5FE2421690DBEF006A4961 /* pencil_image.png in Resources */,
 				9F4F8AD416936B71006254D4 /* APlayViewController.xib in Resources */,
 				9F4F8AE3169373EF006254D4 /* ABattleFieldViewController.xib in Resources */,
+				9F34C354169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +518,7 @@
 				9F4F8AE0169373EF006254D4 /* ABattleFieldViewController.m in Sources */,
 				9F4F8AE6169378C8006254D4 /* AUIBattleFieldView.m in Sources */,
 				9FB0B4F5169CFBAD00416B93 /* ABattleFieldModel.m in Sources */,
+				9F34C351169FD0BB00908B8C /* APlayScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +549,7 @@
 				9F4F8AE1169373EF006254D4 /* ABattleFieldViewController.m in Sources */,
 				9F4F8AE7169378C8006254D4 /* AUIBattleFieldView.m in Sources */,
 				9FB0B4F6169CFBAD00416B93 /* ABattleFieldModel.m in Sources */,
+				9F34C352169FD0BB00908B8C /* APlayScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

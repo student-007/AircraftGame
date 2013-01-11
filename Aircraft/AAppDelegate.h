@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class AViewController;
+#import "APlayScreenViewController.h"
 
 @interface AAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) AViewController *viewController;
+@property (strong, nonatomic) APlayScreenViewController *playScreenVC;
 
 @end

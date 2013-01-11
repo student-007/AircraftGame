@@ -15,6 +15,8 @@
 
 @property (strong, nonatomic) ACommunicator *communicator;
 
++ (AGameOrganizer *)sharedInstance;
+
 - (AChattingViewController *)getChatVC;
 - (ABattleFieldViewController *)getBattleFieldVCFaction:(BattleFieldType)faction;
 
