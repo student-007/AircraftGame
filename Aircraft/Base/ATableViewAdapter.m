@@ -434,14 +434,14 @@
 - (void)addSection:(Class)cellTemplateClass forKey:(NSString *)key withData:(id) dataSource target:(id)target action:(SEL)selectionAction
 {
     ATableViewAdapterPanelSection *section = nil;
-    if ([dataSource count])
+    if ([(NSArray *)dataSource count])
     {
         section = [[ATableViewAdapterPanelSection alloc]init];
         section.key = key;
         
         int idx = 0;
         
-        while (idx < [dataSource count])
+        while (idx < [(NSArray *)dataSource count])
         {
             ATableViewAdapterPanel *panel = nil;
             id data = [dataSource objectAtIndex:idx];

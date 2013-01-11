@@ -8,9 +8,57 @@
 
 #import "AAppDelegate.h"
 
-#import "AViewController.h"
-
 @implementation AAppDelegate
+
++ (AAppDelegate *)sharedInstance
+{
+    return (AAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (void)pushScreen:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [self.navigationController pushViewController:viewController animated:animated];
+}
+
+- (BOOL)popScreen:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if (self.navigationController.topViewController == viewController)
+    {
+        [self.navigationController popViewControllerAnimated:animated];
+        return YES;
+    }
+    return NO;
+}
+
+- (void)popToScreen:(UIViewController *)viewController animated:(BOOL)animated
+{
+    [self.navigationController popToViewController:viewController animated:animated];
+    // if the above method has system bug, use the following method [yufei]
+//    return [self popToScreenFixed:viewController animated:animated];
+}
+
+- (BOOL)popToScreenFixed:(UIViewController *)viewController animated:(BOOL)animated
+{
+    NSArray *viewControllersOnStack = self.navigationController.viewControllers;
+    
+    NSUInteger index = [viewControllersOnStack indexOfObject:viewController];
+    if (NSNotFound != index && index < [viewControllersOnStack count])
+    {
+        if (index < ([viewControllersOnStack count] - 1))
+        {
+            NSMutableArray *modifiedStack = [NSMutableArray arrayWithArray:viewControllersOnStack];
+            // index is not the last object
+            index++;
+            NSRange popRange = NSMakeRange(index, [modifiedStack count] - index);
+            [modifiedStack removeObjectsInRange:popRange];
+            
+            //setting view controllers directly as popToViewController: looks buggy
+            [self.navigationController setViewControllers:modifiedStack animated:animated];
+        }
+        return YES;
+    }
+    return NO;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,8 +71,14 @@
 #endif
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.playScreenVC = [[APlayScreenViewController alloc] initWithNibName:@"APlayScreenViewController" bundle:nil];
-    self.window.rootViewController = self.playScreenVC;
+    
+    AWelcomeScreenViewController *welcomeScreenVC = [[AWelcomeScreenViewController alloc] initWithNibName:@"AWelcomeScreenViewController" bundle:nil];
+    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:welcomeScreenVC];
+    self.window.rootViewController = self.navigationController;
+    
+    [self.navigationController setNavigationBarHidden:YES];
+    
     [self.window makeKeyAndVisible];
     
     return YES;

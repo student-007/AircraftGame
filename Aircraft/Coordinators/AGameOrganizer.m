@@ -28,6 +28,15 @@
     return organizer;
 }
 
+- (id)init
+{
+    if (self = [super init])
+    {
+        self.connectionType = ConnectionTypeNone;
+    }
+    return self;
+}
+
 - (void)reset
 {
     [self.communicator closeConnection];
@@ -50,7 +59,7 @@
     {
         case ConnectionTypeNone:
         {
-            
+            NSLog(@"[error]: Can not make connection with connection type NONE!");
         }
             break;
         case ConnectionTypeBluetooth:

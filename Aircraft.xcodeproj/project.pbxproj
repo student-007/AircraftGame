@@ -14,21 +14,17 @@
 		9F049CD216842BBA007F5AC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F049CD116842BBA007F5AC2 /* main.m */; };
 		9F049CD616842BBA007F5AC2 /* AAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F049CD516842BBA007F5AC2 /* AAppDelegate.m */; };
 		9F049CDC16842BBA007F5AC2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CDB16842BBA007F5AC2 /* Default-568h@2x.png */; };
-		9F049CDF16842BBA007F5AC2 /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F049CDE16842BBA007F5AC2 /* AViewController.m */; };
-		9F049CE216842BBA007F5AC2 /* AViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CE016842BBA007F5AC2 /* AViewController.xib */; };
 		9F049CED1684322F007F5AC2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CEC1684322F007F5AC2 /* icon.png */; };
 		9F049CEF1684323E007F5AC2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CEE1684323E007F5AC2 /* icon@2x.png */; };
 		9F049CF116843296007F5AC2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF016843296007F5AC2 /* Default.png */; };
 		9F049CF31684329A007F5AC2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF21684329A007F5AC2 /* Default@2x.png */; };
 		9F049D2C1684367F007F5AC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F049CD116842BBA007F5AC2 /* main.m */; };
 		9F049D2D1684367F007F5AC2 /* AAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F049CD516842BBA007F5AC2 /* AAppDelegate.m */; };
-		9F049D2E1684367F007F5AC2 /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F049CDE16842BBA007F5AC2 /* AViewController.m */; };
 		9F049D301684367F007F5AC2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F049CC516842BBA007F5AC2 /* UIKit.framework */; };
 		9F049D311684367F007F5AC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F049CC716842BBA007F5AC2 /* Foundation.framework */; };
 		9F049D321684367F007F5AC2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F049CC916842BBA007F5AC2 /* CoreGraphics.framework */; };
 		9F049D341684367F007F5AC2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CCE16842BBA007F5AC2 /* InfoPlist.strings */; };
 		9F049D351684367F007F5AC2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CDB16842BBA007F5AC2 /* Default-568h@2x.png */; };
-		9F049D361684367F007F5AC2 /* AViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CE016842BBA007F5AC2 /* AViewController.xib */; };
 		9F049D371684367F007F5AC2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CEC1684322F007F5AC2 /* icon.png */; };
 		9F049D381684367F007F5AC2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CEE1684323E007F5AC2 /* icon@2x.png */; };
 		9F049D391684367F007F5AC2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF016843296007F5AC2 /* Default.png */; };
@@ -38,6 +34,10 @@
 		9F34C352169FD0BB00908B8C /* APlayScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F34C34F169FD0BB00908B8C /* APlayScreenViewController.m */; };
 		9F34C353169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F34C350169FD0BB00908B8C /* APlayScreenViewController.xib */; };
 		9F34C354169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F34C350169FD0BB00908B8C /* APlayScreenViewController.xib */; };
+		9F34C359169FDD1A00908B8C /* AWelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F34C357169FDD1A00908B8C /* AWelcomeScreenViewController.m */; };
+		9F34C35A169FDD1A00908B8C /* AWelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F34C357169FDD1A00908B8C /* AWelcomeScreenViewController.m */; };
+		9F34C35B169FDD1A00908B8C /* AWelcomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F34C358169FDD1A00908B8C /* AWelcomeScreenViewController.xib */; };
+		9F34C35C169FDD1A00908B8C /* AWelcomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F34C358169FDD1A00908B8C /* AWelcomeScreenViewController.xib */; };
 		9F4436C2168E1A920006D521 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436C0168E1A920006D521 /* Localizable.strings */; };
 		9F4436C3168E1A920006D521 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436C0168E1A920006D521 /* Localizable.strings */; };
 		9F4436C8168E21F00006D521 /* ALocale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436C7168E21F00006D521 /* ALocale.m */; };
@@ -107,9 +107,6 @@
 		9F049CD416842BBA007F5AC2 /* AAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAppDelegate.h; sourceTree = "<group>"; };
 		9F049CD516842BBA007F5AC2 /* AAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAppDelegate.m; sourceTree = "<group>"; };
 		9F049CDB16842BBA007F5AC2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		9F049CDD16842BBA007F5AC2 /* AViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AViewController.h; sourceTree = "<group>"; };
-		9F049CDE16842BBA007F5AC2 /* AViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
-		9F049CE116842BBA007F5AC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AViewController.xib; sourceTree = "<group>"; };
 		9F049CEC1684322F007F5AC2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 		9F049CEE1684323E007F5AC2 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 		9F049CF016843296007F5AC2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -119,6 +116,9 @@
 		9F34C34E169FD0BB00908B8C /* APlayScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APlayScreenViewController.h; path = Screens/APlayScreenViewController.h; sourceTree = "<group>"; };
 		9F34C34F169FD0BB00908B8C /* APlayScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APlayScreenViewController.m; path = Screens/APlayScreenViewController.m; sourceTree = "<group>"; };
 		9F34C350169FD0BB00908B8C /* APlayScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APlayScreenViewController.xib; path = Screens/APlayScreenViewController.xib; sourceTree = "<group>"; };
+		9F34C356169FDD1A00908B8C /* AWelcomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWelcomeScreenViewController.h; path = Screens/AWelcomeScreenViewController.h; sourceTree = "<group>"; };
+		9F34C357169FDD1A00908B8C /* AWelcomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWelcomeScreenViewController.m; path = Screens/AWelcomeScreenViewController.m; sourceTree = "<group>"; };
+		9F34C358169FDD1A00908B8C /* AWelcomeScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AWelcomeScreenViewController.xib; path = Screens/AWelcomeScreenViewController.xib; sourceTree = "<group>"; };
 		9F4436C1168E1A920006D521 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Aircraft/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F4436C4168E1B770006D521 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Aircraft/zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9F4436C6168E21F00006D521 /* ALocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALocale.h; path = Aircraft/Locale/ALocale.h; sourceTree = "<group>"; };
@@ -238,9 +238,6 @@
 				9F57A0061685164D0069DA95 /* Model */,
 				9F049CD416842BBA007F5AC2 /* AAppDelegate.h */,
 				9F049CD516842BBA007F5AC2 /* AAppDelegate.m */,
-				9F049CDD16842BBA007F5AC2 /* AViewController.h */,
-				9F049CDE16842BBA007F5AC2 /* AViewController.m */,
-				9F049CE016842BBA007F5AC2 /* AViewController.xib */,
 				9F049CCC16842BBA007F5AC2 /* Supporting Files */,
 			);
 			path = Aircraft;
@@ -308,6 +305,9 @@
 				9F34C34E169FD0BB00908B8C /* APlayScreenViewController.h */,
 				9F34C34F169FD0BB00908B8C /* APlayScreenViewController.m */,
 				9F34C350169FD0BB00908B8C /* APlayScreenViewController.xib */,
+				9F34C356169FDD1A00908B8C /* AWelcomeScreenViewController.h */,
+				9F34C357169FDD1A00908B8C /* AWelcomeScreenViewController.m */,
+				9F34C358169FDD1A00908B8C /* AWelcomeScreenViewController.xib */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -449,7 +449,6 @@
 			files = (
 				9F049CD016842BBA007F5AC2 /* InfoPlist.strings in Resources */,
 				9F049CDC16842BBA007F5AC2 /* Default-568h@2x.png in Resources */,
-				9F049CE216842BBA007F5AC2 /* AViewController.xib in Resources */,
 				9F049CED1684322F007F5AC2 /* icon.png in Resources */,
 				9F049CEF1684323E007F5AC2 /* icon@2x.png in Resources */,
 				9F049CF116843296007F5AC2 /* Default.png in Resources */,
@@ -463,6 +462,7 @@
 				9F4F8AD316936B71006254D4 /* APlayViewController.xib in Resources */,
 				9F4F8AE2169373EF006254D4 /* ABattleFieldViewController.xib in Resources */,
 				9F34C353169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */,
+				9F34C35B169FDD1A00908B8C /* AWelcomeScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +472,6 @@
 			files = (
 				9F049D341684367F007F5AC2 /* InfoPlist.strings in Resources */,
 				9F049D351684367F007F5AC2 /* Default-568h@2x.png in Resources */,
-				9F049D361684367F007F5AC2 /* AViewController.xib in Resources */,
 				9F049D371684367F007F5AC2 /* icon.png in Resources */,
 				9F049D381684367F007F5AC2 /* icon@2x.png in Resources */,
 				9F049D391684367F007F5AC2 /* Default.png in Resources */,
@@ -485,6 +484,7 @@
 				9F4F8AD416936B71006254D4 /* APlayViewController.xib in Resources */,
 				9F4F8AE3169373EF006254D4 /* ABattleFieldViewController.xib in Resources */,
 				9F34C354169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */,
+				9F34C35C169FDD1A00908B8C /* AWelcomeScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +497,6 @@
 			files = (
 				9F049CD216842BBA007F5AC2 /* main.m in Sources */,
 				9F049CD616842BBA007F5AC2 /* AAppDelegate.m in Sources */,
-				9F049CDF16842BBA007F5AC2 /* AViewController.m in Sources */,
 				9F57A00A168516C20069DA95 /* AAircraftModel.m in Sources */,
 				9F57A01816863EF50069DA95 /* AAircraftImageView.m in Sources */,
 				9F99BE8A168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */,
@@ -519,6 +518,7 @@
 				9F4F8AE6169378C8006254D4 /* AUIBattleFieldView.m in Sources */,
 				9FB0B4F5169CFBAD00416B93 /* ABattleFieldModel.m in Sources */,
 				9F34C351169FD0BB00908B8C /* APlayScreenViewController.m in Sources */,
+				9F34C359169FDD1A00908B8C /* AWelcomeScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +528,6 @@
 			files = (
 				9F049D2C1684367F007F5AC2 /* main.m in Sources */,
 				9F049D2D1684367F007F5AC2 /* AAppDelegate.m in Sources */,
-				9F049D2E1684367F007F5AC2 /* AViewController.m in Sources */,
 				9F57A00B168516C20069DA95 /* AAircraftModel.m in Sources */,
 				9F57A01916863EF50069DA95 /* AAircraftImageView.m in Sources */,
 				9F99BE8B168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */,
@@ -550,6 +549,7 @@
 				9F4F8AE7169378C8006254D4 /* AUIBattleFieldView.m in Sources */,
 				9FB0B4F6169CFBAD00416B93 /* ABattleFieldModel.m in Sources */,
 				9F34C352169FD0BB00908B8C /* APlayScreenViewController.m in Sources */,
+				9F34C35A169FDD1A00908B8C /* AWelcomeScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,14 +562,6 @@
 				9F049CCF16842BBA007F5AC2 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9F049CE016842BBA007F5AC2 /* AViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9F049CE116842BBA007F5AC2 /* en */,
-			);
-			name = AViewController.xib;
 			sourceTree = "<group>";
 		};
 		9F4436C0168E1A920006D521 /* Localizable.strings */ = {

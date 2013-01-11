@@ -13,6 +13,7 @@
 
 @interface AGameOrganizer : NSObject<ChatViewDelegate, communicatorListenerDelegate, ABattleFieldVCDelegate>
 
+@property (nonatomic) ConnectionType connectionType;
 @property (strong, nonatomic) ACommunicator *communicator;
 
 + (AGameOrganizer *)sharedInstance;

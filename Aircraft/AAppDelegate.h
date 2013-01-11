@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "APlayScreenViewController.h"
+#import "AWelcomeScreenViewController.h"
 
 @interface AAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) APlayScreenViewController *playScreenVC;
+@property (strong, nonatomic) UINavigationController *navigationController;
+
++ (AAppDelegate *)sharedInstance;
+
+- (void)pushScreen:(UIViewController *)viewController animated:(BOOL)animated;
+- (BOOL)popScreen:(UIViewController *)viewController animated:(BOOL)animated;
+- (void)popToScreen:(UIViewController *)viewController animated:(BOOL)animated;
 
 @end

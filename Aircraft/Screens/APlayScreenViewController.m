@@ -14,6 +14,12 @@
 
 @implementation APlayScreenViewController
 
+
+- (IBAction)actionGoBack:(UIButton *)sender
+{
+    [[AAppDelegate sharedInstance] popScreen:self animated:YES];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
