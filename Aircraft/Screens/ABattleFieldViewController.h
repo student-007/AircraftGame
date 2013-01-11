@@ -18,6 +18,7 @@
     ABattleFieldModel *_battleFldModel;
 }
 
+@property (nonatomic) BattleFieldType faction;
 @property (assign, nonatomic) id<ABattleFieldVCDelegate> delegate;
 @property (strong, nonatomic) IBOutlet AUIBattleFieldView *view;
 @property (strong, nonatomic) IBOutlet UIImageView *battleFieldImgView;

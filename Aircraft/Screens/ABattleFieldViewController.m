@@ -46,6 +46,16 @@
     [super viewDidUnload];
 }
 
+- (void)setFaction:(BattleFieldType)faction
+{
+    _battleFldModel.type = faction;
+}
+
+- (BattleFieldType)faction
+{
+    return _battleFldModel.type;
+}
+
 - (IBAction)switchBattleFieldBtnClicked:(UIButton *)sender
 {
     if ([self.delegate respondsToSelector:@selector(userWantsToSwitchFieldFrom:)])
@@ -98,9 +108,13 @@
 - (void)userTappedBattleField:(UITapGestureRecognizer *)tapGesture
 {
 #warning TODO:show a target image, waiting for user to comfirm attack
-    // _battleFldModel.attackPoint = tappedPoint;
-    // call this when confirm [_battleFldModel addAttackRecordPoint];
-    // then send an attack message and wait for reply
+// _battleFldModel.attackPoint = tappedPoint;
+// call this when confirm [_battleFldModel addAttackRecordPoint];
+// then send an attack message and wait for reply
+//    if ([self.delegate respondsToSelector:@selector(userTappedBattleFieldGridAtPoint:)])
+//    {
+//        self.delegate userTappedBattleFieldGridAtPoint:<#(CGPoint)#>
+//    }
 }
 
 - (void)userDragingAircraft:(UIPanGestureRecognizer *)panGesture

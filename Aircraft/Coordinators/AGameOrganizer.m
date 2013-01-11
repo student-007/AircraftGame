@@ -11,6 +11,8 @@
 @interface AGameOrganizer ()
 
 @property (strong, nonatomic) AChattingViewController *chatVC;
+@property (strong, nonatomic) ABattleFieldViewController *BattleFldVCEnemy;
+@property (strong, nonatomic) ABattleFieldViewController *BattleFldVCSelf;
 
 @end
 
@@ -129,6 +131,57 @@
 {
     self.chatVC = nil;
     
+}
+
+#pragma mark - battle field view controls
+
+- (ABattleFieldViewController *)getBattleFieldVCFaction:(BattleFieldType)faction
+{
+    if (faction == BattleFieldEnemy)
+    {
+        if (!self.BattleFldVCEnemy)
+        {
+            self.BattleFldVCEnemy = [[ABattleFieldViewController alloc] initWithNibName:@"ABattleFieldViewController" bundle:nil];
+            self.BattleFldVCEnemy.faction = faction;
+            self.BattleFldVCEnemy.delegate = self;
+        }
+        
+        return self.BattleFldVCEnemy;
+    }
+    else if (faction == BattleFieldSelf)
+    {
+        if (!self.BattleFldVCSelf)
+        {
+            self.BattleFldVCSelf = [[ABattleFieldViewController alloc] initWithNibName:@"ABattleFieldViewController" bundle:nil];
+            self.BattleFldVCSelf.faction = faction;
+            self.BattleFldVCSelf.delegate = self;
+        }
+        
+        return self.BattleFldVCSelf;
+    }
+    else
+        return nil;
+}
+
+- (void)userWantsToSwitchFieldFrom:(ABattleFieldViewController *)currentBattleField
+{
+#warning TODO: implemention required
+}
+
+/*!
+ @discussion this method will be called when user drag aircraft off the field and try to removed the aircraft, return YES to allow this operation, otherwize aircraft won't be removed.
+ */
+- (BOOL)userWantsToRemoveAircraft:(AAircraftModel *)aircraft
+{
+#warning TODO: implemention required
+}
+
+/*!
+ @discussion this point is the row and col in grid(intgers value)
+ */
+- (void)userTappedBattleFieldGridAtPoint:(CGPoint)point
+{
+#warning TODO: implemention required
 }
 
 #pragma mark - chatting view controls

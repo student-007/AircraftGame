@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "ACommunicator.h"
 #import "AChattingViewController.h"
+#import "ABattleFieldViewController.h"
 
-@interface AGameOrganizer : NSObject<ChatViewDelegate, communicatorListenerDelegate>
+@interface AGameOrganizer : NSObject<ChatViewDelegate, communicatorListenerDelegate, ABattleFieldVCDelegate>
 
 @property (strong, nonatomic) ACommunicator *communicator;
 
 - (AChattingViewController *)getChatVC;
+- (ABattleFieldViewController *)getBattleFieldVCFaction:(BattleFieldType)faction;
 
 - (void)reset;
 

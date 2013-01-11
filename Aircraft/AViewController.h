@@ -11,14 +11,16 @@
 #import "AAircraftImageView.h"
 #import "AChattingViewController.h"
 #import "AGameOrganizer.h"
+#import "ABattleFieldViewController.h"
 
-@interface AViewController : UIViewController <UIGestureRecognizerDelegate>
+@interface AViewController : UIViewController <UIScrollViewDelegate>
 {
     AAircraftImageView *_aircraftImgView;
     AChattingViewController *_chatVC;
 }
-@property (strong, nonatomic) IBOutlet UILabel *testLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *testImageView;
 @property (strong, nonatomic) AGameOrganizer *organizer;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) ABattleFieldViewController *battleFldEnemy;
+@property (strong, nonatomic) ABattleFieldViewController *battleFldSelf;
 @end
