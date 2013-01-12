@@ -79,15 +79,7 @@
     {
         [_aircraftModelAry addObject:aircraft];
         
-        // add to gird
-        int offsetX = aircraft.orginPos.x;
-        int offsetY = aircraft.orginPos.y;
-        
-        for (int row = offsetX, aRow = 0; row < offsetX + 5; row++, aRow++)
-            for (int col = offsetY, aCol = 0; col < offsetY + 5; col++, aCol++)
-            {
-                _battleFieldGrid[row][col] = [aircraft elementAtRow:aRow col:aCol];
-            }
+        [self fillGridForAircraft:aircraft];
     }
     else
     {
@@ -103,18 +95,36 @@
         {
             [_aircraftModelAry removeObject:aircraft];
             
-            // remove from gird
-            int offsetX = aircraft.orginPos.x;
-            int offsetY = aircraft.orginPos.y;
-            
-            for (int row = offsetX, aRow = 0; row < offsetX + 5; row++, aRow++)
-                for (int col = offsetY, aCol = 0; col < offsetY + 5; col++, aCol++)
-                {
-                    if ([aircraft elementAtRow:aRow col:aCol] != AircraftNone) 
-                        _battleFieldGrid[row][col] = AircraftNone;
-                }
+            [self clearGridForAircraft:aircraft];
         }
     }
+}
+
+- (void)clearGridForAircraft:(AAircraftModel *)aircraft
+{
+    // remove from gird
+    int offsetY = aircraft.orginPos.x;
+    int offsetX = aircraft.orginPos.y;
+    
+    for (int row = offsetX, aRow = 0; row < offsetX + 5; row++, aRow++)
+        for (int col = offsetY, aCol = 0; col < offsetY + 5; col++, aCol++)
+        {
+            if ([aircraft elementAtRow:aRow col:aCol] != AircraftNone)
+                _battleFieldGrid[row][col] = AircraftNone;
+        }
+}
+
+- (void)fillGridForAircraft:(AAircraftModel *)aircraft
+{
+    // add to gird
+    int offsetY = aircraft.orginPos.x;
+    int offsetX = aircraft.orginPos.y;
+    
+    for (int row = offsetX, aRow = 0; row < offsetX + 5; row++, aRow++)
+        for (int col = offsetY, aCol = 0; col < offsetY + 5; col++, aCol++)
+        {
+            _battleFieldGrid[row][col] = [aircraft elementAtRow:aRow col:aCol];
+        }
 }
 
 - (BOOL)checkPositionForAircraft:(AAircraftModel *)aircraft
@@ -123,17 +133,18 @@
     {
         if (_aircraftModelAry.count != 0)
         {
-            int offsetX = aircraft.orginPos.x;
-            int offsetY = aircraft.orginPos.y;
+            int offsetY = aircraft.orginPos.x;
+            int offsetX = aircraft.orginPos.y;
             
             for (int row = offsetX, aRow = 0; row < offsetX + 5; row++, aRow++)
+            {
                 for (int col = offsetY, aCol = 0; col < offsetY + 5; col++, aCol++)
                 {
                     if ([aircraft elementAtRow:aRow col:aCol] != AircraftNone &&
                         _battleFieldGrid[row][col] != AircraftNone)
                         return NO;
                 }
-            
+            }
             return YES;
         }
         else

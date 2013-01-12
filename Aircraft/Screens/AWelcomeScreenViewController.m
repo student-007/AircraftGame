@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,5 +43,9 @@
     APlayScreenViewController *playScreenVC = [[APlayScreenViewController alloc]
                                                initWithNibName:@"APlayScreenViewController" bundle:nil];
     [[AAppDelegate sharedInstance] pushScreen:playScreenVC animated:YES];
+}
+- (void)viewDidUnload {
+    [self setPlayWithBluetoothBtn:nil];
+    [super viewDidUnload];
 }
 @end

@@ -40,6 +40,11 @@
     
     [self setupBattleFields];
     [self setupChattingField];
+    
+//    self.battleFldSelf = [self.organizer getBattleFieldVCFaction:BattleFieldSelf];
+//    [self.view addSubview:self.battleFldSelf.view];
+    AAircraftModel *aircraft = [AAircraftModel aircraftWithOrgin:CGPointMake(4, 0) direction:AircraftDirectionLeft];
+    [self.battleFldSelf addAircraft:aircraft];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,8 +71,8 @@
     self.scrollView.showsVerticalScrollIndicator = NO;
     [self.scrollView setDelegate:self]; // set delegate to self in order to respond scroll actions [Yufei Lang 4/5/2012]
     self.scrollView.contentSize = CGSizeMake(self.battleFldEnemy.view.bounds.size.width + self.battleFldSelf.view.bounds.size.width, 1);
-    [self loadPage:self.battleFldEnemy.view toScrollView:self.scrollView]; // load my/enemy field into scroll view [Yufei Lang 4/5/2012]
-    [self loadPage:self.battleFldSelf.view toScrollView:self.scrollView];
+    [self loadPage:self.battleFldSelf.view toScrollView:self.scrollView]; // load my/enemy field into scroll view [Yufei Lang 4/5/2012]
+    [self loadPage:self.battleFldEnemy.view toScrollView:self.scrollView];
     [self.view addSubview:self.scrollView];
 }
 

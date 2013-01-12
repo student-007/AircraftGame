@@ -12,4 +12,5 @@
 
 @interface AWelcomeScreenViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIButton *playWithBluetoothBtn;
 @end

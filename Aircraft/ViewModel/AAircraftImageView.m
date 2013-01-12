@@ -8,10 +8,10 @@
 
 #import "AAircraftImageView.h"
 
-#define kAircraftUpImageName      @"AircraftUp.png"
-#define kAircraftDownImageName      @"AircraftDown.png"
-#define kAircraftLeftImageName      @"AircraftLeft.png"
-#define kAircraftRightImageName      @"AircraftRight.png"
+#define kAircraftUpImageName      @"Aircraft.png"//@"AircraftUp.png"
+#define kAircraftDownImageName    @"Aircraft.png"//  @"AircraftDown.png"
+#define kAircraftLeftImageName    @"Aircraft.png"//  @"AircraftLeft.png"
+#define kAircraftRightImageName   @"Aircraft.png"//   @"AircraftRight.png"
 
 @implementation AAircraftImageView
 

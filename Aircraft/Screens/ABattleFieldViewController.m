@@ -30,7 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.battleFieldImgView.userInteractionEnabled = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,6 +69,7 @@
 {
     view.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTappedBattleField:)];
+    tapGesture.delegate = self;
     [view addGestureRecognizer:tapGesture];
 }
 
@@ -75,8 +77,8 @@
 {
     view.userInteractionEnabled = YES;
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(userDragingAircraft:)];
+    panGesture.delegate = self;
     panGesture.maximumNumberOfTouches = 1;
-    panGesture.minimumNumberOfTouches = 1;
     [view addGestureRecognizer:panGesture];
 }
 
@@ -85,7 +87,7 @@
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && _battleFldModel.type == BattleFieldSelf)
     {
         AAircraftImageView *aircraftImgView = (AAircraftImageView *)gestureRecognizer.view;
-        CGPoint touchPoint = [gestureRecognizer locationInView:gestureRecognizer.view];
+        CGPoint touchPoint = [touch locationInView:gestureRecognizer.view];
         if ([aircraftImgView isTouchingAircraftBodyForPoint:touchPoint])
         {
             _tempAircraftImgViewFrame = aircraftImgView.frame;
@@ -121,6 +123,7 @@
 {
     // is touching aircraft body will be checked in delegate method gestureRecognizer:shouldReceiveTouch
     // only deal with draging event
+//    CGPoint touchPoint = [panGesture locationInView:panGesture.view];
     
     AAircraftImageView *aircraftImgView = (AAircraftImageView *)panGesture.view;
     
@@ -143,14 +146,22 @@
             newOrgin.x + newFrame.size.width <= 10 * kMappingFactor + 5 &&
             newOrgin.y + newFrame.size.height <= 10 * kMappingFactor + 5)
         {
-            if ((targetFrame.origin.x = (int)newOrgin.x % kMappingFactor) > kMappingFactor / 2)
+            targetFrame.origin.x = (int)(newOrgin.x / kMappingFactor) * kMappingFactor;
+            targetFrame.origin.y = (int)(newOrgin.y / kMappingFactor) * kMappingFactor;
+//            targetFrame.origin.x = (int)roundf(newOrgin.x > 0 ? newOrgin.x : newOrgin.x * -1);
+//            targetFrame.origin.y = (int)roundf(newOrgin.y > 0 ? newOrgin.y : newOrgin.y * -1);
+            
+            if (((int)newOrgin.x % kMappingFactor) > kMappingFactor / 2)
                 targetFrame.origin.x += kMappingFactor;
-            if ((targetFrame.origin.y = (int)newOrgin.y % kMappingFactor) > kMappingFactor / 2)
+            if (((int)newOrgin.y % kMappingFactor) > kMappingFactor / 2)
                 targetFrame.origin.y += kMappingFactor;
             
-            CGPoint newAircraftOrginPos = CGPointMake(targetFrame.origin.x / kMappingFactor,
-                                                      targetFrame.origin.y / kMappingFactor);
+            CGPoint newAircraftOrginPos = CGPointMake((int)(targetFrame.origin.x / kMappingFactor),
+                                                      (int)(targetFrame.origin.y / kMappingFactor));
             AAircraftModel *newAircraft = [AAircraftModel aircraftWithOrgin:newAircraftOrginPos direction:aircraftImgView.aircraft.direction];
+            
+            [_battleFldModel clearGridForAircraft:aircraftImgView.aircraft];
+            
             if ([self checkPositionForAircraft:newAircraft])
             {
                 aircraftImgView.frame = targetFrame;
@@ -160,6 +171,8 @@
             {
                 aircraftImgView.frame = _tempAircraftImgViewFrame;
             }
+            
+            [_battleFldModel fillGridForAircraft:aircraftImgView.aircraft];
         }
         // if user wants to remove this aircraft [Yufei Lang 4/14/2012]
         else if (aircraftImgView.center.y > 10 * kMappingFactor)

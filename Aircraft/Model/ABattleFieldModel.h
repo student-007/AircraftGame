@@ -47,6 +47,16 @@ typedef enum
 - (void)removeAircraft:(AAircraftModel *)aircraft;
 
 /*!
+ @discussion delete the existing aircraft in grid, this is used for replacing/adjusting aircrafts.
+ */
+- (void)clearGridForAircraft:(AAircraftModel *)aircraft;
+
+/*!
+ @discussion fill the grid for aircraft, this is used for replacing/adjusting aircrafts.
+ */
+- (void)fillGridForAircraft:(AAircraftModel *)aircraft;
+
+/*!
  @discussion check if an aircraft model can fit into the _battleFieldGrid.
  */
 - (BOOL)checkPositionForAircraft:(AAircraftModel *)aircraft;
