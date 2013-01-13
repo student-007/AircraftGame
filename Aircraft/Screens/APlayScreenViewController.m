@@ -69,12 +69,17 @@
     self.battleFldEnemy.delegate = self;
     self.battleFldSelf.delegate = self;
     
-    self.scrollView.pagingEnabled = YES; // enable paging [Yufei Lang 4/5/2012]
-    self.scrollView.showsHorizontalScrollIndicator = NO; // disable scroll indicator [Yufei Lang 4/5/2012]
+    // enable paging [Yufei Lang 4/5/2012]
+    self.scrollView.pagingEnabled = YES; 
+    // disable scroll indicator [Yufei Lang 4/5/2012]
+    self.scrollView.showsHorizontalScrollIndicator = NO; 
     self.scrollView.showsVerticalScrollIndicator = NO;
-    [self.scrollView setDelegate:self]; // set delegate to self in order to respond scroll actions [Yufei Lang 4/5/2012]
+    self.scrollView.bounces = NO;
+    // set delegate to self in order to respond scroll actions [Yufei Lang 4/5/2012]
+    self.scrollView.delegate = self; 
     self.scrollView.contentSize = CGSizeMake(self.battleFldEnemy.view.bounds.size.width + self.battleFldSelf.view.bounds.size.width, 1);
-    [self loadPage:self.battleFldSelf.view toScrollView:self.scrollView]; // load my/enemy field into scroll view [Yufei Lang 4/5/2012]
+    // load my/enemy field into scroll view [Yufei Lang 4/5/2012]
+    [self loadPage:self.battleFldSelf.view toScrollView:self.scrollView];
     [self loadPage:self.battleFldEnemy.view toScrollView:self.scrollView];
     [self.view addSubview:self.scrollView];
 }
@@ -122,9 +127,20 @@
 /*!
  @discussion this point is the row and col in grid(intgers value)
  */
-- (void)userTappedBattleFieldGridAtPoint:(CGPoint)point
+- (void)userTappedBattleField:(ABattleFieldViewController *)battleFld atGridPoint:(CGPoint)point;
 {
-    
+    if (battleFld.faction == BattleFieldEnemy)
+    {
+        [self.chatVC resignTxtFldFirstResponder];
+    }
+    else if (battleFld.faction == BattleFieldSelf)
+    {
+        [self.chatVC resignTxtFldFirstResponder];
+    }
+    else
+    {
+        
+    }
 }
 
 @end

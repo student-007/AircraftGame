@@ -27,6 +27,11 @@
 - (BOOL)addAircraft:(AAircraftModel *)aircraft;
 
 /*!
+ @discussion call this method after user making an attack marker. return which point was previous marked.
+ */
+- (CGPoint)attackedBasedOnPreviousMark;
+
+/*!
  @discussion return the defined string: kAttackRMiss kAttackRHit kAttackRDestroy. points are row and col(intgers value)
  */
 - (NSString *)attackResultInGridAtPoint:(CGPoint)point;
@@ -41,8 +46,10 @@
 @required
 - (void)userWantsToSwitchFieldFrom:(ABattleFieldViewController *)currentBattleField;
 - (BOOL)userWantsToRemoveAircraft:(AAircraftModel *)aircraft;
+
+@optional
 /*!
  @discussion this point is the row and col in grid(intgers value)
  */
-- (void)userTappedBattleFieldGridAtPoint:(CGPoint)point;
+- (void)userTappedBattleField:(ABattleFieldViewController *)battleFld atGridPoint:(CGPoint)point;
 @end

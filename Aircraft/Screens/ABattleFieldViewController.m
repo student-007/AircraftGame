@@ -13,6 +13,8 @@
     CGRect _tempAircraftImgViewFrame;
 }
 
+@property (strong, nonatomic) UIImageView *attackMarkerImgView;
+
 @end
 
 @implementation ABattleFieldViewController
@@ -32,6 +34,7 @@
     [super viewDidLoad];
     
     self.battleFieldImgView.userInteractionEnabled = YES;
+    [self addTapGestureToView:self.battleFieldImgView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,7 +102,7 @@
             return NO;
         }
     }
-    else if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]] && _battleFldModel.type == BattleFieldEnemy)
+    else if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]] /*&& _battleFldModel.type == BattleFieldEnemy*/)
     {
         return YES;
     }
@@ -109,14 +112,30 @@
 
 - (void)userTappedBattleField:(UITapGestureRecognizer *)tapGesture
 {
-#warning TODO:show a target image, waiting for user to comfirm attack
-// _battleFldModel.attackPoint = tappedPoint;
-// call this when confirm [_battleFldModel addAttackRecordPoint];
-// then send an attack message and wait for reply
-//    if ([self.delegate respondsToSelector:@selector(userTappedBattleFieldGridAtPoint:)])
-//    {
-//        self.delegate userTappedBattleFieldGridAtPoint:<#(CGPoint)#>
-//    }
+    CGPoint tapPoint = [tapGesture locationInView:tapGesture.view];
+    CGPoint gridPoint = CGPointMake((int)(tapPoint.x / kMappingFactor), (int)(tapPoint.y / kMappingFactor));
+    
+    if (_battleFldModel.type == BattleFieldEnemy)
+    {
+        if (!self.attackMarkerImgView)
+        {
+            self.attackMarkerImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+            self.attackMarkerImgView.backgroundColor = [UIColor orangeColor];
+        }
+        
+        CGPoint targetPoint = CGPointMake((int)gridPoint.x * kMappingFactor,
+                                          (int)gridPoint.y * kMappingFactor);
+        
+        CGRect markerFrame = CGRectMake(targetPoint.x, targetPoint.y, kMappingFactor, kMappingFactor);
+        self.attackMarkerImgView.frame = markerFrame;
+        [self.attackMarkerImgView removeFromSuperview];
+        [self.battleFieldImgView addSubview:self.attackMarkerImgView];
+        
+        _battleFldModel.attackPoint = gridPoint;
+    }
+
+    if ([self.delegate respondsToSelector:@selector(userTappedBattleField:atGridPoint:)])
+        [self.delegate userTappedBattleField:self atGridPoint:gridPoint];
 }
 
 - (void)userDragingAircraft:(UIPanGestureRecognizer *)panGesture
@@ -214,6 +233,15 @@
     {
         return NO;
     }
+}
+
+- (CGPoint)attackedBasedOnPreviousMark
+{
+    [self.attackMarkerImgView removeFromSuperview];
+    CGPoint previousMarkerPt = CGPointMake(_battleFldModel.attackPoint.x, _battleFldModel.attackPoint.y);
+    [_battleFldModel addAttackRecordPoint];
+    
+    return previousMarkerPt;
 }
 
 /*!
