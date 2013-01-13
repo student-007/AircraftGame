@@ -10,8 +10,9 @@
 #import "AGameOrganizer.h"
 #import "ABattleFieldViewController.h"
 #import "AChattingViewController.h"
+#import "ABattleFieldViewController.h"
 
-@interface APlayScreenViewController : UIViewController <UIScrollViewDelegate>
+@interface APlayScreenViewController : UIViewController <UIScrollViewDelegate, ABattleFieldVCDelegate>
 
 // organizer
 @property (strong, nonatomic) AGameOrganizer *organizer;

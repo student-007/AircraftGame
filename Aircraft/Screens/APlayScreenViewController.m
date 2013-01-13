@@ -66,6 +66,9 @@
     self.battleFldEnemy = [self.organizer getBattleFieldVCFaction:BattleFieldEnemy];
     self.battleFldSelf = [self.organizer getBattleFieldVCFaction:BattleFieldSelf];
     
+    self.battleFldEnemy.delegate = self;
+    self.battleFldSelf.delegate = self;
+    
     self.scrollView.pagingEnabled = YES; // enable paging [Yufei Lang 4/5/2012]
     self.scrollView.showsHorizontalScrollIndicator = NO; // disable scroll indicator [Yufei Lang 4/5/2012]
     self.scrollView.showsVerticalScrollIndicator = NO;
@@ -95,5 +98,33 @@
     [self.view addSubview:self.chatVC.view];
 }
 
+#pragma mark - battle field view controller delegate
+
+- (void)userWantsToSwitchFieldFrom:(ABattleFieldViewController *)currentBattleField
+{
+    CGRect crrentFldFrame = currentBattleField.view.frame;
+    
+    CGRect visibleRect = CGRectMake(fabsf(crrentFldFrame.origin.x - crrentFldFrame.size.width),
+                                    crrentFldFrame.origin.y,
+                                    crrentFldFrame.size.width,
+                                    crrentFldFrame.size.height);
+    [self.scrollView scrollRectToVisible:visibleRect animated:YES];
+}
+
+/*!
+ @discussion return YES to allow user remove aircraft form battle field. This is for validating purpose. (eg. can not remove aircraft after battle started)
+ */
+- (BOOL)userWantsToRemoveAircraft:(AAircraftModel *)aircraft
+{
+    
+}
+
+/*!
+ @discussion this point is the row and col in grid(intgers value)
+ */
+- (void)userTappedBattleFieldGridAtPoint:(CGPoint)point
+{
+    
+}
 
 @end
