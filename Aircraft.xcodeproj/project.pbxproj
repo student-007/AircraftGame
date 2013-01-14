@@ -80,6 +80,10 @@
 		9F5FE25A1690F875006A4961 /* AUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE2581690F875006A4961 /* AUITextField.m */; };
 		9F5FE25D16920570006A4961 /* ATableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE25C16920570006A4961 /* ATableViewAdapter.m */; };
 		9F5FE25E16920570006A4961 /* ATableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE25C16920570006A4961 /* ATableViewAdapter.m */; };
+		9F97A4EF16A4AFBB00CCC9A1 /* AOperationPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F97A4ED16A4AFBB00CCC9A1 /* AOperationPanelViewController.m */; };
+		9F97A4F016A4AFBB00CCC9A1 /* AOperationPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F97A4ED16A4AFBB00CCC9A1 /* AOperationPanelViewController.m */; };
+		9F97A4F116A4AFBB00CCC9A1 /* AOperationPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A4EE16A4AFBB00CCC9A1 /* AOperationPanelViewController.xib */; };
+		9F97A4F216A4AFBB00CCC9A1 /* AOperationPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A4EE16A4AFBB00CCC9A1 /* AOperationPanelViewController.xib */; };
 		9F99BE8516879D6500A0FD2F /* Aircraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F99BE8416879D6500A0FD2F /* Aircraft.png */; };
 		9F99BE8616879D6500A0FD2F /* Aircraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F99BE8416879D6500A0FD2F /* Aircraft.png */; };
 		9F99BE8A168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */; };
@@ -156,6 +160,9 @@
 		9F5FE2581690F875006A4961 /* AUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AUITextField.m; path = Base/AUITextField.m; sourceTree = "<group>"; };
 		9F5FE25B16920570006A4961 /* ATableViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATableViewAdapter.h; path = Base/ATableViewAdapter.h; sourceTree = "<group>"; };
 		9F5FE25C16920570006A4961 /* ATableViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATableViewAdapter.m; path = Base/ATableViewAdapter.m; sourceTree = "<group>"; };
+		9F97A4EC16A4AFBB00CCC9A1 /* AOperationPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOperationPanelViewController.h; path = Screens/AOperationPanelViewController.h; sourceTree = "<group>"; };
+		9F97A4ED16A4AFBB00CCC9A1 /* AOperationPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOperationPanelViewController.m; path = Screens/AOperationPanelViewController.m; sourceTree = "<group>"; };
+		9F97A4EE16A4AFBB00CCC9A1 /* AOperationPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AOperationPanelViewController.xib; path = Screens/AOperationPanelViewController.xib; sourceTree = "<group>"; };
 		9F99BE8416879D6500A0FD2F /* Aircraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Aircraft.png; path = Aircraft/res/Aircraft.png; sourceTree = "<group>"; };
 		9F99BE88168A8C4B00A0FD2F /* ANetConnBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANetConnBluetooth.h; path = network/ANetConnBluetooth.h; sourceTree = "<group>"; };
 		9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANetConnBluetooth.m; path = network/ANetConnBluetooth.m; sourceTree = "<group>"; };
@@ -302,6 +309,9 @@
 				9F4F8ADD169373EF006254D4 /* ABattleFieldViewController.h */,
 				9F4F8ADE169373EF006254D4 /* ABattleFieldViewController.m */,
 				9F4F8ADF169373EF006254D4 /* ABattleFieldViewController.xib */,
+				9F97A4EC16A4AFBB00CCC9A1 /* AOperationPanelViewController.h */,
+				9F97A4ED16A4AFBB00CCC9A1 /* AOperationPanelViewController.m */,
+				9F97A4EE16A4AFBB00CCC9A1 /* AOperationPanelViewController.xib */,
 				9F34C34E169FD0BB00908B8C /* APlayScreenViewController.h */,
 				9F34C34F169FD0BB00908B8C /* APlayScreenViewController.m */,
 				9F34C350169FD0BB00908B8C /* APlayScreenViewController.xib */,
@@ -463,6 +473,7 @@
 				9F4F8AE2169373EF006254D4 /* ABattleFieldViewController.xib in Resources */,
 				9F34C353169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */,
 				9F34C35B169FDD1A00908B8C /* AWelcomeScreenViewController.xib in Resources */,
+				9F97A4F116A4AFBB00CCC9A1 /* AOperationPanelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +496,7 @@
 				9F4F8AE3169373EF006254D4 /* ABattleFieldViewController.xib in Resources */,
 				9F34C354169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */,
 				9F34C35C169FDD1A00908B8C /* AWelcomeScreenViewController.xib in Resources */,
+				9F97A4F216A4AFBB00CCC9A1 /* AOperationPanelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +531,7 @@
 				9FB0B4F5169CFBAD00416B93 /* ABattleFieldModel.m in Sources */,
 				9F34C351169FD0BB00908B8C /* APlayScreenViewController.m in Sources */,
 				9F34C359169FDD1A00908B8C /* AWelcomeScreenViewController.m in Sources */,
+				9F97A4EF16A4AFBB00CCC9A1 /* AOperationPanelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +563,7 @@
 				9FB0B4F6169CFBAD00416B93 /* ABattleFieldModel.m in Sources */,
 				9F34C352169FD0BB00908B8C /* APlayScreenViewController.m in Sources */,
 				9F34C35A169FDD1A00908B8C /* AWelcomeScreenViewController.m in Sources */,
+				9F97A4F016A4AFBB00CCC9A1 /* AOperationPanelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

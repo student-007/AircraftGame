@@ -196,12 +196,12 @@
         // if user wants to remove this aircraft [Yufei Lang 4/14/2012]
         else if (aircraftImgView.center.y > 10 * kMappingFactor)
         {
-            if ([self.delegate respondsToSelector:@selector(userWantsToRemoveAircraft:)])
-                if ([self.delegate userWantsToRemoveAircraft:aircraftImgView.aircraft])
-                {
-                    [_battleFldModel removeAircraft:aircraftImgView.aircraft];
-                    [aircraftImgView removeFromSuperview];
-                }
+            NSAssert([self.delegate respondsToSelector:@selector(userWantsToRemoveAircraft:)], @"[error]: Delegate method userWantsToRemoveAircraft: not implenment.");
+            if ([self.delegate userWantsToRemoveAircraft:aircraftImgView.aircraft])
+            {
+                [_battleFldModel removeAircraft:aircraftImgView.aircraft];
+                [aircraftImgView removeFromSuperview];
+            }
         }
         else
         {
