@@ -13,6 +13,7 @@
 @property (strong, nonatomic) AChattingViewController *chatVC;
 @property (strong, nonatomic) ABattleFieldViewController *battleFldVCEnemy;
 @property (strong, nonatomic) ABattleFieldViewController *battleFldVCSelf;
+@property (strong, nonatomic) AOperationPanelViewController *opPanelVC;
 
 @end
 
@@ -33,6 +34,7 @@
     if (self = [super init])
     {
         self.connectionType = ConnectionTypeNone;
+        _numberOfAircraftPlaced = [NSNumber numberWithInt:0];
     }
     return self;
 }
@@ -43,6 +45,19 @@
     self.chatVC = nil;
     self.battleFldVCEnemy = nil;
     self.battleFldVCSelf = nil;
+    self.opPanelVC = nil;
+    
+    _numberOfAircraftPlaced = nil;
+}
+
+- (NSDictionary *)gameStatus
+{
+    NSMutableDictionary *statusDic = [NSMutableDictionary dictionary];
+    if (!_numberOfAircraftPlaced) _numberOfAircraftPlaced = [NSNumber numberWithInt:0];
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(statusDic, _numberOfAircraftPlaced, kGameStatusAircraftPlaced);
+#warning TODO: add network status here
+    
+    return [NSDictionary dictionaryWithDictionary:statusDic];
 }
 
 #pragma mark - communication controls
@@ -153,6 +168,44 @@
     
 }
 
+#pragma mark - operation panel
+
+- (AOperationPanelViewController *)getOperationPanelVC
+{
+    if (!self.opPanelVC)
+    {
+        self.opPanelVC = [[AOperationPanelViewController alloc] initWithNibName:@"AOperationPanelViewController" bundle:nil];
+        self.opPanelVC.operationDelegate = self;
+    }
+    return self.opPanelVC;
+}
+
+- (void)userReadyPlacingAircrafts
+{
+#warning TODO: send ready message along with placing information
+}
+
+- (void)userWantsToExit
+{
+#warning TODO: send a user will exit message, battle will lose
+    [self reset];
+}
+
+- (void)userPressedTool1Button
+{
+    
+}
+
+- (void)userPressedTool2Button
+{
+    
+}
+
+- (void)userPressedAttackButton
+{
+    
+}
+
 #pragma mark - battle field view controls
 
 - (ABattleFieldViewController *)getBattleFieldVCFaction:(BattleFieldType)faction
@@ -164,6 +217,7 @@
             self.battleFldVCEnemy = [[ABattleFieldViewController alloc] initWithNibName:@"ABattleFieldViewController" bundle:nil];
             self.battleFldVCEnemy.faction = faction;
             self.battleFldVCEnemy.delegate = self;
+            self.battleFldVCEnemy.organizerDelegate = self;
         }
         
         return self.battleFldVCEnemy;
@@ -175,12 +229,29 @@
             self.battleFldVCSelf = [[ABattleFieldViewController alloc] initWithNibName:@"ABattleFieldViewController" bundle:nil];
             self.battleFldVCSelf.faction = faction;
             self.battleFldVCSelf.delegate = self;
+            self.battleFldVCSelf.organizerDelegate = self;
         }
         
         return self.battleFldVCSelf;
     }
     else
         return nil;
+}
+
+- (void)aircraftAdded
+{
+    if (!_numberOfAircraftPlaced)
+        _numberOfAircraftPlaced = [NSNumber numberWithInt:1];
+    else
+        _numberOfAircraftPlaced = [NSNumber numberWithInt:[_numberOfAircraftPlaced intValue] + 1];
+}
+
+- (void)aircraftRemoved
+{
+    if (!_numberOfAircraftPlaced)
+        _numberOfAircraftPlaced = [NSNumber numberWithInt:0];
+    else
+        _numberOfAircraftPlaced = [NSNumber numberWithInt:[_numberOfAircraftPlaced intValue] - 1];
 }
 
 - (void)userWantsToSwitchFieldFrom:(ABattleFieldViewController *)currentBattleField

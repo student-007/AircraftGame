@@ -8,6 +8,10 @@
   Copyright (c) 2012 Yufei Lang. All rights reserved.
 */
 "welcome" = "Welcome";
+"ok" = "Ok";
+"cancel" = "Cancel";
+"yes" = "Yes";
+"no" = "No";
 
 // chatting view
 "chat_view_txtFld_holder" = "Chatting message here...";
@@ -15,6 +19,12 @@
 "chat_view_send_btn_hide" = "Hide";
 "chat_view_user_name" = "Me";
 "chat_view_competitor_name" = "Competitor";
+
+// operation panel
+"operation_panel_are_u_sure_exit" = "Are you sure to exit?";
+"operation_panel_exit_warning_lost_game" = "You will lose the battle. Any unsaved game data will be gone. You can always save the game for playing later.";
+"operation_panel_exit_warning" = "You may lost game data including position of aircraft(s) and chatting record.";
+
 
 
 

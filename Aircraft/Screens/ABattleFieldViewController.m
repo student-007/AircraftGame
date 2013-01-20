@@ -201,6 +201,8 @@
             {
                 [_battleFldModel removeAircraft:aircraftImgView.aircraft];
                 [aircraftImgView removeFromSuperview];
+                if ([self.organizerDelegate respondsToSelector:@selector(aircraftRemoved)])
+                    [self.organizerDelegate aircraftRemoved];
             }
         }
         else
@@ -226,6 +228,8 @@
         AAircraftImageView *aircraftImgView = [[AAircraftImageView alloc] initWithAircraftModel:aircraft];
         [self addPanGestureToView:aircraftImgView];
         [self.battleFieldImgView addSubview:aircraftImgView];
+        if ([self.organizerDelegate respondsToSelector:@selector(aircraftAdded)])
+            [self.organizerDelegate aircraftAdded];
         
         return YES;
     }

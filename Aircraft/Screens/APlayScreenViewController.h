@@ -11,8 +11,9 @@
 #import "ABattleFieldViewController.h"
 #import "AChattingViewController.h"
 #import "ABattleFieldViewController.h"
+#import "AOperationPanelViewController.h"
 
-@interface APlayScreenViewController : UIViewController <UIScrollViewDelegate, ABattleFieldVCDelegate>
+@interface APlayScreenViewController : UIViewController <UIScrollViewDelegate, ABattleFieldVCDelegate, AOperationPanelViewControllerViewDelegate>
 
 // organizer
 @property (strong, nonatomic) AGameOrganizer *organizer;
@@ -21,6 +22,9 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) ABattleFieldViewController *battleFldEnemy;
 @property (strong, nonatomic) ABattleFieldViewController *battleFldSelf;
+
+// operation panel
+@property (strong, nonatomic) AOperationPanelViewController *opPanel;
 
 // chatting
 @property (nonatomic, strong) AChattingViewController *chatVC;

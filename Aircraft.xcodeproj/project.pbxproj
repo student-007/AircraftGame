@@ -84,6 +84,15 @@
 		9F97A4F016A4AFBB00CCC9A1 /* AOperationPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F97A4ED16A4AFBB00CCC9A1 /* AOperationPanelViewController.m */; };
 		9F97A4F116A4AFBB00CCC9A1 /* AOperationPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A4EE16A4AFBB00CCC9A1 /* AOperationPanelViewController.xib */; };
 		9F97A4F216A4AFBB00CCC9A1 /* AOperationPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A4EE16A4AFBB00CCC9A1 /* AOperationPanelViewController.xib */; };
+		9F97A4F916A4B11E00CCC9A1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F97A4F816A4B11E00CCC9A1 /* QuartzCore.framework */; };
+		9F97A50816A67E5200CCC9A1 /* indicator_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A50416A67E5200CCC9A1 /* indicator_off.png */; };
+		9F97A50916A67E5200CCC9A1 /* indicator_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A50416A67E5200CCC9A1 /* indicator_off.png */; };
+		9F97A50A16A67E5200CCC9A1 /* indicator_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A50516A67E5200CCC9A1 /* indicator_off@2x.png */; };
+		9F97A50B16A67E5200CCC9A1 /* indicator_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A50516A67E5200CCC9A1 /* indicator_off@2x.png */; };
+		9F97A50C16A67E5200CCC9A1 /* indicator_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A50616A67E5200CCC9A1 /* indicator_on.png */; };
+		9F97A50D16A67E5200CCC9A1 /* indicator_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A50616A67E5200CCC9A1 /* indicator_on.png */; };
+		9F97A50E16A67E5200CCC9A1 /* indicator_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A50716A67E5200CCC9A1 /* indicator_on@2x.png */; };
+		9F97A50F16A67E5200CCC9A1 /* indicator_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A50716A67E5200CCC9A1 /* indicator_on@2x.png */; };
 		9F99BE8516879D6500A0FD2F /* Aircraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F99BE8416879D6500A0FD2F /* Aircraft.png */; };
 		9F99BE8616879D6500A0FD2F /* Aircraft.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F99BE8416879D6500A0FD2F /* Aircraft.png */; };
 		9F99BE8A168A8C4B00A0FD2F /* ANetConnBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */; };
@@ -163,6 +172,11 @@
 		9F97A4EC16A4AFBB00CCC9A1 /* AOperationPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOperationPanelViewController.h; path = Screens/AOperationPanelViewController.h; sourceTree = "<group>"; };
 		9F97A4ED16A4AFBB00CCC9A1 /* AOperationPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOperationPanelViewController.m; path = Screens/AOperationPanelViewController.m; sourceTree = "<group>"; };
 		9F97A4EE16A4AFBB00CCC9A1 /* AOperationPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AOperationPanelViewController.xib; path = Screens/AOperationPanelViewController.xib; sourceTree = "<group>"; };
+		9F97A4F816A4B11E00CCC9A1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9F97A50416A67E5200CCC9A1 /* indicator_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = indicator_off.png; path = Aircraft/Res/indicator_off.png; sourceTree = "<group>"; };
+		9F97A50516A67E5200CCC9A1 /* indicator_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "indicator_off@2x.png"; path = "Aircraft/Res/indicator_off@2x.png"; sourceTree = "<group>"; };
+		9F97A50616A67E5200CCC9A1 /* indicator_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = indicator_on.png; path = Aircraft/Res/indicator_on.png; sourceTree = "<group>"; };
+		9F97A50716A67E5200CCC9A1 /* indicator_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "indicator_on@2x.png"; path = "Aircraft/Res/indicator_on@2x.png"; sourceTree = "<group>"; };
 		9F99BE8416879D6500A0FD2F /* Aircraft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Aircraft.png; path = Aircraft/res/Aircraft.png; sourceTree = "<group>"; };
 		9F99BE88168A8C4B00A0FD2F /* ANetConnBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ANetConnBluetooth.h; path = network/ANetConnBluetooth.h; sourceTree = "<group>"; };
 		9F99BE89168A8C4B00A0FD2F /* ANetConnBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ANetConnBluetooth.m; path = network/ANetConnBluetooth.m; sourceTree = "<group>"; };
@@ -182,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F97A4F916A4B11E00CCC9A1 /* QuartzCore.framework in Frameworks */,
 				9F99BE95168AC77F00A0FD2F /* GameKit.framework in Frameworks */,
 				9F049CC616842BBA007F5AC2 /* UIKit.framework in Frameworks */,
 				9F049CC816842BBA007F5AC2 /* Foundation.framework in Frameworks */,
@@ -225,6 +240,7 @@
 		9F049CC416842BBA007F5AC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F97A4F816A4B11E00CCC9A1 /* QuartzCore.framework */,
 				9F99BE94168AC77F00A0FD2F /* GameKit.framework */,
 				9F049CC516842BBA007F5AC2 /* UIKit.framework */,
 				9F049CC716842BBA007F5AC2 /* Foundation.framework */,
@@ -368,6 +384,10 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				9F97A50416A67E5200CCC9A1 /* indicator_off.png */,
+				9F97A50516A67E5200CCC9A1 /* indicator_off@2x.png */,
+				9F97A50616A67E5200CCC9A1 /* indicator_on.png */,
+				9F97A50716A67E5200CCC9A1 /* indicator_on@2x.png */,
 				9F5FE2401690DBEF006A4961 /* pencil_image.png */,
 				9F5FE23D1690DBA6006A4961 /* pencil_image@2x.png */,
 				9F99BE8416879D6500A0FD2F /* Aircraft.png */,
@@ -474,6 +494,10 @@
 				9F34C353169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */,
 				9F34C35B169FDD1A00908B8C /* AWelcomeScreenViewController.xib in Resources */,
 				9F97A4F116A4AFBB00CCC9A1 /* AOperationPanelViewController.xib in Resources */,
+				9F97A50816A67E5200CCC9A1 /* indicator_off.png in Resources */,
+				9F97A50A16A67E5200CCC9A1 /* indicator_off@2x.png in Resources */,
+				9F97A50C16A67E5200CCC9A1 /* indicator_on.png in Resources */,
+				9F97A50E16A67E5200CCC9A1 /* indicator_on@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +521,10 @@
 				9F34C354169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */,
 				9F34C35C169FDD1A00908B8C /* AWelcomeScreenViewController.xib in Resources */,
 				9F97A4F216A4AFBB00CCC9A1 /* AOperationPanelViewController.xib in Resources */,
+				9F97A50916A67E5200CCC9A1 /* indicator_off.png in Resources */,
+				9F97A50B16A67E5200CCC9A1 /* indicator_off@2x.png in Resources */,
+				9F97A50D16A67E5200CCC9A1 /* indicator_on.png in Resources */,
+				9F97A50F16A67E5200CCC9A1 /* indicator_on@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

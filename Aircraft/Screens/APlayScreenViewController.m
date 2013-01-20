@@ -15,11 +15,6 @@
 @implementation APlayScreenViewController
 
 
-- (IBAction)actionGoBack:(UIButton *)sender
-{
-    [[AAppDelegate sharedInstance] popScreen:self animated:YES];
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,6 +34,7 @@
     self.organizer = [AGameOrganizer sharedInstance];
     
     [self setupBattleFields];
+    [self setupOperationPanel];
     [self setupChattingField];
     
 //    self.battleFldSelf = [self.organizer getBattleFieldVCFaction:BattleFieldSelf];
@@ -89,6 +85,26 @@
     int iPageCount = scrollView.subviews.count;
     viewPage.frame = CGRectMake(viewPage.bounds.size.width * iPageCount, 0, viewPage.bounds.size.width, viewPage.bounds.size.height);
     [scrollView addSubview:viewPage];
+}
+
+#pragma mark - setup operation panel/view
+
+- (void)setupOperationPanel
+{
+    self.opPanel = [self.organizer getOperationPanelVC];
+    self.opPanel.viewDelegate = self;
+    
+    CGRect opPanelFrame = self.opPanel.view.frame;
+    opPanelFrame.origin.x = 0;
+    opPanelFrame.origin.y = self.scrollView.frame.origin.y + self.scrollView.frame.size.height;
+    self.opPanel.view.frame = opPanelFrame;
+    [self.view addSubview:self.opPanel.view];
+}
+
+- (void)userWantsToExit
+{
+    // organizer will also get a notice to reset the game
+    [[AAppDelegate sharedInstance] popScreen:self animated:YES];
 }
 
 #pragma mark - setup chatting view

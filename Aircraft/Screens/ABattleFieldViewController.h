@@ -12,6 +12,7 @@
 #import "ABattleFieldModel.h"
 
 @protocol ABattleFieldVCDelegate;
+@protocol ABattleFieldOrganizerDelegate;
 
 @interface ABattleFieldViewController : UIViewController <UIGestureRecognizerDelegate>
 {
@@ -20,6 +21,7 @@
 
 @property (nonatomic) BattleFieldType faction;
 @property (assign, nonatomic) id<ABattleFieldVCDelegate> delegate;
+@property (assign, nonatomic) id<ABattleFieldOrganizerDelegate> organizerDelegate;
 @property (strong, nonatomic) IBOutlet AUIBattleFieldView *view;
 @property (strong, nonatomic) IBOutlet UIImageView *battleFieldImgView;
 
@@ -52,4 +54,12 @@
  @discussion this point is the row and col in grid(intgers value)
  */
 - (void)userTappedBattleField:(ABattleFieldViewController *)battleFld atGridPoint:(CGPoint)point;
+@end
+
+@protocol ABattleFieldOrganizerDelegate <NSObject>
+
+@required
+- (void)aircraftAdded;
+- (void)aircraftRemoved;
+
 @end

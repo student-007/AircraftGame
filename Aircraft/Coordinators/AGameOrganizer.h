@@ -10,8 +10,16 @@
 #import "ACommunicator.h"
 #import "AChattingViewController.h"
 #import "ABattleFieldViewController.h"
+#import "AOperationPanelViewController.h"
 
-@interface AGameOrganizer : NSObject<ChatViewDelegate, communicatorListenerDelegate, ABattleFieldVCDelegate>
+@interface AGameOrganizer : NSObject<ChatViewDelegate, communicatorListenerDelegate, ABattleFieldVCDelegate, AOperationPanelViewControllerOperationDelegate, ABattleFieldOrganizerDelegate>
+{
+    NSNumber *_numberOfAircraftPlaced;
+}
+
+#define kGameStatusNetWork  @"netWorkStatus"
+#define kGameStatusAircraftPlaced  @"aircraftPlacingStatus"
+@property (strong, nonatomic, readonly) NSDictionary *gameStatus;
 
 @property (nonatomic) ConnectionType connectionType;
 @property (strong, nonatomic) ACommunicator *communicator;
@@ -20,6 +28,7 @@
 
 - (AChattingViewController *)getChatVC;
 - (ABattleFieldViewController *)getBattleFieldVCFaction:(BattleFieldType)faction;
+- (AOperationPanelViewController *)getOperationPanelVC;
 
 - (void)reset;
 
