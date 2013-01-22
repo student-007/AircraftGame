@@ -20,7 +20,7 @@ typedef enum
 @interface ATableViewAdapter : NSObject<UITableViewDelegate, UITableViewDataSource>
 {
     NSMutableArray  *_panelArrangement;
-    UITableView     *_tableView;
+//    UITableView     *_tableView;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;

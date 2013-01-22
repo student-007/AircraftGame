@@ -37,10 +37,10 @@
     [self setupOperationPanel];
     [self setupChattingField];
     
-//    self.battleFldSelf = [self.organizer getBattleFieldVCFaction:BattleFieldSelf];
-//    [self.view addSubview:self.battleFldSelf.view];
     AAircraftModel *aircraft = [AAircraftModel aircraftWithOrgin:CGPointMake(4, 0) direction:AircraftDirectionLeft];
     [self.battleFldSelf addAircraft:aircraft];
+    
+    [self.organizer makeConnectionWithType:ConnectionTypeBluetooth];
 }
 
 - (void)didReceiveMemoryWarning

@@ -123,12 +123,14 @@
     }
     else if ([netMessage.flag isEqualToString:kFlagChat])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Chatting Message"
-                                                        message:((ANetMessageChat *)netMessage.message).message
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Dismiss"
-                                              otherButtonTitles:nil];
-        [alert show];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Chatting Message"
+//                                                        message:((ANetMessageChat *)netMessage.message).message
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"Dismiss"
+//                                              otherButtonTitles:nil];
+//        [alert show];
+        ANetMessageChat *chatMsg = (ANetMessageChat *)netMessage.message;
+        [self.chatVC receivedNewChattingMsg:chatMsg];
     }
     else if ([netMessage.flag isEqualToString:kFlagChatR])
     {

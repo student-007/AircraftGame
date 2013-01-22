@@ -30,6 +30,14 @@
 		9F049D391684367F007F5AC2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF016843296007F5AC2 /* Default.png */; };
 		9F049D3A1684367F007F5AC2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF21684329A007F5AC2 /* Default@2x.png */; };
 		9F049D5C16850A8E007F5AC2 /* AircraftPlusInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */; };
+		9F12B1D316ACBD5A0029AD60 /* AChattingMessageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F12B1D216ACBD5A0029AD60 /* AChattingMessageItem.m */; };
+		9F12B1D416ACBD5A0029AD60 /* AChattingMessageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F12B1D216ACBD5A0029AD60 /* AChattingMessageItem.m */; };
+		9F12B1DC16ACBFF40029AD60 /* AChattingMessageItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F12B1DB16ACBFF30029AD60 /* AChattingMessageItem.xib */; };
+		9F12B1DD16ACBFF40029AD60 /* AChattingMessageItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F12B1DB16ACBFF30029AD60 /* AChattingMessageItem.xib */; };
+		9F12B1E016ACC7650029AD60 /* blueBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F12B1DE16ACC7650029AD60 /* blueBubble.png */; };
+		9F12B1E116ACC7650029AD60 /* blueBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F12B1DE16ACC7650029AD60 /* blueBubble.png */; };
+		9F12B1E216ACC7650029AD60 /* greyBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F12B1DF16ACC7650029AD60 /* greyBubble.png */; };
+		9F12B1E316ACC7650029AD60 /* greyBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F12B1DF16ACC7650029AD60 /* greyBubble.png */; };
 		9F34C351169FD0BB00908B8C /* APlayScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F34C34F169FD0BB00908B8C /* APlayScreenViewController.m */; };
 		9F34C352169FD0BB00908B8C /* APlayScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F34C34F169FD0BB00908B8C /* APlayScreenViewController.m */; };
 		9F34C353169FD0BB00908B8C /* APlayScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F34C350169FD0BB00908B8C /* APlayScreenViewController.xib */; };
@@ -126,6 +134,11 @@
 		9F049CF21684329A007F5AC2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		9F049D3E1684367F007F5AC2 /* AircraftPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AircraftPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AircraftPlusInfo.plist; sourceTree = SOURCE_ROOT; };
+		9F12B1D116ACBD5A0029AD60 /* AChattingMessageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AChattingMessageItem.h; path = ViewModel/AChattingMessageItem.h; sourceTree = "<group>"; };
+		9F12B1D216ACBD5A0029AD60 /* AChattingMessageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AChattingMessageItem.m; path = ViewModel/AChattingMessageItem.m; sourceTree = "<group>"; };
+		9F12B1DB16ACBFF30029AD60 /* AChattingMessageItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AChattingMessageItem.xib; path = ViewModel/AChattingMessageItem.xib; sourceTree = "<group>"; };
+		9F12B1DE16ACC7650029AD60 /* blueBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueBubble.png; path = Aircraft/Res/blueBubble.png; sourceTree = "<group>"; };
+		9F12B1DF16ACC7650029AD60 /* greyBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greyBubble.png; path = Aircraft/Res/greyBubble.png; sourceTree = "<group>"; };
 		9F34C34E169FD0BB00908B8C /* APlayScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APlayScreenViewController.h; path = Screens/APlayScreenViewController.h; sourceTree = "<group>"; };
 		9F34C34F169FD0BB00908B8C /* APlayScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APlayScreenViewController.m; path = Screens/APlayScreenViewController.m; sourceTree = "<group>"; };
 		9F34C350169FD0BB00908B8C /* APlayScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APlayScreenViewController.xib; path = Screens/APlayScreenViewController.xib; sourceTree = "<group>"; };
@@ -377,6 +390,9 @@
 				9F57A01716863EF50069DA95 /* AAircraftImageView.m */,
 				9F4F8AE4169378C8006254D4 /* AUIBattleFieldView.h */,
 				9F4F8AE5169378C8006254D4 /* AUIBattleFieldView.m */,
+				9F12B1D116ACBD5A0029AD60 /* AChattingMessageItem.h */,
+				9F12B1D216ACBD5A0029AD60 /* AChattingMessageItem.m */,
+				9F12B1DB16ACBFF30029AD60 /* AChattingMessageItem.xib */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -384,6 +400,8 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				9F12B1DE16ACC7650029AD60 /* blueBubble.png */,
+				9F12B1DF16ACC7650029AD60 /* greyBubble.png */,
 				9F97A50416A67E5200CCC9A1 /* indicator_off.png */,
 				9F97A50516A67E5200CCC9A1 /* indicator_off@2x.png */,
 				9F97A50616A67E5200CCC9A1 /* indicator_on.png */,
@@ -498,6 +516,9 @@
 				9F97A50A16A67E5200CCC9A1 /* indicator_off@2x.png in Resources */,
 				9F97A50C16A67E5200CCC9A1 /* indicator_on.png in Resources */,
 				9F97A50E16A67E5200CCC9A1 /* indicator_on@2x.png in Resources */,
+				9F12B1DC16ACBFF40029AD60 /* AChattingMessageItem.xib in Resources */,
+				9F12B1E016ACC7650029AD60 /* blueBubble.png in Resources */,
+				9F12B1E216ACC7650029AD60 /* greyBubble.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +546,9 @@
 				9F97A50B16A67E5200CCC9A1 /* indicator_off@2x.png in Resources */,
 				9F97A50D16A67E5200CCC9A1 /* indicator_on.png in Resources */,
 				9F97A50F16A67E5200CCC9A1 /* indicator_on@2x.png in Resources */,
+				9F12B1DD16ACBFF40029AD60 /* AChattingMessageItem.xib in Resources */,
+				9F12B1E116ACC7650029AD60 /* blueBubble.png in Resources */,
+				9F12B1E316ACC7650029AD60 /* greyBubble.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +584,7 @@
 				9F34C351169FD0BB00908B8C /* APlayScreenViewController.m in Sources */,
 				9F34C359169FDD1A00908B8C /* AWelcomeScreenViewController.m in Sources */,
 				9F97A4EF16A4AFBB00CCC9A1 /* AOperationPanelViewController.m in Sources */,
+				9F12B1D316ACBD5A0029AD60 /* AChattingMessageItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +617,7 @@
 				9F34C352169FD0BB00908B8C /* APlayScreenViewController.m in Sources */,
 				9F34C35A169FDD1A00908B8C /* AWelcomeScreenViewController.m in Sources */,
 				9F97A4F016A4AFBB00CCC9A1 /* AOperationPanelViewController.m in Sources */,
+				9F12B1D416ACBD5A0029AD60 /* AChattingMessageItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

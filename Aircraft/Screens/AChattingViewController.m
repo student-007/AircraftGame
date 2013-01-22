@@ -31,6 +31,7 @@
     {
         _competitorName = ALocalisedString(@"chat_view_user_name");
         _competitorName = ALocalisedString(@"chat_view_competitor_name");
+        _chattingRecordsArray = [NSMutableArray array];
     }
     return self;
 }
@@ -49,6 +50,14 @@
     [self.chatTxtFld setLeftViewWithImageNamed:@"pencil_image"];
     [self.chatTxtFld setDelegate:self];
     
+//    self.tableViewAdapter = [[ATableViewAdapter alloc] initWithTableView:self.tableView];
+    
+//    AChattingMessageItem *msgItem = [[AChattingMessageItem alloc] initWithMsg:@"chatting message here" andType:AChattingMsgTypeCompetitorSent];
+//    [self.tableViewAdapter addView:msgItem forKey:[NSString stringWithFormat:@"chatMsg%d",1] withStyle:ATableViewAdapterPanelStyleGrouped];
+//    
+//    AChattingMessageItem *msgItem2 = [[AChattingMessageItem alloc] initWithMsg:@"chatting message2 here" andType:AChattingMsgTypeUserSent];
+//    [self.tableViewAdapter addView:msgItem2 forKey:[NSString stringWithFormat:@"chatMsg%d",2] withStyle:ATableViewAdapterPanelStyleGrouped];
+    
 }
 
 - (void)viewDidUnload
@@ -56,6 +65,8 @@
     [self setChatTxtFld:nil];
     [self setBackgroundImgView:nil];
     [self setSendHideBtn:nil];
+    [self setTableView:nil];
+    [self setTableViewAdapter:nil];
     [super viewDidUnload];
 }
 
@@ -82,6 +93,19 @@
 - (void)receivedNewChattingMsg:(ANetMessageChat *)message
 {
 #warning TODO: deal with the new coming message, display them. be noticed, "sender" in ANetMessageChat may be nil
+    if (!_chattingRecordsArray) _chattingRecordsArray = [NSMutableArray array];
+    
+    NSNumber *msgIdx = [NSNumber numberWithInt:_chattingRecordsArray.count];
+    NSDictionary *chatMsg = [NSDictionary dictionaryWithObjectsAndKeys:
+                             msgIdx, @"index",
+                             message.sender ? message.sender : [NSNull null], @"sender",
+                             message.message, @"message", nil];
+    [_chattingRecordsArray addObject:chatMsg];
+    
+    [self addNewMessage:message.message toChattingTableWithType:AChattingMsgTypeCompetitorSent];
+    
+//    AChattingMessageItem *msgItem = [[AChattingMessageItem alloc] initWithMsg:message.message andType:AChattingMsgTypeCompetitorSent];
+//    [self.tableViewAdapter addView:msgItem forKey:[NSString stringWithFormat:@"chatMsg%d",[msgIdx integerValue]] withStyle:ATableViewAdapterPanelStylePlain];
 }
 
 - (IBAction)sendMsgOrHideKeyBoard:(AUIButton *)sender
@@ -92,15 +116,46 @@
     }
     else
     {
-#warning TODO: pass the valid message. Or call userInputCheatCode
-        // if user wants to send a message to competitor
-        if ([self.delegate respondsToSelector:@selector(userWantsToSendChatMsg:)])
-            [self.delegate userWantsToSendChatMsg:[ANetMessageChat message:self.chatTxtFld.text andSenderName:_userName]];
+        NSString *inputStr = self.chatTxtFld.text;
         
-        // if user(most likely developer or QA) wants to input a cheat code
-        if ([self.delegate respondsToSelector:@selector(userInputCheatCode::)])
-            [self.delegate userInputCheatCode:@"cheat code here"];
+        if ([inputStr compare:@"$CheatCode" options:NSLiteralSearch range:NSMakeRange(4, 10)] == NSOrderedSame)
+        {
+            NSRange cheatCoderange = NSMakeRange(14, 3);
+            NSString *cheatCode = [inputStr substringWithRange:cheatCoderange];
+            // if user(most likely developer or QA) wants to input a cheat code
+            if ([self.delegate respondsToSelector:@selector(userInputCheatCode:)])
+                [self.delegate userInputCheatCode:cheatCode];
+        }
+        else
+        {
+            // if user wants to send a message to competitor
+            if ([self.delegate respondsToSelector:@selector(userWantsToSendChatMsg:)])
+                [self.delegate userWantsToSendChatMsg:[ANetMessageChat message:inputStr andSenderName:_userName]];
+            
+            if (!_chattingRecordsArray) _chattingRecordsArray = [NSMutableArray array];
+            NSDictionary *chatMsg = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     _userName, @"sender",
+                                     inputStr, @"message", nil];
+            [_chattingRecordsArray addObject:chatMsg];
+            
+            [self addNewMessage:inputStr toChattingTableWithType:AChattingMsgTypeUserSent];
+        }
+        
+        self.chatTxtFld.text = @"";
     }
+}
+
+- (void)addNewMessage:(NSString *)message toChattingTableWithType:(AChattingMsgType)type
+{
+    NSNumber *msgIdx = [NSNumber numberWithInt:_chattingRecordsArray.count];
+    AChattingMessageItem *msgItem = [[AChattingMessageItem alloc] initWithMsg:message andType:type];
+    [self.tableViewAdapter addView:msgItem forKey:[NSString stringWithFormat:@"chatMsg%d",[msgIdx integerValue]] withStyle:ATableViewAdapterPanelStylePlain];
+    
+    // scroll to the bottom
+    NSUInteger lastSection = [self.tableView numberOfSections] - 1;
+    NSUInteger lastSectionRow = [self.tableView numberOfRowsInSection:lastSection] - 1;
+    NSIndexPath *idxPath = [NSIndexPath indexPathForRow:lastSectionRow inSection:lastSection];
+    [self.tableView scrollToRowAtIndexPath:idxPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 - (void)adjustSendHideBtnStatus

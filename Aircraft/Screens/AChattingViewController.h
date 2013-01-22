@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ANetMessage.h"
+#import "AChattingMessageItem.h"
+
 
 @protocol ChatViewDelegate;
 
@@ -15,13 +17,16 @@
 {
     NSString *_userName;            // default: Me
     NSString *_competitorName;      // default: Competitor
+    NSMutableArray *_chattingRecordsArray; // dictionary inside, keys are :sender and message
 }
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet ATableViewAdapter *tableViewAdapter;
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImgView;
 @property (weak, nonatomic) IBOutlet AUITextField *chatTxtFld;
 @property (strong, nonatomic) IBOutlet AUIButton *sendHideBtn;
 
-@property (nonatomic, readonly, getter = isEmptyMsg) BOOL emptyMsg;
+@property (nonatomic, readonly, getter = isEmptyMsg) BOOL emptyMsg; // if the chatting field is empty
 @property (weak, nonatomic) id<ChatViewDelegate> delegate;
 
 - (void)setNickNameForUser:(NSString *)userName andCompetitor:(NSString *)competitorName;
