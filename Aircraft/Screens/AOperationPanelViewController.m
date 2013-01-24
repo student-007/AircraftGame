@@ -28,9 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    self.view.userInteractionEnabled = YES;
+    
+    [self setupAircraftHolders];
+
     
     [self.view addSubview:self.aircraftHolderView];
+    
 //    [self.view addSubview:self.operationPanelView];
 //    
 //    [self.view bringSubviewToFront:self.aircraftHolderView];
@@ -61,6 +64,10 @@
     [self setTurnTimeLabel:nil];
     [self setTotalTimeLabel:nil];
     [self setReadyButton:nil];
+    [self setAircraftUpHolderImgView:nil];
+    [self setAircraftDownHolderImgView:nil];
+    [self setAircraftLeftHolderImgView:nil];
+    [self setAircraftRightHolderImgView:nil];
     [super viewDidUnload];
 }
 
@@ -91,7 +98,39 @@
     }
 }
 
+#pragma mark - setup aircraft holders
+
+- (void)setupAircraftHolders
+{
+    self.aircraftUpHolderImgView.direction = AircraftDirectionUp;
+    self.aircraftDownHolderImgView.direction = AircraftDirectionDown;
+    self.aircraftLeftHolderImgView.direction = AircraftDirectionLeft;
+    self.aircraftRightHolderImgView.direction = AircraftDirectionRight;
+    
+    [self.aircraftUpHolderImgView setupRecognizersWithTarget:self pressSelector:@selector(pressedAircraftHolderImg:) panSelector:@selector(aircraftHolderDraging:)];
+    [self.aircraftDownHolderImgView setupRecognizersWithTarget:self pressSelector:@selector(pressedAircraftHolderImg:) panSelector:@selector(aircraftHolderDraging:)];
+    [self.aircraftLeftHolderImgView setupRecognizersWithTarget:self pressSelector:@selector(pressedAircraftHolderImg:) panSelector:@selector(aircraftHolderDraging:)];
+    [self.aircraftRightHolderImgView setupRecognizersWithTarget:self pressSelector:@selector(pressedAircraftHolderImg:) panSelector:@selector(aircraftHolderDraging:)];
+    
+    self.aircraftUpHolderImgView.userInteractionEnabled = YES;
+    self.aircraftDownHolderImgView.userInteractionEnabled = YES;
+    self.aircraftLeftHolderImgView.userInteractionEnabled = YES;
+    self.aircraftRightHolderImgView.userInteractionEnabled = YES;
+}
+
 #pragma mark - actions
+
+- (void)pressedAircraftHolderImg:(UILongPressGestureRecognizer *)sender
+{
+    if ([self.viewDelegate respondsToSelector:@selector(pressedAircraftHolderImg:)])
+        [self.viewDelegate pressedAircraftHolderImg:sender];
+}
+
+- (void)aircraftHolderDraging:(UIPanGestureRecognizer *)sender
+{
+    if ([self.viewDelegate respondsToSelector:@selector(aircraftHolderDraging:)])
+        [self.viewDelegate aircraftHolderDraging:sender];
+}
 
 - (IBAction)actionReadyBtnClicked:(id)sender
 {
@@ -103,6 +142,11 @@
             [self.operationDelegate userReadyPlacingAircrafts];
         [self switchViews];
     }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
 }
 
 - (IBAction)actionExitBtnClicked:(id)sender

@@ -62,8 +62,68 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{320, 50}</string>
 						<reference key="NSSuperview" ref="302657933"/>
+						<reference key="NSNextKeyView" ref="591273487"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+					</object>
+					<object class="IBUIImageView" id="591273487">
+						<reference key="NSNextResponder" ref="302657933"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrameSize">{50, 50}</string>
+						<reference key="NSSuperview" ref="302657933"/>
+						<reference key="NSNextKeyView" ref="838247713"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MCAxIDAAA</bytes>
+						</object>
+						<reference key="IBUIGestureRecognizers" ref="0"/>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+					</object>
+					<object class="IBUIImageView" id="838247713">
+						<reference key="NSNextResponder" ref="302657933"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{50, 0}, {50, 50}}</string>
+						<reference key="NSSuperview" ref="302657933"/>
+						<reference key="NSNextKeyView" ref="247206640"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">2</int>
+							<bytes key="NSRGB">MC4yNzQ1MDk4MTc0IDAuNjE1Njg2Mjk3NCAxAA</bytes>
+						</object>
+						<reference key="IBUIGestureRecognizers" ref="0"/>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+					</object>
+					<object class="IBUIImageView" id="168003013">
+						<reference key="NSNextResponder" ref="302657933"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{150, 0}, {50, 50}}</string>
+						<reference key="NSSuperview" ref="302657933"/>
 						<reference key="NSNextKeyView" ref="213079091"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
+						</object>
+						<reference key="IBUIGestureRecognizers" ref="0"/>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+					</object>
+					<object class="IBUIImageView" id="247206640">
+						<reference key="NSNextResponder" ref="302657933"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{100, 0}, {50, 50}}</string>
+						<reference key="NSSuperview" ref="302657933"/>
+						<reference key="NSNextKeyView" ref="168003013"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC41MzcyNTQ5MDIgMC40MTE3NjQ3MDU5IDAuMDAzOTIxNTY4NjI3AA</bytes>
+						</object>
+						<reference key="IBUIGestureRecognizers" ref="0"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
@@ -133,6 +193,7 @@
 					<bytes key="NSWhite">MQA</bytes>
 					<reference key="NSCustomColorSpace" ref="685998149"/>
 				</object>
+				<reference key="IBUIGestureRecognizers" ref="0"/>
 				<reference key="IBUISimulatedDestinationMetrics" ref="798358621"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
@@ -527,6 +588,38 @@
 					<int key="connectionID">30</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">aircraftUpHolderImgView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="591273487"/>
+					</object>
+					<int key="connectionID">69</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">aircraftDownHolderImgView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="838247713"/>
+					</object>
+					<int key="connectionID">70</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">aircraftLeftHolderImgView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="247206640"/>
+					</object>
+					<int key="connectionID">71</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">aircraftRightHolderImgView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="168003013"/>
+					</object>
+					<int key="connectionID">72</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
 						<string key="label">gestureRecognizers</string>
 						<reference key="source" ref="191373211"/>
@@ -665,6 +758,10 @@
 							<reference ref="1001940428"/>
 							<reference ref="1052463153"/>
 							<reference ref="213079091"/>
+							<reference ref="591273487"/>
+							<reference ref="838247713"/>
+							<reference ref="247206640"/>
+							<reference ref="168003013"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">View - aircraftHolder</string>
@@ -781,6 +878,34 @@
 						<reference key="parent" ref="963260015"/>
 						<string key="objectName">Button - attack</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">57</int>
+						<reference key="object" ref="591273487"/>
+						<array class="NSMutableArray" key="children"/>
+						<reference key="parent" ref="302657933"/>
+						<string key="objectName">Image View - aircraftImgUp</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">58</int>
+						<reference key="object" ref="838247713"/>
+						<array class="NSMutableArray" key="children"/>
+						<reference key="parent" ref="302657933"/>
+						<string key="objectName">Image View - aircraftImgDown</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">59</int>
+						<reference key="object" ref="247206640"/>
+						<array class="NSMutableArray" key="children"/>
+						<reference key="parent" ref="302657933"/>
+						<string key="objectName">Image View - aircraftImgLeft</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">60</int>
+						<reference key="object" ref="168003013"/>
+						<array class="NSMutableArray" key="children"/>
+						<reference key="parent" ref="302657933"/>
+						<string key="objectName">Image View - aircraftImgRight</string>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -811,6 +936,14 @@
 				<string key="41.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="48.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="57.CustomClassName">AAircraftHolderImageView</string>
+				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="58.CustomClassName">AAircraftHolderImageView</string>
+				<string key="58.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="59.CustomClassName">AAircraftHolderImageView</string>
+				<string key="59.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="60.CustomClassName">AAircraftHolderImageView</string>
+				<string key="60.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
@@ -818,7 +951,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">56</int>
+			<int key="maxID">88</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

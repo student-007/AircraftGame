@@ -30,6 +30,8 @@
 		9F049D391684367F007F5AC2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF016843296007F5AC2 /* Default.png */; };
 		9F049D3A1684367F007F5AC2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F049CF21684329A007F5AC2 /* Default@2x.png */; };
 		9F049D5C16850A8E007F5AC2 /* AircraftPlusInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */; };
+		9F10927916B0B2F4000A8149 /* AAircraftHolderImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F10927816B0B2F4000A8149 /* AAircraftHolderImageView.m */; };
+		9F10927A16B0B2F4000A8149 /* AAircraftHolderImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F10927816B0B2F4000A8149 /* AAircraftHolderImageView.m */; };
 		9F12B1D316ACBD5A0029AD60 /* AChattingMessageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F12B1D216ACBD5A0029AD60 /* AChattingMessageItem.m */; };
 		9F12B1D416ACBD5A0029AD60 /* AChattingMessageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F12B1D216ACBD5A0029AD60 /* AChattingMessageItem.m */; };
 		9F12B1DC16ACBFF40029AD60 /* AChattingMessageItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F12B1DB16ACBFF30029AD60 /* AChattingMessageItem.xib */; };
@@ -134,6 +136,8 @@
 		9F049CF21684329A007F5AC2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		9F049D3E1684367F007F5AC2 /* AircraftPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AircraftPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F049D5B16850A8E007F5AC2 /* AircraftPlusInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AircraftPlusInfo.plist; sourceTree = SOURCE_ROOT; };
+		9F10927716B0B2F4000A8149 /* AAircraftHolderImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAircraftHolderImageView.h; path = ViewModel/AAircraftHolderImageView.h; sourceTree = "<group>"; };
+		9F10927816B0B2F4000A8149 /* AAircraftHolderImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAircraftHolderImageView.m; path = ViewModel/AAircraftHolderImageView.m; sourceTree = "<group>"; };
 		9F12B1D116ACBD5A0029AD60 /* AChattingMessageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AChattingMessageItem.h; path = ViewModel/AChattingMessageItem.h; sourceTree = "<group>"; };
 		9F12B1D216ACBD5A0029AD60 /* AChattingMessageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AChattingMessageItem.m; path = ViewModel/AChattingMessageItem.m; sourceTree = "<group>"; };
 		9F12B1DB16ACBFF30029AD60 /* AChattingMessageItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AChattingMessageItem.xib; path = ViewModel/AChattingMessageItem.xib; sourceTree = "<group>"; };
@@ -393,6 +397,8 @@
 				9F12B1D116ACBD5A0029AD60 /* AChattingMessageItem.h */,
 				9F12B1D216ACBD5A0029AD60 /* AChattingMessageItem.m */,
 				9F12B1DB16ACBFF30029AD60 /* AChattingMessageItem.xib */,
+				9F10927716B0B2F4000A8149 /* AAircraftHolderImageView.h */,
+				9F10927816B0B2F4000A8149 /* AAircraftHolderImageView.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -585,6 +591,7 @@
 				9F34C359169FDD1A00908B8C /* AWelcomeScreenViewController.m in Sources */,
 				9F97A4EF16A4AFBB00CCC9A1 /* AOperationPanelViewController.m in Sources */,
 				9F12B1D316ACBD5A0029AD60 /* AChattingMessageItem.m in Sources */,
+				9F10927916B0B2F4000A8149 /* AAircraftHolderImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +625,7 @@
 				9F34C35A169FDD1A00908B8C /* AWelcomeScreenViewController.m in Sources */,
 				9F97A4F016A4AFBB00CCC9A1 /* AOperationPanelViewController.m in Sources */,
 				9F12B1D416ACBD5A0029AD60 /* AChattingMessageItem.m in Sources */,
+				9F10927A16B0B2F4000A8149 /* AAircraftHolderImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "AGameOrganizer.h"
+#import "AAircraftHolderImageView.h"
 
 @protocol AOperationPanelViewControllerViewDelegate;
 @protocol  AOperationPanelViewControllerOperationDelegate;
@@ -29,6 +30,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *turnTimeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *totalTimeLabel;
 
+// aircraft holders
+@property (strong, nonatomic) IBOutlet AAircraftHolderImageView *aircraftUpHolderImgView;
+@property (strong, nonatomic) IBOutlet AAircraftHolderImageView *aircraftDownHolderImgView;
+@property (strong, nonatomic) IBOutlet AAircraftHolderImageView *aircraftLeftHolderImgView;
+@property (strong, nonatomic) IBOutlet AAircraftHolderImageView *aircraftRightHolderImgView;
+
 @property (strong, nonatomic) IBOutlet AUIButton *readyButton;
 @property (strong, nonatomic) IBOutlet AUIButton *exitButton;
 @property (strong, nonatomic) IBOutlet AUIButton *switchButton;
@@ -43,7 +50,8 @@
 @protocol AOperationPanelViewControllerViewDelegate <NSObject>
 @required
 - (void)userWantsToExit;
-
+- (void)pressedAircraftHolderImg:(UILongPressGestureRecognizer *)longPressRecognizer;
+- (void)aircraftHolderDraging:(UIPanGestureRecognizer *)panRecognizer;
 @end
 
 #pragma mark - operation delegate

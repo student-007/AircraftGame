@@ -12,6 +12,7 @@
 #import "AChattingViewController.h"
 #import "ABattleFieldViewController.h"
 #import "AOperationPanelViewController.h"
+#import "AAircraftHolderImageView.h"
 
 @interface APlayScreenViewController : UIViewController <UIScrollViewDelegate, ABattleFieldVCDelegate, AOperationPanelViewControllerViewDelegate>
 
