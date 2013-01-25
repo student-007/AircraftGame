@@ -68,6 +68,8 @@
     [self setAircraftDownHolderImgView:nil];
     [self setAircraftLeftHolderImgView:nil];
     [self setAircraftRightHolderImgView:nil];
+    [self setSwipeGestureRecognizerUp:nil];
+    [self setSwipeGestureRecognizerDown:nil];
     [super viewDidUnload];
 }
 
@@ -146,6 +148,13 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
+    if (gestureRecognizer == self.swipeGestureRecognizerUp ||
+        gestureRecognizer == self.swipeGestureRecognizerDown ||
+        otherGestureRecognizer == self.swipeGestureRecognizerUp ||
+        otherGestureRecognizer == self.swipeGestureRecognizerDown)
+    {
+        return NO;
+    }
     return YES;
 }
 

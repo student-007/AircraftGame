@@ -30,6 +30,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *turnTimeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *totalTimeLabel;
 
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizerUp;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizerDown;
 // aircraft holders
 @property (strong, nonatomic) IBOutlet AAircraftHolderImageView *aircraftUpHolderImgView;
 @property (strong, nonatomic) IBOutlet AAircraftHolderImageView *aircraftDownHolderImgView;

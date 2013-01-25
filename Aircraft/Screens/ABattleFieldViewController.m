@@ -68,6 +68,8 @@
     }
 }
 
+#pragma mark - gestures
+
 - (void)addTapGestureToView:(UIView *)view
 {
     view.userInteractionEnabled = YES;
@@ -83,6 +85,11 @@
     panGesture.delegate = self;
     panGesture.maximumNumberOfTouches = 1;
     [view addGestureRecognizer:panGesture];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return NO;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
