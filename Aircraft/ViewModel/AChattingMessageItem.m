@@ -40,8 +40,9 @@
     {
         case AChattingMsgTypeUserSent:
         {
-            UIEdgeInsets inset = UIEdgeInsetsMake(35, 30, 25, 35);
-            UIImage *img = [[UIImage imageNamed:@"blueBubble"] resizableImageWithCapInsets:inset];
+            UIImage *img = [UIImage imageNamed:@"blueBubble"];
+            UIEdgeInsets inset = UIEdgeInsetsMake(35, 30, img.size.height - 34, img.size.width - 29);
+            img = [img resizableImageWithCapInsets:inset];
             [self.backGroundImgView setImage:img];
             backgroundImgViewFrame = CGRectMake(320.0f - (lblSize.width + 28.0f),
                                                 2.0f,
@@ -49,12 +50,17 @@
                                                 lblSize.height + 10.0f);
             self.backGroundImgView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
             self.messageLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+            self.messageLabel.frame = backgroundImgViewFrame;
         }
             break;
         case AChattingMsgTypeCompetitorSent:
         {
-            UIEdgeInsets inset = UIEdgeInsetsMake(25, 35, 25, 35);
-            UIImage *img = [[UIImage imageNamed:@"greyBubble"] resizableImageWithCapInsets:inset];
+            UIImage *img = [UIImage imageNamed:@"greyBubble"];
+            UIEdgeInsets inset = UIEdgeInsetsMake(img.size.height/2 - 1,
+                                                  img.size.width/2 - 1,
+                                                  img.size.height/2,
+                                                  img.size.width/2);
+            img = [[UIImage imageNamed:@"greyBubble"] resizableImageWithCapInsets:inset];
             [self.backGroundImgView setImage:img];
             backgroundImgViewFrame = CGRectMake(0.0f,
                                                 2.0f,
@@ -62,6 +68,7 @@
                                                 lblSize.height + 10.0f);
             self.backGroundImgView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
             self.messageLabel.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+            self.messageLabel.frame = backgroundImgViewFrame;
         }
             break;
         default:

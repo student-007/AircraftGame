@@ -19,6 +19,7 @@ typedef enum
 
 @interface ABattleFieldModel : NSObject
 {
+    BattleFieldType _type;
     int _battleFieldGrid[10][10];
 }
 

@@ -149,6 +149,7 @@
 {
     // is touching aircraft body will be checked in delegate method gestureRecognizer:shouldReceiveTouch
     // only deal with draging event
+    
 //    CGPoint touchPoint = [panGesture locationInView:panGesture.view];
     
     AAircraftImageView *aircraftImgView = (AAircraftImageView *)panGesture.view;
@@ -161,6 +162,12 @@
         [aircraftImgView setCenter:CGPointMake(aircraftImgView.center.x + translation.x,
                                                aircraftImgView.center.y + translation.y)];
         [panGesture setTranslation:CGPointZero inView:self.battleFieldImgView];
+        
+        CGPoint imgCenterPt = aircraftImgView.center;
+        if (imgCenterPt.y > 10 * kMappingFactor)
+            aircraftImgView.alpha = 0.7;
+        else
+            aircraftImgView.alpha = 1.0;
     }
     else if (panGesture.state == UIGestureRecognizerStateEnded)
     {

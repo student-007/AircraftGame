@@ -50,13 +50,12 @@
     [self.chatTxtFld setLeftViewWithImageNamed:@"pencil_image"];
     [self.chatTxtFld setDelegate:self];
     
-//    self.tableViewAdapter = [[ATableViewAdapter alloc] initWithTableView:self.tableView];
     
-//    AChattingMessageItem *msgItem = [[AChattingMessageItem alloc] initWithMsg:@"chatting message here" andType:AChattingMsgTypeCompetitorSent];
-//    [self.tableViewAdapter addView:msgItem forKey:[NSString stringWithFormat:@"chatMsg%d",1] withStyle:ATableViewAdapterPanelStyleGrouped];
-//    
-//    AChattingMessageItem *msgItem2 = [[AChattingMessageItem alloc] initWithMsg:@"chatting message2 here" andType:AChattingMsgTypeUserSent];
-//    [self.tableViewAdapter addView:msgItem2 forKey:[NSString stringWithFormat:@"chatMsg%d",2] withStyle:ATableViewAdapterPanelStyleGrouped];
+    AChattingMessageItem *msgItem = [[AChattingMessageItem alloc] initWithMsg:@"chatting message here" andType:AChattingMsgTypeCompetitorSent];
+    [self.tableViewAdapter addView:msgItem forKey:[NSString stringWithFormat:@"chatMsg%d",1] withStyle:ATableViewAdapterPanelStyleGrouped];
+    
+    AChattingMessageItem *msgItem2 = [[AChattingMessageItem alloc] initWithMsg:@"chatting message2 here" andType:AChattingMsgTypeUserSent];
+    [self.tableViewAdapter addView:msgItem2 forKey:[NSString stringWithFormat:@"chatMsg%d",2] withStyle:ATableViewAdapterPanelStyleGrouped];
     
 }
 

@@ -17,6 +17,8 @@
 
 @implementation ABattleFieldModel
 
+@synthesize type = _type;
+
 - (id)init
 {
     if (self = [super init])
@@ -120,11 +122,25 @@
     int offsetY = aircraft.orginPos.x;
     int offsetX = aircraft.orginPos.y;
     
-    for (int row = offsetX, aRow = 0; row < offsetX + 5; row++, aRow++)
-        for (int col = offsetY, aCol = 0; col < offsetY + 5; col++, aCol++)
-        {
-            _battleFieldGrid[row][col] = [aircraft elementAtRow:aRow col:aCol];
-        }
+    // scan 4*5 if Up or Down, otherwise 5*4
+    BOOL scanFlagUpOrDown = aircraft.direction == AircraftDirectionUp || aircraft.direction == AircraftDirectionDown ? YES : NO;
+    
+    if (scanFlagUpOrDown)
+    {
+        for (int row = offsetX, aRow = 0; row < offsetX + 4; row++, aRow++)
+            for (int col = offsetY, aCol = 0; col < offsetY + 5; col++, aCol++)
+            {
+                _battleFieldGrid[row][col] = [aircraft elementAtRow:aRow col:aCol];
+            }
+    }
+    else
+    {
+        for (int row = offsetX, aRow = 0; row < offsetX + 5; row++, aRow++)
+            for (int col = offsetY, aCol = 0; col < offsetY + 4; col++, aCol++)
+            {
+                _battleFieldGrid[row][col] = [aircraft elementAtRow:aRow col:aCol];
+            }
+    }
 }
 
 - (BOOL)checkPositionForAircraft:(AAircraftModel *)aircraft
