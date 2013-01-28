@@ -224,6 +224,7 @@
 
 /*!
  @discussion this point is the row and col in grid(intgers value)
+ notice: this method will be called even gama is not on (battle not start)
  */
 - (void)userTappedBattleField:(ABattleFieldViewController *)battleFld atGridPoint:(CGPoint)point;
 {

@@ -12,7 +12,7 @@
 {
     CGRect _tempAircraftImgViewFrame;
 }
-
+@property (nonatomic, readonly) BOOL isGameOn;
 @property (strong, nonatomic) UIImageView *attackMarkerImgView;
 
 @end
@@ -73,6 +73,23 @@
     }
 }
 
+- (BOOL)isGameOn
+{
+    AGameOrganizer *organizer = [AGameOrganizer sharedInstance];
+    NSDictionary *gameStatus = nil;
+    DICT_GET_OBJECT(organizer.gameStatus, gameStatus, kGameStatusBeginEndGame);
+    if (gameStatus)
+    {
+        NSNumber *isGameOn = [gameStatus valueForKey:@"isGameOn"];
+        if (isGameOn)
+            return [isGameOn boolValue];
+        else
+            return NO;
+    }
+    else
+        return NO;
+}
+
 #pragma mark - gestures
 
 - (void)addTapGestureToView:(UIView *)view
@@ -101,18 +118,24 @@
 {
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && _battleFldModel.type == BattleFieldSelf)
     {
-        AAircraftImageView *aircraftImgView = (AAircraftImageView *)gestureRecognizer.view;
-        CGPoint touchPoint = [touch locationInView:gestureRecognizer.view];
-        if ([aircraftImgView isTouchingAircraftBodyForPoint:touchPoint])
+        // only allow draging before game starts
+        if (!self.isGameOn)
         {
-            _tempAircraftImgViewFrame = aircraftImgView.frame;
-            return YES;
+            AAircraftImageView *aircraftImgView = (AAircraftImageView *)gestureRecognizer.view;
+            CGPoint touchPoint = [touch locationInView:gestureRecognizer.view];
+            if ([aircraftImgView isTouchingAircraftBodyForPoint:touchPoint])
+            {
+                _tempAircraftImgViewFrame = aircraftImgView.frame;
+                return YES;
+            }
+            else
+            {
+                _tempAircraftImgViewFrame = CGRectNull;
+                return NO;
+            }
         }
         else
-        {
-            _tempAircraftImgViewFrame = CGRectNull;
             return NO;
-        }
     }
     else if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]] /*&& _battleFldModel.type == BattleFieldEnemy*/)
     {
@@ -129,23 +152,26 @@
     
     if (_battleFldModel.type == BattleFieldEnemy)
     {
-        if (!self.attackMarkerImgView)
+        if (self.isGameOn)
         {
-            self.attackMarkerImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-            self.attackMarkerImgView.backgroundColor = [UIColor orangeColor];
+            if (!self.attackMarkerImgView)
+            {
+                self.attackMarkerImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+                self.attackMarkerImgView.backgroundColor = [UIColor orangeColor];
+            }
+            
+            CGPoint targetPoint = CGPointMake((int)gridPoint.x * kMappingFactor,
+                                              (int)gridPoint.y * kMappingFactor);
+            
+            CGRect markerFrame = CGRectMake(targetPoint.x, targetPoint.y, kMappingFactor, kMappingFactor);
+            self.attackMarkerImgView.frame = markerFrame;
+            [self.attackMarkerImgView removeFromSuperview];
+            [self.battleFieldImgView addSubview:self.attackMarkerImgView];
+            
+            _battleFldModel.attackPoint = gridPoint;
         }
-        
-        CGPoint targetPoint = CGPointMake((int)gridPoint.x * kMappingFactor,
-                                          (int)gridPoint.y * kMappingFactor);
-        
-        CGRect markerFrame = CGRectMake(targetPoint.x, targetPoint.y, kMappingFactor, kMappingFactor);
-        self.attackMarkerImgView.frame = markerFrame;
-        [self.attackMarkerImgView removeFromSuperview];
-        [self.battleFieldImgView addSubview:self.attackMarkerImgView];
-        
-        _battleFldModel.attackPoint = gridPoint;
     }
-
+    
     if ([self.delegate respondsToSelector:@selector(userTappedBattleField:atGridPoint:)])
         [self.delegate userTappedBattleField:self atGridPoint:gridPoint];
 }
@@ -153,9 +179,7 @@
 - (void)userDragingAircraft:(UIPanGestureRecognizer *)panGesture
 {
     // is touching aircraft body will be checked in delegate method gestureRecognizer:shouldReceiveTouch
-    // only deal with draging event
-    
-//    CGPoint touchPoint = [panGesture locationInView:panGesture.view];
+    // only deal with draging event. PS: disallow draging durning game will also be checked in the same delegate
     
     AAircraftImageView *aircraftImgView = (AAircraftImageView *)panGesture.view;
     
@@ -186,8 +210,8 @@
         {
             targetFrame.origin.x = (int)(newOrgin.x / kMappingFactor) * kMappingFactor;
             targetFrame.origin.y = (int)(newOrgin.y / kMappingFactor) * kMappingFactor;
-//            targetFrame.origin.x = (int)roundf(newOrgin.x > 0 ? newOrgin.x : newOrgin.x * -1);
-//            targetFrame.origin.y = (int)roundf(newOrgin.y > 0 ? newOrgin.y : newOrgin.y * -1);
+            //            targetFrame.origin.x = (int)roundf(newOrgin.x > 0 ? newOrgin.x : newOrgin.x * -1);
+            //            targetFrame.origin.y = (int)roundf(newOrgin.y > 0 ? newOrgin.y : newOrgin.y * -1);
             
             if (((int)newOrgin.x % kMappingFactor) > kMappingFactor / 2)
                 targetFrame.origin.x += kMappingFactor;
@@ -229,6 +253,7 @@
             aircraftImgView.frame = _tempAircraftImgViewFrame;
         }
     }
+    
 }
 
 - (BOOL)checkPositionForAircraft:(AAircraftModel *)aircraft
