@@ -92,6 +92,12 @@
     return self;
 }
 
+- (void)releasePath
+{
+    if (_pathRef)
+        CGPathRelease(_pathRef);
+}
+
 - (void)adjustFrameBasedOnAircraftOrginPos:(CGPoint)orgin
 {
     int orginX = orgin.x * kMappingFactor;

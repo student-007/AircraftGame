@@ -27,6 +27,7 @@
 #pragma mark - methods
 
 - (AAircraftImageView *)initWithAircraftModel:(AAircraftModel *)aircraft;
+- (void)releasePath;
 
 /*!
  @discussion check if the point is currently touching aircraft body. The point is based on self's coordinate system.

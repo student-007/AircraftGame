@@ -51,6 +51,11 @@
     self.opPanelVC = nil;
     
     _numberOfAircraftPlaced = nil;
+    _isGameBegin = NO;  // default is NO
+    _dateWhenGameBegin = nil;
+    _dateWhenGameEnd = nil;
+    _userStatus = nil;
+    _competitorStatus = nil;
 }
 
 - (NSDictionary *)gameStatus

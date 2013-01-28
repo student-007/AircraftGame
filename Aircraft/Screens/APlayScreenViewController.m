@@ -143,6 +143,7 @@
         if ([longPressRecognizer.view pointInside:pointAtOrginalView withEvent:nil])
             if (_tempAircraftForAdding)
             {
+                [_tempAircraftForAdding releasePath];
                 [_tempAircraftForAdding removeFromSuperview];
                 _tempAircraftForAdding = nil;
             }
@@ -189,6 +190,7 @@
                 }
             }
             
+            [_tempAircraftForAdding releasePath];
             [_tempAircraftForAdding removeFromSuperview];
             _tempAircraftForAdding = nil;
         }
