@@ -26,6 +26,9 @@
 "operation_panel_exit_warning" = "You may lost game data including position of aircraft(s) and chatting record.";
 
 
+// organizer
+"add_least_3_aircrafts" = "Please add 3 aircrafts to start the game.";
+
 
 
 

@@ -60,7 +60,7 @@
 
 @protocol  AOperationPanelViewControllerOperationDelegate <NSObject>
 @required
-- (void)userReadyPlacingAircrafts;
+- (BOOL)userReadyPlacingAircrafts;
 - (void)userWantsToExit;
 - (void)userPressedTool1Button;
 - (void)userPressedTool2Button;

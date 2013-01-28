@@ -27,12 +27,12 @@
 @property (strong, nonatomic) IBOutlet AUIButton *sendHideBtn;
 
 @property (nonatomic, readonly, getter = isEmptyMsg) BOOL emptyMsg; // if the chatting field is empty
-@property (weak, nonatomic) id<ChatViewDelegate> delegate;
+@property (assign, nonatomic) id<ChatViewDelegate> delegate;
 
 - (void)setNickNameForUser:(NSString *)userName andCompetitor:(NSString *)competitorName;
 - (void)resignTxtFldFirstResponder;
 - (void)receivedNewChattingMsg:(ANetMessageChat *)message;
-
+- (void)addNewMessage:(NSString *)message toChattingTableWithType:(AChattingMsgType)type;
 @end
 
 

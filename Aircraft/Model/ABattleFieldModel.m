@@ -123,9 +123,7 @@
     int offsetX = aircraft.orginPos.y;
     
     // scan 4*5 if Up or Down, otherwise 5*4
-    BOOL scanFlagUpOrDown = aircraft.direction == AircraftDirectionUp || aircraft.direction == AircraftDirectionDown ? YES : NO;
-    
-    if (scanFlagUpOrDown)
+    if (aircraft.direction == AircraftDirectionUp || aircraft.direction == AircraftDirectionDown ? YES : NO)
     {
         for (int row = offsetX, aRow = 0; row < offsetX + 4; row++, aRow++)
             for (int col = offsetY, aCol = 0; col < offsetY + 5; col++, aCol++)

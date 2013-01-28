@@ -13,7 +13,9 @@ typedef enum
 {
     AChattingMsgTypeNone                = 0,
     AChattingMsgTypeUserSent            = 1,    // this means right margin message
-    AChattingMsgTypeCompetitorSent      = 2     // left margin
+    AChattingMsgTypeCompetitorSent      = 2,    // left margin
+    AChattingMsgTypeHelpMsg             = 3,
+    AChattingMsgTypeSystemMsg           = 4
 }AChattingMsgType;
 
 @interface AChattingMessageItem : NSObject <ATableViewAdapterViewDelegate>

@@ -60,6 +60,11 @@
     return _battleFldModel.type;
 }
 
+- (NSMutableArray *)aircraftModelAry
+{
+    return _battleFldModel.aircraftModelAry;
+}
+
 - (IBAction)switchBattleFieldBtnClicked:(UIButton *)sender
 {
     if ([self.delegate respondsToSelector:@selector(userWantsToSwitchFieldFrom:)])
@@ -210,8 +215,8 @@
         // if user wants to remove this aircraft [Yufei Lang 4/14/2012]
         else if (aircraftImgView.center.y > 10 * kMappingFactor)
         {
-            NSAssert([self.delegate respondsToSelector:@selector(userWantsToRemoveAircraft:)], @"[error]: Delegate method userWantsToRemoveAircraft: not implenment.");
-            if ([self.delegate userWantsToRemoveAircraft:aircraftImgView.aircraft])
+            NSAssert([self.organizerDelegate respondsToSelector:@selector(userWantsToRemoveAircraft:)], @"[error]: Delegate method userWantsToRemoveAircraft: not implenment.");
+            if ([self.organizerDelegate userWantsToRemoveAircraft:aircraftImgView.aircraft])
             {
                 [_battleFldModel removeAircraft:aircraftImgView.aircraft];
                 [aircraftImgView removeFromSuperview];
@@ -233,24 +238,29 @@
 
 - (BOOL)addAircraft:(AAircraftModel *)aircraft
 {
-    if ([_battleFldModel checkPositionForAircraft:aircraft])
+    if ([self.organizerDelegate userWantsToAddAircraft:aircraft])
     {
-        // add aircraft model to battle field model
-        [_battleFldModel addAircraft:aircraft];
-        
-        // add the aircraft image view to battle field
-        AAircraftImageView *aircraftImgView = [[AAircraftImageView alloc] initWithAircraftModel:aircraft];
-        [self addPanGestureToView:aircraftImgView];
-        [self.battleFieldImgView addSubview:aircraftImgView];
-        if ([self.organizerDelegate respondsToSelector:@selector(aircraftAdded)])
-            [self.organizerDelegate aircraftAdded];
-        
-        return YES;
+        if ([_battleFldModel checkPositionForAircraft:aircraft])
+        {
+            // add aircraft model to battle field model
+            [_battleFldModel addAircraft:aircraft];
+            
+            // add the aircraft image view to battle field
+            AAircraftImageView *aircraftImgView = [[AAircraftImageView alloc] initWithAircraftModel:aircraft];
+            [self addPanGestureToView:aircraftImgView];
+            [self.battleFieldImgView addSubview:aircraftImgView];
+            if ([self.organizerDelegate respondsToSelector:@selector(aircraftAdded)])
+                [self.organizerDelegate aircraftAdded];
+            
+            return YES;
+        }
+        else
+        {
+            return NO;
+        }
     }
     else
-    {
         return NO;
-    }
 }
 
 - (CGPoint)attackedBasedOnPreviousMark

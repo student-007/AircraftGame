@@ -48,6 +48,18 @@
 		9F34C35A169FDD1A00908B8C /* AWelcomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F34C357169FDD1A00908B8C /* AWelcomeScreenViewController.m */; };
 		9F34C35B169FDD1A00908B8C /* AWelcomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F34C358169FDD1A00908B8C /* AWelcomeScreenViewController.xib */; };
 		9F34C35C169FDD1A00908B8C /* AWelcomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F34C358169FDD1A00908B8C /* AWelcomeScreenViewController.xib */; };
+		9F36F41616B59828004D616F /* chatBubbleOther.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F36F41516B59828004D616F /* chatBubbleOther.png */; };
+		9F36F41716B59828004D616F /* chatBubbleOther.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F36F41516B59828004D616F /* chatBubbleOther.png */; };
+		9F36F41B16B59D15004D616F /* chatBubbleSystem.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F36F41916B59D14004D616F /* chatBubbleSystem.png */; };
+		9F36F41C16B59D15004D616F /* chatBubbleSystem.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F36F41916B59D14004D616F /* chatBubbleSystem.png */; };
+		9F36F41D16B59D15004D616F /* chatBubbleUser.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F36F41A16B59D15004D616F /* chatBubbleUser.png */; };
+		9F36F41E16B59D15004D616F /* chatBubbleUser.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F36F41A16B59D15004D616F /* chatBubbleUser.png */; };
+		9F36F42216B5C6E7004D616F /* chatBubbleOther@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F36F41F16B5C6E7004D616F /* chatBubbleOther@2x.png */; };
+		9F36F42316B5C6E7004D616F /* chatBubbleOther@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F36F41F16B5C6E7004D616F /* chatBubbleOther@2x.png */; };
+		9F36F42416B5C6E7004D616F /* chatBubbleSystem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F36F42016B5C6E7004D616F /* chatBubbleSystem@2x.png */; };
+		9F36F42516B5C6E7004D616F /* chatBubbleSystem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F36F42016B5C6E7004D616F /* chatBubbleSystem@2x.png */; };
+		9F36F42616B5C6E7004D616F /* chatBubbleUser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F36F42116B5C6E7004D616F /* chatBubbleUser@2x.png */; };
+		9F36F42716B5C6E7004D616F /* chatBubbleUser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F36F42116B5C6E7004D616F /* chatBubbleUser@2x.png */; };
 		9F4436C2168E1A920006D521 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436C0168E1A920006D521 /* Localizable.strings */; };
 		9F4436C3168E1A920006D521 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436C0168E1A920006D521 /* Localizable.strings */; };
 		9F4436C8168E21F00006D521 /* ALocale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436C7168E21F00006D521 /* ALocale.m */; };
@@ -149,6 +161,12 @@
 		9F34C356169FDD1A00908B8C /* AWelcomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWelcomeScreenViewController.h; path = Screens/AWelcomeScreenViewController.h; sourceTree = "<group>"; };
 		9F34C357169FDD1A00908B8C /* AWelcomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWelcomeScreenViewController.m; path = Screens/AWelcomeScreenViewController.m; sourceTree = "<group>"; };
 		9F34C358169FDD1A00908B8C /* AWelcomeScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AWelcomeScreenViewController.xib; path = Screens/AWelcomeScreenViewController.xib; sourceTree = "<group>"; };
+		9F36F41516B59828004D616F /* chatBubbleOther.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chatBubbleOther.png; path = Aircraft/Res/chatBubbleOther.png; sourceTree = "<group>"; };
+		9F36F41916B59D14004D616F /* chatBubbleSystem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chatBubbleSystem.png; path = Aircraft/Res/chatBubbleSystem.png; sourceTree = "<group>"; };
+		9F36F41A16B59D15004D616F /* chatBubbleUser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chatBubbleUser.png; path = Aircraft/Res/chatBubbleUser.png; sourceTree = "<group>"; };
+		9F36F41F16B5C6E7004D616F /* chatBubbleOther@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chatBubbleOther@2x.png"; path = "Aircraft/Res/chatBubbleOther@2x.png"; sourceTree = "<group>"; };
+		9F36F42016B5C6E7004D616F /* chatBubbleSystem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chatBubbleSystem@2x.png"; path = "Aircraft/Res/chatBubbleSystem@2x.png"; sourceTree = "<group>"; };
+		9F36F42116B5C6E7004D616F /* chatBubbleUser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chatBubbleUser@2x.png"; path = "Aircraft/Res/chatBubbleUser@2x.png"; sourceTree = "<group>"; };
 		9F4436C1168E1A920006D521 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Aircraft/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F4436C4168E1B770006D521 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "Aircraft/zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9F4436C6168E21F00006D521 /* ALocale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALocale.h; path = Aircraft/Locale/ALocale.h; sourceTree = "<group>"; };
@@ -406,6 +424,12 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				9F36F41A16B59D15004D616F /* chatBubbleUser.png */,
+				9F36F42116B5C6E7004D616F /* chatBubbleUser@2x.png */,
+				9F36F41916B59D14004D616F /* chatBubbleSystem.png */,
+				9F36F42016B5C6E7004D616F /* chatBubbleSystem@2x.png */,
+				9F36F41516B59828004D616F /* chatBubbleOther.png */,
+				9F36F41F16B5C6E7004D616F /* chatBubbleOther@2x.png */,
 				9F12B1DE16ACC7650029AD60 /* blueBubble.png */,
 				9F12B1DF16ACC7650029AD60 /* greyBubble.png */,
 				9F97A50416A67E5200CCC9A1 /* indicator_off.png */,
@@ -525,6 +549,12 @@
 				9F12B1DC16ACBFF40029AD60 /* AChattingMessageItem.xib in Resources */,
 				9F12B1E016ACC7650029AD60 /* blueBubble.png in Resources */,
 				9F12B1E216ACC7650029AD60 /* greyBubble.png in Resources */,
+				9F36F41616B59828004D616F /* chatBubbleOther.png in Resources */,
+				9F36F41B16B59D15004D616F /* chatBubbleSystem.png in Resources */,
+				9F36F41D16B59D15004D616F /* chatBubbleUser.png in Resources */,
+				9F36F42216B5C6E7004D616F /* chatBubbleOther@2x.png in Resources */,
+				9F36F42416B5C6E7004D616F /* chatBubbleSystem@2x.png in Resources */,
+				9F36F42616B5C6E7004D616F /* chatBubbleUser@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +585,12 @@
 				9F12B1DD16ACBFF40029AD60 /* AChattingMessageItem.xib in Resources */,
 				9F12B1E116ACC7650029AD60 /* blueBubble.png in Resources */,
 				9F12B1E316ACC7650029AD60 /* greyBubble.png in Resources */,
+				9F36F41716B59828004D616F /* chatBubbleOther.png in Resources */,
+				9F36F41C16B59D15004D616F /* chatBubbleSystem.png in Resources */,
+				9F36F41E16B59D15004D616F /* chatBubbleUser.png in Resources */,
+				9F36F42316B5C6E7004D616F /* chatBubbleOther@2x.png in Resources */,
+				9F36F42516B5C6E7004D616F /* chatBubbleSystem@2x.png in Resources */,
+				9F36F42716B5C6E7004D616F /* chatBubbleUser@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

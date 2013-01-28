@@ -21,6 +21,8 @@
     ANetMessage *msg = [[ANetMessage alloc] init];
     msg.flag = flag;
     msg.message = message;
+//    msg.timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
+    msg.timestamp = [NSDate date];
     return msg;
 }
 

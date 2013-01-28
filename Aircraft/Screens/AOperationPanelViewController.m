@@ -136,14 +136,14 @@
 
 - (IBAction)actionReadyBtnClicked:(id)sender
 {
-    AGameOrganizer *organizer = [AGameOrganizer sharedInstance];
-    NSNumber *nbrOfAircraftPlaced = [organizer.gameStatus valueForKey:kGameStatusAircraftPlaced];
-    if ([nbrOfAircraftPlaced intValue] >= 3)
-    {
+//    AGameOrganizer *organizer = [AGameOrganizer sharedInstance];
+//    NSNumber *nbrOfAircraftPlaced = [organizer.gameStatus valueForKey:kGameStatusAircraftPlaced];
+//    if ([nbrOfAircraftPlaced intValue] >= 3)
+//    {
         if ([self.operationDelegate respondsToSelector:@selector(userReadyPlacingAircrafts)])
-            [self.operationDelegate userReadyPlacingAircrafts];
-        [self switchViews];
-    }
+            if ([self.operationDelegate userReadyPlacingAircrafts])
+                [self switchViews];
+//    }
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
@@ -195,23 +195,28 @@
 
 - (IBAction)actionSwipeView:(UISwipeGestureRecognizer *)sender
 {
-    if ([[self.view subviews] containsObject:self.aircraftHolderView])
+    AGameOrganizer *organizer = [AGameOrganizer sharedInstance];
+    NSNumber *nbrOfAircraftPlaced = [organizer.gameStatus valueForKey:kGameStatusAircraftPlaced];
+    if ([nbrOfAircraftPlaced intValue] >= 3)
     {
-        if (sender.direction == UISwipeGestureRecognizerDirectionUp)
+        if ([[self.view subviews] containsObject:self.aircraftHolderView])
         {
-            [self switchViews];
+            if (sender.direction == UISwipeGestureRecognizerDirectionUp)
+            {
+                [self switchViews];
+            }
         }
-    }
-    else if ([[self.view subviews] containsObject:self.operationPanelView])
-    {
-        if (sender.direction == UISwipeGestureRecognizerDirectionDown)
+        else if ([[self.view subviews] containsObject:self.operationPanelView])
         {
-            [self switchViews];
+            if (sender.direction == UISwipeGestureRecognizerDirectionDown)
+            {
+                [self switchViews];
+            }
         }
-    }
-    else
-    {
-        
+        else
+        {
+            
+        }
     }
 }
 

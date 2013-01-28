@@ -221,14 +221,6 @@
 }
 
 /*!
- @discussion return YES to allow user remove aircraft form battle field. This is for validating purpose. (eg. can not remove aircraft after battle started)
- */
-- (BOOL)userWantsToRemoveAircraft:(AAircraftModel *)aircraft
-{
-    
-}
-
-/*!
  @discussion this point is the row and col in grid(intgers value)
  */
 - (void)userTappedBattleField:(ABattleFieldViewController *)battleFld atGridPoint:(CGPoint)point;

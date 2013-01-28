@@ -11,15 +11,35 @@
 #import "AChattingViewController.h"
 #import "ABattleFieldViewController.h"
 #import "AOperationPanelViewController.h"
+#import "AChattingMessageItem.h"
 
-@interface AGameOrganizer : NSObject<ChatViewDelegate, communicatorListenerDelegate, ABattleFieldVCDelegate, AOperationPanelViewControllerOperationDelegate, ABattleFieldOrganizerDelegate>
+typedef enum
 {
+    AWhosTurnNone           = 0,
+    AWhosTurnUser           = 1,
+    AWhosTurnCompetitor     = 2
+}AWhosTurn;
+
+@interface AGameOrganizer : NSObject<ChatViewDelegate, communicatorListenerDelegate, AOperationPanelViewControllerOperationDelegate, ABattleFieldOrganizerDelegate>
+{
+    // game status data
     NSNumber *_numberOfAircraftPlaced;
+    
+    BOOL _isGameBegin;  // default is NO
+    NSDate *_dateWhenGameBegin;
+    NSDate *_dateWhenGameEnd;
+    
+    NSMutableDictionary *_userStatus;
+    NSMutableDictionary *_competitorStatus;
 }
 
-#define kGameStatusNetWork  @"netWorkStatus"
-#define kGameStatusAircraftPlaced  @"aircraftPlacingStatus"
+#define kGameStatusNetWork          @"netWorkStatus"
+#define kGameStatusAircraftPlaced   @"aircraftPlacingStatus"    // no key, NSNumber object for how may aircraft placed
+#define kGameStatusBeginEndGame     @"beginGameStatus"          // keys: isGameOn, beginDate, endDate
+#define kGameStatusPlayer           @"playerStatus"             // keys: user(isReady, date), competitor(isReady, date)
 @property (strong, nonatomic, readonly) NSDictionary *gameStatus;
+
+@property (nonatomic, readonly) AWhosTurn whosTurn;             // default: AWhosTurnNone
 
 @property (nonatomic) ConnectionType connectionType;
 @property (strong, nonatomic) ACommunicator *communicator;

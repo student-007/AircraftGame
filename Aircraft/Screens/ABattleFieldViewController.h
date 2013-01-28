@@ -19,6 +19,8 @@
     ABattleFieldModel *_battleFldModel;
 }
 
+@property (nonatomic, readonly) NSMutableArray *aircraftModelAry;
+
 @property (nonatomic) BattleFieldType faction;
 @property (assign, nonatomic) id<ABattleFieldVCDelegate> delegate;
 @property (assign, nonatomic) id<ABattleFieldOrganizerDelegate> organizerDelegate;
@@ -47,7 +49,6 @@
 
 @required
 - (void)userWantsToSwitchFieldFrom:(ABattleFieldViewController *)currentBattleField;
-- (BOOL)userWantsToRemoveAircraft:(AAircraftModel *)aircraft;
 
 @optional
 /*!
@@ -59,7 +60,8 @@
 @protocol ABattleFieldOrganizerDelegate <NSObject>
 
 @required
+- (BOOL)userWantsToRemoveAircraft:(AAircraftModel *)aircraft;
+- (BOOL)userWantsToAddAircraft:(AAircraftModel *)aircraft;
 - (void)aircraftAdded;
 - (void)aircraftRemoved;
-
 @end

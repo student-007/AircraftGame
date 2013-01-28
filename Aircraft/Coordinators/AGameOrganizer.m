@@ -19,6 +19,8 @@
 
 @implementation AGameOrganizer
 
+@synthesize chatVC = _chatVC;
+
 + (AGameOrganizer *)sharedInstance
 {
     static AGameOrganizer *organizer = nil;
@@ -35,6 +37,7 @@
     {
         self.connectionType = ConnectionTypeNone;
         _numberOfAircraftPlaced = [NSNumber numberWithInt:0];
+        _whosTurn = AWhosTurnNone;
     }
     return self;
 }
@@ -53,8 +56,30 @@
 - (NSDictionary *)gameStatus
 {
     NSMutableDictionary *statusDic = [NSMutableDictionary dictionary];
+    
+    // aircraft placed
     if (!_numberOfAircraftPlaced) _numberOfAircraftPlaced = [NSNumber numberWithInt:0];
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(statusDic, _numberOfAircraftPlaced, kGameStatusAircraftPlaced);
+    
+    // is game on
+    NSMutableDictionary *gameBeginStatus = [NSMutableDictionary dictionary];
+    id isGameOn = _isGameBegin?[NSNumber numberWithBool:YES]:[NSNull null];
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameBeginStatus, isGameOn, @"isGameOn");
+    id beginDate = _dateWhenGameBegin?_dateWhenGameBegin:[NSNull null];
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameBeginStatus, beginDate, @"beginDate");
+    id endDate = _dateWhenGameEnd?_dateWhenGameEnd:[NSNull null];
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameBeginStatus, endDate, @"endDate");
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(statusDic, gameBeginStatus, kGameStatusBeginEndGame);
+    
+    NSMutableDictionary *playerStatus = [NSMutableDictionary dictionary];
+    id user = _userStatus?_userStatus:[NSNull null];
+    id competitor = _competitorStatus?_competitorStatus:[NSNull null];
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(playerStatus, user, @"user");
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(playerStatus, competitor, @"competitor");
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(statusDic, playerStatus, kGameStatusPlayer);
+    
+    
+    
 #warning TODO: add network status here
     
     return [NSDictionary dictionaryWithDictionary:statusDic];
@@ -107,7 +132,38 @@
 {
     if ([netMessage.flag isEqualToString:kFlagInitial])
     {
+        ANetMessageInitial *initialMsg = netMessage.message;
+        NSDate *timestamp = netMessage.timestamp;
+        NSArray *competitorAircrafts = initialMsg.aircrafts;
+        NSMutableArray *competitorAircraftModels = [NSMutableArray array];
+        for (NSDictionary *aircraftDic in competitorAircrafts)
+        {
+            [competitorAircraftModels addObject:[AAircraftModel aircraftFromSavableDictionary:aircraftDic]];
+        }
+#warning TODO: deal with competitor's aircraft models (competitorAircraftModels)
         
+        if (!_competitorStatus)
+            _competitorStatus = [NSMutableDictionary dictionary];
+        DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(_competitorStatus, [NSNumber numberWithBool:YES], @"isReady");
+        DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(_competitorStatus, timestamp, @"date");
+        
+        if (_userStatus)
+        {
+            NSDate *userReadyDate = [_userStatus objectForKey:@"date"];
+            if ([timestamp timeIntervalSinceDate:userReadyDate] <= 0)
+            {
+                _whosTurn = AWhosTurnCompetitor;
+            }
+            else
+            {
+                _whosTurn = AWhosTurnUser;
+            }
+#warning TODO: start the game
+        }
+        else
+        {
+#warning TODO: tell user, competitor is ready
+        }
     }
     else if ([netMessage.flag isEqualToString:kFlagInitialR])
     {
@@ -123,12 +179,6 @@
     }
     else if ([netMessage.flag isEqualToString:kFlagChat])
     {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Chatting Message"
-//                                                        message:((ANetMessageChat *)netMessage.message).message
-//                                                       delegate:nil
-//                                              cancelButtonTitle:@"Dismiss"
-//                                              otherButtonTitles:nil];
-//        [alert show];
         ANetMessageChat *chatMsg = (ANetMessageChat *)netMessage.message;
         [self.chatVC receivedNewChattingMsg:chatMsg];
     }
@@ -166,7 +216,7 @@
 
 - (void)connectionCanceled:(NSError *)errorOrNil
 {
-    self.chatVC = nil;
+//    self.chatVC = nil;
     
 }
 
@@ -182,9 +232,68 @@
     return self.opPanelVC;
 }
 
-- (void)userReadyPlacingAircrafts
+- (BOOL)userReadyPlacingAircrafts
 {
-#warning TODO: send ready message along with placing information
+    if ([_numberOfAircraftPlaced intValue] >= 3)
+    {
+        ANetMessageInitial *initialMsg = [[ANetMessageInitial alloc] init];
+        
+        NSArray *modelAry = self.battleFldVCSelf.aircraftModelAry;
+        NSMutableArray *dictionaryModelAry = [NSMutableArray array];
+        for (AAircraftModel *model in modelAry)
+        {
+            [dictionaryModelAry addObject:[model savableDictionary]];
+        }
+        
+        initialMsg.aircrafts = dictionaryModelAry;
+        ANetMessage *netMsg = [ANetMessage messageWithFlag:kFlagInitial message:initialMsg];
+        
+        if (!_userStatus)
+            _userStatus = [NSMutableDictionary dictionary];
+        NSDate *readyDate = netMsg.timestamp;
+        DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(_userStatus, [NSNumber numberWithBool:YES], @"isReady");
+        DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(_userStatus, readyDate, @"date");
+        
+        [self.communicator sendMessage:netMsg];
+        
+        if (_competitorStatus)// game shall begin
+        {
+            NSDate *competitorReadyDate = nil;
+            DICT_GET_OBJECT(_competitorStatus, competitorReadyDate, @"date");
+            if (competitorReadyDate)
+            {
+                if ([competitorReadyDate timeIntervalSinceDate:readyDate] <= 0)
+                {
+                    // competitor's turn
+                    _whosTurn = AWhosTurnCompetitor;
+                }
+                else
+                {
+                    // user's turn (it's very unlikely app goes here)
+                    _whosTurn = AWhosTurnUser;
+                }
+                
+                _isGameBegin = YES;
+                _dateWhenGameBegin = [NSDate date];
+                
+#warning TODO: start the game here.
+            }
+        }
+        else // waiting for competitor
+        {
+#warning TODO: tell user to wait for competitor.          
+        }
+        
+        return YES;
+    }
+    else
+    {
+        if (self.chatVC)
+        {
+            [self.chatVC addNewMessage:ALocalisedString(@"add_least_3_aircrafts") toChattingTableWithType:AChattingMsgTypeHelpMsg];
+        }
+        return NO;
+    }
 }
 
 - (void)userWantsToExit
@@ -218,7 +327,7 @@
         {
             self.battleFldVCEnemy = [[ABattleFieldViewController alloc] initWithNibName:@"ABattleFieldViewController" bundle:nil];
             self.battleFldVCEnemy.faction = faction;
-            self.battleFldVCEnemy.delegate = self;
+//            self.battleFldVCEnemy.delegate = self;
             self.battleFldVCEnemy.organizerDelegate = self;
         }
         
@@ -230,7 +339,7 @@
         {
             self.battleFldVCSelf = [[ABattleFieldViewController alloc] initWithNibName:@"ABattleFieldViewController" bundle:nil];
             self.battleFldVCSelf.faction = faction;
-            self.battleFldVCSelf.delegate = self;
+//            self.battleFldVCSelf.delegate = self;
             self.battleFldVCSelf.organizerDelegate = self;
         }
         
@@ -256,25 +365,25 @@
         _numberOfAircraftPlaced = [NSNumber numberWithInt:[_numberOfAircraftPlaced intValue] - 1];
 }
 
-- (void)userWantsToSwitchFieldFrom:(ABattleFieldViewController *)currentBattleField
-{
-#warning TODO: implemention required
-}
-
 /*!
  @discussion this method will be called when user drag aircraft off the field and try to removed the aircraft, return YES to allow this operation, otherwize aircraft won't be removed.
  */
 - (BOOL)userWantsToRemoveAircraft:(AAircraftModel *)aircraft
 {
-#warning TODO: implemention required
+    if (_isGameBegin)
+        return NO;
+    else
+        return YES;
 }
 
-/*!
- @discussion this point is the row and col in grid(intgers value)
- */
-- (void)userTappedBattleFieldGridAtPoint:(CGPoint)point
+- (BOOL)userWantsToAddAircraft:(AAircraftModel *)aircraft
 {
-#warning TODO: implemention required
+    if (_numberOfAircraftPlaced)
+    {
+        return [_numberOfAircraftPlaced intValue] >= 3 ? NO : YES;
+    }
+    else
+        return YES;
 }
 
 #pragma mark - chatting view controls

@@ -44,6 +44,9 @@
     [self loadLocalizedInfo];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChanged:) name:UIKeyboardDidShowNotification object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.chatTxtFld];
 
     // add a pencil icon at left of the chatting text field
@@ -51,11 +54,14 @@
     [self.chatTxtFld setDelegate:self];
     
     
-    AChattingMessageItem *msgItem = [[AChattingMessageItem alloc] initWithMsg:@"chatting message here" andType:AChattingMsgTypeCompetitorSent];
+    AChattingMessageItem *msgItem = [[AChattingMessageItem alloc] initWithMsg:@"competitor chatting message here" andType:AChattingMsgTypeCompetitorSent];
     [self.tableViewAdapter addView:msgItem forKey:[NSString stringWithFormat:@"chatMsg%d",1] withStyle:ATableViewAdapterPanelStyleGrouped];
     
-    AChattingMessageItem *msgItem2 = [[AChattingMessageItem alloc] initWithMsg:@"chatting message2 here" andType:AChattingMsgTypeUserSent];
+    AChattingMessageItem *msgItem2 = [[AChattingMessageItem alloc] initWithMsg:@"user chatting message2 here, and this is a very very long long long message may be 2-3 lines. 3 lines" andType:AChattingMsgTypeUserSent];
     [self.tableViewAdapter addView:msgItem2 forKey:[NSString stringWithFormat:@"chatMsg%d",2] withStyle:ATableViewAdapterPanelStyleGrouped];
+    
+    AChattingMessageItem *msgItem3 = [[AChattingMessageItem alloc] initWithMsg:@"system chatting message2 here, and this is a very very long long long message may be 2-3 lines." andType:AChattingMsgTypeSystemMsg];
+    [self.tableViewAdapter addView:msgItem3 forKey:[NSString stringWithFormat:@"chatMsg%d",3] withStyle:ATableViewAdapterPanelStyleGrouped];
     
 }
 
@@ -91,7 +97,6 @@
 
 - (void)receivedNewChattingMsg:(ANetMessageChat *)message
 {
-#warning TODO: deal with the new coming message, display them. be noticed, "sender" in ANetMessageChat may be nil
     if (!_chattingRecordsArray) _chattingRecordsArray = [NSMutableArray array];
     
     NSNumber *msgIdx = [NSNumber numberWithInt:_chattingRecordsArray.count];
