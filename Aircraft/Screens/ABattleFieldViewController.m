@@ -267,9 +267,10 @@
 {
     [self.attackMarkerImgView removeFromSuperview];
     CGPoint previousMarkerPt = CGPointMake(_battleFldModel.attackPoint.x, _battleFldModel.attackPoint.y);
-    [_battleFldModel addAttackRecordPoint];
-    
-    return previousMarkerPt;
+    if ([_battleFldModel addAttackRecordPoint])
+        return previousMarkerPt;
+    else
+        return CGPointMake(-1, -1);
 }
 
 /*!
@@ -278,5 +279,45 @@
 - (NSString *)attackResultInGridAtPoint:(CGPoint)point
 {
     return [_battleFldModel attackResultInGridAtPoint:point];
+}
+
+/*!
+ @discussion display the result in enemy field based on last object of attack record array
+ */
+- (BOOL)displayPreviousAttackResultForString:(NSString *)resString
+{
+    CGPoint lastAttackPt = [_battleFldModel lastAttackPoint];
+    if (lastAttackPt.x != -1 && lastAttackPt.y != -1)
+    {
+        UIImageView *resultImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+        
+        CGPoint targetPoint = CGPointMake((int)lastAttackPt.x * kMappingFactor,
+                                          (int)lastAttackPt.y * kMappingFactor);
+        
+        CGRect markerFrame = CGRectMake(targetPoint.x, targetPoint.y, kMappingFactor, kMappingFactor);
+        resultImgView.frame = markerFrame;
+        
+        if ([resString caseInsensitiveCompare:kAttackRMiss] == NSOrderedSame)
+        {
+            [resultImgView setBackgroundColor:[UIColor whiteColor]];
+            [self.battleFieldImgView addSubview:resultImgView];
+        }
+        else if ([resString caseInsensitiveCompare:kAttackRHit] == NSOrderedSame)
+        {
+            [resultImgView setBackgroundColor:[UIColor yellowColor]];
+            [self.battleFieldImgView addSubview:resultImgView];
+        }
+        else if ([resString caseInsensitiveCompare:kAttackRDestroy] == NSOrderedSame)
+        {
+            [resultImgView setBackgroundColor:[UIColor redColor]];
+            [self.battleFieldImgView addSubview:resultImgView];
+        }
+        else
+            return NO;
+        
+        return YES;
+    }
+    else
+        return NO;
 }
 @end

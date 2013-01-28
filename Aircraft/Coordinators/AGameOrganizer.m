@@ -171,11 +171,21 @@
     }
     else if ([netMessage.flag isEqualToString:kFlagAttack])
     {
+        ANetMessageAttack *attackMsg = (ANetMessageAttack *)netMessage.message;
+        CGPoint attackPt = CGPointMake([attackMsg.row floatValue], [attackMsg.col floatValue]);
+        NSString *attackResStr = [self.battleFldVCSelf attackResultInGridAtPoint:attackPt];
         
+        ANetMessageAttackR *replyMsg = [[ANetMessageAttackR alloc] init];
+        replyMsg.attackResult = attackResStr;
+//        replyMsg.toolsResult =
+        
+        ANetMessage *netMessageR = [ANetMessage messageWithFlag:kFlagAttackR message:replyMsg];
+        [self.communicator sendMessage:netMessageR];
     }
     else if ([netMessage.flag isEqualToString:kFlagAttackR])
     {
-        
+        ANetMessageAttackR *replyMsg = (ANetMessageAttackR *)netMessage.message;
+        [self.battleFldVCEnemy displayPreviousAttackResultForString:replyMsg.attackResult];
     }
     else if ([netMessage.flag isEqualToString:kFlagChat])
     {
@@ -314,7 +324,23 @@
 
 - (void)userPressedAttackButton
 {
-    
+    // this will add the attack record but not send the attack message
+    CGPoint attackPt = [self.battleFldVCEnemy attackedBasedOnPreviousMark];
+    if (attackPt.x < 0 || attackPt.y < 0)
+    {
+        if (self.chatVC)
+            [self.chatVC addNewMessage:ALocalisedString(@"select_then_attack") toChattingTableWithType:AChattingMsgTypeHelpMsg];
+    }
+    else
+    {
+        ANetMessageAttack *attackMsg = [[ANetMessageAttack alloc] init];
+        attackMsg.row = [NSNumber numberWithFloat:attackPt.x];
+        attackMsg.col = [NSNumber numberWithFloat:attackPt.y];
+//        attackMsg.tools =
+        
+        ANetMessage *netMsg = [ANetMessage messageWithFlag:kFlagAttack message:attackMsg];
+        [self.communicator sendMessage:netMsg];
+    }
 }
 
 #pragma mark - battle field view controls

@@ -24,13 +24,14 @@ typedef enum
 }
 
 @property (nonatomic) CGPoint attackPoint;
+@property (nonatomic, readonly) CGPoint lastAttackPoint;
 @property (nonatomic) BattleFieldType type;     // default: BattleFieldNone
 @property (strong, nonatomic, readonly) NSMutableArray *aircraftModelAry;
 
 /*!
  @discussion ONLY call this method after setting up the property 'attackPoint', then attack will be recoreded for saving game.
  */
-- (void)addAttackRecordPoint;//:(CGPoint)attackPoint;
+- (BOOL)addAttackRecordPoint;//:(CGPoint)attackPoint;
 
 /*!
  @discussion return the defined string: kAttackRMiss kAttackRHit kAttackRDestroy. points are row and col(intgers value)

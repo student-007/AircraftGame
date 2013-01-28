@@ -28,7 +28,7 @@
 
 // organizer
 "add_least_3_aircrafts" = "Please add 3 aircrafts to start the game.";
-
+"select_then_attack" = "Please select a target from enemy field, then attack.";
 
 
 

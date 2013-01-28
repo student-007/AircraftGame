@@ -32,6 +32,7 @@
 
 /*!
  @discussion call this method after user making an attack marker. return which point was previous marked.
+ if no marker was made, return (-1, -1)
  */
 - (CGPoint)attackedBasedOnPreviousMark;
 
@@ -39,6 +40,11 @@
  @discussion return the defined string: kAttackRMiss kAttackRHit kAttackRDestroy. points are row and col(intgers value)
  */
 - (NSString *)attackResultInGridAtPoint:(CGPoint)point;
+
+/*!
+ @discussion display the result in enemy field based on last object of attack record array
+ */
+- (BOOL)displayPreviousAttackResultForString:(NSString *)resString;
 
 @end
 
