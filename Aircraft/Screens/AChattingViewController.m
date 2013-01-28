@@ -53,16 +53,9 @@
     [self.chatTxtFld setLeftViewWithImageNamed:@"pencil_image"];
     [self.chatTxtFld setDelegate:self];
     
-    
-    AChattingMessageItem *msgItem = [[AChattingMessageItem alloc] initWithMsg:@"competitor chatting message here" andType:AChattingMsgTypeCompetitorSent];
-    [self.tableViewAdapter addView:msgItem forKey:[NSString stringWithFormat:@"chatMsg%d",1] withStyle:ATableViewAdapterPanelStyleGrouped];
-    
-    AChattingMessageItem *msgItem2 = [[AChattingMessageItem alloc] initWithMsg:@"user chatting message2 here, and this is a very very long long long message may be 2-3 lines. 3 lines" andType:AChattingMsgTypeUserSent];
-    [self.tableViewAdapter addView:msgItem2 forKey:[NSString stringWithFormat:@"chatMsg%d",2] withStyle:ATableViewAdapterPanelStyleGrouped];
-    
-    AChattingMessageItem *msgItem3 = [[AChattingMessageItem alloc] initWithMsg:@"system chatting message2 here, and this is a very very long long long message may be 2-3 lines." andType:AChattingMsgTypeSystemMsg];
-    [self.tableViewAdapter addView:msgItem3 forKey:[NSString stringWithFormat:@"chatMsg%d",3] withStyle:ATableViewAdapterPanelStyleGrouped];
-    
+    [self addNewMessage:@"competitor chatting message here" toChattingTableWithType:AChattingMsgTypeCompetitorSent];
+    [self addNewMessage:@"user chatting message2 here, and this is a very very long long long message may be 2-3 lines. 3 lines" toChattingTableWithType:AChattingMsgTypeUserSent];
+    [self addNewMessage:@"user chatting message2 here, and this is a very very long long long message may be 2-3 lines. 3 lines" toChattingTableWithType:AChattingMsgTypeHelpMsg];
 }
 
 - (void)viewDidUnload

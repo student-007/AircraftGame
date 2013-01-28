@@ -182,7 +182,7 @@
     if ([_panelArrangement count] > 0)
     {
         [_panelArrangement removeAllObjects];
-        [self.tableView deleteSections:[NSIndexSet indexSetWithIndexesInRange:indexRange] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView deleteSections:[NSIndexSet indexSetWithIndexesInRange:indexRange] withRowAnimation:UITableViewRowAnimationBottom];
     }
 }
 
@@ -279,14 +279,14 @@
             [section.footerKeys replaceObjectAtIndex:pos withObject:key];
         }
         
-        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:pos inSection:sectionIdx]] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:pos inSection:sectionIdx]] withRowAnimation:UITableViewRowAnimationBottom];
     }
     else
     {
         if (kPanelPosSection == found)
         {
             [_panelArrangement removeObjectAtIndex:sectionIdx];
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIdx] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIdx] withRowAnimation:UITableViewRowAnimationBottom];
         }
         
         ATableViewAdapterPanelSection *section = nil;
@@ -362,17 +362,17 @@
         
         if (isNewSection)
         {
-            [self.tableView insertSections:[NSIndexSet  indexSetWithIndex:sectionIdx] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+            [self.tableView insertSections:[NSIndexSet  indexSetWithIndex:sectionIdx] withRowAnimation:(UITableViewRowAnimationBottom)];
         }
         else
         {
             if (kPanelPosCells == panelPos)
             {
-                [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:idx inSection:sectionIdx]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:idx inSection:sectionIdx]] withRowAnimation:UITableViewRowAnimationBottom];
             }
             else
             {
-                [self.tableView reloadSections:[NSIndexSet  indexSetWithIndex:sectionIdx] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView reloadSections:[NSIndexSet  indexSetWithIndex:sectionIdx] withRowAnimation:UITableViewRowAnimationBottom];
             }
         }
         
@@ -391,7 +391,7 @@
         if (kPanelPosSection == found)
         {
             [_panelArrangement removeObjectAtIndex:sectionIdx];
-            [self.tableView deleteSections:[NSIndexSet  indexSetWithIndex:sectionIdx] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView deleteSections:[NSIndexSet  indexSetWithIndex:sectionIdx] withRowAnimation:UITableViewRowAnimationBottom];
         }
         else
         {
@@ -402,7 +402,7 @@
                 [section.cellViews removeObjectAtIndex:pos];
                 [section.cellKeys removeObjectAtIndex:pos];
                 
-                [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:pos inSection:sectionIdx]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:pos inSection:sectionIdx]] withRowAnimation:UITableViewRowAnimationBottom];
             }
             else
             {
@@ -421,11 +421,11 @@
             if ([section.cellKeys count] == 0 && [section.headerKeys count] == 0 && [section.footerKeys count] == 0)
             {
                 [_panelArrangement removeObjectAtIndex:sectionIdx];
-                [self.tableView deleteSections:[NSIndexSet  indexSetWithIndex:sectionIdx] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView deleteSections:[NSIndexSet  indexSetWithIndex:sectionIdx] withRowAnimation:UITableViewRowAnimationBottom];
             }
             else if (kPanelPosHeader == found)
             {
-                [self.tableView reloadSections:[NSIndexSet  indexSetWithIndex:sectionIdx] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView reloadSections:[NSIndexSet  indexSetWithIndex:sectionIdx] withRowAnimation:UITableViewRowAnimationBottom];
             }
         }
     }
@@ -479,7 +479,7 @@
         
         [_panelArrangement addObject:section];
         
-        [self.tableView insertSections:[NSIndexSet  indexSetWithIndex:([_panelArrangement count] - 1)] withRowAnimation:(UITableViewRowAnimationAutomatic)];
+        [self.tableView insertSections:[NSIndexSet  indexSetWithIndex:([_panelArrangement count] - 1)] withRowAnimation:(UITableViewRowAnimationBottom)];
     }
 }
 
