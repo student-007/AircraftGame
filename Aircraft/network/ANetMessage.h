@@ -86,6 +86,7 @@
 #pragma mark - surrender message
 
 @interface ANetMessageSurrender : ANetMessageBaseMessage
+@property (strong, nonatomic) NSString *type;           // lose, escape
 @end
 
 @interface ANetMessageSurrenderR : ANetMessageBaseReply

@@ -165,8 +165,9 @@
     else if ([InternalMsg isKindOfClass:[ANetMessageSurrender class]])
     {
         resDic = [NSMutableDictionary dictionary];
-//        ANetMessageSurrender *msg = InternalMsg;
-        DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(resDic, [NSNull null], @"EMPTY");
+        ANetMessageSurrender *msg = InternalMsg;
+        NSString *surrenderType = msg.type;
+        DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(resDic, surrenderType, @"TYPE");
         return resDic;
     }
     else if ([InternalMsg isKindOfClass:[ANetMessageSurrenderR class]])
@@ -266,6 +267,7 @@
     else if ([className isEqualToString:@"ANetMessageSurrender"])
     {
         ANetMessageSurrender *msg = [[msgClass alloc] init];
+        DICT_GET_OBJECT(source, msg.type, @"TYPE");
         return msg;
     }
     else if ([className isEqualToString:@"ANetMessageSurrenderR"])

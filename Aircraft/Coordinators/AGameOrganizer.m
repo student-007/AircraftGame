@@ -68,7 +68,7 @@
     
     // is game on
     NSMutableDictionary *gameBeginStatus = [NSMutableDictionary dictionary];
-    id isGameOn = _isGameBegin?[NSNumber numberWithBool:YES]:[NSNull null];
+    id isGameOn = _isGameBegin?[NSNumber numberWithBool:YES]:[NSNumber numberWithBool:NO];
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameBeginStatus, isGameOn, @"isGameOn");
     id beginDate = _dateWhenGameBegin?_dateWhenGameBegin:[NSNull null];
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameBeginStatus, beginDate, @"beginDate");
@@ -88,6 +88,23 @@
 #warning TODO: add network status here
     
     return [NSDictionary dictionaryWithDictionary:statusDic];
+}
+
+- (void)startTheGame
+{
+    _isGameBegin = YES;
+    if (_whosTurn == AWhosTurnCompetitor)
+    {
+        
+    }
+    else if (_whosTurn == AWhosTurnUser)
+    {
+        
+    }
+    else //if (_whosTurn == AWhosTurnNone)
+    {
+        // do nothing
+    }
 }
 
 #pragma mark - communication controls
@@ -163,11 +180,12 @@
             {
                 _whosTurn = AWhosTurnUser;
             }
-#warning TODO: start the game
+        
+            [self startTheGame];
         }
         else
         {
-#warning TODO: tell user, competitor is ready
+            [self.chatVC addNewMessage:ALocalisedString(@"your_opponent_is_ready") toChattingTableWithType:AChattingMsgTypeHelpMsg];
         }
     }
     else if ([netMessage.flag isEqualToString:kFlagInitialR])
@@ -203,7 +221,16 @@
     }
     else if ([netMessage.flag isEqualToString:kFlagSurrender])
     {
-        
+        ANetMessageSurrender *surrenderMsg = (ANetMessageSurrender *)netMessage.message;
+        NSString *surrenderType = surrenderMsg.type;
+        if ([surrenderType caseInsensitiveCompare:@"lose"] == NSOrderedSame)
+        {
+#warning tell user that "You won!"
+        }
+        else if ([surrenderType caseInsensitiveCompare:@"escape"] == NSOrderedSame)
+        {
+#warning tell user that "competitor escaped, you won"
+        }
     }
     else if ([netMessage.flag isEqualToString:kFlagSurrenderR])
     {
@@ -231,8 +258,9 @@
 
 - (void)connectionCanceled:(NSError *)errorOrNil
 {
-//    self.chatVC = nil;
-    
+    [self.chatVC addNewMessage:ALocalisedString(@"you_have_canceled_connection") toChattingTableWithType:AChattingMsgTypeSystemMsg];
+#warning TODO: uncomment after testing
+//    [self reset];
 }
 
 #pragma mark - operation panel
@@ -291,12 +319,12 @@
                 _isGameBegin = YES;
                 _dateWhenGameBegin = [NSDate date];
                 
-#warning TODO: start the game here.
+                [self startTheGame];
             }
         }
         else // waiting for competitor
         {
-#warning TODO: tell user to wait for competitor.          
+            [self.chatVC addNewMessage:ALocalisedString(@"please_wait_for_competitor") toChattingTableWithType:AChattingMsgTypeHelpMsg];
         }
         
         return YES;
@@ -313,7 +341,17 @@
 
 - (void)userWantsToExit
 {
-#warning TODO: send a user will exit message, battle will lose
+    if (_competitorStatus && _isGameBegin)
+    {
+        ANetMessageSurrender *surrenderMsg = [[ANetMessageSurrender alloc] init];
+        surrenderMsg.type = @"escape";
+        [self.communicator sendMessage:[ANetMessage messageWithFlag:kFlagSurrender message:surrenderMsg]];
+    }
+    else
+    {
+        
+    }
+    
     [self reset];
 }
 

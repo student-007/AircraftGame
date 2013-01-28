@@ -29,8 +29,9 @@
 // organizer
 "add_least_3_aircrafts" = "Please add 3 aircrafts to start the game.";
 "select_then_attack" = "Please select a target from enemy field, then attack.";
-
-
+"you_have_canceled_connection" = "You have canceled the connection. Please exit and restart a new game if you would like to play.";
+"your_opponent_is_ready" = "Your opponent is ready, the battle will be started when you ready.";
+"please_wait_for_competitor" = "Seems like your opponent is still preparing. please be patient, the battle will be started soon...";
 
 // followings are error message strings
 "ErrorCode1000" = "User canceled picking a bluetooth connection.";

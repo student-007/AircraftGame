@@ -160,14 +160,29 @@
 
 - (IBAction)actionExitBtnClicked:(id)sender
 {
-#warning TODO: check if is in the middle of the battle
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ALocalisedString(@"operation_panel_are_u_sure_exit")
-                                                    message:ALocalisedString(@"operation_panel_exit_warning_lost_game")
-                                                   delegate:self
-                                          cancelButtonTitle:ALocalisedString(@"cancel")
-                                          otherButtonTitles:ALocalisedString(@"yes"), nil];
-    alert.tag = kAlertViewTagExitLoseWarning;
-    [alert show];
+    AGameOrganizer *organizer = [AGameOrganizer sharedInstance];
+    NSDictionary *beginEndStatus = nil;
+    DICT_GET_OBJECT(organizer.gameStatus, beginEndStatus, kGameStatusBeginEndGame);
+    if (beginEndStatus)
+    {
+        NSNumber *isGameOn = [beginEndStatus valueForKey:@"isGameOn"];
+        if ([isGameOn boolValue])
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ALocalisedString(@"operation_panel_are_u_sure_exit")
+                                                            message:ALocalisedString(@"operation_panel_exit_warning_lost_game")
+                                                           delegate:self
+                                                  cancelButtonTitle:ALocalisedString(@"cancel")
+                                                  otherButtonTitles:ALocalisedString(@"yes"), nil];
+            alert.tag = kAlertViewTagExitLoseWarning;
+            [alert show];
+            return;
+        }
+    }
+    
+    if ([self.operationDelegate respondsToSelector:@selector(userWantsToExit)])
+        [self.operationDelegate userWantsToExit];
+    if ([self.viewDelegate respondsToSelector:@selector(userWantsToExit)])
+        [self.viewDelegate userWantsToExit];
 }
 
 - (IBAction)actionAttackBtnClicked:(id)sender

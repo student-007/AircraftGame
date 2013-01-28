@@ -89,6 +89,7 @@
 #pragma mark - surrender message
 
 @implementation ANetMessageSurrender
+@synthesize type = _type;
 @end
 
 @implementation ANetMessageSurrenderR
