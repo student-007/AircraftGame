@@ -98,11 +98,11 @@
 
 #pragma mark - connectionListener protocol/delegate
 
-- (void)connectionEstablished
+- (void)connectionEstablishedWith:(NSString *)name
 {
-    if ([self.delegate respondsToSelector:@selector(connectionEstablished)])
+    if ([self.delegate respondsToSelector:@selector(connectionEstablishedWith:)])
     {
-        [self.delegate connectionEstablished];
+        [self.delegate connectionEstablishedWith:name];
     }
 }
 

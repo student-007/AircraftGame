@@ -39,7 +39,7 @@ typedef enum
 
 @protocol communicatorListenerDelegate <NSObject>
 @optional
-- (void)connectionEstablished;
+- (void)connectionEstablishedWith:(NSString *)name;
 - (void)connectionDisconnected:(NSError *)errorOrNil;
 - (void)connectionCanceled:(NSError *)errorOrNil;
 

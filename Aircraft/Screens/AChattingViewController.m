@@ -53,9 +53,10 @@
     [self.chatTxtFld setLeftViewWithImageNamed:@"pencil_image"];
     [self.chatTxtFld setDelegate:self];
     
-    [self addNewMessage:@"competitor chatting message here" toChattingTableWithType:AChattingMsgTypeCompetitorSent];
-    [self addNewMessage:@"user chatting message2 here, and this is a very very long long long message may be 2-3 lines. 3 lines" toChattingTableWithType:AChattingMsgTypeUserSent];
-    [self addNewMessage:@"user chatting message2 here, and this is a very very long long long message may be 2-3 lines. 3 lines" toChattingTableWithType:AChattingMsgTypeHelpMsg];
+//    // below are testing messages
+//    [self addNewMessage:@"competitor chatting message here" toChattingTableWithType:AChattingMsgTypeCompetitorSent];
+//    [self addNewMessage:@"user chatting message2 here, and this is a very very long long long message may be 2-3 lines. 3 lines" toChattingTableWithType:AChattingMsgTypeUserSent];
+//    [self addNewMessage:@"user chatting message2 here, and this is a very very long long long message may be 2-3 lines. 3 lines" toChattingTableWithType:AChattingMsgTypeHelpMsg];
 }
 
 - (void)viewDidUnload

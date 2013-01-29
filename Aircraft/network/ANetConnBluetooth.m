@@ -86,8 +86,8 @@
             [self.sessionConnection setDataReceiveHandler:self withContext:nil];
 //            self.sessionConnection.available = NO;
             [self.peerPicker dismiss];
-            if ([self.listener respondsToSelector:@selector(connectionEstablished)])
-                [self.listener connectionEstablished];
+            if ([self.listener respondsToSelector:@selector(connectionEstablishedWith:)])
+                [self.listener connectionEstablishedWith:session.displayName];
         }
             break;
         case GKPeerStateDisconnected:
@@ -99,6 +99,7 @@
             break;
         case GKPeerStateConnecting:
         {
+            // waiting for accept, or deny response
             // if being called, goes here then go to -session:didReceiveConnectionRequestFromPeer:
         }
             break;

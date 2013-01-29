@@ -143,9 +143,15 @@
 
 // connection delegates
 
-- (void)connectionEstablished
+- (void)connectionEstablishedWith:(NSString *)name
 {
+    NSString *connString;
+    if (name && ![name isEqualToString:@""])
+        connString = [NSString stringWithFormat:@"%@: %@", ALocalisedString(@"youve_connected_with"), name];
+    else
+        connString = [NSString stringWithFormat:@"%@", ALocalisedString(@"youve_connected_with_NULL")];
     
+    [self.chatVC addNewMessage:connString toChattingTableWithType:AChattingMsgTypeSystemMsg];
 }
 
 - (void)connectionDisconnected:(NSError *)errorOrNil

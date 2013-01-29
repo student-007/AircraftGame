@@ -10,7 +10,7 @@
 
 @protocol connectionListenerDelegate <NSObject>
 @required
-- (void)connectionEstablished;
+- (void)connectionEstablishedWith:(NSString *)name;
 - (void)connectionDisconnected:(NSError *)errorOrNil;
 - (void)receivedData:(NSData *)data;
 @optional
