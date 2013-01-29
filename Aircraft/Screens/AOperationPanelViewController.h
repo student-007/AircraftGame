@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AGameOrganizer.h"
 #import "AAircraftHolderImageView.h"
+#import "NSString+Format.h"
 
 @protocol AOperationPanelViewControllerViewDelegate;
 @protocol  AOperationPanelViewControllerOperationDelegate;
@@ -28,7 +29,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *timeIndicatorImgView;
 @property (strong, nonatomic) IBOutlet UILabel *turnLabel;
 @property (strong, nonatomic) IBOutlet UILabel *turnTimeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *totalTimeLabel;
 
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizerUp;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizerDown;
@@ -44,6 +44,16 @@
 @property (strong, nonatomic) IBOutlet AUIButton *tool1Button;
 @property (strong, nonatomic) IBOutlet AUIButton *tool2Button;
 @property (strong, nonatomic) IBOutlet AUIButton *attackButton;
+
+/*!
+ @discussion start timeing the time
+ */
+- (void)startTheGame;
+
+/*!
+ @discussion based on the property "whosTurn" in game organizer
+ */
+- (void)switchTurn;
 
 @end
 

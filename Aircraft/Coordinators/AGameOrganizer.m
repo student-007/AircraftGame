@@ -93,6 +93,9 @@
 - (void)startTheGame
 {
     _isGameBegin = YES;
+    
+    [self.opPanelVC startTheGame];
+#warning TODO: switch to enemy field, update status panel
     if (_whosTurn == AWhosTurnCompetitor)
     {
         

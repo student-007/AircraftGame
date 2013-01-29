@@ -9,6 +9,12 @@
 #import "AOperationPanelViewController.h"
 
 @interface AOperationPanelViewController ()
+{
+    NSDate *_turnBeginTime;
+    NSTimeInterval _userSpendTime;
+    NSTimeInterval _competitorSpendTime;
+    NSTimer *_updatePanelTimer;
+}
 
 @end
 
@@ -62,7 +68,6 @@
     [self setTimeIndicatorImgView:nil];
     [self setTurnLabel:nil];
     [self setTurnTimeLabel:nil];
-    [self setTotalTimeLabel:nil];
     [self setReadyButton:nil];
     [self setAircraftUpHolderImgView:nil];
     [self setAircraftDownHolderImgView:nil];
@@ -71,6 +76,73 @@
     [self setSwipeGestureRecognizerUp:nil];
     [self setSwipeGestureRecognizerDown:nil];
     [super viewDidUnload];
+}
+
+- (void)startTheGame
+{
+    _userSpendTime = 0;
+    _competitorSpendTime = 0;
+    [self switchTurn];
+    _updatePanelTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateStatusPanel) userInfo:nil repeats:YES];
+}
+
+- (void)switchTurn
+{
+    AWhosTurn who = [AGameOrganizer sharedInstance].whosTurn;
+    _turnBeginTime = [NSDate date];
+    
+    switch (who)
+    {
+        case AWhosTurnCompetitor:
+        {
+            [self.turnIndicatorImgView setImage:[UIImage imageNamed:@"indicator_off"]];
+        }
+            break;
+        case AWhosTurnUser:
+        {
+            [self.turnIndicatorImgView setImage:[UIImage imageNamed:@"indicator_on"]];
+        }
+            break;
+        case AWhosTurnNone:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)updateStatusPanel
+{
+    AWhosTurn who = [AGameOrganizer sharedInstance].whosTurn;
+    
+    NSString *turnTimeString = [NSString timeFormatStringFromTimeInterval:[_turnBeginTime timeIntervalSinceNow]];
+    NSString *playerTimeString;
+    switch (who)
+    {
+        case AWhosTurnCompetitor:
+        {
+            _competitorSpendTime ++;
+            playerTimeString = [NSString timeFormatStringFromTimeInterval:_competitorSpendTime];
+        }
+            break;
+        case AWhosTurnUser:
+        {
+            _userSpendTime++;
+            playerTimeString = [NSString timeFormatStringFromTimeInterval:_userSpendTime];
+        }
+            break;
+        case AWhosTurnNone:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
+    
+    self.turnTimeLabel.text = [NSString stringWithFormat:@"%@   %@", turnTimeString, playerTimeString];
 }
 
 #define kAlertViewTagExitLoseWarning        60
