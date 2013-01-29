@@ -83,9 +83,11 @@
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(playerStatus, competitor, @"competitor");
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(statusDic, playerStatus, kGameStatusPlayer);
     
-    
-    
-#warning TODO: add network status here
+    NSMutableDictionary *networkStatus = [NSMutableDictionary dictionary];
+    ConnectionType type = self.communicator.type;
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(networkStatus, [NSNumber numberWithInt:type], @"type");
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(networkStatus, [NSNumber numberWithBool:self.communicator.isConnect], @"isConnect");
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(statusDic, networkStatus, kGameStatusNetWork);
     
     return [NSDictionary dictionaryWithDictionary:statusDic];
 }

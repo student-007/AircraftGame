@@ -33,7 +33,7 @@ typedef enum
     NSMutableDictionary *_competitorStatus;
 }
 
-#define kGameStatusNetWork          @"netWorkStatus"
+#define kGameStatusNetWork          @"netWorkStatus"            // (NSNumber)type(ConnectionType), (NSNumber)isConnect
 #define kGameStatusAircraftPlaced   @"aircraftPlacingStatus"    // no key, NSNumber object for how may aircraft placed
 #define kGameStatusBeginEndGame     @"beginGameStatus"          // keys: isGameOn, beginDate, endDate
 #define kGameStatusPlayer           @"playerStatus"             // keys: user(isReady, date), competitor(isReady, date)

@@ -27,6 +27,8 @@ typedef enum
 }
 
 @property (assign, nonatomic) id<communicatorListenerDelegate> delegate;
+@property (nonatomic, readonly) ConnectionType type;
+@property (nonatomic, readonly) BOOL isConnect;
 
 + (ACommunicator *)sharedInstance;
 

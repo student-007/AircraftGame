@@ -20,6 +20,7 @@
 
 @protocol connectionOperationProtocol <NSObject>
 @required
+@property (nonatomic, readonly) BOOL isConnect;
 - (void)makeConnection;
 - (void)closeConnection;
 - (BOOL)sendData:(NSData *)data;
@@ -32,7 +33,6 @@
     BOOL _isConnect;
 }
 
-@property (nonatomic, readonly) BOOL isConnect;
 @property (nonatomic, weak) id<connectionListenerDelegate> listener;
 
 - (void)makeConnection;

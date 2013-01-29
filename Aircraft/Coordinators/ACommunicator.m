@@ -38,6 +38,11 @@
     return  communicator;
 }
 
+- (BOOL)isConnect
+{
+    return self.conn.isConnect;
+}
+
 - (void)closeConnection
 {
     [self.conn closeConnection];
