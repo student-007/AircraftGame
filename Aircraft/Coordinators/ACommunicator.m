@@ -143,4 +143,26 @@
     }
 }
 
+- (void)connectionFailedWithError:(NSError *)errorOrNil
+{
+    if (errorOrNil)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ALocalisedString(@"connection_failed")
+                                                        message:[NSString stringWithFormat:@"%@. %@", errorOrNil.localizedFailureReason, ALocalisedString(@"please_try_again")]
+                                                       delegate:nil
+                                              cancelButtonTitle:ALocalisedString(@"ok")
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:ALocalisedString(@"connection_failed")
+                                                        message:[NSString stringWithFormat:@"%@", ALocalisedString(@"please_try_again")]
+                                                       delegate:nil
+                                              cancelButtonTitle:ALocalisedString(@"ok")
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 @end

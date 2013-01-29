@@ -15,6 +15,7 @@
 - (void)receivedData:(NSData *)data;
 @optional
 - (void)connectionCanceled:(NSError *)errorOrNil;
+- (void)connectionFailedWithError:(NSError *)errorOrNil;
 @end
 
 @protocol connectionOperationProtocol <NSObject>

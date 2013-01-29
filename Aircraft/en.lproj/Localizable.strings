@@ -12,6 +12,7 @@
 "cancel" = "Cancel";
 "yes" = "Yes";
 "no" = "No";
+"please_try_again" = "Please try again.";
 
 // chatting view
 "chat_view_txtFld_holder" = "Chatting message here...";
@@ -37,6 +38,9 @@
 "your_opponent_is_ready" = "Your opponent is ready, the battle will be started when you ready.";
 "please_wait_for_competitor" = "Seems like your opponent is still preparing. please be patient, the battle will be started soon...";
 "battle_start" = "All ready, let's get started!";
+
+// connections
+"connection_failed" = "Connection failed";
 
 
 // followings are error message strings

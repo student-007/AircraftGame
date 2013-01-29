@@ -110,12 +110,14 @@
 
 - (void)session:(GKSession *)session connectionWithPeerFailed:(NSString *)peerID withError:(NSError *)error
 {
-    
+    if ([self.listener respondsToSelector:@selector(connectionFailedWithError:)])
+        [self.listener connectionFailedWithError:error];
 }
 
 - (void)session:(GKSession *)session didFailWithError:(NSError *)error
 {
-    
+    if ([self.listener respondsToSelector:@selector(connectionFailedWithError:)])
+        [self.listener connectionFailedWithError:error];
 }
 
 - (void) receiveData:(NSData *)data fromPeer:(NSString *)peer inSession: (GKSession *)session context:(void *)context
