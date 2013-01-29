@@ -24,6 +24,8 @@
 "operation_panel_are_u_sure_exit" = "Are you sure to exit?";
 "operation_panel_exit_warning_lost_game" = "You will lose the battle. Any unsaved game data will be gone. You can always save the game for playing later.";
 "operation_panel_exit_warning" = "You may lost game data including position of aircraft(s) and chatting record.";
+"operation_panel_my_turn_to_attack" = "My turn to attack";
+"operation_panel_competitor_turn_to_attack" = "Wait for opponent";
 
 
 // organizer
@@ -32,6 +34,7 @@
 "you_have_canceled_connection" = "You have canceled the connection. Please exit and restart a new game if you would like to play.";
 "your_opponent_is_ready" = "Your opponent is ready, the battle will be started when you ready.";
 "please_wait_for_competitor" = "Seems like your opponent is still preparing. please be patient, the battle will be started soon...";
+"battle_start" = "All ready, let's get started!";
 
 // followings are error message strings
 "ErrorCode1000" = "User canceled picking a bluetooth connection.";

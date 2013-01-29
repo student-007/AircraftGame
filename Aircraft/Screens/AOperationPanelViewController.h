@@ -29,6 +29,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *timeIndicatorImgView;
 @property (strong, nonatomic) IBOutlet UILabel *turnLabel;
 @property (strong, nonatomic) IBOutlet UILabel *turnTimeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *playTotalTimeLabel;
 
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizerUp;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizerDown;

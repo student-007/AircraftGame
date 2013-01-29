@@ -93,7 +93,7 @@
 - (void)startTheGame
 {
     _isGameBegin = YES;
-    
+    [self.chatVC addNewMessage:ALocalisedString(@"battle_start") toChattingTableWithType:AChattingMsgTypeHelpMsg];
     [self.opPanelVC startTheGame];
 #warning TODO: switch to enemy field, update status panel
     if (_whosTurn == AWhosTurnCompetitor)
@@ -206,7 +206,13 @@
 //        replyMsg.toolsResult =
         
         ANetMessage *netMessageR = [ANetMessage messageWithFlag:kFlagAttackR message:replyMsg];
-        [self.communicator sendMessage:netMessageR];
+        if ([self.communicator sendMessage:netMessageR])
+        {
+            _whosTurn = AWhosTurnUser;
+            [self.opPanelVC switchTurn];
+        }
+//        else
+#warning send again or seveal time to ensure delivery. If still failure, warn user.
     }
     else if ([netMessage.flag isEqualToString:kFlagAttackR])
     {
@@ -344,7 +350,7 @@
 
 - (void)userWantsToExit
 {
-    if (_competitorStatus && _isGameBegin)
+    if (_competitorStatus && self.communicator != nil)
     {
         ANetMessageSurrender *surrenderMsg = [[ANetMessageSurrender alloc] init];
         surrenderMsg.type = @"escape";
@@ -370,22 +376,31 @@
 
 - (void)userPressedAttackButton
 {
-    // this will add the attack record but not send the attack message
-    CGPoint attackPt = [self.battleFldVCEnemy attackedBasedOnPreviousMark];
-    if (attackPt.x < 0 || attackPt.y < 0)
+    if (_isGameBegin)
     {
-        if (self.chatVC)
-            [self.chatVC addNewMessage:ALocalisedString(@"select_then_attack") toChattingTableWithType:AChattingMsgTypeHelpMsg];
-    }
-    else
-    {
-        ANetMessageAttack *attackMsg = [[ANetMessageAttack alloc] init];
-        attackMsg.row = [NSNumber numberWithFloat:attackPt.x];
-        attackMsg.col = [NSNumber numberWithFloat:attackPt.y];
-//        attackMsg.tools =
+        // this will add the attack record(if selected a target) but not send the attack message
+        CGPoint attackPt = [self.battleFldVCEnemy attackedBasedOnPreviousMark];
         
-        ANetMessage *netMsg = [ANetMessage messageWithFlag:kFlagAttack message:attackMsg];
-        [self.communicator sendMessage:netMsg];
+        // check if selected a target
+        if (attackPt.x < 0 || attackPt.y < 0)
+        {
+            if (self.chatVC)
+                [self.chatVC addNewMessage:ALocalisedString(@"select_then_attack") toChattingTableWithType:AChattingMsgTypeHelpMsg];
+        }
+        else // send the net message
+        {
+            ANetMessageAttack *attackMsg = [[ANetMessageAttack alloc] init];
+            attackMsg.row = [NSNumber numberWithFloat:attackPt.x];
+            attackMsg.col = [NSNumber numberWithFloat:attackPt.y];
+            //        attackMsg.tools =
+            
+            ANetMessage *netMsg = [ANetMessage messageWithFlag:kFlagAttack message:attackMsg];
+            if ([self.communicator sendMessage:netMsg])
+            {
+                _whosTurn = AWhosTurnCompetitor;
+                [self.opPanelVC switchTurn];
+            }
+        }
     }
 }
 

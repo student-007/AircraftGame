@@ -75,6 +75,7 @@
     [self setAircraftRightHolderImgView:nil];
     [self setSwipeGestureRecognizerUp:nil];
     [self setSwipeGestureRecognizerDown:nil];
+    [self setPlayTotalTimeLabel:nil];
     [super viewDidUnload];
 }
 
@@ -96,11 +97,13 @@
         case AWhosTurnCompetitor:
         {
             [self.turnIndicatorImgView setImage:[UIImage imageNamed:@"indicator_off"]];
+            self.turnLabel.text = ALocalisedString(@"operation_panel_competitor_turn_to_attack");
         }
             break;
         case AWhosTurnUser:
         {
             [self.turnIndicatorImgView setImage:[UIImage imageNamed:@"indicator_on"]];
+            self.turnLabel.text = ALocalisedString(@"operation_panel_my_turn_to_attack");
         }
             break;
         case AWhosTurnNone:
@@ -142,7 +145,8 @@
             break;
     }
     
-    self.turnTimeLabel.text = [NSString stringWithFormat:@"%@   %@", turnTimeString, playerTimeString];
+    self.turnTimeLabel.text = [NSString stringWithFormat:@"%@", turnTimeString];
+    self.playTotalTimeLabel.text = [NSString stringWithFormat:@"%@", playerTimeString];
 }
 
 #define kAlertViewTagExitLoseWarning        60

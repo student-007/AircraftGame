@@ -23,13 +23,13 @@
     second = (int)timeInterval % 60;
     
     if (hour > 0)
-        return [NSString stringWithFormat:@"%2d:%2d:%2d", hour, minute, second];
+        return [NSString stringWithFormat:@"%.2d:%.2d:%.2d", hour, minute, second];
     else if (minute > 0)
-        return [NSString stringWithFormat:@"%2d:%2d", minute, second];
+        return [NSString stringWithFormat:@"%.2d:%.2d", minute, second];
     else if (second > 0)
-        return [NSString stringWithFormat:@"%2d sec", second];
+        return [NSString stringWithFormat:@"00:%.2d", second];
     else
-        return @"0";
+        return @"00:00";
 }
 
 + (NSString *)timeFormatStringFromSecondString:(NSString *)timeIntervalStr
