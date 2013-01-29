@@ -11,6 +11,10 @@
 @interface ABattleFieldViewController ()
 {
     CGRect _tempAircraftImgViewFrame;
+    
+    UIImage *_attackResImgHit;
+    UIImage *_attackResImgMiss;
+    UIImage *_attackResImgDestroy;
 }
 @property (nonatomic, readonly) BOOL isGameOn;
 @property (strong, nonatomic) UIImageView *attackMarkerImgView;
@@ -19,12 +23,19 @@
 
 @implementation ABattleFieldViewController
 
+#define kAttackResultHitImgName     @""
+#define kAttackResultMissImgName    @""
+#define kAttackResultDestroyImgName @""
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
         _battleFldModel = [[ABattleFieldModel alloc] init];
+        _attackResImgHit = [UIImage imageNamed:kAttackResultHitImgName];
+        _attackResImgMiss = [UIImage imageNamed:kAttackResultMissImgName];
+        _attackResImgDestroy = [UIImage imageNamed:kAttackResultDestroyImgName];
     }
     return self;
 }
@@ -307,33 +318,36 @@
 }
 
 /*!
- @discussion display the result in enemy field based on last object of attack record array
+ @discussion display the result in self/enemy field based on the resString at given point
  */
-- (BOOL)displayPreviousAttackResultForString:(NSString *)resString
+- (BOOL)displayAttackResultAtPoint:(CGPoint)point resultString:(NSString *)resString
 {
-    CGPoint lastAttackPt = [_battleFldModel lastAttackPoint];
-    if (lastAttackPt.x != -1 && lastAttackPt.y != -1)
-    {
-        UIImageView *resultImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-        
-        CGPoint targetPoint = CGPointMake((int)lastAttackPt.x * kMappingFactor,
-                                          (int)lastAttackPt.y * kMappingFactor);
+    if (point.x >= 0 && point.x <= 9 &&
+        point.y >= 0 && point.y <= 9)
+    {        
+        CGPoint targetPoint = CGPointMake((int)point.x * kMappingFactor,
+                                          (int)point.y * kMappingFactor);
         
         CGRect markerFrame = CGRectMake(targetPoint.x, targetPoint.y, kMappingFactor, kMappingFactor);
-        resultImgView.frame = markerFrame;
         
         if ([resString caseInsensitiveCompare:kAttackRMiss] == NSOrderedSame)
         {
+            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgMiss];
+            resultImgView.frame = markerFrame;
             [resultImgView setBackgroundColor:[UIColor whiteColor]];
             [self.battleFieldImgView addSubview:resultImgView];
         }
         else if ([resString caseInsensitiveCompare:kAttackRHit] == NSOrderedSame)
         {
+            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgHit];
+            resultImgView.frame = markerFrame;
             [resultImgView setBackgroundColor:[UIColor yellowColor]];
             [self.battleFieldImgView addSubview:resultImgView];
         }
         else if ([resString caseInsensitiveCompare:kAttackRDestroy] == NSOrderedSame)
         {
+            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgDestroy];
+            resultImgView.frame = markerFrame;
             [resultImgView setBackgroundColor:[UIColor redColor]];
             [self.battleFieldImgView addSubview:resultImgView];
         }
@@ -341,6 +355,19 @@
             return NO;
         
         return YES;
+    }
+    return NO;
+}
+
+/*!
+ @discussion display the result in enemy field based on last object of attack record array
+ */
+- (BOOL)displayPreviousAttackResultForString:(NSString *)resString
+{
+    CGPoint lastAttackPt = [_battleFldModel lastAttackPoint];
+    if (lastAttackPt.x != -1 && lastAttackPt.y != -1)
+    {
+        return [self displayAttackResultAtPoint:lastAttackPt resultString:resString];
     }
     else
         return NO;

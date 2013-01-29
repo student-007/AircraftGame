@@ -87,6 +87,15 @@
     _updatePanelTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateStatusPanel) userInfo:nil repeats:YES];
 }
 
+/*!
+ @discussion stop timeing the time
+ */
+- (void)endTheGame
+{
+    [_updatePanelTimer invalidate];
+#warning collect timing information and save them to a dictionary
+}
+
 - (void)switchTurn
 {
     AWhosTurn who = [AGameOrganizer sharedInstance].whosTurn;

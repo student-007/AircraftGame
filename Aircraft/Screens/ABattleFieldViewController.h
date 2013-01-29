@@ -42,7 +42,12 @@
 - (NSString *)attackResultInGridAtPoint:(CGPoint)point;
 
 /*!
- @discussion display the result in enemy field based on last object of attack record array
+ @discussion display the result in self/enemy field based on the resString at given point(grid point, 0-9)
+ */
+- (BOOL)displayAttackResultAtPoint:(CGPoint)point resultString:(NSString *)resString;
+
+/*!
+ @discussion display the result in enemy field based on last object of attack record array, if can not find previous attack mark, return NO
  */
 - (BOOL)displayPreviousAttackResultForString:(NSString *)resString;
 

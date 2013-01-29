@@ -201,6 +201,8 @@
         CGPoint attackPt = CGPointMake([attackMsg.row floatValue], [attackMsg.col floatValue]);
         NSString *attackResStr = [self.battleFldVCSelf attackResultInGridAtPoint:attackPt];
         
+        [self.battleFldVCSelf displayAttackResultAtPoint:attackPt resultString:attackResStr];
+        
         ANetMessageAttackR *replyMsg = [[ANetMessageAttackR alloc] init];
         replyMsg.attackResult = attackResStr;
 //        replyMsg.toolsResult =
@@ -376,7 +378,7 @@
 
 - (void)userPressedAttackButton
 {
-    if (_isGameBegin)
+    if (_isGameBegin && _whosTurn == AWhosTurnUser)
     {
         // this will add the attack record(if selected a target) but not send the attack message
         CGPoint attackPt = [self.battleFldVCEnemy attackedBasedOnPreviousMark];

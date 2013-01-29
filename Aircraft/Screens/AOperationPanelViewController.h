@@ -52,6 +52,11 @@
 - (void)startTheGame;
 
 /*!
+ @discussion stop timeing the time
+ */
+- (void)endTheGame;
+
+/*!
  @discussion based on the property "whosTurn" in game organizer
  */
 - (void)switchTurn;
