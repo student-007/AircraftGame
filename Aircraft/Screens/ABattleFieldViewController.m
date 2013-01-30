@@ -76,6 +76,12 @@
     return _battleFldModel.aircraftModelAry;
 }
 
+- (void)displayBattleField
+{
+    if ([self.delegate respondsToSelector:@selector(displayBattleField:)])
+        [self.delegate displayBattleField:self];
+}
+
 - (IBAction)switchBattleFieldBtnClicked:(UIButton *)sender
 {
     if ([self.delegate respondsToSelector:@selector(userWantsToSwitchFieldFrom:)])

@@ -97,7 +97,8 @@
     _isGameBegin = YES;
     [self.chatVC addNewMessage:ALocalisedString(@"battle_start") toChattingTableWithType:AChattingMsgTypeHelpMsg];
     [self.opPanelVC startTheGame];
-#warning TODO: switch to enemy field, update status panel
+    [self.battleFldVCEnemy displayBattleField];
+#warning TODO: Give user a little notice what to do.
     if (_whosTurn == AWhosTurnCompetitor)
     {
         
@@ -126,7 +127,7 @@
     {
         case ConnectionTypeNone:
         {
-            NSLog(@"[error]: Can not make connection with connection type NONE!");
+            [AErrorFacade errorWithDomain:kErrorDomainOrganizer knownCode:3002];
         }
             break;
         case ConnectionTypeBluetooth:
@@ -134,7 +135,7 @@
             [self.communicator makeConnWithType:ConnectionTypeBluetooth];
         }
             break;
-//        case AConnectionBluetooth:
+//        case AConnectionWiFi:
 //        {
 //        }
 //            break;
@@ -158,7 +159,19 @@
 
 - (void)connectionDisconnected:(NSError *)errorOrNil
 {
+    NSString *noticeStr;
+    if (errorOrNil)
+        noticeStr = [NSString stringWithFormat:@"%@ %@\n%@",
+                     ALocalisedString(@"connection_lost_due_to"),
+                     errorOrNil.localizedFailureReason,
+                     ALocalisedString(@"restart_battle")];
+    else
+        noticeStr = [NSString stringWithFormat:@"%@\n%@",
+                     ALocalisedString(@"connection_lost"),
+                     ALocalisedString(@"restart_battle")];
     
+    [self.chatVC addNewMessage:noticeStr toChattingTableWithType:AChattingMsgTypeSystemMsg];
+    [self reset];
 }
 
 - (void)receivedNetMessage:(ANetMessage *)netMessage
@@ -222,7 +235,7 @@
             [self.opPanelVC switchTurn];
         }
 //        else
-#warning send again or seveal time to ensure delivery. If still failure, warn user.
+#warning TODO: send again or seveal time to ensure delivery. If still failure, warn user.
     }
     else if ([netMessage.flag isEqualToString:kFlagAttackR])
     {
@@ -244,11 +257,11 @@
         NSString *surrenderType = surrenderMsg.type;
         if ([surrenderType caseInsensitiveCompare:@"lose"] == NSOrderedSame)
         {
-#warning tell user that "You won!"
+#warning TODO: tell user that "You won!"
         }
         else if ([surrenderType caseInsensitiveCompare:@"escape"] == NSOrderedSame)
         {
-#warning tell user that "competitor escaped, you won"
+#warning TODO: tell user that "competitor escaped, you won"
         }
     }
     else if ([netMessage.flag isEqualToString:kFlagSurrenderR])

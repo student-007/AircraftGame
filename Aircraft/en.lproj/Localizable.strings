@@ -32,12 +32,15 @@
 // organizer
 "add_least_3_aircrafts" = "Please add 3 aircrafts to start the game.";
 "select_then_attack" = "Please select a target from enemy field, then attack.";
-"you_have_canceled_connection" = "You have canceled the connection. Please exit and restart a new game if you would like to play.";
+"you_have_canceled_connection" = "You have canceled the connection. Please exit and restart a battle if you would like to play.";
 "youve_connected_with" = "You are now connected with";
 "youve_connected_with_NULL" = "You have sucessfully made the connection.";
 "your_opponent_is_ready" = "Your opponent is ready, the battle will be started when you ready.";
 "please_wait_for_competitor" = "Seems like your opponent is still preparing. please be patient, the battle will be started soon...";
 "battle_start" = "All ready, let's get started!";
+"connection_lost_due_to" = "Your connection was lost due to:";
+"connection_lost" = "Your connection was lost.";
+"restart_battle" = "Please restart a battle.";
 
 // connections
 "connection_failed" = "Connection failed";
@@ -54,6 +57,7 @@
 
 // organizer
 "ErrorCode3001" = "Communicator empty or not found in organizer when try to use.";
+"ErrorCode3002" = "Can not make connection with connection type NONE!";
 
 // aircraft
 "ErrorCode4001" = "Aircraft image can not be mapped to the battle field view";

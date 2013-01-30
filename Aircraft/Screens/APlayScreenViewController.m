@@ -211,6 +211,11 @@
 
 #pragma mark - battle field view controller delegate
 
+- (void)displayBattleField:(ABattleFieldViewController *)battleFieldVC
+{
+    [self.scrollView scrollRectToVisible:battleFieldVC.view.frame animated:YES];
+}
+
 - (void)userWantsToSwitchFieldFrom:(ABattleFieldViewController *)currentBattleField
 {
     CGRect crrentFldFrame = currentBattleField.view.frame;

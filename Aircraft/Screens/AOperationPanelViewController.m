@@ -93,7 +93,7 @@
 - (void)endTheGame
 {
     [_updatePanelTimer invalidate];
-#warning collect timing information and save them to a dictionary
+#warning TODO: collect timing information and save them to a dictionary
 }
 
 - (void)switchTurn

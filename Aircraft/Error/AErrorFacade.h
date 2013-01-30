@@ -24,6 +24,7 @@
 
 // organizer errors
 #define kECOrganizerCommunicatorNotFoundOrEnpty     3001
+#define kECOrganizerConnectionTypeNone              3002
 
 // aircraft
 

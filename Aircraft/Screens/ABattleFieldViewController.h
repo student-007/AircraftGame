@@ -31,6 +31,11 @@
 - (BOOL)addAircraft:(AAircraftModel *)aircraft;
 
 /*!
+ @discussion set to display the battle field(self/enemy) in scroll view
+ */
+- (void)displayBattleField;
+
+/*!
  @discussion call this method after user making an attack marker. return which point was previous marked.
  if no marker was made, return (-1, -1)
  */
@@ -61,7 +66,13 @@
 @required
 - (void)userWantsToSwitchFieldFrom:(ABattleFieldViewController *)currentBattleField;
 
+/*!
+ @discussion set to display the battle field(self/enemy) in scroll view
+ */
+- (void)displayBattleField:(ABattleFieldViewController *)battleFieldVC;
+
 @optional
+
 /*!
  @discussion this point is the row and col in grid(intgers value)
  */

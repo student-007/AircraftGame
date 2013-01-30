@@ -10,7 +10,14 @@
 
 @interface NSString (NSString_Format)
 
+/*!
+ @discussion return xx:xx:xx style string based on given time interval
+ */
 + (NSString *)timeFormatStringFromTimeInterval:(NSTimeInterval)timeInterval;
+
+/*!
+ @discussion return xx:xx:xx style string based on given time interval string
+ */
 + (NSString *)timeFormatStringFromSecondString:(NSString *)timeIntervalStr;
 
 @end
