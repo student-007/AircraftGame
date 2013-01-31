@@ -104,6 +104,22 @@
 		9F5FE25A1690F875006A4961 /* AUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE2581690F875006A4961 /* AUITextField.m */; };
 		9F5FE25D16920570006A4961 /* ATableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE25C16920570006A4961 /* ATableViewAdapter.m */; };
 		9F5FE25E16920570006A4961 /* ATableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F5FE25C16920570006A4961 /* ATableViewAdapter.m */; };
+		9F84C5D216B9E65A005D971F /* battleFieldBarHighlighted_enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5CE16B9E65A005D971F /* battleFieldBarHighlighted_enemy.png */; };
+		9F84C5D316B9E65A005D971F /* battleFieldBarHighlighted_enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5CE16B9E65A005D971F /* battleFieldBarHighlighted_enemy.png */; };
+		9F84C5D416B9E65A005D971F /* battleFieldBarHighlighted_enemy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5CF16B9E65A005D971F /* battleFieldBarHighlighted_enemy@2x.png */; };
+		9F84C5D516B9E65A005D971F /* battleFieldBarHighlighted_enemy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5CF16B9E65A005D971F /* battleFieldBarHighlighted_enemy@2x.png */; };
+		9F84C5D616B9E65A005D971F /* battleFieldBarHighlighted_self.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5D016B9E65A005D971F /* battleFieldBarHighlighted_self.png */; };
+		9F84C5D716B9E65A005D971F /* battleFieldBarHighlighted_self.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5D016B9E65A005D971F /* battleFieldBarHighlighted_self.png */; };
+		9F84C5D816B9E65A005D971F /* battleFieldBarHighlighted_self@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5D116B9E65A005D971F /* battleFieldBarHighlighted_self@2x.png */; };
+		9F84C5D916B9E65A005D971F /* battleFieldBarHighlighted_self@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5D116B9E65A005D971F /* battleFieldBarHighlighted_self@2x.png */; };
+		9F84C5DD16B9F951005D971F /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5DB16B9F951005D971F /* comment.png */; };
+		9F84C5DE16B9F951005D971F /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5DB16B9F951005D971F /* comment.png */; };
+		9F84C5DF16B9F951005D971F /* comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5DC16B9F951005D971F /* comment@2x.png */; };
+		9F84C5E016B9F951005D971F /* comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5DC16B9F951005D971F /* comment@2x.png */; };
+		9F84C5E316B9FA01005D971F /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5E116B9FA01005D971F /* clock.png */; };
+		9F84C5E416B9FA01005D971F /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5E116B9FA01005D971F /* clock.png */; };
+		9F84C5E516B9FA01005D971F /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5E216B9FA01005D971F /* clock@2x.png */; };
+		9F84C5E616B9FA01005D971F /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5E216B9FA01005D971F /* clock@2x.png */; };
 		9F97A4EF16A4AFBB00CCC9A1 /* AOperationPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F97A4ED16A4AFBB00CCC9A1 /* AOperationPanelViewController.m */; };
 		9F97A4F016A4AFBB00CCC9A1 /* AOperationPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F97A4ED16A4AFBB00CCC9A1 /* AOperationPanelViewController.m */; };
 		9F97A4F116A4AFBB00CCC9A1 /* AOperationPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F97A4EE16A4AFBB00CCC9A1 /* AOperationPanelViewController.xib */; };
@@ -128,6 +144,22 @@
 		9F99BE95168AC77F00A0FD2F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F99BE94168AC77F00A0FD2F /* GameKit.framework */; };
 		9F99BE9D168B6E2A00A0FD2F /* AMessageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE9C168B6E2900A0FD2F /* AMessageParser.m */; };
 		9F99BE9E168B6E2A00A0FD2F /* AMessageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F99BE9C168B6E2900A0FD2F /* AMessageParser.m */; };
+		9FB043E616B9D93D0067A04F /* battleField_enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043DE16B9D93D0067A04F /* battleField_enemy.png */; };
+		9FB043E716B9D93D0067A04F /* battleField_enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043DE16B9D93D0067A04F /* battleField_enemy.png */; };
+		9FB043E816B9D93D0067A04F /* battleField_enemy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043DF16B9D93D0067A04F /* battleField_enemy@2x.png */; };
+		9FB043E916B9D93D0067A04F /* battleField_enemy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043DF16B9D93D0067A04F /* battleField_enemy@2x.png */; };
+		9FB043EA16B9D93D0067A04F /* battleField_self.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E016B9D93D0067A04F /* battleField_self.png */; };
+		9FB043EB16B9D93D0067A04F /* battleField_self.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E016B9D93D0067A04F /* battleField_self.png */; };
+		9FB043EC16B9D93D0067A04F /* battleField_self@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E116B9D93D0067A04F /* battleField_self@2x.png */; };
+		9FB043ED16B9D93D0067A04F /* battleField_self@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E116B9D93D0067A04F /* battleField_self@2x.png */; };
+		9FB043EE16B9D93D0067A04F /* battleFieldBar_enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E216B9D93D0067A04F /* battleFieldBar_enemy.png */; };
+		9FB043EF16B9D93D0067A04F /* battleFieldBar_enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E216B9D93D0067A04F /* battleFieldBar_enemy.png */; };
+		9FB043F016B9D93D0067A04F /* battleFieldBar_enemy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E316B9D93D0067A04F /* battleFieldBar_enemy@2x.png */; };
+		9FB043F116B9D93D0067A04F /* battleFieldBar_enemy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E316B9D93D0067A04F /* battleFieldBar_enemy@2x.png */; };
+		9FB043F216B9D93D0067A04F /* battleFieldBar_self.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E416B9D93D0067A04F /* battleFieldBar_self.png */; };
+		9FB043F316B9D93D0067A04F /* battleFieldBar_self.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E416B9D93D0067A04F /* battleFieldBar_self.png */; };
+		9FB043F416B9D93D0067A04F /* battleFieldBar_self@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E516B9D93D0067A04F /* battleFieldBar_self@2x.png */; };
+		9FB043F516B9D93D0067A04F /* battleFieldBar_self@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E516B9D93D0067A04F /* battleFieldBar_self@2x.png */; };
 		9FB0B4F5169CFBAD00416B93 /* ABattleFieldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */; };
 		9FB0B4F6169CFBAD00416B93 /* ABattleFieldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */; };
 /* End PBXBuildFile section */
@@ -208,6 +240,14 @@
 		9F5FE2581690F875006A4961 /* AUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AUITextField.m; path = Base/AUITextField.m; sourceTree = "<group>"; };
 		9F5FE25B16920570006A4961 /* ATableViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATableViewAdapter.h; path = Base/ATableViewAdapter.h; sourceTree = "<group>"; };
 		9F5FE25C16920570006A4961 /* ATableViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATableViewAdapter.m; path = Base/ATableViewAdapter.m; sourceTree = "<group>"; };
+		9F84C5CE16B9E65A005D971F /* battleFieldBarHighlighted_enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = battleFieldBarHighlighted_enemy.png; path = Aircraft/res/battleFieldBarHighlighted_enemy.png; sourceTree = "<group>"; };
+		9F84C5CF16B9E65A005D971F /* battleFieldBarHighlighted_enemy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battleFieldBarHighlighted_enemy@2x.png"; path = "Aircraft/res/battleFieldBarHighlighted_enemy@2x.png"; sourceTree = "<group>"; };
+		9F84C5D016B9E65A005D971F /* battleFieldBarHighlighted_self.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = battleFieldBarHighlighted_self.png; path = Aircraft/res/battleFieldBarHighlighted_self.png; sourceTree = "<group>"; };
+		9F84C5D116B9E65A005D971F /* battleFieldBarHighlighted_self@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battleFieldBarHighlighted_self@2x.png"; path = "Aircraft/res/battleFieldBarHighlighted_self@2x.png"; sourceTree = "<group>"; };
+		9F84C5DB16B9F951005D971F /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = comment.png; path = Aircraft/res/comment.png; sourceTree = "<group>"; };
+		9F84C5DC16B9F951005D971F /* comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "comment@2x.png"; path = "Aircraft/res/comment@2x.png"; sourceTree = "<group>"; };
+		9F84C5E116B9FA01005D971F /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clock.png; path = Aircraft/res/clock.png; sourceTree = "<group>"; };
+		9F84C5E216B9FA01005D971F /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock@2x.png"; path = "Aircraft/res/clock@2x.png"; sourceTree = "<group>"; };
 		9F97A4EC16A4AFBB00CCC9A1 /* AOperationPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AOperationPanelViewController.h; path = Screens/AOperationPanelViewController.h; sourceTree = "<group>"; };
 		9F97A4ED16A4AFBB00CCC9A1 /* AOperationPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AOperationPanelViewController.m; path = Screens/AOperationPanelViewController.m; sourceTree = "<group>"; };
 		9F97A4EE16A4AFBB00CCC9A1 /* AOperationPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AOperationPanelViewController.xib; path = Screens/AOperationPanelViewController.xib; sourceTree = "<group>"; };
@@ -226,6 +266,14 @@
 		9F99BE94168AC77F00A0FD2F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		9F99BE9B168B6E2900A0FD2F /* AMessageParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMessageParser.h; path = Model/AMessageParser.h; sourceTree = "<group>"; };
 		9F99BE9C168B6E2900A0FD2F /* AMessageParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMessageParser.m; path = Model/AMessageParser.m; sourceTree = "<group>"; };
+		9FB043DE16B9D93D0067A04F /* battleField_enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = battleField_enemy.png; path = Aircraft/res/battleField_enemy.png; sourceTree = "<group>"; };
+		9FB043DF16B9D93D0067A04F /* battleField_enemy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battleField_enemy@2x.png"; path = "Aircraft/res/battleField_enemy@2x.png"; sourceTree = "<group>"; };
+		9FB043E016B9D93D0067A04F /* battleField_self.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = battleField_self.png; path = Aircraft/res/battleField_self.png; sourceTree = "<group>"; };
+		9FB043E116B9D93D0067A04F /* battleField_self@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battleField_self@2x.png"; path = "Aircraft/res/battleField_self@2x.png"; sourceTree = "<group>"; };
+		9FB043E216B9D93D0067A04F /* battleFieldBar_enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = battleFieldBar_enemy.png; path = Aircraft/res/battleFieldBar_enemy.png; sourceTree = "<group>"; };
+		9FB043E316B9D93D0067A04F /* battleFieldBar_enemy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battleFieldBar_enemy@2x.png"; path = "Aircraft/res/battleFieldBar_enemy@2x.png"; sourceTree = "<group>"; };
+		9FB043E416B9D93D0067A04F /* battleFieldBar_self.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = battleFieldBar_self.png; path = Aircraft/res/battleFieldBar_self.png; sourceTree = "<group>"; };
+		9FB043E516B9D93D0067A04F /* battleFieldBar_self@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battleFieldBar_self@2x.png"; path = "Aircraft/res/battleFieldBar_self@2x.png"; sourceTree = "<group>"; };
 		9FB0B4F3169CFBAC00416B93 /* ABattleFieldModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABattleFieldModel.h; path = Model/ABattleFieldModel.h; sourceTree = "<group>"; };
 		9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABattleFieldModel.m; path = Model/ABattleFieldModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -430,6 +478,22 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				9F84C5E116B9FA01005D971F /* clock.png */,
+				9F84C5E216B9FA01005D971F /* clock@2x.png */,
+				9F84C5DB16B9F951005D971F /* comment.png */,
+				9F84C5DC16B9F951005D971F /* comment@2x.png */,
+				9F84C5CE16B9E65A005D971F /* battleFieldBarHighlighted_enemy.png */,
+				9F84C5CF16B9E65A005D971F /* battleFieldBarHighlighted_enemy@2x.png */,
+				9F84C5D016B9E65A005D971F /* battleFieldBarHighlighted_self.png */,
+				9F84C5D116B9E65A005D971F /* battleFieldBarHighlighted_self@2x.png */,
+				9FB043DE16B9D93D0067A04F /* battleField_enemy.png */,
+				9FB043DF16B9D93D0067A04F /* battleField_enemy@2x.png */,
+				9FB043E016B9D93D0067A04F /* battleField_self.png */,
+				9FB043E116B9D93D0067A04F /* battleField_self@2x.png */,
+				9FB043E216B9D93D0067A04F /* battleFieldBar_enemy.png */,
+				9FB043E316B9D93D0067A04F /* battleFieldBar_enemy@2x.png */,
+				9FB043E416B9D93D0067A04F /* battleFieldBar_self.png */,
+				9FB043E516B9D93D0067A04F /* battleFieldBar_self@2x.png */,
 				9F36F41A16B59D15004D616F /* chatBubbleUser.png */,
 				9F36F42116B5C6E7004D616F /* chatBubbleUser@2x.png */,
 				9F36F41916B59D14004D616F /* chatBubbleSystem.png */,
@@ -561,6 +625,22 @@
 				9F36F42216B5C6E7004D616F /* chatBubbleOther@2x.png in Resources */,
 				9F36F42416B5C6E7004D616F /* chatBubbleSystem@2x.png in Resources */,
 				9F36F42616B5C6E7004D616F /* chatBubbleUser@2x.png in Resources */,
+				9FB043E616B9D93D0067A04F /* battleField_enemy.png in Resources */,
+				9FB043E816B9D93D0067A04F /* battleField_enemy@2x.png in Resources */,
+				9FB043EA16B9D93D0067A04F /* battleField_self.png in Resources */,
+				9FB043EC16B9D93D0067A04F /* battleField_self@2x.png in Resources */,
+				9FB043EE16B9D93D0067A04F /* battleFieldBar_enemy.png in Resources */,
+				9FB043F016B9D93D0067A04F /* battleFieldBar_enemy@2x.png in Resources */,
+				9FB043F216B9D93D0067A04F /* battleFieldBar_self.png in Resources */,
+				9FB043F416B9D93D0067A04F /* battleFieldBar_self@2x.png in Resources */,
+				9F84C5D216B9E65A005D971F /* battleFieldBarHighlighted_enemy.png in Resources */,
+				9F84C5D416B9E65A005D971F /* battleFieldBarHighlighted_enemy@2x.png in Resources */,
+				9F84C5D616B9E65A005D971F /* battleFieldBarHighlighted_self.png in Resources */,
+				9F84C5D816B9E65A005D971F /* battleFieldBarHighlighted_self@2x.png in Resources */,
+				9F84C5DD16B9F951005D971F /* comment.png in Resources */,
+				9F84C5DF16B9F951005D971F /* comment@2x.png in Resources */,
+				9F84C5E316B9FA01005D971F /* clock.png in Resources */,
+				9F84C5E516B9FA01005D971F /* clock@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +677,22 @@
 				9F36F42316B5C6E7004D616F /* chatBubbleOther@2x.png in Resources */,
 				9F36F42516B5C6E7004D616F /* chatBubbleSystem@2x.png in Resources */,
 				9F36F42716B5C6E7004D616F /* chatBubbleUser@2x.png in Resources */,
+				9FB043E716B9D93D0067A04F /* battleField_enemy.png in Resources */,
+				9FB043E916B9D93D0067A04F /* battleField_enemy@2x.png in Resources */,
+				9FB043EB16B9D93D0067A04F /* battleField_self.png in Resources */,
+				9FB043ED16B9D93D0067A04F /* battleField_self@2x.png in Resources */,
+				9FB043EF16B9D93D0067A04F /* battleFieldBar_enemy.png in Resources */,
+				9FB043F116B9D93D0067A04F /* battleFieldBar_enemy@2x.png in Resources */,
+				9FB043F316B9D93D0067A04F /* battleFieldBar_self.png in Resources */,
+				9FB043F516B9D93D0067A04F /* battleFieldBar_self@2x.png in Resources */,
+				9F84C5D316B9E65A005D971F /* battleFieldBarHighlighted_enemy.png in Resources */,
+				9F84C5D516B9E65A005D971F /* battleFieldBarHighlighted_enemy@2x.png in Resources */,
+				9F84C5D716B9E65A005D971F /* battleFieldBarHighlighted_self.png in Resources */,
+				9F84C5D916B9E65A005D971F /* battleFieldBarHighlighted_self@2x.png in Resources */,
+				9F84C5DE16B9F951005D971F /* comment.png in Resources */,
+				9F84C5E016B9F951005D971F /* comment@2x.png in Resources */,
+				9F84C5E416B9FA01005D971F /* clock.png in Resources */,
+				9F84C5E616B9FA01005D971F /* clock@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

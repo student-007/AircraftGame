@@ -46,6 +46,26 @@
     
     self.battleFieldImgView.userInteractionEnabled = YES;
     [self addTapGestureToView:self.battleFieldImgView];
+    
+    switch (_battleFldModel.type)
+    {
+        case BattleFieldSelf:
+        {
+            [self.battleFieldImgView setImage:[UIImage imageNamed:@"battleField_self.png"]];
+            [self.switchBarButton setBackgroundImage:[UIImage imageNamed:@"battleFieldBar_self.png"] forState:UIControlStateNormal];
+            [self.switchBarButton setBackgroundImage:[UIImage imageNamed:@"battleFieldBarHighlighted_self.png"] forState:UIControlStateHighlighted];
+        }
+            break;
+        case BattleFieldEnemy:
+        {
+            [self.battleFieldImgView setImage:[UIImage imageNamed:@"battleField_enemy.png"]];
+            [self.switchBarButton setBackgroundImage:[UIImage imageNamed:@"battleFieldBar_enemy.png"] forState:UIControlStateNormal];
+            [self.switchBarButton setBackgroundImage:[UIImage imageNamed:@"battleFieldBarHighlighted_self.png"] forState:UIControlStateHighlighted];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,12 +78,30 @@
 {
     [self setView:nil];
     [self setBattleFieldImgView:nil];
+    [self setSwitchBarButton:nil];
     [super viewDidUnload];
 }
 
 - (void)setFaction:(BattleFieldType)faction
 {
     _battleFldModel.type = faction;
+//    switch (faction)
+//    {
+//        case BattleFieldSelf:
+//        {
+//            [self.battleFieldImgView setImage:[UIImage imageNamed:@"battleField_self.png"]];
+//            [self.switchBarButton setBackgroundImage:[UIImage imageNamed:@"battleFieldBar_self.png"] forState:UIControlStateNormal];
+//        }
+//            break;
+//        case BattleFieldEnemy:
+//        {
+//            [self.battleFieldImgView setImage:[UIImage imageNamed:@"battleField_enemy.png"]];
+//            [self.switchBarButton setBackgroundImage:[UIImage imageNamed:@"battleFieldBar_enemy.png"] forState:UIControlStateNormal];
+//        }
+//            break;
+//        default:
+//            break;
+//    }
 }
 
 - (BattleFieldType)faction

@@ -50,7 +50,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.chatTxtFld];
 
     // add a pencil icon at left of the chatting text field
-    [self.chatTxtFld setLeftViewWithImageNamed:@"pencil_image"];
+    [self.chatTxtFld setLeftViewWithImageNamed:@"comment.png"];
     [self.chatTxtFld setDelegate:self];
     
 //    // below are testing messages
