@@ -13,10 +13,15 @@
 @property (strong, nonatomic) AGameOrganizer *organizer;
 @property (strong, nonatomic)AChattingViewController *chatVC;
 
+- (void)resetAndLoadOrganizer;
+- (void)loadChattingView;
 
 @end
 
 @implementation APlayViewController
+
+@synthesize organizer = _organizer;
+@synthesize chatVC = _chatVC;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

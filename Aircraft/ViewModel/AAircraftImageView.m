@@ -8,10 +8,15 @@
 
 #import "AAircraftImageView.h"
 
-#define kAircraftUpImageName      @"Aircraft.png"//@"AircraftUp.png"
-#define kAircraftDownImageName    @"Aircraft.png"//  @"AircraftDown.png"
-#define kAircraftLeftImageName    @"Aircraft.png"//  @"AircraftLeft.png"
-#define kAircraftRightImageName   @"Aircraft.png"//   @"AircraftRight.png"
+@interface AAircraftImageView () 
+{
+@private
+    
+}
+- (void)adjustFrameBasedOnAircraftOrginPos:(CGPoint)orgin;
+- (void)setDirection:(AircraftDirection)direction;
+
+@end
 
 @implementation AAircraftImageView
 

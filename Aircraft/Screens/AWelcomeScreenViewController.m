@@ -14,6 +14,8 @@
 
 @implementation AWelcomeScreenViewController
 
+@synthesize playWithBluetoothBtn = _playWithBluetoothBtn;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

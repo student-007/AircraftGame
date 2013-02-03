@@ -18,6 +18,9 @@
 @implementation ABattleFieldModel
 
 @synthesize type = _type;
+@synthesize attackPoint = _attackPoint;
+@synthesize attackRecord = _attackRecord;
+@synthesize aircraftModelAry = _aircraftModelAry;
 
 - (id)init
 {

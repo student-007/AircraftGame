@@ -12,6 +12,9 @@
 
 @synthesize target = _target;
 @synthesize selectionAction = _selectionAction;
+@synthesize view = _view;
+@synthesize backGroundImgView = _backGroundImgView;
+@synthesize messageLabel = _messageLabel;
 
 - (id)initWithMsg:(NSString *)message andType:(AChattingMsgType)type
 {
@@ -34,7 +37,7 @@
     self.messageLabel.text = _message;
     CGSize lblSize = [_message sizeWithFont:[UIFont fontWithName:@"Noteworthy-Bold" size:13.0f]
                           constrainedToSize:CGSizeMake(250.0f, MAXFLOAT)
-                              lineBreakMode:NSLineBreakByWordWrapping];
+                              lineBreakMode:UILineBreakModeWordWrap/*NSLineBreakByWordWrapping*/];
     CGRect backgroundImgViewFrame;
     CGRect viewFrame = self.view.frame;
     
