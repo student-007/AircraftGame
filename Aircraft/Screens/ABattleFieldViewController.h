@@ -24,7 +24,6 @@
 @property (nonatomic) BattleFieldType faction;
 @property (assign, nonatomic) id<ABattleFieldVCDelegate> delegate;
 @property (assign, nonatomic) id<ABattleFieldOrganizerDelegate> organizerDelegate;
-@property (strong, nonatomic) IBOutlet AUIBattleFieldView *view;
 @property (strong, nonatomic) IBOutlet UIButton *switchBarButton;
 @property (strong, nonatomic) IBOutlet UIImageView *battleFieldImgView;
 

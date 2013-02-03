@@ -16,6 +16,10 @@
 
 @implementation ACommunicator
 
+@synthesize conn = _conn;
+@synthesize delegate = _delegate;
+@synthesize type = _type;
+
 - (id)init
 {
     if (self = [super init])

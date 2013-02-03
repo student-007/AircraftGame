@@ -18,10 +18,19 @@
 }
 @property (nonatomic, readonly) BOOL isGameOn;
 @property (strong, nonatomic) UIImageView *attackMarkerImgView;
-
+- (void)addTapGestureToView:(UIView *)view;
+- (void)addPanGestureToView:(UIView *)view;
+- (BOOL)checkPositionForAircraft:(AAircraftModel *)aircraft;
+- (IBAction)switchBattleFieldBtnClicked:(UIButton *)sender;
 @end
 
 @implementation ABattleFieldViewController
+
+@synthesize attackMarkerImgView = _attackMarkerImgView;
+@synthesize delegate = _delegate;
+@synthesize organizerDelegate = _organizerDelegate;
+@synthesize switchBarButton = _switchBarButton;
+@synthesize battleFieldImgView = _battleFieldImgView;
 
 #define kAttackResultHitImgName     @""
 #define kAttackResultMissImgName    @""
@@ -60,7 +69,7 @@
         {
             [self.battleFieldImgView setImage:[UIImage imageNamed:@"battleField_enemy.png"]];
             [self.switchBarButton setBackgroundImage:[UIImage imageNamed:@"battleFieldBar_enemy.png"] forState:UIControlStateNormal];
-            [self.switchBarButton setBackgroundImage:[UIImage imageNamed:@"battleFieldBarHighlighted_self.png"] forState:UIControlStateHighlighted];
+            [self.switchBarButton setBackgroundImage:[UIImage imageNamed:@"battleFieldBarHighlighted_enemy.png"] forState:UIControlStateHighlighted];
         }
             break;
         default:
@@ -85,23 +94,6 @@
 - (void)setFaction:(BattleFieldType)faction
 {
     _battleFldModel.type = faction;
-//    switch (faction)
-//    {
-//        case BattleFieldSelf:
-//        {
-//            [self.battleFieldImgView setImage:[UIImage imageNamed:@"battleField_self.png"]];
-//            [self.switchBarButton setBackgroundImage:[UIImage imageNamed:@"battleFieldBar_self.png"] forState:UIControlStateNormal];
-//        }
-//            break;
-//        case BattleFieldEnemy:
-//        {
-//            [self.battleFieldImgView setImage:[UIImage imageNamed:@"battleField_enemy.png"]];
-//            [self.switchBarButton setBackgroundImage:[UIImage imageNamed:@"battleFieldBar_enemy.png"] forState:UIControlStateNormal];
-//        }
-//            break;
-//        default:
-//            break;
-//    }
 }
 
 - (BattleFieldType)faction

@@ -11,6 +11,11 @@
 
 #define kMappingFactor 29
 
+#define kAircraftUpImageName       @"aircraftUp.png"
+#define kAircraftDownImageName     @"aircraftDown.png"
+#define kAircraftLeftImageName     @"aircraftLeft.png"
+#define kAircraftRightImageName    @"aircraftRight.png"
+
 @interface AAircraftImageView : UIImageView
 {
     AAircraftModel *_aircraft;

@@ -13,10 +13,20 @@
 #define kPadOfTxtFldAndSendBtn      12.0f
 
 @interface AChattingViewController ()
-
+- (void)adjustSendHideBtnStatus;
+- (void)signTxtFldToFirstResponder;
+- (IBAction)sendMsgOrHideKeyBoard:(AUIButton *)sender;
 @end
 
 @implementation AChattingViewController
+
+@synthesize sendHideBtn = _sendHideBtn;
+@synthesize tableView = _tableView;
+@synthesize tableViewAdapter = _tableViewAdapter;
+
+@synthesize backgroundImgView = _backgroundImgView;
+@synthesize chatTxtFld = _chatTxtFld;
+@synthesize delegate = _delegate;
 
 - (void)loadLocalizedInfo
 {

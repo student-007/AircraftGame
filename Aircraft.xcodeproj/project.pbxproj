@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C396F2B16BDF792007A0B81 /* aircraftUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C396F2A16BDF792007A0B81 /* aircraftUp.png */; };
+		0C396F2C16BDF792007A0B81 /* aircraftUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C396F2A16BDF792007A0B81 /* aircraftUp.png */; };
+		0C70812A16BDE98400C2020D /* aircraftDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812216BDE98400C2020D /* aircraftDown.png */; };
+		0C70812B16BDE98400C2020D /* aircraftDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812216BDE98400C2020D /* aircraftDown.png */; };
+		0C70812C16BDE98400C2020D /* aircraftDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812316BDE98400C2020D /* aircraftDown@2x.png */; };
+		0C70812D16BDE98400C2020D /* aircraftDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812316BDE98400C2020D /* aircraftDown@2x.png */; };
+		0C70812E16BDE98400C2020D /* aircraftLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812416BDE98400C2020D /* aircraftLeft.png */; };
+		0C70812F16BDE98400C2020D /* aircraftLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812416BDE98400C2020D /* aircraftLeft.png */; };
+		0C70813016BDE98400C2020D /* aircraftLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812516BDE98400C2020D /* aircraftLeft@2x.png */; };
+		0C70813116BDE98400C2020D /* aircraftLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812516BDE98400C2020D /* aircraftLeft@2x.png */; };
+		0C70813216BDE98400C2020D /* aircraftRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812616BDE98400C2020D /* aircraftRight.png */; };
+		0C70813316BDE98400C2020D /* aircraftRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812616BDE98400C2020D /* aircraftRight.png */; };
+		0C70813416BDE98400C2020D /* aircraftRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812716BDE98400C2020D /* aircraftRight@2x.png */; };
+		0C70813516BDE98400C2020D /* aircraftRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812716BDE98400C2020D /* aircraftRight@2x.png */; };
+		0C70813816BDE98400C2020D /* aircraftUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812916BDE98400C2020D /* aircraftUp@2x.png */; };
+		0C70813916BDE98400C2020D /* aircraftUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812916BDE98400C2020D /* aircraftUp@2x.png */; };
 		9F049CC616842BBA007F5AC2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F049CC516842BBA007F5AC2 /* UIKit.framework */; };
 		9F049CC816842BBA007F5AC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F049CC716842BBA007F5AC2 /* Foundation.framework */; };
 		9F049CCA16842BBA007F5AC2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F049CC916842BBA007F5AC2 /* CoreGraphics.framework */; };
@@ -165,6 +181,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C396F2A16BDF792007A0B81 /* aircraftUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftUp.png; path = Aircraft/res/aircraftUp.png; sourceTree = "<group>"; };
+		0C70812216BDE98400C2020D /* aircraftDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftDown.png; path = Aircraft/res/aircraftDown.png; sourceTree = "<group>"; };
+		0C70812316BDE98400C2020D /* aircraftDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftDown@2x.png"; path = "Aircraft/res/aircraftDown@2x.png"; sourceTree = "<group>"; };
+		0C70812416BDE98400C2020D /* aircraftLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftLeft.png; path = Aircraft/res/aircraftLeft.png; sourceTree = "<group>"; };
+		0C70812516BDE98400C2020D /* aircraftLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftLeft@2x.png"; path = "Aircraft/res/aircraftLeft@2x.png"; sourceTree = "<group>"; };
+		0C70812616BDE98400C2020D /* aircraftRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftRight.png; path = Aircraft/res/aircraftRight.png; sourceTree = "<group>"; };
+		0C70812716BDE98400C2020D /* aircraftRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftRight@2x.png"; path = "Aircraft/res/aircraftRight@2x.png"; sourceTree = "<group>"; };
+		0C70812916BDE98400C2020D /* aircraftUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftUp@2x.png"; path = "Aircraft/res/aircraftUp@2x.png"; sourceTree = "<group>"; };
 		9F049CC116842BBA007F5AC2 /* Aircraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aircraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F049CC516842BBA007F5AC2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9F049CC716842BBA007F5AC2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -478,6 +502,14 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				0C70812216BDE98400C2020D /* aircraftDown.png */,
+				0C70812316BDE98400C2020D /* aircraftDown@2x.png */,
+				0C70812416BDE98400C2020D /* aircraftLeft.png */,
+				0C70812516BDE98400C2020D /* aircraftLeft@2x.png */,
+				0C70812616BDE98400C2020D /* aircraftRight.png */,
+				0C70812716BDE98400C2020D /* aircraftRight@2x.png */,
+				0C396F2A16BDF792007A0B81 /* aircraftUp.png */,
+				0C70812916BDE98400C2020D /* aircraftUp@2x.png */,
 				9F84C5E116B9FA01005D971F /* clock.png */,
 				9F84C5E216B9FA01005D971F /* clock@2x.png */,
 				9F84C5DB16B9F951005D971F /* comment.png */,
@@ -641,6 +673,14 @@
 				9F84C5DF16B9F951005D971F /* comment@2x.png in Resources */,
 				9F84C5E316B9FA01005D971F /* clock.png in Resources */,
 				9F84C5E516B9FA01005D971F /* clock@2x.png in Resources */,
+				0C70812A16BDE98400C2020D /* aircraftDown.png in Resources */,
+				0C70812C16BDE98400C2020D /* aircraftDown@2x.png in Resources */,
+				0C70812E16BDE98400C2020D /* aircraftLeft.png in Resources */,
+				0C70813016BDE98400C2020D /* aircraftLeft@2x.png in Resources */,
+				0C70813216BDE98400C2020D /* aircraftRight.png in Resources */,
+				0C70813416BDE98400C2020D /* aircraftRight@2x.png in Resources */,
+				0C70813816BDE98400C2020D /* aircraftUp@2x.png in Resources */,
+				0C396F2B16BDF792007A0B81 /* aircraftUp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +733,14 @@
 				9F84C5E016B9F951005D971F /* comment@2x.png in Resources */,
 				9F84C5E416B9FA01005D971F /* clock.png in Resources */,
 				9F84C5E616B9FA01005D971F /* clock@2x.png in Resources */,
+				0C70812B16BDE98400C2020D /* aircraftDown.png in Resources */,
+				0C70812D16BDE98400C2020D /* aircraftDown@2x.png in Resources */,
+				0C70812F16BDE98400C2020D /* aircraftLeft.png in Resources */,
+				0C70813116BDE98400C2020D /* aircraftLeft@2x.png in Resources */,
+				0C70813316BDE98400C2020D /* aircraftRight.png in Resources */,
+				0C70813516BDE98400C2020D /* aircraftRight@2x.png in Resources */,
+				0C70813916BDE98400C2020D /* aircraftUp@2x.png in Resources */,
+				0C396F2C16BDF792007A0B81 /* aircraftUp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,7 +903,7 @@
 				INFOPLIST_FILE = "Aircraft/Aircraft-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51896ED7-608C-4297-A809-A089693113C3";
+				PROVISIONING_PROFILE = "717E3484-8ABF-443D-89C5-1960622092FA";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -871,7 +919,7 @@
 				INFOPLIST_FILE = "Aircraft/Aircraft-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51896ED7-608C-4297-A809-A089693113C3";
+				PROVISIONING_PROFILE = "717E3484-8ABF-443D-89C5-1960622092FA";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -7,6 +7,7 @@
 //
 
 #import "AOperationPanelViewController.h"
+#import "AAircraftImageView.h"
 
 @interface AOperationPanelViewController ()
 {
@@ -16,9 +17,41 @@
     NSTimer *_updatePanelTimer;
 }
 
+- (void)setupAircraftHolders;
+- (void)switchViews;
+
 @end
 
 @implementation AOperationPanelViewController
+
+@synthesize viewDelegate = _viewDelegate;
+@synthesize operationDelegate = _operationDelegate;
+
+@synthesize aircraftHolderView = _aircraftHolderView;
+@synthesize aircraftHolderBkgd = _aircraftHolderBkgd;
+@synthesize operationPanelView = _operationPanelView;
+@synthesize operationPanelBkgd = _operationPanelBkgd;
+@synthesize statusView = _statusView;
+@synthesize turnIndicatorImgView = _turnIndicatorImgView;
+@synthesize timeIndicatorImgView = _timeIndicatorImgView;
+@synthesize turnLabel = _turnLabel;
+@synthesize turnTimeLabel = _turnTimeLabel;
+@synthesize playTotalTimeLabel = _playTotalTimeLabel;
+
+@synthesize swipeGestureRecognizerUp = _swipeGestureRecognizerUp;
+@synthesize swipeGestureRecognizerDown = _swipeGestureRecognizerDown;
+// aircraft holders
+@synthesize aircraftUpHolderImgView = _aircraftUpHolderImgView;
+@synthesize aircraftDownHolderImgView = _aircraftDownHolderImgView;
+@synthesize aircraftLeftHolderImgView = _aircraftLeftHolderImgView;
+@synthesize aircraftRightHolderImgView = _aircraftRightHolderImgView;
+
+@synthesize readyButton = _readyButton;
+@synthesize exitButton = _exitButton;
+@synthesize switchButton = _switchButton;
+@synthesize tool1Button = _tool1Button;
+@synthesize tool2Button = _tool2Button;
+@synthesize attackButton = _attackButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -189,6 +222,15 @@
 
 - (void)setupAircraftHolders
 {
+    [self.aircraftUpHolderImgView setImage:[UIImage imageNamed:kAircraftUpImageName]];
+    [self.aircraftDownHolderImgView setImage:[UIImage imageNamed:kAircraftDownImageName]];
+    [self.aircraftLeftHolderImgView setImage:[UIImage imageNamed:kAircraftLeftImageName]];
+    [self.aircraftRightHolderImgView setImage:[UIImage imageNamed:kAircraftRightImageName]];
+    
+    self.aircraftDownHolderImgView.transform = CGAffineTransformMakeRotation(M_PI);
+    self.aircraftLeftHolderImgView.transform = CGAffineTransformMakeRotation(-M_PI_2);
+    self.aircraftRightHolderImgView.transform = CGAffineTransformMakeRotation(M_PI_2);
+    
     self.aircraftUpHolderImgView.direction = AircraftDirectionUp;
     self.aircraftDownHolderImgView.direction = AircraftDirectionDown;
     self.aircraftLeftHolderImgView.direction = AircraftDirectionLeft;

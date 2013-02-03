@@ -14,10 +14,27 @@
     CGSize _tempAircraftSize;
 }
 
+- (void)setupBattleFields;
+- (void)setupOperationPanel;
+- (void)setupChattingField;
+- (void)loadPage:(UIView *)viewPage toScrollView: (UIScrollView *)scrollView;
+
 @end
 
 @implementation APlayScreenViewController
 
+@synthesize organizer = _organizer;
+
+// battle fields
+@synthesize scrollView = _scrollView;
+@synthesize battleFldEnemy = _battleFldEnemy;
+@synthesize battleFldSelf = _battleFldSelf;
+
+// operation panel
+@synthesize opPanel = _opPanel;
+
+// chatting
+@synthesize chatVC = _chatVC;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

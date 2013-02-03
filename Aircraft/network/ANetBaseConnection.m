@@ -10,6 +10,8 @@
 
 @implementation ANetBaseConnection
 
+@synthesize listener = _listener;
+
 - (id)init
 {
     if (self = [super init])
