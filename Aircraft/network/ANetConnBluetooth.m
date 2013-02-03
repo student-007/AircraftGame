@@ -10,6 +10,9 @@
 
 @implementation ANetConnBluetooth
 
+@synthesize peerPicker = _peerPicker;
+@synthesize sessionConnection = _sessionConnection;
+
 - (BOOL)isConnect
 {
     return _isConnect;

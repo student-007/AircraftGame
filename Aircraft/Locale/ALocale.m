@@ -10,6 +10,10 @@
 
 @implementation ALocale
 
+@synthesize langCode = _langCode;
+@synthesize supportedLanguageCode = _supportedLanguageCode;
+@synthesize supportedLanguageDisplayName = _supportedLanguageDisplayName;
+
 + (id)currentLocale
 {
     static ALocale *locale = nil;

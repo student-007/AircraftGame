@@ -10,6 +10,9 @@
 
 @implementation AAppDelegate
 
+@synthesize window = _window;
+@synthesize navigationController = _navigationController;
+
 + (AAppDelegate *)sharedInstance
 {
     return (AAppDelegate *)[[UIApplication sharedApplication] delegate];

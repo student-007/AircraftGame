@@ -17,6 +17,9 @@
 
 @implementation ATableViewAdapterView
 
+@synthesize title = _title;
+@synthesize view = _view;
+
 + (id)viewWithTitle:(NSString *)title
 {
     ATableViewAdapterView *adapterView = [[ATableViewAdapterView alloc] init];
@@ -61,6 +64,9 @@
 
 @implementation ATableViewAdapterPanel
 
+@synthesize view = _view;
+@synthesize style = _style;
+
 + (id)panelWithView:(id <ATableViewAdapterViewDelegate>)view style:(ATableViewAdapterPanelStyle)style
 {
     ATableViewAdapterPanel *panel = [[ATableViewAdapterPanel alloc] init];
@@ -74,6 +80,14 @@
 #pragma mark - panel section class
 
 @implementation ATableViewAdapterPanelSection
+
+@synthesize key = _key;
+@synthesize headerViews = _headerViews;
+@synthesize headerKeys = _headerKeys;
+@synthesize cellViews = _cellViews;
+@synthesize cellKeys = _cellKeys;
+@synthesize footerKeys = _footerKeys;
+@synthesize footerViews = _footerViews;
 
 - (NSMutableArray *)headerViews
 {

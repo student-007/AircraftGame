@@ -20,6 +20,12 @@
 @implementation AGameOrganizer
 
 @synthesize chatVC = _chatVC;
+@synthesize whosTurn = _whosTurn;
+@synthesize battleFldVCSelf = _battleFldVCSelf;
+@synthesize battleFldVCEnemy = _battleFldVCEnemy;
+@synthesize opPanelVC = _opPanelVC;
+@synthesize communicator = _communicator;
+@synthesize connectionType = _connectionType;
 
 + (AGameOrganizer *)sharedInstance
 {

@@ -8,6 +8,14 @@
 
 #import "AAircraftModel.h"
 
+@interface AAircraftModel()
+{
+@private
+
+}
+- (void)setAircraftOrginPosition:(CGPoint)orgin direction:(AircraftDirection)direction;
+@end
+
 @implementation AAircraftModel
 
 @synthesize orginPos = _orginPos;

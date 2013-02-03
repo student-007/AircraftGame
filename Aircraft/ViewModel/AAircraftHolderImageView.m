@@ -10,6 +10,8 @@
 
 @implementation AAircraftHolderImageView
 
+@synthesize direction = _direction;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
