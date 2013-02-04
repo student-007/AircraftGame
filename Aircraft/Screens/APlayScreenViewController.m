@@ -17,6 +17,7 @@
 - (void)setupBattleFields;
 - (void)setupOperationPanel;
 - (void)setupChattingField;
+- (void)setupShadowView;
 - (void)loadPage:(UIView *)viewPage toScrollView: (UIScrollView *)scrollView;
 
 @end
@@ -57,6 +58,7 @@
     [self setupBattleFields];
     [self setupOperationPanel];
     [self setupChattingField];
+    [self setupShadowView];
     
     AAircraftModel *aircraft = [AAircraftModel aircraftWithOrgin:CGPointMake(4, 0) direction:AircraftDirectionLeft];
     [self.battleFldSelf addAircraft:aircraft];
@@ -224,6 +226,31 @@
     chatViewFrame.origin.y = [UIScreen mainScreen].bounds.size.height - 20 - chatViewFrame.size.height;
     self.chatVC.view.frame = chatViewFrame;
     [self.view addSubview:self.chatVC.view];
+}
+
+#pragma mark - setup shadow views
+
+- (void)setupShadowView
+{
+    UIEdgeInsets insets = UIEdgeInsetsMake(1, 2, 1, 2);
+    UIImage *upperShadowImg = [[UIImage imageNamed:@"dropShadowUp.png"] resizableImageWithCapInsets:insets];
+    UIImage *lowerShadowImg = [[UIImage imageNamed:@"dropShadowDown.png"] resizableImageWithCapInsets:insets];
+    
+    UIImageView *upperShadowImgView = [[UIImageView alloc] initWithImage:upperShadowImg];
+    UIImageView *lowerShadowImgView = [[UIImageView alloc] initWithImage:lowerShadowImg];
+    
+    CGRect frame = CGRectMake(0, 0, 320.0f, upperShadowImg.size.height);
+    
+    // adjust frame for upper shadow view
+    frame.origin.y = self.scrollView.frame.origin.y + self.scrollView.frame.size.height - upperShadowImg.size.height;
+    upperShadowImgView.frame = frame;
+    
+    // adjust frame for lower shadow view
+    frame.origin.y = self.opPanel.view.frame.origin.y + self.opPanel.view.frame.size.height;
+    lowerShadowImgView.frame = frame;
+    
+    [self.view addSubview:upperShadowImgView];
+    [self.view addSubview:lowerShadowImgView];
 }
 
 #pragma mark - battle field view controller delegate

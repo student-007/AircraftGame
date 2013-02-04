@@ -7,7 +7,14 @@
 //
 
 #import "AOperationPanelViewController.h"
-#import "AAircraftImageView.h"
+
+#define kAircraftUpInHolderImgName      @"aircraftUpInHolder.png"
+#define kAircraftDownInHolderImgName    @"aircraftDownInHolder.png"
+#define kAircraftLeftInHolderImgName    @"aircraftLeftInHolder.png"
+#define kAircraftRightInHolderImgName   @"aircraftRightInHolder.png"
+
+#define kTurnIndicatorCompetitorTurnImgName     @"turnIndicator_coffee.png"
+#define kTurnIndicatorMyTurnImgName             @"turnIndicator_target.png"
 
 @interface AOperationPanelViewController ()
 {
@@ -138,13 +145,13 @@
     {
         case AWhosTurnCompetitor:
         {
-            [self.turnIndicatorImgView setImage:[UIImage imageNamed:@"indicator_off"]];
+            [self.turnIndicatorImgView setImage:[UIImage imageNamed:kTurnIndicatorCompetitorTurnImgName]];
             self.turnLabel.text = ALocalisedString(@"operation_panel_competitor_turn_to_attack");
         }
             break;
         case AWhosTurnUser:
         {
-            [self.turnIndicatorImgView setImage:[UIImage imageNamed:@"indicator_on"]];
+            [self.turnIndicatorImgView setImage:[UIImage imageNamed:kTurnIndicatorMyTurnImgName]];
             self.turnLabel.text = ALocalisedString(@"operation_panel_my_turn_to_attack");
         }
             break;
@@ -222,10 +229,10 @@
 
 - (void)setupAircraftHolders
 {
-    [self.aircraftUpHolderImgView setImage:[UIImage imageNamed:kAircraftUpImageName]];
-    [self.aircraftDownHolderImgView setImage:[UIImage imageNamed:kAircraftDownImageName]];
-    [self.aircraftLeftHolderImgView setImage:[UIImage imageNamed:kAircraftLeftImageName]];
-    [self.aircraftRightHolderImgView setImage:[UIImage imageNamed:kAircraftRightImageName]];
+    [self.aircraftUpHolderImgView setImage:[UIImage imageNamed:kAircraftUpInHolderImgName]];
+    [self.aircraftDownHolderImgView setImage:[UIImage imageNamed:kAircraftDownInHolderImgName]];
+    [self.aircraftLeftHolderImgView setImage:[UIImage imageNamed:kAircraftLeftInHolderImgName]];
+    [self.aircraftRightHolderImgView setImage:[UIImage imageNamed:kAircraftRightInHolderImgName]];
     
     self.aircraftDownHolderImgView.transform = CGAffineTransformMakeRotation(M_PI);
     self.aircraftLeftHolderImgView.transform = CGAffineTransformMakeRotation(-M_PI_2);
@@ -379,7 +386,7 @@
         [self.view addSubview:self.operationPanelView];
         
         [self.switchButton removeFromSuperview];
-        self.switchButton.frame = CGRectMake(270, 0, 50, 50);
+        self.switchButton.frame = CGRectMake(294, 10, 30, 30);
         [self.operationPanelView addSubview:self.switchButton];
     }
     else if ([[self.view subviews] containsObject:self.operationPanelView])
@@ -393,7 +400,7 @@
             [self.readyButton removeFromSuperview];
         
         [self.switchButton removeFromSuperview];
-        self.switchButton.frame = CGRectMake(270, 0, 50, 50);
+        self.switchButton.frame = CGRectMake(294, 10, 30, 30);
         [self.aircraftHolderView addSubview:self.switchButton];
         
         // adjust exit button
