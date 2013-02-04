@@ -9,6 +9,82 @@
 /* Begin PBXBuildFile section */
 		0C396F2B16BDF792007A0B81 /* aircraftUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C396F2A16BDF792007A0B81 /* aircraftUp.png */; };
 		0C396F2C16BDF792007A0B81 /* aircraftUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C396F2A16BDF792007A0B81 /* aircraftUp.png */; };
+		0C6457D016BF314F001EBD9E /* switchBtn_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457CC16BF314F001EBD9E /* switchBtn_highlighted.png */; };
+		0C6457D116BF314F001EBD9E /* switchBtn_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457CC16BF314F001EBD9E /* switchBtn_highlighted.png */; };
+		0C6457D216BF314F001EBD9E /* switchBtn_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457CD16BF314F001EBD9E /* switchBtn_highlighted@2x.png */; };
+		0C6457D316BF314F001EBD9E /* switchBtn_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457CD16BF314F001EBD9E /* switchBtn_highlighted@2x.png */; };
+		0C6457D416BF314F001EBD9E /* switchBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457CE16BF314F001EBD9E /* switchBtn.png */; };
+		0C6457D516BF314F001EBD9E /* switchBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457CE16BF314F001EBD9E /* switchBtn.png */; };
+		0C6457D616BF314F001EBD9E /* switchBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457CF16BF314F001EBD9E /* switchBtn@2x.png */; };
+		0C6457D716BF314F001EBD9E /* switchBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457CF16BF314F001EBD9E /* switchBtn@2x.png */; };
+		0C6457E116BF3514001EBD9E /* aircraftDownInHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457D916BF3514001EBD9E /* aircraftDownInHolder.png */; };
+		0C6457E216BF3514001EBD9E /* aircraftDownInHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457D916BF3514001EBD9E /* aircraftDownInHolder.png */; };
+		0C6457E316BF3514001EBD9E /* aircraftDownInHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457DA16BF3514001EBD9E /* aircraftDownInHolder@2x.png */; };
+		0C6457E416BF3514001EBD9E /* aircraftDownInHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457DA16BF3514001EBD9E /* aircraftDownInHolder@2x.png */; };
+		0C6457E516BF3514001EBD9E /* aircraftLeftInHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457DB16BF3514001EBD9E /* aircraftLeftInHolder.png */; };
+		0C6457E616BF3514001EBD9E /* aircraftLeftInHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457DB16BF3514001EBD9E /* aircraftLeftInHolder.png */; };
+		0C6457E716BF3514001EBD9E /* aircraftLeftInHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457DC16BF3514001EBD9E /* aircraftLeftInHolder@2x.png */; };
+		0C6457E816BF3514001EBD9E /* aircraftLeftInHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457DC16BF3514001EBD9E /* aircraftLeftInHolder@2x.png */; };
+		0C6457E916BF3514001EBD9E /* aircraftRightInHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457DD16BF3514001EBD9E /* aircraftRightInHolder.png */; };
+		0C6457EA16BF3514001EBD9E /* aircraftRightInHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457DD16BF3514001EBD9E /* aircraftRightInHolder.png */; };
+		0C6457EB16BF3514001EBD9E /* aircraftRightInHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457DE16BF3514001EBD9E /* aircraftRightInHolder@2x.png */; };
+		0C6457EC16BF3514001EBD9E /* aircraftRightInHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457DE16BF3514001EBD9E /* aircraftRightInHolder@2x.png */; };
+		0C6457ED16BF3514001EBD9E /* aircraftUpInHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457DF16BF3514001EBD9E /* aircraftUpInHolder.png */; };
+		0C6457EE16BF3514001EBD9E /* aircraftUpInHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457DF16BF3514001EBD9E /* aircraftUpInHolder.png */; };
+		0C6457EF16BF3514001EBD9E /* aircraftUpInHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457E016BF3514001EBD9E /* aircraftUpInHolder@2x.png */; };
+		0C6457F016BF3514001EBD9E /* aircraftUpInHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457E016BF3514001EBD9E /* aircraftUpInHolder@2x.png */; };
+		0C6457F516BF43B8001EBD9E /* sendBtn_hideKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457F116BF43B8001EBD9E /* sendBtn_hideKeyboard.png */; };
+		0C6457F616BF43B8001EBD9E /* sendBtn_hideKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457F116BF43B8001EBD9E /* sendBtn_hideKeyboard.png */; };
+		0C6457F716BF43B8001EBD9E /* sendBtn_hideKeyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457F216BF43B8001EBD9E /* sendBtn_hideKeyboard@2x.png */; };
+		0C6457F816BF43B8001EBD9E /* sendBtn_hideKeyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457F216BF43B8001EBD9E /* sendBtn_hideKeyboard@2x.png */; };
+		0C6457F916BF43B8001EBD9E /* sendBtn_sent.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457F316BF43B8001EBD9E /* sendBtn_sent.png */; };
+		0C6457FA16BF43B8001EBD9E /* sendBtn_sent.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457F316BF43B8001EBD9E /* sendBtn_sent.png */; };
+		0C6457FB16BF43B8001EBD9E /* sendBtn_sent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457F416BF43B8001EBD9E /* sendBtn_sent@2x.png */; };
+		0C6457FC16BF43B8001EBD9E /* sendBtn_sent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457F416BF43B8001EBD9E /* sendBtn_sent@2x.png */; };
+		0C6457FF16BF4A33001EBD9E /* sendBtn_hideKeyboard_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457FD16BF4A33001EBD9E /* sendBtn_hideKeyboard_highlighted@2x.png */; };
+		0C64580016BF4A33001EBD9E /* sendBtn_hideKeyboard_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457FD16BF4A33001EBD9E /* sendBtn_hideKeyboard_highlighted@2x.png */; };
+		0C64580116BF4A33001EBD9E /* sendBtn_sent_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457FE16BF4A33001EBD9E /* sendBtn_sent_highlighted@2x.png */; };
+		0C64580216BF4A33001EBD9E /* sendBtn_sent_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6457FE16BF4A33001EBD9E /* sendBtn_sent_highlighted@2x.png */; };
+		0C64580516BF4AED001EBD9E /* sendBtn_hideKeyboard_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64580316BF4AED001EBD9E /* sendBtn_hideKeyboard_highlighted.png */; };
+		0C64580616BF4AED001EBD9E /* sendBtn_hideKeyboard_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64580316BF4AED001EBD9E /* sendBtn_hideKeyboard_highlighted.png */; };
+		0C64580716BF4AED001EBD9E /* sendBtn_sent_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64580416BF4AED001EBD9E /* sendBtn_sent_highlighted.png */; };
+		0C64580816BF4AED001EBD9E /* sendBtn_sent_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64580416BF4AED001EBD9E /* sendBtn_sent_highlighted.png */; };
+		0C64580D16BF831E001EBD9E /* saveBtn_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64580916BF831E001EBD9E /* saveBtn_highlighted.png */; };
+		0C64580E16BF831E001EBD9E /* saveBtn_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64580916BF831E001EBD9E /* saveBtn_highlighted.png */; };
+		0C64580F16BF831E001EBD9E /* saveBtn_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64580A16BF831E001EBD9E /* saveBtn_highlighted@2x.png */; };
+		0C64581016BF831E001EBD9E /* saveBtn_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64580A16BF831E001EBD9E /* saveBtn_highlighted@2x.png */; };
+		0C64581116BF831E001EBD9E /* saveBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64580B16BF831E001EBD9E /* saveBtn.png */; };
+		0C64581216BF831E001EBD9E /* saveBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64580B16BF831E001EBD9E /* saveBtn.png */; };
+		0C64581316BF831E001EBD9E /* saveBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64580C16BF831E001EBD9E /* saveBtn@2x.png */; };
+		0C64581416BF831E001EBD9E /* saveBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64580C16BF831E001EBD9E /* saveBtn@2x.png */; };
+		0C64581916BF904A001EBD9E /* turnIndicator_coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64581516BF904A001EBD9E /* turnIndicator_coffee.png */; };
+		0C64581A16BF904B001EBD9E /* turnIndicator_coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64581516BF904A001EBD9E /* turnIndicator_coffee.png */; };
+		0C64581B16BF904B001EBD9E /* turnIndicator_coffee@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64581616BF904A001EBD9E /* turnIndicator_coffee@2x.png */; };
+		0C64581C16BF904B001EBD9E /* turnIndicator_coffee@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64581616BF904A001EBD9E /* turnIndicator_coffee@2x.png */; };
+		0C64581D16BF904B001EBD9E /* turnIndicator_target.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64581716BF904A001EBD9E /* turnIndicator_target.png */; };
+		0C64581E16BF904B001EBD9E /* turnIndicator_target.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64581716BF904A001EBD9E /* turnIndicator_target.png */; };
+		0C64581F16BF904B001EBD9E /* turnIndicator_target@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64581816BF904A001EBD9E /* turnIndicator_target@2x.png */; };
+		0C64582016BF904B001EBD9E /* turnIndicator_target@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64581816BF904A001EBD9E /* turnIndicator_target@2x.png */; };
+		0C64582316BF99CE001EBD9E /* ribbon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64582116BF99CE001EBD9E /* ribbon2.png */; };
+		0C64582416BF99CE001EBD9E /* ribbon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64582116BF99CE001EBD9E /* ribbon2.png */; };
+		0C64582516BF99CE001EBD9E /* ribbon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64582216BF99CE001EBD9E /* ribbon2@2x.png */; };
+		0C64582616BF99CE001EBD9E /* ribbon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64582216BF99CE001EBD9E /* ribbon2@2x.png */; };
+		0C7030B116BEDDFF00B78726 /* chatFldBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030A916BEDDFF00B78726 /* chatFldBkg.png */; };
+		0C7030B216BEDDFF00B78726 /* chatFldBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030A916BEDDFF00B78726 /* chatFldBkg.png */; };
+		0C7030B316BEDDFF00B78726 /* chatFldBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AA16BEDDFF00B78726 /* chatFldBkg@2x.png */; };
+		0C7030B416BEDDFF00B78726 /* chatFldBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AA16BEDDFF00B78726 /* chatFldBkg@2x.png */; };
+		0C7030B516BEDDFF00B78726 /* dropShadowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AB16BEDDFF00B78726 /* dropShadowDown.png */; };
+		0C7030B616BEDDFF00B78726 /* dropShadowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AB16BEDDFF00B78726 /* dropShadowDown.png */; };
+		0C7030B716BEDDFF00B78726 /* dropShadowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AC16BEDDFF00B78726 /* dropShadowUp.png */; };
+		0C7030B816BEDDFF00B78726 /* dropShadowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AC16BEDDFF00B78726 /* dropShadowUp.png */; };
+		0C7030B916BEDDFF00B78726 /* greyBtnBkg_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AD16BEDDFF00B78726 /* greyBtnBkg_normal.png */; };
+		0C7030BA16BEDDFF00B78726 /* greyBtnBkg_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AD16BEDDFF00B78726 /* greyBtnBkg_normal.png */; };
+		0C7030BB16BEDDFF00B78726 /* greyBtnBkg_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AE16BEDDFF00B78726 /* greyBtnBkg_pressed.png */; };
+		0C7030BC16BEDDFF00B78726 /* greyBtnBkg_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AE16BEDDFF00B78726 /* greyBtnBkg_pressed.png */; };
+		0C7030BD16BEDDFF00B78726 /* ribbon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AF16BEDDFF00B78726 /* ribbon.png */; };
+		0C7030BE16BEDDFF00B78726 /* ribbon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AF16BEDDFF00B78726 /* ribbon.png */; };
+		0C7030BF16BEDDFF00B78726 /* ribbon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030B016BEDDFF00B78726 /* ribbon@2x.png */; };
+		0C7030C016BEDDFF00B78726 /* ribbon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030B016BEDDFF00B78726 /* ribbon@2x.png */; };
 		0C70812A16BDE98400C2020D /* aircraftDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812216BDE98400C2020D /* aircraftDown.png */; };
 		0C70812B16BDE98400C2020D /* aircraftDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812216BDE98400C2020D /* aircraftDown.png */; };
 		0C70812C16BDE98400C2020D /* aircraftDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812316BDE98400C2020D /* aircraftDown@2x.png */; };
@@ -182,6 +258,44 @@
 
 /* Begin PBXFileReference section */
 		0C396F2A16BDF792007A0B81 /* aircraftUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftUp.png; path = Aircraft/res/aircraftUp.png; sourceTree = "<group>"; };
+		0C6457CC16BF314F001EBD9E /* switchBtn_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = switchBtn_highlighted.png; path = Aircraft/res/switchBtn_highlighted.png; sourceTree = "<group>"; };
+		0C6457CD16BF314F001EBD9E /* switchBtn_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "switchBtn_highlighted@2x.png"; path = "Aircraft/res/switchBtn_highlighted@2x.png"; sourceTree = "<group>"; };
+		0C6457CE16BF314F001EBD9E /* switchBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = switchBtn.png; path = Aircraft/res/switchBtn.png; sourceTree = "<group>"; };
+		0C6457CF16BF314F001EBD9E /* switchBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "switchBtn@2x.png"; path = "Aircraft/res/switchBtn@2x.png"; sourceTree = "<group>"; };
+		0C6457D916BF3514001EBD9E /* aircraftDownInHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftDownInHolder.png; path = Aircraft/res/aircraftDownInHolder.png; sourceTree = "<group>"; };
+		0C6457DA16BF3514001EBD9E /* aircraftDownInHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftDownInHolder@2x.png"; path = "Aircraft/res/aircraftDownInHolder@2x.png"; sourceTree = "<group>"; };
+		0C6457DB16BF3514001EBD9E /* aircraftLeftInHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftLeftInHolder.png; path = Aircraft/res/aircraftLeftInHolder.png; sourceTree = "<group>"; };
+		0C6457DC16BF3514001EBD9E /* aircraftLeftInHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftLeftInHolder@2x.png"; path = "Aircraft/res/aircraftLeftInHolder@2x.png"; sourceTree = "<group>"; };
+		0C6457DD16BF3514001EBD9E /* aircraftRightInHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftRightInHolder.png; path = Aircraft/res/aircraftRightInHolder.png; sourceTree = "<group>"; };
+		0C6457DE16BF3514001EBD9E /* aircraftRightInHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftRightInHolder@2x.png"; path = "Aircraft/res/aircraftRightInHolder@2x.png"; sourceTree = "<group>"; };
+		0C6457DF16BF3514001EBD9E /* aircraftUpInHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftUpInHolder.png; path = Aircraft/res/aircraftUpInHolder.png; sourceTree = "<group>"; };
+		0C6457E016BF3514001EBD9E /* aircraftUpInHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftUpInHolder@2x.png"; path = "Aircraft/res/aircraftUpInHolder@2x.png"; sourceTree = "<group>"; };
+		0C6457F116BF43B8001EBD9E /* sendBtn_hideKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sendBtn_hideKeyboard.png; path = Aircraft/res/sendBtn_hideKeyboard.png; sourceTree = "<group>"; };
+		0C6457F216BF43B8001EBD9E /* sendBtn_hideKeyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sendBtn_hideKeyboard@2x.png"; path = "Aircraft/res/sendBtn_hideKeyboard@2x.png"; sourceTree = "<group>"; };
+		0C6457F316BF43B8001EBD9E /* sendBtn_sent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sendBtn_sent.png; path = Aircraft/res/sendBtn_sent.png; sourceTree = "<group>"; };
+		0C6457F416BF43B8001EBD9E /* sendBtn_sent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sendBtn_sent@2x.png"; path = "Aircraft/res/sendBtn_sent@2x.png"; sourceTree = "<group>"; };
+		0C6457FD16BF4A33001EBD9E /* sendBtn_hideKeyboard_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sendBtn_hideKeyboard_highlighted@2x.png"; path = "Aircraft/res/sendBtn_hideKeyboard_highlighted@2x.png"; sourceTree = "<group>"; };
+		0C6457FE16BF4A33001EBD9E /* sendBtn_sent_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sendBtn_sent_highlighted@2x.png"; path = "Aircraft/res/sendBtn_sent_highlighted@2x.png"; sourceTree = "<group>"; };
+		0C64580316BF4AED001EBD9E /* sendBtn_hideKeyboard_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sendBtn_hideKeyboard_highlighted.png; path = Aircraft/res/sendBtn_hideKeyboard_highlighted.png; sourceTree = "<group>"; };
+		0C64580416BF4AED001EBD9E /* sendBtn_sent_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sendBtn_sent_highlighted.png; path = Aircraft/res/sendBtn_sent_highlighted.png; sourceTree = "<group>"; };
+		0C64580916BF831E001EBD9E /* saveBtn_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = saveBtn_highlighted.png; path = Aircraft/res/saveBtn_highlighted.png; sourceTree = "<group>"; };
+		0C64580A16BF831E001EBD9E /* saveBtn_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "saveBtn_highlighted@2x.png"; path = "Aircraft/res/saveBtn_highlighted@2x.png"; sourceTree = "<group>"; };
+		0C64580B16BF831E001EBD9E /* saveBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = saveBtn.png; path = Aircraft/res/saveBtn.png; sourceTree = "<group>"; };
+		0C64580C16BF831E001EBD9E /* saveBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "saveBtn@2x.png"; path = "Aircraft/res/saveBtn@2x.png"; sourceTree = "<group>"; };
+		0C64581516BF904A001EBD9E /* turnIndicator_coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = turnIndicator_coffee.png; path = Aircraft/res/turnIndicator_coffee.png; sourceTree = "<group>"; };
+		0C64581616BF904A001EBD9E /* turnIndicator_coffee@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "turnIndicator_coffee@2x.png"; path = "Aircraft/res/turnIndicator_coffee@2x.png"; sourceTree = "<group>"; };
+		0C64581716BF904A001EBD9E /* turnIndicator_target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = turnIndicator_target.png; path = Aircraft/res/turnIndicator_target.png; sourceTree = "<group>"; };
+		0C64581816BF904A001EBD9E /* turnIndicator_target@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "turnIndicator_target@2x.png"; path = "Aircraft/res/turnIndicator_target@2x.png"; sourceTree = "<group>"; };
+		0C64582116BF99CE001EBD9E /* ribbon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ribbon2.png; path = Aircraft/res/ribbon2.png; sourceTree = "<group>"; };
+		0C64582216BF99CE001EBD9E /* ribbon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ribbon2@2x.png"; path = "Aircraft/res/ribbon2@2x.png"; sourceTree = "<group>"; };
+		0C7030A916BEDDFF00B78726 /* chatFldBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chatFldBkg.png; path = Aircraft/res/chatFldBkg.png; sourceTree = "<group>"; };
+		0C7030AA16BEDDFF00B78726 /* chatFldBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chatFldBkg@2x.png"; path = "Aircraft/res/chatFldBkg@2x.png"; sourceTree = "<group>"; };
+		0C7030AB16BEDDFF00B78726 /* dropShadowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dropShadowDown.png; path = Aircraft/res/dropShadowDown.png; sourceTree = "<group>"; };
+		0C7030AC16BEDDFF00B78726 /* dropShadowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dropShadowUp.png; path = Aircraft/res/dropShadowUp.png; sourceTree = "<group>"; };
+		0C7030AD16BEDDFF00B78726 /* greyBtnBkg_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greyBtnBkg_normal.png; path = Aircraft/res/greyBtnBkg_normal.png; sourceTree = "<group>"; };
+		0C7030AE16BEDDFF00B78726 /* greyBtnBkg_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greyBtnBkg_pressed.png; path = Aircraft/res/greyBtnBkg_pressed.png; sourceTree = "<group>"; };
+		0C7030AF16BEDDFF00B78726 /* ribbon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ribbon.png; path = Aircraft/res/ribbon.png; sourceTree = "<group>"; };
+		0C7030B016BEDDFF00B78726 /* ribbon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ribbon@2x.png"; path = "Aircraft/res/ribbon@2x.png"; sourceTree = "<group>"; };
 		0C70812216BDE98400C2020D /* aircraftDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftDown.png; path = Aircraft/res/aircraftDown.png; sourceTree = "<group>"; };
 		0C70812316BDE98400C2020D /* aircraftDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftDown@2x.png"; path = "Aircraft/res/aircraftDown@2x.png"; sourceTree = "<group>"; };
 		0C70812416BDE98400C2020D /* aircraftLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftLeft.png; path = Aircraft/res/aircraftLeft.png; sourceTree = "<group>"; };
@@ -502,6 +616,44 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				0C64582116BF99CE001EBD9E /* ribbon2.png */,
+				0C64582216BF99CE001EBD9E /* ribbon2@2x.png */,
+				0C64581516BF904A001EBD9E /* turnIndicator_coffee.png */,
+				0C64581616BF904A001EBD9E /* turnIndicator_coffee@2x.png */,
+				0C64581716BF904A001EBD9E /* turnIndicator_target.png */,
+				0C64581816BF904A001EBD9E /* turnIndicator_target@2x.png */,
+				0C64580916BF831E001EBD9E /* saveBtn_highlighted.png */,
+				0C64580A16BF831E001EBD9E /* saveBtn_highlighted@2x.png */,
+				0C64580B16BF831E001EBD9E /* saveBtn.png */,
+				0C64580C16BF831E001EBD9E /* saveBtn@2x.png */,
+				0C64580316BF4AED001EBD9E /* sendBtn_hideKeyboard_highlighted.png */,
+				0C64580416BF4AED001EBD9E /* sendBtn_sent_highlighted.png */,
+				0C6457FD16BF4A33001EBD9E /* sendBtn_hideKeyboard_highlighted@2x.png */,
+				0C6457FE16BF4A33001EBD9E /* sendBtn_sent_highlighted@2x.png */,
+				0C6457F116BF43B8001EBD9E /* sendBtn_hideKeyboard.png */,
+				0C6457F216BF43B8001EBD9E /* sendBtn_hideKeyboard@2x.png */,
+				0C6457F316BF43B8001EBD9E /* sendBtn_sent.png */,
+				0C6457F416BF43B8001EBD9E /* sendBtn_sent@2x.png */,
+				0C6457D916BF3514001EBD9E /* aircraftDownInHolder.png */,
+				0C6457DA16BF3514001EBD9E /* aircraftDownInHolder@2x.png */,
+				0C6457DB16BF3514001EBD9E /* aircraftLeftInHolder.png */,
+				0C6457DC16BF3514001EBD9E /* aircraftLeftInHolder@2x.png */,
+				0C6457DD16BF3514001EBD9E /* aircraftRightInHolder.png */,
+				0C6457DE16BF3514001EBD9E /* aircraftRightInHolder@2x.png */,
+				0C6457DF16BF3514001EBD9E /* aircraftUpInHolder.png */,
+				0C6457E016BF3514001EBD9E /* aircraftUpInHolder@2x.png */,
+				0C6457CC16BF314F001EBD9E /* switchBtn_highlighted.png */,
+				0C6457CD16BF314F001EBD9E /* switchBtn_highlighted@2x.png */,
+				0C6457CE16BF314F001EBD9E /* switchBtn.png */,
+				0C6457CF16BF314F001EBD9E /* switchBtn@2x.png */,
+				0C7030A916BEDDFF00B78726 /* chatFldBkg.png */,
+				0C7030AA16BEDDFF00B78726 /* chatFldBkg@2x.png */,
+				0C7030AB16BEDDFF00B78726 /* dropShadowDown.png */,
+				0C7030AC16BEDDFF00B78726 /* dropShadowUp.png */,
+				0C7030AD16BEDDFF00B78726 /* greyBtnBkg_normal.png */,
+				0C7030AE16BEDDFF00B78726 /* greyBtnBkg_pressed.png */,
+				0C7030AF16BEDDFF00B78726 /* ribbon.png */,
+				0C7030B016BEDDFF00B78726 /* ribbon@2x.png */,
 				0C70812216BDE98400C2020D /* aircraftDown.png */,
 				0C70812316BDE98400C2020D /* aircraftDown@2x.png */,
 				0C70812416BDE98400C2020D /* aircraftLeft.png */,
@@ -681,6 +833,44 @@
 				0C70813416BDE98400C2020D /* aircraftRight@2x.png in Resources */,
 				0C70813816BDE98400C2020D /* aircraftUp@2x.png in Resources */,
 				0C396F2B16BDF792007A0B81 /* aircraftUp.png in Resources */,
+				0C7030B116BEDDFF00B78726 /* chatFldBkg.png in Resources */,
+				0C7030B316BEDDFF00B78726 /* chatFldBkg@2x.png in Resources */,
+				0C7030B516BEDDFF00B78726 /* dropShadowDown.png in Resources */,
+				0C7030B716BEDDFF00B78726 /* dropShadowUp.png in Resources */,
+				0C7030B916BEDDFF00B78726 /* greyBtnBkg_normal.png in Resources */,
+				0C7030BB16BEDDFF00B78726 /* greyBtnBkg_pressed.png in Resources */,
+				0C7030BD16BEDDFF00B78726 /* ribbon.png in Resources */,
+				0C7030BF16BEDDFF00B78726 /* ribbon@2x.png in Resources */,
+				0C6457D016BF314F001EBD9E /* switchBtn_highlighted.png in Resources */,
+				0C6457D216BF314F001EBD9E /* switchBtn_highlighted@2x.png in Resources */,
+				0C6457D416BF314F001EBD9E /* switchBtn.png in Resources */,
+				0C6457D616BF314F001EBD9E /* switchBtn@2x.png in Resources */,
+				0C6457E116BF3514001EBD9E /* aircraftDownInHolder.png in Resources */,
+				0C6457E316BF3514001EBD9E /* aircraftDownInHolder@2x.png in Resources */,
+				0C6457E516BF3514001EBD9E /* aircraftLeftInHolder.png in Resources */,
+				0C6457E716BF3514001EBD9E /* aircraftLeftInHolder@2x.png in Resources */,
+				0C6457E916BF3514001EBD9E /* aircraftRightInHolder.png in Resources */,
+				0C6457EB16BF3514001EBD9E /* aircraftRightInHolder@2x.png in Resources */,
+				0C6457ED16BF3514001EBD9E /* aircraftUpInHolder.png in Resources */,
+				0C6457EF16BF3514001EBD9E /* aircraftUpInHolder@2x.png in Resources */,
+				0C6457F516BF43B8001EBD9E /* sendBtn_hideKeyboard.png in Resources */,
+				0C6457F716BF43B8001EBD9E /* sendBtn_hideKeyboard@2x.png in Resources */,
+				0C6457F916BF43B8001EBD9E /* sendBtn_sent.png in Resources */,
+				0C6457FB16BF43B8001EBD9E /* sendBtn_sent@2x.png in Resources */,
+				0C6457FF16BF4A33001EBD9E /* sendBtn_hideKeyboard_highlighted@2x.png in Resources */,
+				0C64580116BF4A33001EBD9E /* sendBtn_sent_highlighted@2x.png in Resources */,
+				0C64580516BF4AED001EBD9E /* sendBtn_hideKeyboard_highlighted.png in Resources */,
+				0C64580716BF4AED001EBD9E /* sendBtn_sent_highlighted.png in Resources */,
+				0C64580D16BF831E001EBD9E /* saveBtn_highlighted.png in Resources */,
+				0C64580F16BF831E001EBD9E /* saveBtn_highlighted@2x.png in Resources */,
+				0C64581116BF831E001EBD9E /* saveBtn.png in Resources */,
+				0C64581316BF831E001EBD9E /* saveBtn@2x.png in Resources */,
+				0C64581916BF904A001EBD9E /* turnIndicator_coffee.png in Resources */,
+				0C64581B16BF904B001EBD9E /* turnIndicator_coffee@2x.png in Resources */,
+				0C64581D16BF904B001EBD9E /* turnIndicator_target.png in Resources */,
+				0C64581F16BF904B001EBD9E /* turnIndicator_target@2x.png in Resources */,
+				0C64582316BF99CE001EBD9E /* ribbon2.png in Resources */,
+				0C64582516BF99CE001EBD9E /* ribbon2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,6 +931,44 @@
 				0C70813516BDE98400C2020D /* aircraftRight@2x.png in Resources */,
 				0C70813916BDE98400C2020D /* aircraftUp@2x.png in Resources */,
 				0C396F2C16BDF792007A0B81 /* aircraftUp.png in Resources */,
+				0C7030B216BEDDFF00B78726 /* chatFldBkg.png in Resources */,
+				0C7030B416BEDDFF00B78726 /* chatFldBkg@2x.png in Resources */,
+				0C7030B616BEDDFF00B78726 /* dropShadowDown.png in Resources */,
+				0C7030B816BEDDFF00B78726 /* dropShadowUp.png in Resources */,
+				0C7030BA16BEDDFF00B78726 /* greyBtnBkg_normal.png in Resources */,
+				0C7030BC16BEDDFF00B78726 /* greyBtnBkg_pressed.png in Resources */,
+				0C7030BE16BEDDFF00B78726 /* ribbon.png in Resources */,
+				0C7030C016BEDDFF00B78726 /* ribbon@2x.png in Resources */,
+				0C6457D116BF314F001EBD9E /* switchBtn_highlighted.png in Resources */,
+				0C6457D316BF314F001EBD9E /* switchBtn_highlighted@2x.png in Resources */,
+				0C6457D516BF314F001EBD9E /* switchBtn.png in Resources */,
+				0C6457D716BF314F001EBD9E /* switchBtn@2x.png in Resources */,
+				0C6457E216BF3514001EBD9E /* aircraftDownInHolder.png in Resources */,
+				0C6457E416BF3514001EBD9E /* aircraftDownInHolder@2x.png in Resources */,
+				0C6457E616BF3514001EBD9E /* aircraftLeftInHolder.png in Resources */,
+				0C6457E816BF3514001EBD9E /* aircraftLeftInHolder@2x.png in Resources */,
+				0C6457EA16BF3514001EBD9E /* aircraftRightInHolder.png in Resources */,
+				0C6457EC16BF3514001EBD9E /* aircraftRightInHolder@2x.png in Resources */,
+				0C6457EE16BF3514001EBD9E /* aircraftUpInHolder.png in Resources */,
+				0C6457F016BF3514001EBD9E /* aircraftUpInHolder@2x.png in Resources */,
+				0C6457F616BF43B8001EBD9E /* sendBtn_hideKeyboard.png in Resources */,
+				0C6457F816BF43B8001EBD9E /* sendBtn_hideKeyboard@2x.png in Resources */,
+				0C6457FA16BF43B8001EBD9E /* sendBtn_sent.png in Resources */,
+				0C6457FC16BF43B8001EBD9E /* sendBtn_sent@2x.png in Resources */,
+				0C64580016BF4A33001EBD9E /* sendBtn_hideKeyboard_highlighted@2x.png in Resources */,
+				0C64580216BF4A33001EBD9E /* sendBtn_sent_highlighted@2x.png in Resources */,
+				0C64580616BF4AED001EBD9E /* sendBtn_hideKeyboard_highlighted.png in Resources */,
+				0C64580816BF4AED001EBD9E /* sendBtn_sent_highlighted.png in Resources */,
+				0C64580E16BF831E001EBD9E /* saveBtn_highlighted.png in Resources */,
+				0C64581016BF831E001EBD9E /* saveBtn_highlighted@2x.png in Resources */,
+				0C64581216BF831E001EBD9E /* saveBtn.png in Resources */,
+				0C64581416BF831E001EBD9E /* saveBtn@2x.png in Resources */,
+				0C64581A16BF904B001EBD9E /* turnIndicator_coffee.png in Resources */,
+				0C64581C16BF904B001EBD9E /* turnIndicator_coffee@2x.png in Resources */,
+				0C64581E16BF904B001EBD9E /* turnIndicator_target.png in Resources */,
+				0C64582016BF904B001EBD9E /* turnIndicator_target@2x.png in Resources */,
+				0C64582416BF99CE001EBD9E /* ribbon2.png in Resources */,
+				0C64582616BF99CE001EBD9E /* ribbon2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
