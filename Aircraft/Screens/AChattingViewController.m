@@ -12,6 +12,11 @@
 #define kChatTxtFldWidthNormal      280.0f
 #define kPadOfTxtFldAndSendBtn      12.0f
 
+#define kSendBtnSendImgName         @"sendBtn_sent.png"
+#define kSendBtnHideKeyboardImgName @"sendBtn_hideKeyboard.png"
+#define kSendBtnSendImgNameH        @"sendBtn_sent_highlighted.png"
+#define kSendBtnHideKeyboardImgNameH @"sendBtn_hideKeyboard_highlighted.png"
+
 @interface AChattingViewController ()
 - (void)adjustSendHideBtnStatus;
 - (void)signTxtFldToFirstResponder;
@@ -207,14 +212,18 @@
     if (self.isEmptyMsg)
     {
 #warning TODO: comment below and set button background image to "hide keyboard" image
-        self.sendHideBtn.backgroundColor = [UIColor grayColor];
-        [self.sendHideBtn setTitleForAllState:ALocalisedString(@"chat_view_send_btn_hide")];
+//        self.sendHideBtn.backgroundColor = [UIColor grayColor];
+//        [self.sendHideBtn setTitleForAllState:ALocalisedString(@"chat_view_send_btn_hide")];
+        [self.sendHideBtn setImage:[UIImage imageNamed:kSendBtnHideKeyboardImgName] forState:UIControlStateNormal];
+        [self.sendHideBtn setImage:[UIImage imageNamed:kSendBtnHideKeyboardImgNameH] forState:UIControlStateHighlighted];
     }
     else
     {
 #warning TODO: comment below and set button background image to "send" image
-        self.sendHideBtn.backgroundColor = [UIColor greenColor];
-        [self.sendHideBtn setTitleForAllState:ALocalisedString(@"chat_view_send_btn")];
+//        self.sendHideBtn.backgroundColor = [UIColor greenColor];
+//        [self.sendHideBtn setTitleForAllState:ALocalisedString(@"chat_view_send_btn")];
+        [self.sendHideBtn setImage:[UIImage imageNamed:kSendBtnSendImgName] forState:UIControlStateNormal];
+        [self.sendHideBtn setImage:[UIImage imageNamed:kSendBtnSendImgNameH] forState:UIControlStateHighlighted];
     }
 }
 
