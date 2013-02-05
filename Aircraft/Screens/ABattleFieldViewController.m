@@ -35,6 +35,7 @@
 #define kAttackResultHitImgName     @""
 #define kAttackResultMissImgName    @""
 #define kAttackResultDestroyImgName @""
+#define kAttackMarkerImgName        @"attackMark.png"
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -203,8 +204,8 @@
         {
             if (!self.attackMarkerImgView)
             {
-                self.attackMarkerImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-                self.attackMarkerImgView.backgroundColor = [UIColor orangeColor];
+                self.attackMarkerImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kAttackMarkerImgName]];
+                [self.attackMarkerImgView setBackgroundColor:[UIColor clearColor]];
             }
             
             CGPoint targetPoint = CGPointMake((int)gridPoint.x * kMappingFactor,

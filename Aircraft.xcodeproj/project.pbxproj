@@ -69,6 +69,10 @@
 		0C64582416BF99CE001EBD9E /* ribbon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64582116BF99CE001EBD9E /* ribbon2.png */; };
 		0C64582516BF99CE001EBD9E /* ribbon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64582216BF99CE001EBD9E /* ribbon2@2x.png */; };
 		0C64582616BF99CE001EBD9E /* ribbon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64582216BF99CE001EBD9E /* ribbon2@2x.png */; };
+		0C6F8DD016C099950043DF30 /* attackMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F8DCE16C099950043DF30 /* attackMark.png */; };
+		0C6F8DD116C099950043DF30 /* attackMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F8DCE16C099950043DF30 /* attackMark.png */; };
+		0C6F8DD216C099950043DF30 /* attackMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F8DCF16C099950043DF30 /* attackMark@2x.png */; };
+		0C6F8DD316C099950043DF30 /* attackMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F8DCF16C099950043DF30 /* attackMark@2x.png */; };
 		0C7030B116BEDDFF00B78726 /* chatFldBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030A916BEDDFF00B78726 /* chatFldBkg.png */; };
 		0C7030B216BEDDFF00B78726 /* chatFldBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030A916BEDDFF00B78726 /* chatFldBkg.png */; };
 		0C7030B316BEDDFF00B78726 /* chatFldBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AA16BEDDFF00B78726 /* chatFldBkg@2x.png */; };
@@ -288,6 +292,8 @@
 		0C64581816BF904A001EBD9E /* turnIndicator_target@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "turnIndicator_target@2x.png"; path = "Aircraft/res/turnIndicator_target@2x.png"; sourceTree = "<group>"; };
 		0C64582116BF99CE001EBD9E /* ribbon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ribbon2.png; path = Aircraft/res/ribbon2.png; sourceTree = "<group>"; };
 		0C64582216BF99CE001EBD9E /* ribbon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ribbon2@2x.png"; path = "Aircraft/res/ribbon2@2x.png"; sourceTree = "<group>"; };
+		0C6F8DCE16C099950043DF30 /* attackMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = attackMark.png; path = Aircraft/res/attackMark.png; sourceTree = "<group>"; };
+		0C6F8DCF16C099950043DF30 /* attackMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "attackMark@2x.png"; path = "Aircraft/res/attackMark@2x.png"; sourceTree = "<group>"; };
 		0C7030A916BEDDFF00B78726 /* chatFldBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chatFldBkg.png; path = Aircraft/res/chatFldBkg.png; sourceTree = "<group>"; };
 		0C7030AA16BEDDFF00B78726 /* chatFldBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chatFldBkg@2x.png"; path = "Aircraft/res/chatFldBkg@2x.png"; sourceTree = "<group>"; };
 		0C7030AB16BEDDFF00B78726 /* dropShadowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dropShadowDown.png; path = Aircraft/res/dropShadowDown.png; sourceTree = "<group>"; };
@@ -616,6 +622,8 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				0C6F8DCE16C099950043DF30 /* attackMark.png */,
+				0C6F8DCF16C099950043DF30 /* attackMark@2x.png */,
 				0C64582116BF99CE001EBD9E /* ribbon2.png */,
 				0C64582216BF99CE001EBD9E /* ribbon2@2x.png */,
 				0C64581516BF904A001EBD9E /* turnIndicator_coffee.png */,
@@ -871,6 +879,8 @@
 				0C64581F16BF904B001EBD9E /* turnIndicator_target@2x.png in Resources */,
 				0C64582316BF99CE001EBD9E /* ribbon2.png in Resources */,
 				0C64582516BF99CE001EBD9E /* ribbon2@2x.png in Resources */,
+				0C6F8DD016C099950043DF30 /* attackMark.png in Resources */,
+				0C6F8DD216C099950043DF30 /* attackMark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -969,6 +979,8 @@
 				0C64582016BF904B001EBD9E /* turnIndicator_target@2x.png in Resources */,
 				0C64582416BF99CE001EBD9E /* ribbon2.png in Resources */,
 				0C64582616BF99CE001EBD9E /* ribbon2@2x.png in Resources */,
+				0C6F8DD116C099950043DF30 /* attackMark.png in Resources */,
+				0C6F8DD316C099950043DF30 /* attackMark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
