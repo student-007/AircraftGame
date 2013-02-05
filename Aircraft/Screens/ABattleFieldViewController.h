@@ -80,6 +80,10 @@
 @end
 
 @protocol ABattleFieldOrganizerDelegate <NSObject>
+@optional
+- (void)attackPositionMarked:(BOOL)onPreviousAttackedPos;
+- (void)attackPositionUnmarked;
+
 
 @required
 - (BOOL)userWantsToRemoveAircraft:(AAircraftModel *)aircraft;

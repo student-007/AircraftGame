@@ -217,6 +217,10 @@
             [self.battleFieldImgView addSubview:self.attackMarkerImgView];
             
             _battleFldModel.attackPoint = gridPoint;
+            if ([self.organizerDelegate respondsToSelector:@selector(attackPositionMarked:)])
+            {
+                [self.organizerDelegate attackPositionMarked:[_battleFldModel checkIfAttackedAtPoint:gridPoint]];
+            }
         }
     }
     
@@ -338,10 +342,14 @@
 
 - (CGPoint)attackedBasedOnPreviousMark
 {
-    [self.attackMarkerImgView removeFromSuperview];
     CGPoint previousMarkerPt = CGPointMake(_battleFldModel.attackPoint.x, _battleFldModel.attackPoint.y);
     if ([_battleFldModel addAttackRecordPoint])
+    {
+        [self.attackMarkerImgView removeFromSuperview];
+        if ([self.organizerDelegate respondsToSelector:@selector(attackPositionUnmarked)])
+            [self.organizerDelegate attackPositionUnmarked];
         return previousMarkerPt;
+    }
     else
         return CGPointMake(-1, -1);
 }

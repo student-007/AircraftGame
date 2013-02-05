@@ -15,6 +15,8 @@
 @property (strong, nonatomic) ABattleFieldViewController *battleFldVCSelf;
 @property (strong, nonatomic) AOperationPanelViewController *opPanelVC;
 
+- (BOOL)checkReadyForPlacingAircrafts;
+
 @end
 
 @implementation AGameOrganizer
@@ -471,6 +473,8 @@
         _numberOfAircraftPlaced = [NSNumber numberWithInt:1];
     else
         _numberOfAircraftPlaced = [NSNumber numberWithInt:[_numberOfAircraftPlaced intValue] + 1];
+    
+    self.opPanelVC.readyButton.enabled = [self checkReadyForPlacingAircrafts];
 }
 
 - (void)aircraftRemoved
@@ -479,6 +483,28 @@
         _numberOfAircraftPlaced = [NSNumber numberWithInt:0];
     else
         _numberOfAircraftPlaced = [NSNumber numberWithInt:[_numberOfAircraftPlaced intValue] - 1];
+    
+    self.opPanelVC.readyButton.enabled = [self checkReadyForPlacingAircrafts];
+}
+
+- (BOOL)checkReadyForPlacingAircrafts
+{
+    if (_numberOfAircraftPlaced)
+    {
+        return [_numberOfAircraftPlaced intValue] >= 3 ? YES : NO;
+    }
+    else
+        return NO;
+}
+
+- (void)attackPositionMarked:(BOOL)onPreviousAttackedPos;
+{
+    self.opPanelVC.attackButton.enabled = onPreviousAttackedPos ? NO : YES;
+}
+
+- (void)attackPositionUnmarked
+{
+    self.opPanelVC.attackButton.enabled = NO;
 }
 
 /*!
