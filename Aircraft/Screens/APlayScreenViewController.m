@@ -60,8 +60,8 @@
     [self setupChattingField];
     [self setupShadowView];
     
-    AAircraftModel *aircraft = [AAircraftModel aircraftWithOrgin:CGPointMake(4, 0) direction:AircraftDirectionLeft];
-    [self.battleFldSelf addAircraft:aircraft];
+//    AAircraftModel *aircraft = [AAircraftModel aircraftWithOrgin:CGPointMake(4, 0) direction:AircraftDirectionLeft];
+//    [self.battleFldSelf addAircraft:aircraft];
     
     [self.organizer makeConnectionWithType:ConnectionTypeBluetooth];
 }

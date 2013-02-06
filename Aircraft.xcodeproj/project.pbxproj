@@ -135,6 +135,22 @@
 		0C70813516BDE98400C2020D /* aircraftRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812716BDE98400C2020D /* aircraftRight@2x.png */; };
 		0C70813816BDE98400C2020D /* aircraftUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812916BDE98400C2020D /* aircraftUp@2x.png */; };
 		0C70813916BDE98400C2020D /* aircraftUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812916BDE98400C2020D /* aircraftUp@2x.png */; };
+		0C71790516C1A8EC0017080F /* hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71790116C1A8EC0017080F /* hand.png */; };
+		0C71790616C1A8EC0017080F /* hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71790116C1A8EC0017080F /* hand.png */; };
+		0C71790716C1A8EC0017080F /* hand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71790216C1A8EC0017080F /* hand@2x.png */; };
+		0C71790816C1A8EC0017080F /* hand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71790216C1A8EC0017080F /* hand@2x.png */; };
+		0C71790916C1A8EC0017080F /* placeAircraftGuideBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71790316C1A8EC0017080F /* placeAircraftGuideBkg@2x.png */; };
+		0C71790A16C1A8EC0017080F /* placeAircraftGuideBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71790316C1A8EC0017080F /* placeAircraftGuideBkg@2x.png */; };
+		0C71790B16C1A8EC0017080F /* playScreenGuideBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71790416C1A8EC0017080F /* playScreenGuideBkg@2x.png */; };
+		0C71790C16C1A8EC0017080F /* playScreenGuideBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71790416C1A8EC0017080F /* playScreenGuideBkg@2x.png */; };
+		0C71791816C2204F0017080F /* AGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C71791616C2204F0017080F /* AGuideViewController.m */; };
+		0C71791916C2204F0017080F /* AGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C71791616C2204F0017080F /* AGuideViewController.m */; };
+		0C71791A16C2204F0017080F /* AGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C71791716C2204F0017080F /* AGuideViewController.xib */; };
+		0C71791B16C2204F0017080F /* AGuideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C71791716C2204F0017080F /* AGuideViewController.xib */; };
+		0C71791F16C224240017080F /* placeAircraftGuideBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71791C16C224240017080F /* placeAircraftGuideBkg.png */; };
+		0C71792016C224240017080F /* placeAircraftGuideBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71791C16C224240017080F /* placeAircraftGuideBkg.png */; };
+		0C71792316C224240017080F /* playScreenGuideBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71791E16C224240017080F /* playScreenGuideBkg.png */; };
+		0C71792416C224240017080F /* playScreenGuideBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71791E16C224240017080F /* playScreenGuideBkg.png */; };
 		9F049CC616842BBA007F5AC2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F049CC516842BBA007F5AC2 /* UIKit.framework */; };
 		9F049CC816842BBA007F5AC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F049CC716842BBA007F5AC2 /* Foundation.framework */; };
 		9F049CCA16842BBA007F5AC2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F049CC916842BBA007F5AC2 /* CoreGraphics.framework */; };
@@ -357,6 +373,15 @@
 		0C70812616BDE98400C2020D /* aircraftRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftRight.png; path = Aircraft/res/aircraftRight.png; sourceTree = "<group>"; };
 		0C70812716BDE98400C2020D /* aircraftRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftRight@2x.png"; path = "Aircraft/res/aircraftRight@2x.png"; sourceTree = "<group>"; };
 		0C70812916BDE98400C2020D /* aircraftUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftUp@2x.png"; path = "Aircraft/res/aircraftUp@2x.png"; sourceTree = "<group>"; };
+		0C71790116C1A8EC0017080F /* hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hand.png; path = Aircraft/res/hand.png; sourceTree = "<group>"; };
+		0C71790216C1A8EC0017080F /* hand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hand@2x.png"; path = "Aircraft/res/hand@2x.png"; sourceTree = "<group>"; };
+		0C71790316C1A8EC0017080F /* placeAircraftGuideBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "placeAircraftGuideBkg@2x.png"; path = "Aircraft/res/placeAircraftGuideBkg@2x.png"; sourceTree = "<group>"; };
+		0C71790416C1A8EC0017080F /* playScreenGuideBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "playScreenGuideBkg@2x.png"; path = "Aircraft/res/playScreenGuideBkg@2x.png"; sourceTree = "<group>"; };
+		0C71791516C2204F0017080F /* AGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGuideViewController.h; path = Screens/AGuideViewController.h; sourceTree = "<group>"; };
+		0C71791616C2204F0017080F /* AGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGuideViewController.m; path = Screens/AGuideViewController.m; sourceTree = "<group>"; };
+		0C71791716C2204F0017080F /* AGuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AGuideViewController.xib; path = Screens/AGuideViewController.xib; sourceTree = "<group>"; };
+		0C71791C16C224240017080F /* placeAircraftGuideBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeAircraftGuideBkg.png; path = Aircraft/res/placeAircraftGuideBkg.png; sourceTree = "<group>"; };
+		0C71791E16C224240017080F /* playScreenGuideBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playScreenGuideBkg.png; path = Aircraft/res/playScreenGuideBkg.png; sourceTree = "<group>"; };
 		9F049CC116842BBA007F5AC2 /* Aircraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aircraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F049CC516842BBA007F5AC2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9F049CC716842BBA007F5AC2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -613,6 +638,9 @@
 				9F34C356169FDD1A00908B8C /* AWelcomeScreenViewController.h */,
 				9F34C357169FDD1A00908B8C /* AWelcomeScreenViewController.m */,
 				9F34C358169FDD1A00908B8C /* AWelcomeScreenViewController.xib */,
+				0C71791516C2204F0017080F /* AGuideViewController.h */,
+				0C71791616C2204F0017080F /* AGuideViewController.m */,
+				0C71791716C2204F0017080F /* AGuideViewController.xib */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -670,6 +698,12 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				0C71790316C1A8EC0017080F /* placeAircraftGuideBkg@2x.png */,
+				0C71791C16C224240017080F /* placeAircraftGuideBkg.png */,
+				0C71791E16C224240017080F /* playScreenGuideBkg.png */,
+				0C71790416C1A8EC0017080F /* playScreenGuideBkg@2x.png */,
+				0C71790116C1A8EC0017080F /* hand.png */,
+				0C71790216C1A8EC0017080F /* hand@2x.png */,
 				0C6F8DF316C0DAED0043DF30 /* readyBttn_disable.png */,
 				0C6F8DF416C0DAED0043DF30 /* readyBttn_disable@2x.png */,
 				0C6F8DF516C0DAED0043DF30 /* readyBttn_highlighted.png */,
@@ -961,6 +995,13 @@
 				0C6F8DFF16C0DAEE0043DF30 /* readyBttn_highlighted@2x.png in Resources */,
 				0C6F8E0116C0DAEE0043DF30 /* readyBttn.png in Resources */,
 				0C6F8E0316C0DAEE0043DF30 /* readyBttn@2x.png in Resources */,
+				0C71790516C1A8EC0017080F /* hand.png in Resources */,
+				0C71790716C1A8EC0017080F /* hand@2x.png in Resources */,
+				0C71790916C1A8EC0017080F /* placeAircraftGuideBkg@2x.png in Resources */,
+				0C71790B16C1A8EC0017080F /* playScreenGuideBkg@2x.png in Resources */,
+				0C71791A16C2204F0017080F /* AGuideViewController.xib in Resources */,
+				0C71791F16C224240017080F /* placeAircraftGuideBkg.png in Resources */,
+				0C71792316C224240017080F /* playScreenGuideBkg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1077,6 +1118,13 @@
 				0C6F8E0016C0DAEE0043DF30 /* readyBttn_highlighted@2x.png in Resources */,
 				0C6F8E0216C0DAEE0043DF30 /* readyBttn.png in Resources */,
 				0C6F8E0416C0DAEE0043DF30 /* readyBttn@2x.png in Resources */,
+				0C71790616C1A8EC0017080F /* hand.png in Resources */,
+				0C71790816C1A8EC0017080F /* hand@2x.png in Resources */,
+				0C71790A16C1A8EC0017080F /* placeAircraftGuideBkg@2x.png in Resources */,
+				0C71790C16C1A8EC0017080F /* playScreenGuideBkg@2x.png in Resources */,
+				0C71791B16C2204F0017080F /* AGuideViewController.xib in Resources */,
+				0C71792016C224240017080F /* placeAircraftGuideBkg.png in Resources */,
+				0C71792416C224240017080F /* playScreenGuideBkg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,6 +1163,7 @@
 				9F12B1D316ACBD5A0029AD60 /* AChattingMessageItem.m in Sources */,
 				9F10927916B0B2F4000A8149 /* AAircraftHolderImageView.m in Sources */,
 				9F29747D16B7466700D61266 /* NSString+Format.m in Sources */,
+				0C71791816C2204F0017080F /* AGuideViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1150,6 +1199,7 @@
 				9F12B1D416ACBD5A0029AD60 /* AChattingMessageItem.m in Sources */,
 				9F10927A16B0B2F4000A8149 /* AAircraftHolderImageView.m in Sources */,
 				9F29747E16B7466700D61266 /* NSString+Format.m in Sources */,
+				0C71791916C2204F0017080F /* AGuideViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
