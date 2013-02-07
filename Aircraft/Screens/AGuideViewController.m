@@ -39,8 +39,8 @@
     if (self) 
     {
         _type = AGuideTypeNone;
-        _handFrameA = CGRectMake(130.0f, 160.0f, 88.0f, 70.0f);
-        _handFrameB = CGRectMake(130.0f, 325.0f, 88.0f, 70.0f);
+        _handFrameA = CGRectMake(110.0f, 160.0f, 88.0f, 70.0f);
+        _handFrameB = CGRectMake(110.0f, 325.0f, 88.0f, 70.0f);
     }
     return self;
 }

@@ -121,6 +121,8 @@
 		0C7030BE16BEDDFF00B78726 /* ribbon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030AF16BEDDFF00B78726 /* ribbon.png */; };
 		0C7030BF16BEDDFF00B78726 /* ribbon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030B016BEDDFF00B78726 /* ribbon@2x.png */; };
 		0C7030C016BEDDFF00B78726 /* ribbon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7030B016BEDDFF00B78726 /* ribbon@2x.png */; };
+		0C70614916C45D6A005A48FF /* AGameRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C70614816C45D6A005A48FF /* AGameRecordManager.m */; };
+		0C70614A16C45D6A005A48FF /* AGameRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C70614816C45D6A005A48FF /* AGameRecordManager.m */; };
 		0C70812A16BDE98400C2020D /* aircraftDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812216BDE98400C2020D /* aircraftDown.png */; };
 		0C70812B16BDE98400C2020D /* aircraftDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812216BDE98400C2020D /* aircraftDown.png */; };
 		0C70812C16BDE98400C2020D /* aircraftDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812316BDE98400C2020D /* aircraftDown@2x.png */; };
@@ -366,6 +368,8 @@
 		0C7030AE16BEDDFF00B78726 /* greyBtnBkg_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greyBtnBkg_pressed.png; path = Aircraft/res/greyBtnBkg_pressed.png; sourceTree = "<group>"; };
 		0C7030AF16BEDDFF00B78726 /* ribbon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ribbon.png; path = Aircraft/res/ribbon.png; sourceTree = "<group>"; };
 		0C7030B016BEDDFF00B78726 /* ribbon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ribbon@2x.png"; path = "Aircraft/res/ribbon@2x.png"; sourceTree = "<group>"; };
+		0C70614716C45D6A005A48FF /* AGameRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGameRecordManager.h; path = Coordinators/AGameRecordManager.h; sourceTree = "<group>"; };
+		0C70614816C45D6A005A48FF /* AGameRecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGameRecordManager.m; path = Coordinators/AGameRecordManager.m; sourceTree = "<group>"; };
 		0C70812216BDE98400C2020D /* aircraftDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftDown.png; path = Aircraft/res/aircraftDown.png; sourceTree = "<group>"; };
 		0C70812316BDE98400C2020D /* aircraftDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftDown@2x.png"; path = "Aircraft/res/aircraftDown@2x.png"; sourceTree = "<group>"; };
 		0C70812416BDE98400C2020D /* aircraftLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftLeft.png; path = Aircraft/res/aircraftLeft.png; sourceTree = "<group>"; };
@@ -600,6 +604,8 @@
 		9F4436CA168E47BC0006D521 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				0C70614716C45D6A005A48FF /* AGameRecordManager.h */,
+				0C70614816C45D6A005A48FF /* AGameRecordManager.m */,
 				9F4436CB168E48350006D521 /* ACommunicator.h */,
 				9F4436CC168E48350006D521 /* ACommunicator.m */,
 				9F4F8AB71692A9F5006254D4 /* AGameOrganizer.h */,
@@ -1164,6 +1170,7 @@
 				9F10927916B0B2F4000A8149 /* AAircraftHolderImageView.m in Sources */,
 				9F29747D16B7466700D61266 /* NSString+Format.m in Sources */,
 				0C71791816C2204F0017080F /* AGuideViewController.m in Sources */,
+				0C70614916C45D6A005A48FF /* AGameRecordManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1200,6 +1207,7 @@
 				9F10927A16B0B2F4000A8149 /* AAircraftHolderImageView.m in Sources */,
 				9F29747E16B7466700D61266 /* NSString+Format.m in Sources */,
 				0C71791916C2204F0017080F /* AGuideViewController.m in Sources */,
+				0C70614A16C45D6A005A48FF /* AGameRecordManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
