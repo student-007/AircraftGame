@@ -8,6 +8,29 @@
 
 #import "AGameRecordManager.h"
 
+@interface AGameRecordManager()
+{
+}
+
+@end
+
 @implementation AGameRecordManager
+
+@synthesize selfAircrafts = _selfAircrafts;
+@synthesize enemyAircrafts = _enemyAircrafts;
+@synthesize selfAttackRecords = _selfAttackRecords;
+@synthesize enemyAttackRecords = _enemyAttackRecords;
+@synthesize playTime = _playTime;    //keys: startTime, totalTime, selfTotalTime, enemyTotalTime
+@synthesize isMyTurn = _isMyTurn;
+
++ (AGameRecordManager *)sharedInstance
+{
+    static AGameRecordManager *sharedInstance = nil;
+    if (sharedInstance == nil) 
+    {
+        sharedInstance = [[AGameRecordManager alloc] init];
+    }
+    return sharedInstance;
+}
 
 @end
