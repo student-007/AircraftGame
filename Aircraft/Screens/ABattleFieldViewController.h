@@ -10,6 +10,7 @@
 #import "AUIBattleFieldView.h"
 #import "AAircraftImageView.h"
 #import "ABattleFieldModel.h"
+#import "UIImage+AUITheme.h"
 
 @protocol ABattleFieldVCDelegate;
 @protocol ABattleFieldOrganizerDelegate;

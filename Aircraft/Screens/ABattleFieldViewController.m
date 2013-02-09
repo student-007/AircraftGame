@@ -32,9 +32,9 @@
 @synthesize switchBarButton = _switchBarButton;
 @synthesize battleFieldImgView = _battleFieldImgView;
 
-#define kAttackResultHitImgName     @""
+#define kAttackResultHitImgName     @"explosion.png"
 #define kAttackResultMissImgName    @""
-#define kAttackResultDestroyImgName @""
+#define kAttackResultDestroyImgName @"explosion.png"
 #define kAttackMarkerImgName        @"attackMark.png"
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -362,6 +362,13 @@
     return [_battleFldModel attackResultInGridAtPoint:point];
 }
 
+- (void)removeFromSuperView:(NSTimer *)timer
+{
+    UIView *theView = (UIView *)timer.userInfo;
+    if (theView.superview)
+        [theView removeFromSuperview];
+}
+
 /*!
  @discussion display the result in self/enemy field based on the resString at given point
  */
@@ -386,15 +393,44 @@
         {
             UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgHit];
             resultImgView.frame = markerFrame;
-            [resultImgView setBackgroundColor:[UIColor yellowColor]];
+            resultImgView.alpha = 0;
             [self.battleFieldImgView addSubview:resultImgView];
+            
+            UIImageView *animationImgView = [[UIImageView alloc] initWithImage:[UIImage imageWithExplosionAnimation]];
+            CGRect animatedImgViewFrame = CGRectMake(0, 0, 32, 24);
+            animationImgView.frame = animatedImgViewFrame;
+            animationImgView.center = resultImgView.center;
+            [self.battleFieldImgView addSubview:animationImgView];
+            [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(removeFromSuperView:) userInfo:animationImgView repeats:NO];
+            
+            [UIView beginAnimations:@"addAttackRHit" context:nil];
+            [UIView setAnimationDuration:1.5f];
+            resultImgView.alpha = 1;
+            [UIView commitAnimations];
         }
         else if ([resString caseInsensitiveCompare:kAttackRDestroy] == NSOrderedSame)
         {
             UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgDestroy];
             resultImgView.frame = markerFrame;
-            [resultImgView setBackgroundColor:[UIColor redColor]];
+            resultImgView.alpha = 0;
             [self.battleFieldImgView addSubview:resultImgView];
+            
+            UIImageView *animationImgView = [[UIImageView alloc] initWithImage:[UIImage imageWithExplosionAnimation]];
+            CGRect animatedImgViewFrame = CGRectMake(0, 0, 32, 24);
+            animationImgView.frame = animatedImgViewFrame;
+            animationImgView.center = resultImgView.center;
+            [self.battleFieldImgView addSubview:animationImgView];
+            [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(removeFromSuperView:) userInfo:animationImgView repeats:NO];
+            
+            [UIView beginAnimations:@"addAttackRDestroy" context:nil];
+            [UIView setAnimationDuration:1.5f];
+            resultImgView.alpha = 1;
+            [UIView commitAnimations];
+            
+//            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgDestroy];
+//            resultImgView.frame = markerFrame;
+////            [resultImgView setBackgroundColor:[UIColor redColor]];
+//            [self.battleFieldImgView addSubview:resultImgView];
         }
         else
             return NO;
