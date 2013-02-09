@@ -34,7 +34,7 @@
 
 #define kAttackResultHitImgName     @"explosion.png"
 #define kAttackResultMissImgName    @""
-#define kAttackResultDestroyImgName @"explosion.png"
+#define kAttackResultDestroyImgName @"explosionDestroy.png"
 #define kAttackMarkerImgName        @"attackMark.png"
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -384,10 +384,14 @@
         
         if ([resString caseInsensitiveCompare:kAttackRMiss] == NSOrderedSame)
         {
-            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgMiss];
-            resultImgView.frame = markerFrame;
-            [resultImgView setBackgroundColor:[UIColor whiteColor]];
-            [self.battleFieldImgView addSubview:resultImgView];
+//            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgMiss];
+//            resultImgView.frame = markerFrame;
+//            [resultImgView setBackgroundColor:[UIColor whiteColor]];
+//            [self.battleFieldImgView addSubview:resultImgView];
+            UILabel *resultLabel = [[UILabel alloc] initWithFrame:markerFrame];
+            resultLabel.text = @"\uE049";
+            resultLabel.backgroundColor = [UIColor clearColor];
+            [self.battleFieldImgView addSubview:resultLabel];
         }
         else if ([resString caseInsensitiveCompare:kAttackRHit] == NSOrderedSame)
         {
