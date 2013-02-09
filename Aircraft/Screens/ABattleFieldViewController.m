@@ -32,9 +32,10 @@
 @synthesize switchBarButton = _switchBarButton;
 @synthesize battleFieldImgView = _battleFieldImgView;
 
-#define kAttackResultHitImgName     @""
+#define kAttackResultHitImgName     @"explosion.png"
 #define kAttackResultMissImgName    @""
-#define kAttackResultDestroyImgName @""
+#define kAttackResultDestroyImgName @"explosionDestroy.png"
+#define kAttackMarkerImgName        @"attackMark.png"
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -203,8 +204,8 @@
         {
             if (!self.attackMarkerImgView)
             {
-                self.attackMarkerImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-                self.attackMarkerImgView.backgroundColor = [UIColor orangeColor];
+                self.attackMarkerImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kAttackMarkerImgName]];
+                [self.attackMarkerImgView setBackgroundColor:[UIColor clearColor]];
             }
             
             CGPoint targetPoint = CGPointMake((int)gridPoint.x * kMappingFactor,
@@ -216,6 +217,10 @@
             [self.battleFieldImgView addSubview:self.attackMarkerImgView];
             
             _battleFldModel.attackPoint = gridPoint;
+            if ([self.organizerDelegate respondsToSelector:@selector(attackPositionMarked:)])
+            {
+                [self.organizerDelegate attackPositionMarked:[_battleFldModel checkIfAttackedAtPoint:gridPoint]];
+            }
         }
     }
     
@@ -337,10 +342,14 @@
 
 - (CGPoint)attackedBasedOnPreviousMark
 {
-    [self.attackMarkerImgView removeFromSuperview];
     CGPoint previousMarkerPt = CGPointMake(_battleFldModel.attackPoint.x, _battleFldModel.attackPoint.y);
     if ([_battleFldModel addAttackRecordPoint])
+    {
+        [self.attackMarkerImgView removeFromSuperview];
+        if ([self.organizerDelegate respondsToSelector:@selector(attackPositionUnmarked)])
+            [self.organizerDelegate attackPositionUnmarked];
         return previousMarkerPt;
+    }
     else
         return CGPointMake(-1, -1);
 }
@@ -351,6 +360,13 @@
 - (NSString *)attackResultInGridAtPoint:(CGPoint)point
 {
     return [_battleFldModel attackResultInGridAtPoint:point];
+}
+
+- (void)removeFromSuperView:(NSTimer *)timer
+{
+    UIView *theView = (UIView *)timer.userInfo;
+    if (theView.superview)
+        [theView removeFromSuperview];
 }
 
 /*!
@@ -368,24 +384,57 @@
         
         if ([resString caseInsensitiveCompare:kAttackRMiss] == NSOrderedSame)
         {
-            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgMiss];
-            resultImgView.frame = markerFrame;
-            [resultImgView setBackgroundColor:[UIColor whiteColor]];
-            [self.battleFieldImgView addSubview:resultImgView];
+//            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgMiss];
+//            resultImgView.frame = markerFrame;
+//            [resultImgView setBackgroundColor:[UIColor whiteColor]];
+//            [self.battleFieldImgView addSubview:resultImgView];
+            UILabel *resultLabel = [[UILabel alloc] initWithFrame:markerFrame];
+            resultLabel.text = @"\uE049";
+            resultLabel.backgroundColor = [UIColor clearColor];
+            [self.battleFieldImgView addSubview:resultLabel];
         }
         else if ([resString caseInsensitiveCompare:kAttackRHit] == NSOrderedSame)
         {
             UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgHit];
             resultImgView.frame = markerFrame;
-            [resultImgView setBackgroundColor:[UIColor yellowColor]];
+            resultImgView.alpha = 0;
             [self.battleFieldImgView addSubview:resultImgView];
+            
+            UIImageView *animationImgView = [[UIImageView alloc] initWithImage:[UIImage imageWithExplosionAnimation]];
+            CGRect animatedImgViewFrame = CGRectMake(0, 0, 32, 24);
+            animationImgView.frame = animatedImgViewFrame;
+            animationImgView.center = resultImgView.center;
+            [self.battleFieldImgView addSubview:animationImgView];
+            [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(removeFromSuperView:) userInfo:animationImgView repeats:NO];
+            
+            [UIView beginAnimations:@"addAttackRHit" context:nil];
+            [UIView setAnimationDuration:1.5f];
+            resultImgView.alpha = 1;
+            [UIView commitAnimations];
         }
         else if ([resString caseInsensitiveCompare:kAttackRDestroy] == NSOrderedSame)
         {
             UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgDestroy];
             resultImgView.frame = markerFrame;
-            [resultImgView setBackgroundColor:[UIColor redColor]];
+            resultImgView.alpha = 0;
             [self.battleFieldImgView addSubview:resultImgView];
+            
+            UIImageView *animationImgView = [[UIImageView alloc] initWithImage:[UIImage imageWithExplosionAnimation]];
+            CGRect animatedImgViewFrame = CGRectMake(0, 0, 32, 24);
+            animationImgView.frame = animatedImgViewFrame;
+            animationImgView.center = resultImgView.center;
+            [self.battleFieldImgView addSubview:animationImgView];
+            [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(removeFromSuperView:) userInfo:animationImgView repeats:NO];
+            
+            [UIView beginAnimations:@"addAttackRDestroy" context:nil];
+            [UIView setAnimationDuration:1.5f];
+            resultImgView.alpha = 1;
+            [UIView commitAnimations];
+            
+//            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgDestroy];
+//            resultImgView.frame = markerFrame;
+////            [resultImgView setBackgroundColor:[UIColor redColor]];
+//            [self.battleFieldImgView addSubview:resultImgView];
         }
         else
             return NO;

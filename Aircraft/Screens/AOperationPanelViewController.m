@@ -22,10 +22,14 @@
     NSTimeInterval _userSpendTime;
     NSTimeInterval _competitorSpendTime;
     NSTimer *_updatePanelTimer;
+    NSTimer *_blinkTimer;
 }
 
 - (void)setupAircraftHolders;
 - (void)switchViews;
+- (void)blinkTurnIndicator;
+- (void)stopBlinkingTurnIndicator;
+- (void)executeBlinkAnimation;
 
 @end
 
@@ -79,6 +83,13 @@
 
     
     [self.view addSubview:self.aircraftHolderView];
+    
+//    NSArray *imgAry = [NSArray arrayWithObjects:
+//                       [UIImage imageNamed:@"attackBtn_highlighted.png"], 
+//                       [UIImage imageNamed:@"attackBtn.png"], nil];
+//    [self.attackButton.imageView setAnimationImages:imgAry];
+//    [self.attackButton.imageView setAnimationDuration:0.5f];
+//    [self.attackButton.imageView startAnimating];
     
 //    [self.view addSubview:self.operationPanelView];
 //    
@@ -145,6 +156,7 @@
     {
         case AWhosTurnCompetitor:
         {
+            [self stopBlinkingTurnIndicator];
             [self.turnIndicatorImgView setImage:[UIImage imageNamed:kTurnIndicatorCompetitorTurnImgName]];
             self.turnLabel.text = ALocalisedString(@"operation_panel_competitor_turn_to_attack");
         }
@@ -152,6 +164,7 @@
         case AWhosTurnUser:
         {
             [self.turnIndicatorImgView setImage:[UIImage imageNamed:kTurnIndicatorMyTurnImgName]];
+            [self blinkTurnIndicator];
             self.turnLabel.text = ALocalisedString(@"operation_panel_my_turn_to_attack");
         }
             break;
@@ -163,6 +176,26 @@
         default:
             break;
     }
+}
+
+- (void)blinkTurnIndicator
+{
+    _blinkTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(executeBlinkAnimation) userInfo:nil repeats:YES];
+}
+
+- (void)stopBlinkingTurnIndicator
+{
+    [_blinkTimer invalidate];
+    [self.turnIndicatorImgView.layer removeAnimationForKey:@"blinkTarget"];
+    self.turnIndicatorImgView.alpha = 1;
+}
+
+- (void)executeBlinkAnimation
+{
+    [UIView beginAnimations:@"blinkTarget" context:NULL];
+    [UIView setAnimationDuration:1.0f];
+    self.turnIndicatorImgView.alpha = self.turnIndicatorImgView.alpha > 0 ? 0 : 1;
+    [UIView commitAnimations];
 }
 
 - (void)updateStatusPanel
@@ -404,7 +437,7 @@
         [self.aircraftHolderView addSubview:self.switchButton];
         
         // adjust exit button
-        self.exitButton.frame = CGRectMake(200, 0, 70, 50);
+        self.exitButton.frame = CGRectMake(200, 0, 50, 50);
     }
     else
     {

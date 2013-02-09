@@ -9,11 +9,18 @@
 #import "AGameOrganizer.h"
 
 @interface AGameOrganizer ()
+{
+    AGuideViewController *_guideVC;
+}
 
 @property (strong, nonatomic) AChattingViewController *chatVC;
 @property (strong, nonatomic) ABattleFieldViewController *battleFldVCEnemy;
 @property (strong, nonatomic) ABattleFieldViewController *battleFldVCSelf;
 @property (strong, nonatomic) AOperationPanelViewController *opPanelVC;
+
+- (BOOL)checkReadyForPlacingAircrafts;
+- (void)setupPlacingAircraftGuide;
+- (void)setupPlayScreenGuide;
 
 @end
 
@@ -161,6 +168,9 @@
         connString = [NSString stringWithFormat:@"%@", ALocalisedString(@"youve_connected_with_NULL")];
     
     [self.chatVC addNewMessage:connString toChattingTableWithType:AChattingMsgTypeSystemMsg];
+    
+#warning TODO: check user setting before showing user the guide
+    [self setupPlacingAircraftGuide];
 }
 
 - (void)connectionDisconnected:(NSError *)errorOrNil
@@ -296,9 +306,46 @@
 
 - (void)connectionCanceled:(NSError *)errorOrNil
 {
+#warning TODO: delete next line, that's just for testing guide screen
+    [self setupPlacingAircraftGuide];
+    
     [self.chatVC addNewMessage:ALocalisedString(@"you_have_canceled_connection") toChattingTableWithType:AChattingMsgTypeSystemMsg];
 #warning TODO: uncomment after testing
 //    [self reset];
+}
+
+#pragma mark - setup guide views
+
+- (void)setupPlacingAircraftGuide
+{
+    _guideVC = [[AGuideViewController alloc] initWithNibName:@"AGuideViewController" bundle:nil];
+    _guideVC.type = AGuideTypePlaceAircraft;
+    _guideVC.delegate = self;
+    
+    CGRect frame = _guideVC.view.frame;
+    frame.origin = CGPointMake(0, 10);
+    _guideVC.view.frame = frame;
+    
+    [[AAppDelegate sharedInstance].window addSubview:_guideVC.view];
+}
+
+- (void)setupPlayScreenGuide
+{
+    _guideVC = [[AGuideViewController alloc] initWithNibName:@"AGuideViewController" bundle:nil];
+    _guideVC.type = AGuideTypePlayScreen;
+    _guideVC.delegate = self;
+    
+    CGRect frame = _guideVC.view.frame;
+    frame.origin = CGPointMake(0, 10);
+    _guideVC.view.frame = frame;
+    
+    [[AAppDelegate sharedInstance].window addSubview:_guideVC.view];
+}
+
+// this will be called when user tapped the guide view
+- (void)dismissTheGuideView
+{
+    [_guideVC.view removeFromSuperview];
 }
 
 #pragma mark - operation panel
@@ -400,7 +447,7 @@
 
 - (void)userPressedTool2Button
 {
-    
+    [self setupPlayScreenGuide];
 }
 
 - (void)userPressedAttackButton
@@ -471,6 +518,8 @@
         _numberOfAircraftPlaced = [NSNumber numberWithInt:1];
     else
         _numberOfAircraftPlaced = [NSNumber numberWithInt:[_numberOfAircraftPlaced intValue] + 1];
+    
+    self.opPanelVC.readyButton.enabled = [self checkReadyForPlacingAircrafts];
 }
 
 - (void)aircraftRemoved
@@ -479,6 +528,28 @@
         _numberOfAircraftPlaced = [NSNumber numberWithInt:0];
     else
         _numberOfAircraftPlaced = [NSNumber numberWithInt:[_numberOfAircraftPlaced intValue] - 1];
+    
+    self.opPanelVC.readyButton.enabled = [self checkReadyForPlacingAircrafts];
+}
+
+- (BOOL)checkReadyForPlacingAircrafts
+{
+    if (_numberOfAircraftPlaced)
+    {
+        return [_numberOfAircraftPlaced intValue] >= 3 ? YES : NO;
+    }
+    else
+        return NO;
+}
+
+- (void)attackPositionMarked:(BOOL)onPreviousAttackedPos;
+{
+    self.opPanelVC.attackButton.enabled = onPreviousAttackedPos ? NO : YES;
+}
+
+- (void)attackPositionUnmarked
+{
+    self.opPanelVC.attackButton.enabled = NO;
 }
 
 /*!

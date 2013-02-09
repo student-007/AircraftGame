@@ -59,6 +59,11 @@ typedef enum
 - (void)fillGridForAircraft:(AAircraftModel *)aircraft;
 
 /*!
+ @discussion check if the point was previous attacked
+ */
+- (BOOL)checkIfAttackedAtPoint:(CGPoint)point;
+
+/*!
  @discussion check if an aircraft model can fit into the _battleFieldGrid.
  */
 - (BOOL)checkPositionForAircraft:(AAircraftModel *)aircraft;

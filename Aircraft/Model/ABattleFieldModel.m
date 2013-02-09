@@ -173,6 +173,16 @@
     }
 }
 
+/*!
+ @discussion check if the point was previous attacked
+ */
+- (BOOL)checkIfAttackedAtPoint:(CGPoint)point
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF[0] = %d AND SELF[1] = %d", (int)point.x, (int)point.y];
+    NSArray *resAry = [self.attackRecord filteredArrayUsingPredicate:predicate];
+    return resAry.count > 0 ? YES : NO;
+}
+
 - (BOOL)checkPositionForAircraft:(AAircraftModel *)aircraft
 {
     if (_aircraftModelAry)

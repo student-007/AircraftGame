@@ -10,6 +10,7 @@
 #import "AUIBattleFieldView.h"
 #import "AAircraftImageView.h"
 #import "ABattleFieldModel.h"
+#import "UIImage+AUITheme.h"
 
 @protocol ABattleFieldVCDelegate;
 @protocol ABattleFieldOrganizerDelegate;
@@ -80,6 +81,10 @@
 @end
 
 @protocol ABattleFieldOrganizerDelegate <NSObject>
+@optional
+- (void)attackPositionMarked:(BOOL)onPreviousAttackedPos;
+- (void)attackPositionUnmarked;
+
 
 @required
 - (BOOL)userWantsToRemoveAircraft:(AAircraftModel *)aircraft;
