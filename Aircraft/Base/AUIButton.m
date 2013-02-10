@@ -37,3 +37,55 @@
 */
 
 @end
+
+
+@implementation AUICheckBoxButton
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) 
+    {
+        _checked = NO;
+        [self setChecked:NO];
+        [self addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return self;}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) 
+    {
+        _checked = NO;
+        [self setChecked:NO];
+        [self addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return self;
+}
+
+- (void)buttonPressed
+{
+    self.checked = !_checked;
+}
+
+- (void)setChecked:(BOOL)checked
+{
+    _checked = checked;
+    if (checked)
+    {
+        [self setImage:[UIImage imageNamed:@"checkbox_checked.png"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self setImage:[UIImage imageNamed:@"checkbox_unchecked.png"] forState:UIControlStateNormal];
+    }
+    [self setBackgroundColor:[UIColor clearColor]];
+}
+
+- (BOOL)isChecked
+{
+    return _checked;
+}
+
+@end

@@ -137,6 +137,32 @@
 		0C70813516BDE98400C2020D /* aircraftRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812716BDE98400C2020D /* aircraftRight@2x.png */; };
 		0C70813816BDE98400C2020D /* aircraftUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812916BDE98400C2020D /* aircraftUp@2x.png */; };
 		0C70813916BDE98400C2020D /* aircraftUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C70812916BDE98400C2020D /* aircraftUp@2x.png */; };
+		0C708F9616C6E59600A7BB10 /* checkbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708F9216C6E59600A7BB10 /* checkbox_checked.png */; };
+		0C708F9716C6E59600A7BB10 /* checkbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708F9216C6E59600A7BB10 /* checkbox_checked.png */; };
+		0C708F9816C6E59600A7BB10 /* checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708F9316C6E59600A7BB10 /* checkbox_checked@2x.png */; };
+		0C708F9916C6E59600A7BB10 /* checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708F9316C6E59600A7BB10 /* checkbox_checked@2x.png */; };
+		0C708F9A16C6E59600A7BB10 /* checkbox_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708F9416C6E59600A7BB10 /* checkbox_unchecked.png */; };
+		0C708F9B16C6E59600A7BB10 /* checkbox_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708F9416C6E59600A7BB10 /* checkbox_unchecked.png */; };
+		0C708F9C16C6E59600A7BB10 /* checkbox_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708F9516C6E59600A7BB10 /* checkbox_unchecked@2x.png */; };
+		0C708F9D16C6E59600A7BB10 /* checkbox_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708F9516C6E59600A7BB10 /* checkbox_unchecked@2x.png */; };
+		0C708FA816C6F78900A7BB10 /* rectBackground_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FA416C6F78900A7BB10 /* rectBackground_black.png */; };
+		0C708FA916C6F78900A7BB10 /* rectBackground_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FA416C6F78900A7BB10 /* rectBackground_black.png */; };
+		0C708FAA16C6F78900A7BB10 /* rectBackground_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FA516C6F78900A7BB10 /* rectBackground_black@2x.png */; };
+		0C708FAB16C6F78900A7BB10 /* rectBackground_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FA516C6F78900A7BB10 /* rectBackground_black@2x.png */; };
+		0C708FAC16C6F78900A7BB10 /* rectBackground_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FA616C6F78900A7BB10 /* rectBackground_white.png */; };
+		0C708FAD16C6F78900A7BB10 /* rectBackground_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FA616C6F78900A7BB10 /* rectBackground_white.png */; };
+		0C708FAE16C6F78900A7BB10 /* rectBackground_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FA716C6F78900A7BB10 /* rectBackground_white@2x.png */; };
+		0C708FAF16C6F78900A7BB10 /* rectBackground_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FA716C6F78900A7BB10 /* rectBackground_white@2x.png */; };
+		0C708FB316C70AC000A7BB10 /* darkGuideBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FB116C70AC000A7BB10 /* darkGuideBkg.png */; };
+		0C708FB416C70AC000A7BB10 /* darkGuideBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FB116C70AC000A7BB10 /* darkGuideBkg.png */; };
+		0C708FB516C70AC000A7BB10 /* darkGuideBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FB216C70AC000A7BB10 /* darkGuideBkg@2x.png */; };
+		0C708FB616C70AC000A7BB10 /* darkGuideBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FB216C70AC000A7BB10 /* darkGuideBkg@2x.png */; };
+		0C708FB916C735E800A7BB10 /* AUIPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C708FB816C735E800A7BB10 /* AUIPopView.m */; };
+		0C708FBA16C735E800A7BB10 /* AUIPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C708FB816C735E800A7BB10 /* AUIPopView.m */; };
+		0C708FBD16C749A700A7BB10 /* rectBackground_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FBB16C749A700A7BB10 /* rectBackground_blue.png */; };
+		0C708FBE16C749A700A7BB10 /* rectBackground_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FBB16C749A700A7BB10 /* rectBackground_blue.png */; };
+		0C708FBF16C749A700A7BB10 /* rectBackground_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FBC16C749A700A7BB10 /* rectBackground_blue@2x.png */; };
+		0C708FC016C749A700A7BB10 /* rectBackground_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C708FBC16C749A700A7BB10 /* rectBackground_blue@2x.png */; };
 		0C71790516C1A8EC0017080F /* hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71790116C1A8EC0017080F /* hand.png */; };
 		0C71790616C1A8EC0017080F /* hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71790116C1A8EC0017080F /* hand.png */; };
 		0C71790716C1A8EC0017080F /* hand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71790216C1A8EC0017080F /* hand@2x.png */; };
@@ -153,6 +179,8 @@
 		0C71792016C224240017080F /* placeAircraftGuideBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71791C16C224240017080F /* placeAircraftGuideBkg.png */; };
 		0C71792316C224240017080F /* playScreenGuideBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71791E16C224240017080F /* playScreenGuideBkg.png */; };
 		0C71792416C224240017080F /* playScreenGuideBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71791E16C224240017080F /* playScreenGuideBkg.png */; };
+		0CD7213316C6C73D001BAD5D /* ASetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD7213216C6C73D001BAD5D /* ASetting.m */; };
+		0CD7213416C6C73D001BAD5D /* ASetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD7213216C6C73D001BAD5D /* ASetting.m */; };
 		0CDB57D516C5D98E004F5C93 /* explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CDB577816C5D98E004F5C93 /* explosion.png */; };
 		0CDB57D616C5D98E004F5C93 /* explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CDB577816C5D98E004F5C93 /* explosion.png */; };
 		0CDB57D716C5D98E004F5C93 /* explosion1_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CDB577A16C5D98E004F5C93 /* explosion1_0001.png */; };
@@ -567,6 +595,20 @@
 		0C70812616BDE98400C2020D /* aircraftRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftRight.png; path = Aircraft/res/aircraftRight.png; sourceTree = "<group>"; };
 		0C70812716BDE98400C2020D /* aircraftRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftRight@2x.png"; path = "Aircraft/res/aircraftRight@2x.png"; sourceTree = "<group>"; };
 		0C70812916BDE98400C2020D /* aircraftUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftUp@2x.png"; path = "Aircraft/res/aircraftUp@2x.png"; sourceTree = "<group>"; };
+		0C708F9216C6E59600A7BB10 /* checkbox_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkbox_checked.png; path = Aircraft/res/checkbox_checked.png; sourceTree = "<group>"; };
+		0C708F9316C6E59600A7BB10 /* checkbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checkbox_checked@2x.png"; path = "Aircraft/res/checkbox_checked@2x.png"; sourceTree = "<group>"; };
+		0C708F9416C6E59600A7BB10 /* checkbox_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkbox_unchecked.png; path = Aircraft/res/checkbox_unchecked.png; sourceTree = "<group>"; };
+		0C708F9516C6E59600A7BB10 /* checkbox_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checkbox_unchecked@2x.png"; path = "Aircraft/res/checkbox_unchecked@2x.png"; sourceTree = "<group>"; };
+		0C708FA416C6F78900A7BB10 /* rectBackground_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rectBackground_black.png; path = Aircraft/res/rectBackground_black.png; sourceTree = "<group>"; };
+		0C708FA516C6F78900A7BB10 /* rectBackground_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rectBackground_black@2x.png"; path = "Aircraft/res/rectBackground_black@2x.png"; sourceTree = "<group>"; };
+		0C708FA616C6F78900A7BB10 /* rectBackground_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rectBackground_white.png; path = Aircraft/res/rectBackground_white.png; sourceTree = "<group>"; };
+		0C708FA716C6F78900A7BB10 /* rectBackground_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rectBackground_white@2x.png"; path = "Aircraft/res/rectBackground_white@2x.png"; sourceTree = "<group>"; };
+		0C708FB116C70AC000A7BB10 /* darkGuideBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = darkGuideBkg.png; path = Aircraft/res/darkGuideBkg.png; sourceTree = "<group>"; };
+		0C708FB216C70AC000A7BB10 /* darkGuideBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "darkGuideBkg@2x.png"; path = "Aircraft/res/darkGuideBkg@2x.png"; sourceTree = "<group>"; };
+		0C708FB716C735E800A7BB10 /* AUIPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUIPopView.h; path = ViewModel/AUIPopView.h; sourceTree = "<group>"; };
+		0C708FB816C735E800A7BB10 /* AUIPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AUIPopView.m; path = ViewModel/AUIPopView.m; sourceTree = "<group>"; };
+		0C708FBB16C749A700A7BB10 /* rectBackground_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rectBackground_blue.png; path = Aircraft/res/rectBackground_blue.png; sourceTree = "<group>"; };
+		0C708FBC16C749A700A7BB10 /* rectBackground_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rectBackground_blue@2x.png"; path = "Aircraft/res/rectBackground_blue@2x.png"; sourceTree = "<group>"; };
 		0C71790116C1A8EC0017080F /* hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hand.png; path = Aircraft/res/hand.png; sourceTree = "<group>"; };
 		0C71790216C1A8EC0017080F /* hand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hand@2x.png"; path = "Aircraft/res/hand@2x.png"; sourceTree = "<group>"; };
 		0C71790316C1A8EC0017080F /* placeAircraftGuideBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "placeAircraftGuideBkg@2x.png"; path = "Aircraft/res/placeAircraftGuideBkg@2x.png"; sourceTree = "<group>"; };
@@ -576,6 +618,8 @@
 		0C71791716C2204F0017080F /* AGuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AGuideViewController.xib; path = Screens/AGuideViewController.xib; sourceTree = "<group>"; };
 		0C71791C16C224240017080F /* placeAircraftGuideBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeAircraftGuideBkg.png; path = Aircraft/res/placeAircraftGuideBkg.png; sourceTree = "<group>"; };
 		0C71791E16C224240017080F /* playScreenGuideBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playScreenGuideBkg.png; path = Aircraft/res/playScreenGuideBkg.png; sourceTree = "<group>"; };
+		0CD7213116C6C73D001BAD5D /* ASetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASetting.h; sourceTree = "<group>"; };
+		0CD7213216C6C73D001BAD5D /* ASetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASetting.m; sourceTree = "<group>"; };
 		0CDB577816C5D98E004F5C93 /* explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = explosion.png; path = Aircraft/res/explosion.png; sourceTree = "<group>"; };
 		0CDB577A16C5D98E004F5C93 /* explosion1_0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion1_0001.png; sourceTree = "<group>"; };
 		0CDB577B16C5D98E004F5C93 /* explosion1_0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion1_0002.png; sourceTree = "<group>"; };
@@ -953,6 +997,8 @@
 				9F57A0061685164D0069DA95 /* Model */,
 				9F049CD416842BBA007F5AC2 /* AAppDelegate.h */,
 				9F049CD516842BBA007F5AC2 /* AAppDelegate.m */,
+				0CD7213116C6C73D001BAD5D /* ASetting.h */,
+				0CD7213216C6C73D001BAD5D /* ASetting.m */,
 				9F049CCC16842BBA007F5AC2 /* Supporting Files */,
 			);
 			path = Aircraft;
@@ -1083,6 +1129,8 @@
 				9F12B1DB16ACBFF30029AD60 /* AChattingMessageItem.xib */,
 				9F10927716B0B2F4000A8149 /* AAircraftHolderImageView.h */,
 				9F10927816B0B2F4000A8149 /* AAircraftHolderImageView.m */,
+				0C708FB716C735E800A7BB10 /* AUIPopView.h */,
+				0C708FB816C735E800A7BB10 /* AUIPopView.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -1090,6 +1138,18 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				0C708FBB16C749A700A7BB10 /* rectBackground_blue.png */,
+				0C708FBC16C749A700A7BB10 /* rectBackground_blue@2x.png */,
+				0C708FB116C70AC000A7BB10 /* darkGuideBkg.png */,
+				0C708FB216C70AC000A7BB10 /* darkGuideBkg@2x.png */,
+				0C708FA416C6F78900A7BB10 /* rectBackground_black.png */,
+				0C708FA516C6F78900A7BB10 /* rectBackground_black@2x.png */,
+				0C708FA616C6F78900A7BB10 /* rectBackground_white.png */,
+				0C708FA716C6F78900A7BB10 /* rectBackground_white@2x.png */,
+				0C708F9216C6E59600A7BB10 /* checkbox_checked.png */,
+				0C708F9316C6E59600A7BB10 /* checkbox_checked@2x.png */,
+				0C708F9416C6E59600A7BB10 /* checkbox_unchecked.png */,
+				0C708F9516C6E59600A7BB10 /* checkbox_unchecked@2x.png */,
 				0CDB589216C62CD9004F5C93 /* explosion@2x.png */,
 				0CDB589316C62CD9004F5C93 /* explosionDestroy.png */,
 				0CDB589416C62CD9004F5C93 /* explosionDestroy@2x.png */,
@@ -1493,6 +1553,18 @@
 				0CDB589516C62CD9004F5C93 /* explosion@2x.png in Resources */,
 				0CDB589716C62CD9004F5C93 /* explosionDestroy.png in Resources */,
 				0CDB589916C62CD9004F5C93 /* explosionDestroy@2x.png in Resources */,
+				0C708F9616C6E59600A7BB10 /* checkbox_checked.png in Resources */,
+				0C708F9816C6E59600A7BB10 /* checkbox_checked@2x.png in Resources */,
+				0C708F9A16C6E59600A7BB10 /* checkbox_unchecked.png in Resources */,
+				0C708F9C16C6E59600A7BB10 /* checkbox_unchecked@2x.png in Resources */,
+				0C708FA816C6F78900A7BB10 /* rectBackground_black.png in Resources */,
+				0C708FAA16C6F78900A7BB10 /* rectBackground_black@2x.png in Resources */,
+				0C708FAC16C6F78900A7BB10 /* rectBackground_white.png in Resources */,
+				0C708FAE16C6F78900A7BB10 /* rectBackground_white@2x.png in Resources */,
+				0C708FB316C70AC000A7BB10 /* darkGuideBkg.png in Resources */,
+				0C708FB516C70AC000A7BB10 /* darkGuideBkg@2x.png in Resources */,
+				0C708FBD16C749A700A7BB10 /* rectBackground_blue.png in Resources */,
+				0C708FBF16C749A700A7BB10 /* rectBackground_blue@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1710,6 +1782,18 @@
 				0CDB589616C62CD9004F5C93 /* explosion@2x.png in Resources */,
 				0CDB589816C62CD9004F5C93 /* explosionDestroy.png in Resources */,
 				0CDB589A16C62CD9004F5C93 /* explosionDestroy@2x.png in Resources */,
+				0C708F9716C6E59600A7BB10 /* checkbox_checked.png in Resources */,
+				0C708F9916C6E59600A7BB10 /* checkbox_checked@2x.png in Resources */,
+				0C708F9B16C6E59600A7BB10 /* checkbox_unchecked.png in Resources */,
+				0C708F9D16C6E59600A7BB10 /* checkbox_unchecked@2x.png in Resources */,
+				0C708FA916C6F78900A7BB10 /* rectBackground_black.png in Resources */,
+				0C708FAB16C6F78900A7BB10 /* rectBackground_black@2x.png in Resources */,
+				0C708FAD16C6F78900A7BB10 /* rectBackground_white.png in Resources */,
+				0C708FAF16C6F78900A7BB10 /* rectBackground_white@2x.png in Resources */,
+				0C708FB416C70AC000A7BB10 /* darkGuideBkg.png in Resources */,
+				0C708FB616C70AC000A7BB10 /* darkGuideBkg@2x.png in Resources */,
+				0C708FBE16C749A700A7BB10 /* rectBackground_blue.png in Resources */,
+				0C708FC016C749A700A7BB10 /* rectBackground_blue@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1751,6 +1835,8 @@
 				0C71791816C2204F0017080F /* AGuideViewController.m in Sources */,
 				0C70614916C45D6A005A48FF /* AGameRecordManager.m in Sources */,
 				0CDB589016C5D9F1004F5C93 /* UIImage+AUITheme.m in Sources */,
+				0CD7213316C6C73D001BAD5D /* ASetting.m in Sources */,
+				0C708FB916C735E800A7BB10 /* AUIPopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1789,6 +1875,8 @@
 				0C71791916C2204F0017080F /* AGuideViewController.m in Sources */,
 				0C70614A16C45D6A005A48FF /* AGameRecordManager.m in Sources */,
 				0CDB589116C5D9F1004F5C93 /* UIImage+AUITheme.m in Sources */,
+				0CD7213416C6C73D001BAD5D /* ASetting.m in Sources */,
+				0C708FBA16C735E800A7BB10 /* AUIPopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

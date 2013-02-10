@@ -11,5 +11,9 @@
 @interface UIImage(AUITheme)
 
 + (UIImage *)imageWithExplosionAnimation;
++ (UIImage *)imageForWhiteRectBackground;
++ (UIImage *)imageForBlackRectBackground;
++ (UIImage *)imageForDarkGuideBackground;
++ (UIImage *)imageForBlueRectBackground;
 
 @end

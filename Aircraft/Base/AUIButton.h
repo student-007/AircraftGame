@@ -13,3 +13,12 @@
 - (void)setTitleForAllState:(NSString *)title;
 
 @end
+
+@interface AUICheckBoxButton : AUIButton
+{
+    BOOL _checked;      // default: NO
+}
+
+@property (nonatomic, getter = isChecked) BOOL checked;
+
+@end

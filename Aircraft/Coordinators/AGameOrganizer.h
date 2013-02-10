@@ -13,6 +13,8 @@
 #import "AOperationPanelViewController.h"
 #import "AChattingMessageItem.h"
 #import "AGuideViewController.h"
+#import "AUIPopView.h"
+#import "ASetting.h"
 
 typedef enum
 {
@@ -25,6 +27,7 @@ typedef enum
 {
     // game status data
     NSNumber *_numberOfAircraftPlaced;
+    NSNumber *_numberOfAircraftDestroyed;       // default: 0
     
     BOOL _isGameBegin;  // default is NO
     NSDate *_dateWhenGameBegin;
@@ -36,6 +39,7 @@ typedef enum
 
 #define kGameStatusNetWork          @"netWorkStatus"            // (NSNumber)type(ConnectionType), (NSNumber)isConnect
 #define kGameStatusAircraftPlaced   @"aircraftPlacingStatus"    // no key, NSNumber object for how may aircraft placed
+#define kGameStatusAircraftDestroyed @"aircraftDestroyedStatus" // no key, NSNumber object for how may aircraft destroyed
 #define kGameStatusBeginEndGame     @"beginGameStatus"          // keys: isGameOn, beginDate, endDate
 #define kGameStatusPlayer           @"playerStatus"             // keys: user(isReady, date), competitor(isReady, date)
 @property (strong, nonatomic, readonly) NSDictionary *gameStatus;

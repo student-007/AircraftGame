@@ -84,7 +84,10 @@
 @optional
 - (void)attackPositionMarked:(BOOL)onPreviousAttackedPos;
 - (void)attackPositionUnmarked;
-
+/*!
+ @discussion this will be called when display a destroy result of an attack.
+ */
+- (void)aircraftDestroyed;
 
 @required
 - (BOOL)userWantsToRemoveAircraft:(AAircraftModel *)aircraft;
