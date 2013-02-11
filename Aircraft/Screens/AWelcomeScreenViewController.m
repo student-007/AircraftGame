@@ -46,6 +46,13 @@
                                                initWithNibName:@"APlayScreenViewController" bundle:nil];
     [[AAppDelegate sharedInstance] pushScreen:playScreenVC animated:YES];
 }
+
+- (IBAction)actionSetting:(id)sender 
+{
+    ASettingScreenViewController *settingVC = [[ASettingScreenViewController alloc] initWithNibName:@"ASettingScreenViewController" bundle:nil];
+    [[AAppDelegate sharedInstance] pushScreen:settingVC animated:YES];
+}
+
 - (void)viewDidUnload {
     [self setPlayWithBluetoothBtn:nil];
     [super viewDidUnload];

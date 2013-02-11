@@ -384,11 +384,14 @@
         
         if ([resString caseInsensitiveCompare:kAttackRMiss] == NSOrderedSame)
         {
-//            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgMiss];
-//            resultImgView.frame = markerFrame;
-//            [resultImgView setBackgroundColor:[UIColor whiteColor]];
-//            [self.battleFieldImgView addSubview:resultImgView];
+            UIImageView *bkgImgView = [[UIImageView alloc] initWithImage:[UIImage imageForBlackRectBackground]];
+            bkgImgView.frame = markerFrame;
+            [bkgImgView setBackgroundColor:[UIColor clearColor]];
+            bkgImgView.alpha = 0.4;
+            [self.battleFieldImgView addSubview:bkgImgView];
+            
             UILabel *resultLabel = [[UILabel alloc] initWithFrame:markerFrame];
+            resultLabel.textAlignment = UITextAlignmentCenter;
             resultLabel.text = @"\uE049";
             resultLabel.backgroundColor = [UIColor clearColor];
             [self.battleFieldImgView addSubview:resultLabel];
@@ -430,6 +433,9 @@
             [UIView setAnimationDuration:1.5f];
             resultImgView.alpha = 1;
             [UIView commitAnimations];
+            
+//            if ([self.organizerDelegate respondsToSelector:@selector(aircraftDestroyed)])
+//                [self.organizerDelegate aircraftDestroyed];
             
 //            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgDestroy];
 //            resultImgView.frame = markerFrame;

@@ -7,21 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ASetting.h"
 
 @interface ALocale : NSObject
 {
 //    NSBundle *_languageBundle;
     NSBundle *_defaultLanguageBundle;
+    NSString *_langCode;
 }
 
-@property (retain, readonly) NSString   *langCode;
-@property (retain, readonly) NSArray    *supportedLanguageCode;
-@property (retain, readonly) NSArray    *supportedLanguageDisplayName;
+@property (strong, readonly) NSString   *langCode;
+@property (strong, readonly) NSArray    *supportedLanguageCode;
+@property (strong, readonly) NSArray    *supportedLanguageDisplayName;
 
 /*!
  @discussion shared singleton instance of the locale object
  */
-+ (id)currentLocale;
++ (ALocale *)currentLocale;
 
 /*!
  @discussion change the language settings.
