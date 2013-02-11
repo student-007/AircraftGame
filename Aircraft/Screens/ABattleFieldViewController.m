@@ -434,8 +434,8 @@
             resultImgView.alpha = 1;
             [UIView commitAnimations];
             
-            if ([self.organizerDelegate respondsToSelector:@selector(aircraftDestroyed)])
-                [self.organizerDelegate aircraftDestroyed];
+//            if ([self.organizerDelegate respondsToSelector:@selector(aircraftDestroyed)])
+//                [self.organizerDelegate aircraftDestroyed];
             
 //            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgDestroy];
 //            resultImgView.frame = markerFrame;

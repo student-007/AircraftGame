@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AGameOrganizer.h"
 #import "APlayScreenViewController.h"
+#import "ASettingScreenViewController.h"
 
 @interface AWelcomeScreenViewController : UIViewController
 

@@ -22,7 +22,7 @@
 - (void)setupPlacingAircraftGuide;
 - (void)setupPlayScreenGuide;
 - (void)setupAttackPlayGuide;
-
+- (void)aircraftDestroyed;
 @end
 
 @implementation AGameOrganizer
@@ -271,6 +271,8 @@
     {
         ANetMessageAttackR *replyMsg = (ANetMessageAttackR *)netMessage.message;
         [self.battleFldVCEnemy displayPreviousAttackResultForString:replyMsg.attackResult];
+        if ([replyMsg.attackResult caseInsensitiveCompare:kAttackRDestroy] == NSOrderedSame)
+            [self aircraftDestroyed];
     }
     else if ([netMessage.flag isEqualToString:kFlagChat])
     {

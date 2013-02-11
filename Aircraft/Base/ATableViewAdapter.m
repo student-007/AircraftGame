@@ -17,6 +17,8 @@
 
 @implementation ATableViewAdapterView
 
+@synthesize target = _target;
+@synthesize selectionAction = _selectionAction;
 @synthesize title = _title;
 @synthesize view = _view;
 
@@ -24,6 +26,8 @@
 {
     ATableViewAdapterView *adapterView = [[ATableViewAdapterView alloc] init];
     adapterView.title = title;
+    adapterView.target = nil;
+    adapterView.selectionAction = nil;
     return adapterView;
     
 }
@@ -31,6 +35,8 @@
 {
     ATableViewAdapterView *adapterView = [[ATableViewAdapterView alloc] init];
     adapterView.view = view;
+    adapterView.target = nil;
+    adapterView.selectionAction = nil;
     return adapterView;
 }
 
@@ -150,12 +156,14 @@
 @implementation ATableViewAdapter
 
 @synthesize tableView = _tableView;
+@synthesize cellSelectionStyle = _cellSelectionStyle;
 
 #define kAdapterDefaultSize 4
 
 - (void)initialise
 {
     _panelArrangement = [[NSMutableArray alloc]initWithCapacity:kAdapterDefaultSize];
+    _cellSelectionStyle = UITableViewCellSelectionStyleGray;
 }
 
 - (void)beginUpdates
@@ -522,8 +530,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"adapterCell"];
     }
     
-    cell.backgroundColor = [UIColor clearColor];
-    cell.contentView.backgroundColor = [UIColor clearColor];
+//    cell.backgroundColor = [UIColor clearColor];
+//    cell.contentView.backgroundColor = [UIColor clearColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     
     // remove the previously attached views
     while ([cell.contentView.subviews count])

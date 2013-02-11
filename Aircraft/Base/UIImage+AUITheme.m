@@ -50,4 +50,12 @@
     return [image resizableImageWithCapInsets:edgeInset]; 
 }
 
++ (UIImage *)imageForDarkLightRectBackground
+{
+//    UIImage *image = [UIImage imageNamed:@"lightBlackBackground.png"];
+//    UIEdgeInsets edgeInset = UIEdgeInsetsMake(14, 14, 14, 14);
+//    return [image resizableImageWithCapInsets:edgeInset];
+    return [UIImage imageNamed:@"lightBlackBackground.png"];
+}
+
 @end

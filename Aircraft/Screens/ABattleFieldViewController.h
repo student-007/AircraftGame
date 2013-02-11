@@ -87,7 +87,7 @@
 /*!
  @discussion this will be called when display a destroy result of an attack.
  */
-- (void)aircraftDestroyed;
+//- (void)aircraftDestroyed;
 
 @required
 - (BOOL)userWantsToRemoveAircraft:(AAircraftModel *)aircraft;

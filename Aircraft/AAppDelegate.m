@@ -80,6 +80,8 @@
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:welcomeScreenVC];
     self.window.rootViewController = self.navigationController;
     
+    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
+    
     [self.navigationController setNavigationBarHidden:YES];
     
     [self.window makeKeyAndVisible];
