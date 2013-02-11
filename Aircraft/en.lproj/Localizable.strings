@@ -41,6 +41,25 @@
 "connection_lost_due_to" = "Your connection was lost due to:";
 "connection_lost" = "Your connection was lost.";
 "restart_battle" = "Please restart a battle.";
+"you_destoryed_aircraft" = "You just destoryed an aircraft!";
+"n_to_go" = "to go.";
+
+// guide
+"drag_to_place_aircraft_tip" = "You can drag and release an aircraft to place it here, or drag it out of the field to remove.";
+"press_done_after_placing_aircraft_tip" = "Once done placing 3 aircrafts, press ready mark.";
+"do_not_show_this_again" = "Do not show this again.";
+"battle_begins_try_shoot" = "Battle begins.\n\nPlease think and analysis where your opponent placed aircrafts and try to shoot them.\nHit the head of an aircraft will destory it.";
+"destory_to_win" = "* destory 3 aircrafts to win *";
+
+// setting screen
+"setting_title" = "Setting";
+"user_preference" = "User preference";
+"show_all_user_guides" = "Show all user guides";
+"sound_music" = "Sound & music";
+"language" = "Language";
+"information" = "Information";
+"about_aircraft" = "About Aircraft";
+"help_support" = "Help & support";
 
 // connections
 "connection_failed" = "Connection failed";
@@ -64,3 +83,6 @@
 
 // aircraft view
 "ErrorCode5001" = "Have not setup aircraft direction(currently NONE) at aircraft image view!";
+
+// language
+"ErrorCode6001" = "Try to switch to an invalid language code.";

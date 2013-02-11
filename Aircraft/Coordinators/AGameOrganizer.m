@@ -21,7 +21,8 @@
 - (BOOL)checkReadyForPlacingAircrafts;
 - (void)setupPlacingAircraftGuide;
 - (void)setupPlayScreenGuide;
-
+- (void)setupAttackPlayGuide;
+- (void)aircraftDestroyed;
 @end
 
 @implementation AGameOrganizer
@@ -50,6 +51,7 @@
     {
         self.connectionType = ConnectionTypeNone;
         _numberOfAircraftPlaced = [NSNumber numberWithInt:0];
+        _numberOfAircraftDestroyed = [NSNumber numberWithInt:0];
         _whosTurn = AWhosTurnNone;
     }
     return self;
@@ -78,6 +80,10 @@
     // aircraft placed
     if (!_numberOfAircraftPlaced) _numberOfAircraftPlaced = [NSNumber numberWithInt:0];
     DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(statusDic, _numberOfAircraftPlaced, kGameStatusAircraftPlaced);
+    
+    // aircraft placed
+    if (!_numberOfAircraftDestroyed) _numberOfAircraftDestroyed = [NSNumber numberWithInt:0];
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(statusDic, _numberOfAircraftDestroyed, kGameStatusAircraftDestroyed);
     
     // is game on
     NSMutableDictionary *gameBeginStatus = [NSMutableDictionary dictionary];
@@ -108,10 +114,19 @@
 - (void)startTheGame
 {
     _isGameBegin = YES;
+    AUIPopView *popView = [AUIPopView popViewWithText:ALocalisedString(@"battle_start")
+                                                image:[UIImage imageForBlueRectBackground] 
+                                                 size:CGSizeMake(210, 90) 
+                                     dissmissDuration:3.0];
+    [popView show];
+    
     [self.chatVC addNewMessage:ALocalisedString(@"battle_start") toChattingTableWithType:AChattingMsgTypeHelpMsg];
+    
     [self.opPanelVC startTheGame];
     [self.battleFldVCEnemy displayBattleField];
-#warning TODO: Give user a little notice what to do.
+    
+    [self setupAttackPlayGuide];
+    
     if (_whosTurn == AWhosTurnCompetitor)
     {
         
@@ -169,7 +184,6 @@
     
     [self.chatVC addNewMessage:connString toChattingTableWithType:AChattingMsgTypeSystemMsg];
     
-#warning TODO: check user setting before showing user the guide
     [self setupPlacingAircraftGuide];
 }
 
@@ -257,6 +271,8 @@
     {
         ANetMessageAttackR *replyMsg = (ANetMessageAttackR *)netMessage.message;
         [self.battleFldVCEnemy displayPreviousAttackResultForString:replyMsg.attackResult];
+        if ([replyMsg.attackResult caseInsensitiveCompare:kAttackRDestroy] == NSOrderedSame)
+            [self aircraftDestroyed];
     }
     else if ([netMessage.flag isEqualToString:kFlagChat])
     {
@@ -306,9 +322,6 @@
 
 - (void)connectionCanceled:(NSError *)errorOrNil
 {
-#warning TODO: delete next line, that's just for testing guide screen
-    [self setupPlacingAircraftGuide];
-    
     [self.chatVC addNewMessage:ALocalisedString(@"you_have_canceled_connection") toChattingTableWithType:AChattingMsgTypeSystemMsg];
 #warning TODO: uncomment after testing
 //    [self reset];
@@ -316,30 +329,52 @@
 
 #pragma mark - setup guide views
 
+- (void)setupAttackPlayGuide
+{
+    if ([ASetting needsForGuide:AGuideTypeAttackPlayTip])
+    {
+        _guideVC = [[AGuideViewController alloc] initWithNibName:@"AGuideViewController" bundle:nil];
+        _guideVC.type = AGuideTypeAttackPlayTip;
+        _guideVC.delegate = self;
+        
+        CGRect frame = _guideVC.view.frame;
+        frame.origin = CGPointMake(0, 10);
+        _guideVC.view.frame = frame;
+        
+        [[AAppDelegate sharedInstance].window addSubview:_guideVC.view];
+    }
+}
+
 - (void)setupPlacingAircraftGuide
 {
-    _guideVC = [[AGuideViewController alloc] initWithNibName:@"AGuideViewController" bundle:nil];
-    _guideVC.type = AGuideTypePlaceAircraft;
-    _guideVC.delegate = self;
-    
-    CGRect frame = _guideVC.view.frame;
-    frame.origin = CGPointMake(0, 10);
-    _guideVC.view.frame = frame;
-    
-    [[AAppDelegate sharedInstance].window addSubview:_guideVC.view];
+    if ([ASetting needsForGuide:AGuideTypePlaceAircraft])
+    {
+        _guideVC = [[AGuideViewController alloc] initWithNibName:@"AGuideViewController" bundle:nil];
+        _guideVC.type = AGuideTypePlaceAircraft;
+        _guideVC.delegate = self;
+        
+        CGRect frame = _guideVC.view.frame;
+        frame.origin = CGPointMake(0, 10);
+        _guideVC.view.frame = frame;
+        
+        [[AAppDelegate sharedInstance].window addSubview:_guideVC.view];
+    }
 }
 
 - (void)setupPlayScreenGuide
 {
-    _guideVC = [[AGuideViewController alloc] initWithNibName:@"AGuideViewController" bundle:nil];
-    _guideVC.type = AGuideTypePlayScreen;
-    _guideVC.delegate = self;
-    
-    CGRect frame = _guideVC.view.frame;
-    frame.origin = CGPointMake(0, 10);
-    _guideVC.view.frame = frame;
-    
-    [[AAppDelegate sharedInstance].window addSubview:_guideVC.view];
+//    if ([ASetting needsForGuide:AGuideTypePlayScreen])
+//    {
+        _guideVC = [[AGuideViewController alloc] initWithNibName:@"AGuideViewController" bundle:nil];
+        _guideVC.type = AGuideTypePlayScreen;
+        _guideVC.delegate = self;
+        
+        CGRect frame = _guideVC.view.frame;
+        frame.origin = CGPointMake(0, 10);
+        _guideVC.view.frame = frame;
+        
+        [[AAppDelegate sharedInstance].window addSubview:_guideVC.view];
+//    }
 }
 
 // this will be called when user tapped the guide view
@@ -510,6 +545,24 @@
     }
     else
         return nil;
+}
+
+- (void)aircraftDestroyed
+{
+    if (!_numberOfAircraftDestroyed) 
+        _numberOfAircraftDestroyed = [NSNumber numberWithInt:1];
+    else
+        _numberOfAircraftDestroyed = [NSNumber numberWithInt:([_numberOfAircraftDestroyed intValue] + 1)]; 
+    
+    NSInteger numberOfAircraftDestroyed = [_numberOfAircraftDestroyed intValue];
+    if (numberOfAircraftDestroyed <= 2)
+    {
+        AUIPopView *popView = [AUIPopView popViewWithText:[NSString stringWithFormat:@"%@\n%d %@", ALocalisedString(@"you_destoryed_aircraft"), 3 - numberOfAircraftDestroyed, ALocalisedString(@"n_to_go")] 
+                                                    image:[UIImage imageForBlueRectBackground] 
+                                                     size:CGSizeMake(260, 90) 
+                                         dissmissDuration:3.5];
+        [popView show];
+    }
 }
 
 - (void)aircraftAdded

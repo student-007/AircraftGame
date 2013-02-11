@@ -22,4 +22,40 @@
     return image;
 }
 
++ (UIImage *)imageForWhiteRectBackground
+{
+    UIImage *image = [UIImage imageNamed:@"rectBackground_white.png"];
+    UIEdgeInsets edgeInset = UIEdgeInsetsMake(14, 14, 14, 14);
+    return [image resizableImageWithCapInsets:edgeInset];
+}
+
++ (UIImage *)imageForBlackRectBackground
+{
+    UIImage *image = [UIImage imageNamed:@"rectBackground_black.png"];
+    UIEdgeInsets edgeInset = UIEdgeInsetsMake(14, 14, 14, 14);
+    return [image resizableImageWithCapInsets:edgeInset];
+}
+
++ (UIImage *)imageForDarkGuideBackground
+{
+    UIImage *image = [UIImage imageNamed:@"darkGuideBkg.png"];
+    UIEdgeInsets edgeInset = UIEdgeInsetsMake(14, 14, 14, 14);
+    return [image resizableImageWithCapInsets:edgeInset];
+}
+
++ (UIImage *)imageForBlueRectBackground
+{
+    UIImage *image = [UIImage imageNamed:@"rectBackground_blue.png"];
+    UIEdgeInsets edgeInset = UIEdgeInsetsMake(14, 14, 14, 14);
+    return [image resizableImageWithCapInsets:edgeInset]; 
+}
+
++ (UIImage *)imageForDarkLightRectBackground
+{
+//    UIImage *image = [UIImage imageNamed:@"lightBlackBackground.png"];
+//    UIEdgeInsets edgeInset = UIEdgeInsetsMake(14, 14, 14, 14);
+//    return [image resizableImageWithCapInsets:edgeInset];
+    return [UIImage imageNamed:@"lightBlackBackground.png"];
+}
+
 @end

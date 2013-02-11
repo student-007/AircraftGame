@@ -10,7 +10,6 @@
 
 @implementation ALocale
 
-@synthesize langCode = _langCode;
 @synthesize supportedLanguageCode = _supportedLanguageCode;
 @synthesize supportedLanguageDisplayName = _supportedLanguageDisplayName;
 
@@ -21,10 +20,14 @@
     if (!locale)
     {
         locale = [[ALocale alloc]init];
-#warning TODO: load from current settings
-        [locale changeLanguageTo:@"en"];//en-US,zh-Hans
+        [locale changeLanguageTo:[ASetting currentDisplayLanguageCode]];//en-US,zh-Hans. Default: en
     }
     return  locale;
+}
+
+- (NSString *)langCode
+{
+    return _langCode ? _langCode : [ASetting currentDisplayLanguageCode];
 }
 
 /*!
@@ -36,6 +39,8 @@
     
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"Localizable" ofType:@"strings" inDirectory:nil forLocalization:newLangCode];
     _defaultLanguageBundle = [[NSBundle alloc] initWithPath:[bundlePath stringByDeletingLastPathComponent]];
+    
+    [ASetting setDisplayLanguageCode:newLangCode];
 }
 
 

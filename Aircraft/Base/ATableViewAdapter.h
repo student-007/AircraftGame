@@ -24,6 +24,7 @@ typedef enum
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic) UITableViewCellSelectionStyle cellSelectionStyle;
 
 - (id)initWithTableView:(UITableView *)tableView;
 

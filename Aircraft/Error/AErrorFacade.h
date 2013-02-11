@@ -11,6 +11,7 @@
 // define error domains
 #define kErrorDomainNet         @"Net"
 #define kErrorDomainOrganizer   @"Organizer"
+#define kErrorDomainSetting     @"AppSetting"
 
 // define error codes
 // connections errors
@@ -30,6 +31,9 @@
 
 // aircraft view
 #define kECAircraftVNoneDirection       5001
+
+// language
+#define kECLanguageNoLangCode           6001
 
 typedef enum
 {
