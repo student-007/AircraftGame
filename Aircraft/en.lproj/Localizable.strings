@@ -51,6 +51,15 @@
 "battle_begins_try_shoot" = "Battle begins.\n\nPlease think and analysis where your opponent placed aircrafts and try to shoot them.\nHit the head of an aircraft will destory it.";
 "destory_to_win" = "* destory 3 aircrafts to win *";
 
+// setting screen
+"user_preference" = "User preference";
+"show_all_user_guides" = "Show all user guides";
+"sound_music" = "Sound & music";
+"language" = "Language";
+"information" = "Information";
+"about_aircraft" = "About Aircraft";
+"help_support" = "Help & support";
+
 // connections
 "connection_failed" = "Connection failed";
 
@@ -73,3 +82,6 @@
 
 // aircraft view
 "ErrorCode5001" = "Have not setup aircraft direction(currently NONE) at aircraft image view!";
+
+// language
+"ErrorCode6001" = "Try to switch to an invalid language code.";

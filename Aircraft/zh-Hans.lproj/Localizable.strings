@@ -8,3 +8,80 @@
   Copyright (c) 2012 Yufei Lang. All rights reserved.
 */
 "welcome" = "欢迎";
+"ok" = "好";
+"cancel" = "取消";
+"yes" = "是";
+"no" = "不是";
+"please_try_again" = "请再试一次.";
+
+// chatting view
+"chat_view_txtFld_holder" = "聊天信息...";
+"chat_view_send_btn" = "发送";
+"chat_view_send_btn_hide" = "隐藏";
+"chat_view_user_name" = "我";
+"chat_view_competitor_name" = "对手";
+
+// operation panel
+"operation_panel_are_u_sure_exit" = "Are you sure to exit?";
+"operation_panel_exit_warning_lost_game" = "You will lose the battle. Any unsaved game data will be gone. You can always save the game for playing later.";
+"operation_panel_exit_warning" = "You may lost game data including position of aircraft(s) and chatting record.";
+"operation_panel_my_turn_to_attack" = "My turn to attack";
+"operation_panel_competitor_turn_to_attack" = "Wait for opponent";
+
+
+// organizer
+"add_least_3_aircrafts" = "Please add 3 aircrafts to start the game.";
+"select_then_attack" = "Please select a target from enemy field, then attack.";
+"you_have_canceled_connection" = "You have canceled the connection. Please exit and restart a battle if you would like to play.";
+"youve_connected_with" = "You are now connected with";
+"youve_connected_with_NULL" = "You have sucessfully made the connection.";
+"your_opponent_is_ready" = "Your opponent is ready, the battle will be started when you ready.";
+"please_wait_for_competitor" = "Seems like your opponent is still preparing. please be patient, the battle will be started soon...";
+"battle_start" = "All ready, let's get started!";
+"connection_lost_due_to" = "Your connection was lost due to:";
+"connection_lost" = "Your connection was lost.";
+"restart_battle" = "Please restart a battle.";
+"you_destoryed_aircraft" = "You just destoryed an aircraft!";
+"n_to_go" = "to go.";
+
+// guide
+"drag_to_place_aircraft_tip" = "You can drag and release an aircraft to place it here, or drag it out of the field to remove.";
+"press_done_after_placing_aircraft_tip" = "Once done placing 3 aircrafts, press ready mark.";
+"do_not_show_this_again" = "Do not show this again.";
+"battle_begins_try_shoot" = "Battle begins.\n\nPlease think and analysis where your opponent placed aircrafts and try to shoot them.\nHit the head of an aircraft will destory it.";
+"destory_to_win" = "* destory 3 aircrafts to win *";
+
+// setting screen
+"user_preference" = "用户喜好";
+"show_all_user_guides" = "显示所有向导信息";
+"sound_music" = "音效 & 音乐";
+"language" = "语言";
+"information" = "信息";
+"about_aircraft" = "关于 打飞机";
+"help_support" = "帮助 & 支持";
+
+// connections
+"connection_failed" = "Connection failed";
+
+
+// followings are error message strings
+"ErrorCode1000" = "User canceled picking a bluetooth connection.";
+"ErrorCode1001" = "Cound not send data, empty session or not connected.";
+
+// parser
+"ErrorCode2000" = "Parser in communicator is not found or empty while trying to send a message.";
+"ErrorCode2001" = "Unrecognized message flag found while parsing message data.";
+"ErrorCode2002" = "Parser could not find the matching internal message class (based on class or the given name).";
+
+// organizer
+"ErrorCode3001" = "Communicator empty or not found in organizer when try to use.";
+"ErrorCode3002" = "Can not make connection with connection type NONE!";
+
+// aircraft
+"ErrorCode4001" = "Aircraft image can not be mapped to the battle field view";
+
+// aircraft view
+"ErrorCode5001" = "Have not setup aircraft direction(currently NONE) at aircraft image view!";
+
+// language
+"ErrorCode6001" = "Try to switch to an invalid language code.";

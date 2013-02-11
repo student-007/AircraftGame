@@ -8,6 +8,15 @@
 
 #import "ASettingScreenViewController.h"
 
+@interface ASettingScreenViewController() 
+{
+@private
+    
+}
+
+- (void)loadLocalisedString;
+@end
+
 @implementation ASettingScreenViewController
 @synthesize tableViewAdapter;
 @synthesize tableView;
@@ -21,6 +30,24 @@
 @synthesize languagePanel;
 @synthesize aboutPanel;
 @synthesize helpSupportPanel;
+@synthesize userPreferenceLabel;
+@synthesize showAllUserGuidesLabel;
+@synthesize soundMusicLabel;
+@synthesize languageLabel;
+@synthesize informationLabel;
+@synthesize aboutAircraftLabel;
+@synthesize helpSupportLabel;
+
+- (void)loadLocalisedString
+{
+    self.userPreferenceLabel.text = ALocalisedString(@"user_preference");
+    self.showAllUserGuidesLabel.text = ALocalisedString(@"show_all_user_guides");
+    self.soundMusicLabel.text = ALocalisedString(@"sound_music");
+    self.languageLabel.text = ALocalisedString(@"language");
+    self.informationLabel.text = ALocalisedString(@"information");
+    self.aboutAircraftLabel.text = ALocalisedString(@"about_aircraft");
+    self.helpSupportLabel.text = ALocalisedString(@"help_support");
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -71,6 +98,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO];
+    [self loadLocalisedString];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -92,6 +120,13 @@
     [self setHelpSupportPanel:nil];
     [self setShowGuideSwitch:nil];
     [self setSoundMusicSwitch:nil];
+    [self setUserPreferenceLabel:nil];
+    [self setShowAllUserGuidesLabel:nil];
+    [self setSoundMusicLabel:nil];
+    [self setLanguageLabel:nil];
+    [self setInformationLabel:nil];
+    [self setAboutAircraftLabel:nil];
+    [self setHelpSupportLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -119,7 +154,8 @@
 
 - (void)actionLanguageSelected
 {
-    
+    ALanguageScreenViewController *languageVC = [[ALanguageScreenViewController alloc] initWithNibName:@"ALanguageScreenViewController" bundle:nil];
+    [[AAppDelegate sharedInstance] pushScreen:languageVC animated:YES];
 }
 
 - (void)actionAboutSelected

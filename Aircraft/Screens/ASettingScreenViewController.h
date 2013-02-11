@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AGuideViewController.h"
+#import "ALanguageScreenViewController.h"
 #import "ASetting.h"
 
 @interface ASettingScreenViewController : UIViewController
@@ -27,5 +28,13 @@
 @property (strong, nonatomic) IBOutlet UIView *languagePanel;
 @property (strong, nonatomic) IBOutlet UIView *aboutPanel;
 @property (strong, nonatomic) IBOutlet UIView *helpSupportPanel;
+
+@property (strong, nonatomic) IBOutlet UILabel *userPreferenceLabel;
+@property (strong, nonatomic) IBOutlet UILabel *showAllUserGuidesLabel;
+@property (strong, nonatomic) IBOutlet UILabel *soundMusicLabel;
+@property (strong, nonatomic) IBOutlet UILabel *languageLabel;
+@property (strong, nonatomic) IBOutlet UILabel *informationLabel;
+@property (strong, nonatomic) IBOutlet UILabel *aboutAircraftLabel;
+@property (strong, nonatomic) IBOutlet UILabel *helpSupportLabel;
 
 @end

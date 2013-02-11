@@ -38,4 +38,23 @@
     [defaults synchronize];
 }
 
++ (NSString *)currentDisplayLanguageCode
+{
+    // 获取当前用户的NSUserDefaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *mdicSettings = [NSMutableDictionary dictionaryWithDictionary:[defaults dictionaryRepresentation]];
+    NSString *langCode = [mdicSettings valueForKey:@"displayLanguageCode"];
+    return  langCode? langCode: @"en";
+}
+
++ (void)setDisplayLanguageCode:(NSString *)langCode
+{
+    // 获取当前用户的NSUserDefaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:langCode forKey:@"displayLanguageCode"];
+    
+    // 同步保存defaults
+    [defaults synchronize];
+}
+
 @end
