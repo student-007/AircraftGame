@@ -363,8 +363,8 @@
 
 - (void)setupPlayScreenGuide
 {
-    if ([ASetting needsForGuide:AGuideTypePlayScreen])
-    {
+//    if ([ASetting needsForGuide:AGuideTypePlayScreen])
+//    {
         _guideVC = [[AGuideViewController alloc] initWithNibName:@"AGuideViewController" bundle:nil];
         _guideVC.type = AGuideTypePlayScreen;
         _guideVC.delegate = self;
@@ -374,7 +374,7 @@
         _guideVC.view.frame = frame;
         
         [[AAppDelegate sharedInstance].window addSubview:_guideVC.view];
-    }
+//    }
 }
 
 // this will be called when user tapped the guide view

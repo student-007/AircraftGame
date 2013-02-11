@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "AGuideViewController.h"
 #import "ALanguageScreenViewController.h"
+#import "AAboutAircraftScreenController.h"
+#import "AHelpSupportScreenViewController.h"
 #import "ASetting.h"
 
 @interface ASettingScreenViewController : UIViewController

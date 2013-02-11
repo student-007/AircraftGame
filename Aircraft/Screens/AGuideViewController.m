@@ -229,7 +229,7 @@
 {
     if (_handMovingTimer)
         [_handMovingTimer invalidate];
-    [ASetting setValue:self.doNotShowAgainCheckBoxBtn.isChecked forGuideType:_type];
+    [ASetting setValue:!self.doNotShowAgainCheckBoxBtn.isChecked forGuideType:_type];
     if ([self.delegate respondsToSelector:@selector(dismissTheGuideView)]) 
         [self.delegate dismissTheGuideView];
 }

@@ -52,6 +52,7 @@
 "destory_to_win" = "* destory 3 aircrafts to win *";
 
 // setting screen
+"setting_title" = "Setting";
 "user_preference" = "User preference";
 "show_all_user_guides" = "Show all user guides";
 "sound_music" = "Sound & music";

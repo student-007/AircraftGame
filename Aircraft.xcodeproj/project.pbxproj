@@ -219,6 +219,22 @@
 		0CBA9BDE16C95CB90037E1A7 /* checkMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BDB16C95CB90037E1A7 /* checkMark.png */; };
 		0CBA9BDF16C95CB90037E1A7 /* checkMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BDC16C95CB90037E1A7 /* checkMark@2x.png */; };
 		0CBA9BE016C95CB90037E1A7 /* checkMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BDC16C95CB90037E1A7 /* checkMark@2x.png */; };
+		0CBA9BE416C96C780037E1A7 /* AAboutAircraftScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9BE216C96C780037E1A7 /* AAboutAircraftScreenController.m */; };
+		0CBA9BE516C96C780037E1A7 /* AAboutAircraftScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9BE216C96C780037E1A7 /* AAboutAircraftScreenController.m */; };
+		0CBA9BE616C96C780037E1A7 /* AAboutAircraftScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BE316C96C780037E1A7 /* AAboutAircraftScreenController.xib */; };
+		0CBA9BE716C96C780037E1A7 /* AAboutAircraftScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BE316C96C780037E1A7 /* AAboutAircraftScreenController.xib */; };
+		0CBA9BEB16C96C9F0037E1A7 /* AHelpSupportScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9BE916C96C9F0037E1A7 /* AHelpSupportScreenViewController.m */; };
+		0CBA9BEC16C96C9F0037E1A7 /* AHelpSupportScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9BE916C96C9F0037E1A7 /* AHelpSupportScreenViewController.m */; };
+		0CBA9BED16C96C9F0037E1A7 /* AHelpSupportScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BEA16C96C9F0037E1A7 /* AHelpSupportScreenViewController.xib */; };
+		0CBA9BEE16C96C9F0037E1A7 /* AHelpSupportScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BEA16C96C9F0037E1A7 /* AHelpSupportScreenViewController.xib */; };
+		0CBA9BF316C9A1200037E1A7 /* guideBtn_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BEF16C9A11F0037E1A7 /* guideBtn_highlighted.png */; };
+		0CBA9BF416C9A1200037E1A7 /* guideBtn_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BEF16C9A11F0037E1A7 /* guideBtn_highlighted.png */; };
+		0CBA9BF516C9A1200037E1A7 /* guideBtn_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BF016C9A11F0037E1A7 /* guideBtn_highlighted@2x.png */; };
+		0CBA9BF616C9A1200037E1A7 /* guideBtn_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BF016C9A11F0037E1A7 /* guideBtn_highlighted@2x.png */; };
+		0CBA9BF716C9A1200037E1A7 /* guideBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BF116C9A11F0037E1A7 /* guideBtn.png */; };
+		0CBA9BF816C9A1200037E1A7 /* guideBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BF116C9A11F0037E1A7 /* guideBtn.png */; };
+		0CBA9BF916C9A1200037E1A7 /* guideBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BF216C9A11F0037E1A7 /* guideBtn@2x.png */; };
+		0CBA9BFA16C9A1200037E1A7 /* guideBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BF216C9A11F0037E1A7 /* guideBtn@2x.png */; };
 		0CD7213316C6C73D001BAD5D /* ASetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD7213216C6C73D001BAD5D /* ASetting.m */; };
 		0CD7213416C6C73D001BAD5D /* ASetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD7213216C6C73D001BAD5D /* ASetting.m */; };
 		0CDB57D516C5D98E004F5C93 /* explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CDB577816C5D98E004F5C93 /* explosion.png */; };
@@ -680,6 +696,16 @@
 		0CBA9BD516C950D30037E1A7 /* ALanguageScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ALanguageScreenViewController.xib; path = Screens/ALanguageScreenViewController.xib; sourceTree = "<group>"; };
 		0CBA9BDB16C95CB90037E1A7 /* checkMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkMark.png; path = Aircraft/res/checkMark.png; sourceTree = "<group>"; };
 		0CBA9BDC16C95CB90037E1A7 /* checkMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checkMark@2x.png"; path = "Aircraft/res/checkMark@2x.png"; sourceTree = "<group>"; };
+		0CBA9BE116C96C780037E1A7 /* AAboutAircraftScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AAboutAircraftScreenController.h; path = Screens/AAboutAircraftScreenController.h; sourceTree = "<group>"; };
+		0CBA9BE216C96C780037E1A7 /* AAboutAircraftScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AAboutAircraftScreenController.m; path = Screens/AAboutAircraftScreenController.m; sourceTree = "<group>"; };
+		0CBA9BE316C96C780037E1A7 /* AAboutAircraftScreenController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AAboutAircraftScreenController.xib; path = Screens/AAboutAircraftScreenController.xib; sourceTree = "<group>"; };
+		0CBA9BE816C96C9F0037E1A7 /* AHelpSupportScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AHelpSupportScreenViewController.h; path = Screens/AHelpSupportScreenViewController.h; sourceTree = "<group>"; };
+		0CBA9BE916C96C9F0037E1A7 /* AHelpSupportScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AHelpSupportScreenViewController.m; path = Screens/AHelpSupportScreenViewController.m; sourceTree = "<group>"; };
+		0CBA9BEA16C96C9F0037E1A7 /* AHelpSupportScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AHelpSupportScreenViewController.xib; path = Screens/AHelpSupportScreenViewController.xib; sourceTree = "<group>"; };
+		0CBA9BEF16C9A11F0037E1A7 /* guideBtn_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guideBtn_highlighted.png; path = Aircraft/res/guideBtn_highlighted.png; sourceTree = "<group>"; };
+		0CBA9BF016C9A11F0037E1A7 /* guideBtn_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "guideBtn_highlighted@2x.png"; path = "Aircraft/res/guideBtn_highlighted@2x.png"; sourceTree = "<group>"; };
+		0CBA9BF116C9A11F0037E1A7 /* guideBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = guideBtn.png; path = Aircraft/res/guideBtn.png; sourceTree = "<group>"; };
+		0CBA9BF216C9A11F0037E1A7 /* guideBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "guideBtn@2x.png"; path = "Aircraft/res/guideBtn@2x.png"; sourceTree = "<group>"; };
 		0CD7213116C6C73D001BAD5D /* ASetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASetting.h; sourceTree = "<group>"; };
 		0CD7213216C6C73D001BAD5D /* ASetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASetting.m; sourceTree = "<group>"; };
 		0CDB577816C5D98E004F5C93 /* explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = explosion.png; path = Aircraft/res/explosion.png; sourceTree = "<group>"; };
@@ -1142,6 +1168,12 @@
 				0CBA9BD316C950D30037E1A7 /* ALanguageScreenViewController.h */,
 				0CBA9BD416C950D30037E1A7 /* ALanguageScreenViewController.m */,
 				0CBA9BD516C950D30037E1A7 /* ALanguageScreenViewController.xib */,
+				0CBA9BE116C96C780037E1A7 /* AAboutAircraftScreenController.h */,
+				0CBA9BE216C96C780037E1A7 /* AAboutAircraftScreenController.m */,
+				0CBA9BE316C96C780037E1A7 /* AAboutAircraftScreenController.xib */,
+				0CBA9BE816C96C9F0037E1A7 /* AHelpSupportScreenViewController.h */,
+				0CBA9BE916C96C9F0037E1A7 /* AHelpSupportScreenViewController.m */,
+				0CBA9BEA16C96C9F0037E1A7 /* AHelpSupportScreenViewController.xib */,
 				0C71791516C2204F0017080F /* AGuideViewController.h */,
 				0C71791616C2204F0017080F /* AGuideViewController.m */,
 				0C71791716C2204F0017080F /* AGuideViewController.xib */,
@@ -1206,6 +1238,10 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				0CBA9BEF16C9A11F0037E1A7 /* guideBtn_highlighted.png */,
+				0CBA9BF016C9A11F0037E1A7 /* guideBtn_highlighted@2x.png */,
+				0CBA9BF116C9A11F0037E1A7 /* guideBtn.png */,
+				0CBA9BF216C9A11F0037E1A7 /* guideBtn@2x.png */,
 				0CBA9BDB16C95CB90037E1A7 /* checkMark.png */,
 				0CBA9BDC16C95CB90037E1A7 /* checkMark@2x.png */,
 				0C7017BB16C89023009EC7B6 /* lightBlackBackground.png */,
@@ -1667,6 +1703,12 @@
 				0CBA9BD816C950D30037E1A7 /* ALanguageScreenViewController.xib in Resources */,
 				0CBA9BDD16C95CB90037E1A7 /* checkMark.png in Resources */,
 				0CBA9BDF16C95CB90037E1A7 /* checkMark@2x.png in Resources */,
+				0CBA9BE616C96C780037E1A7 /* AAboutAircraftScreenController.xib in Resources */,
+				0CBA9BED16C96C9F0037E1A7 /* AHelpSupportScreenViewController.xib in Resources */,
+				0CBA9BF316C9A1200037E1A7 /* guideBtn_highlighted.png in Resources */,
+				0CBA9BF516C9A1200037E1A7 /* guideBtn_highlighted@2x.png in Resources */,
+				0CBA9BF716C9A1200037E1A7 /* guideBtn.png in Resources */,
+				0CBA9BF916C9A1200037E1A7 /* guideBtn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1914,6 +1956,12 @@
 				0CBA9BD916C950D30037E1A7 /* ALanguageScreenViewController.xib in Resources */,
 				0CBA9BDE16C95CB90037E1A7 /* checkMark.png in Resources */,
 				0CBA9BE016C95CB90037E1A7 /* checkMark@2x.png in Resources */,
+				0CBA9BE716C96C780037E1A7 /* AAboutAircraftScreenController.xib in Resources */,
+				0CBA9BEE16C96C9F0037E1A7 /* AHelpSupportScreenViewController.xib in Resources */,
+				0CBA9BF416C9A1200037E1A7 /* guideBtn_highlighted.png in Resources */,
+				0CBA9BF616C9A1200037E1A7 /* guideBtn_highlighted@2x.png in Resources */,
+				0CBA9BF816C9A1200037E1A7 /* guideBtn.png in Resources */,
+				0CBA9BFA16C9A1200037E1A7 /* guideBtn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1959,6 +2007,8 @@
 				0C708FB916C735E800A7BB10 /* AUIPopView.m in Sources */,
 				0C70179216C81978009EC7B6 /* ASettingScreenViewController.m in Sources */,
 				0CBA9BD616C950D30037E1A7 /* ALanguageScreenViewController.m in Sources */,
+				0CBA9BE416C96C780037E1A7 /* AAboutAircraftScreenController.m in Sources */,
+				0CBA9BEB16C96C9F0037E1A7 /* AHelpSupportScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2001,6 +2051,8 @@
 				0C708FBA16C735E800A7BB10 /* AUIPopView.m in Sources */,
 				0C70179316C81978009EC7B6 /* ASettingScreenViewController.m in Sources */,
 				0CBA9BD716C950D30037E1A7 /* ALanguageScreenViewController.m in Sources */,
+				0CBA9BE516C96C780037E1A7 /* AAboutAircraftScreenController.m in Sources */,
+				0CBA9BEC16C96C9F0037E1A7 /* AHelpSupportScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

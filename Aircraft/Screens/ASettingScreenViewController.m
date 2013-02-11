@@ -47,6 +47,7 @@
     self.informationLabel.text = ALocalisedString(@"information");
     self.aboutAircraftLabel.text = ALocalisedString(@"about_aircraft");
     self.helpSupportLabel.text = ALocalisedString(@"help_support");
+    self.title = ALocalisedString(@"setting_title");
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -160,12 +161,14 @@
 
 - (void)actionAboutSelected
 {
-    
+    AAboutAircraftScreenController *aboutVC = [[AAboutAircraftScreenController alloc] initWithNibName:@"AAboutAircraftScreenController" bundle:nil];
+    [[AAppDelegate sharedInstance] pushScreen:aboutVC animated:YES];
 }
 
 - (void)actionHelpSupportSelected
 {
-    
+    AHelpSupportScreenViewController *helpSupportVC = [[AHelpSupportScreenViewController alloc] initWithNibName:@"AHelpSupportScreenViewController" bundle:nil];
+    [[AAppDelegate sharedInstance] pushScreen:helpSupportVC animated:YES];
 }
 
 @end
