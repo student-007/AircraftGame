@@ -216,7 +216,8 @@
         {
             [competitorAircraftModels addObject:[AAircraftModel aircraftFromSavableDictionary:aircraftDic]];
         }
-#warning TODO: deal with competitor's aircraft models (competitorAircraftModels)
+        // save the competitor's aircraft model for game saving
+        [AGameRecordManager sharedInstance].enemyAircrafts = competitorAircraftModels;
         
         if (!_competitorStatus)
             _competitorStatus = [NSMutableDictionary dictionary];
@@ -252,6 +253,7 @@
         CGPoint attackPt = CGPointMake([attackMsg.row floatValue], [attackMsg.col floatValue]);
         NSString *attackResStr = [self.battleFldVCSelf attackResultInGridAtPoint:attackPt];
         
+        [self.battleFldVCSelf addEnemyAttackRecord:attackPt];
         [self.battleFldVCSelf displayAttackResultAtPoint:attackPt resultString:attackResStr];
         
         ANetMessageAttackR *replyMsg = [[ANetMessageAttackR alloc] init];
@@ -407,6 +409,7 @@
         {
             [dictionaryModelAry addObject:[model savableDictionary]];
         }
+        [AGameRecordManager sharedInstance].selfAircrafts = dictionaryModelAry;
         
         initialMsg.aircrafts = dictionaryModelAry;
         ANetMessage *netMsg = [ANetMessage messageWithFlag:kFlagInitial message:initialMsg];
@@ -477,7 +480,19 @@
 
 - (void)userPressedTool1Button
 {
+    // save the game
+    AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
+    recordMgr.selfAttackRecords = self.battleFldVCEnemy.attackRecordAry;
+    recordMgr.enemyAttackRecords = self.battleFldVCSelf.attackRecordAry;
+    recordMgr.isMyTurn = [NSNumber numberWithBool:_whosTurn == AWhosTurnUser ? YES : NO];
     
+    NSMutableDictionary *playTime = [NSMutableDictionary dictionary];
+    [playTime setValue:_dateWhenGameBegin forKey:@"startTime"];
+    [playTime setValue:[NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSince1970]] forKey:@"totalTime"];
+    [playTime setValue:[NSNumber numberWithFloat:self.opPanelVC.userSpendTime] forKey:@"selfTotalTime"];
+    [playTime setValue:[NSNumber numberWithFloat:self.opPanelVC.competitorSpendTime] forKey:@"enemyTotalTime"];
+    
+    recordMgr.playTime = playTime;//startTime, totalTime, selfTotalTime, enemyTotalTime
 }
 
 - (void)userPressedTool2Button

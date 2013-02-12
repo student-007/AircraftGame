@@ -33,4 +33,10 @@
     return sharedInstance;
 }
 
+- (void)saveGameToFile
+{
+    NSFileManager *fileMgr = [NSFileManager defaultManager];
+    
+}
+
 @end
