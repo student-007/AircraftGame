@@ -130,6 +130,16 @@
     [super viewDidUnload];
 }
 
+- (NSTimeInterval)userSpendTime
+{
+    return _userSpendTime;
+}
+
+- (NSTimeInterval)competitorSpendTime
+{
+    return _competitorSpendTime;
+}
+
 - (void)startTheGame
 {
     _userSpendTime = 0;

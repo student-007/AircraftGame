@@ -28,6 +28,9 @@ typedef enum
 @property (nonatomic) BattleFieldType type;     // default: BattleFieldNone
 @property (strong, nonatomic, readonly) NSMutableArray *aircraftModelAry;
 
+// array of [NSNumber, NSNumber]
+@property (nonatomic, strong) NSMutableArray *attackRecord;
+
 /*!
  @discussion ONLY call this method after setting up the property 'attackPoint', then attack will be recoreded for saving game.
  */

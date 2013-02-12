@@ -107,6 +107,12 @@
     return _battleFldModel.aircraftModelAry;
 }
 
+
+- (NSMutableArray *)attackRecordAry
+{
+    return _battleFldModel.attackRecord ? _battleFldModel.attackRecord : nil;
+}
+
 - (void)displayBattleField
 {
     if ([self.delegate respondsToSelector:@selector(displayBattleField:)])
@@ -338,6 +344,14 @@
     }
     else
         return NO;
+}
+
+- (void)addEnemyAttackRecord:(CGPoint)attPt
+{
+    NSArray *attRecord = [NSArray arrayWithObjects:[NSNumber numberWithInt:(int)attPt.x], [NSNumber numberWithInt:(int)attPt.y], nil];
+    
+    if (!_battleFldModel.attackRecord)  _battleFldModel.attackRecord = [NSMutableArray array];
+    [_battleFldModel.attackRecord addObject:attRecord];
 }
 
 - (CGPoint)attackedBasedOnPreviousMark

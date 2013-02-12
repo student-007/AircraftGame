@@ -20,6 +20,10 @@
 @property (assign, nonatomic) id<AOperationPanelViewControllerViewDelegate>viewDelegate;
 @property (assign, nonatomic) id<AOperationPanelViewControllerOperationDelegate>operationDelegate;
 
+@property (nonatomic, readonly) NSTimeInterval userSpendTime;
+@property (nonatomic, readonly) NSTimeInterval competitorSpendTime;
+
+
 @property (strong, nonatomic) IBOutlet UIView *aircraftHolderView;
 @property (strong, nonatomic) IBOutlet UIImageView *aircraftHolderBkgd;
 @property (strong, nonatomic) IBOutlet UIView *operationPanelView;
