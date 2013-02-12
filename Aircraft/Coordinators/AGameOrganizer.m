@@ -8,6 +8,9 @@
 
 #import "AGameOrganizer.h"
 
+#define kBattleEndResultWon        @"won"
+#define kBattleEndResultLost       @"lost"
+
 @interface AGameOrganizer ()
 {
     AGuideViewController *_guideVC;
@@ -22,7 +25,8 @@
 - (void)setupPlacingAircraftGuide;
 - (void)setupPlayScreenGuide;
 - (void)setupAttackPlayGuide;
-- (void)aircraftDestroyed;
+- (void)startTheGame;
+- (void)endBattleWithResult:(NSString *)resString keepConnectionAlive:(BOOL)YesOrNo;
 @end
 
 @implementation AGameOrganizer
@@ -52,6 +56,7 @@
         self.connectionType = ConnectionTypeNone;
         _numberOfAircraftPlaced = [NSNumber numberWithInt:0];
         _numberOfAircraftDestroyed = [NSNumber numberWithInt:0];
+        _numberOfSelfAircraftDestroyed  = [NSNumber numberWithInt:0];
         _whosTurn = AWhosTurnNone;
     }
     return self;
@@ -114,6 +119,7 @@
 - (void)startTheGame
 {
     _isGameBegin = YES;
+    _dateWhenGameBegin = [NSDate date];
     AUIPopView *popView = [AUIPopView popViewWithText:ALocalisedString(@"battle_start")
                                                 image:[UIImage imageForBlueRectBackground] 
                                                  size:CGSizeMake(210, 90) 
@@ -139,6 +145,15 @@
     {
         // do nothing
     }
+}
+
+- (void)endBattleWithResult:(NSString *)resString keepConnectionAlive:(BOOL)YesOrNo;
+{
+    _isGameBegin = NO;
+    NSDate *endBattleDate = [NSDate date];
+    NSTimeInterval totalPlayingTime = [endBattleDate timeIntervalSinceDate:_dateWhenGameBegin];
+    if (!YesOrNo)
+        [self reset];
 }
 
 #pragma mark - communication controls
@@ -273,8 +288,8 @@
     {
         ANetMessageAttackR *replyMsg = (ANetMessageAttackR *)netMessage.message;
         [self.battleFldVCEnemy displayPreviousAttackResultForString:replyMsg.attackResult];
-        if ([replyMsg.attackResult caseInsensitiveCompare:kAttackRDestroy] == NSOrderedSame)
-            [self aircraftDestroyed];
+//        if ([replyMsg.attackResult caseInsensitiveCompare:kAttackRDestroy] == NSOrderedSame)
+//            [self enemyAircraftDestroyed];
     }
     else if ([netMessage.flag isEqualToString:kFlagChat])
     {
@@ -289,11 +304,11 @@
     {
         ANetMessageSurrender *surrenderMsg = (ANetMessageSurrender *)netMessage.message;
         NSString *surrenderType = surrenderMsg.type;
-        if ([surrenderType caseInsensitiveCompare:@"lose"] == NSOrderedSame)
+        if ([surrenderType caseInsensitiveCompare:kSurrenderTypeLost] == NSOrderedSame)
         {
 #warning TODO: tell user that "You won!"
         }
-        else if ([surrenderType caseInsensitiveCompare:@"escape"] == NSOrderedSame)
+        else if ([surrenderType caseInsensitiveCompare:kSurrenderTypeEscape] == NSOrderedSame)
         {
 #warning TODO: tell user that "competitor escaped, you won"
         }
@@ -439,9 +454,6 @@
                     _whosTurn = AWhosTurnUser;
                 }
                 
-                _isGameBegin = YES;
-                _dateWhenGameBegin = [NSDate date];
-                
                 [self startTheGame];
             }
         }
@@ -480,19 +492,27 @@
 
 - (void)userPressedTool1Button
 {
-    // save the game
-    AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
-    recordMgr.selfAttackRecords = self.battleFldVCEnemy.attackRecordAry;
-    recordMgr.enemyAttackRecords = self.battleFldVCSelf.attackRecordAry;
-    recordMgr.isMyTurn = [NSNumber numberWithBool:_whosTurn == AWhosTurnUser ? YES : NO];
+//    if (_isGameBegin)
+//    {
+        // save the game
+    _dateWhenGameBegin = [NSDate date];
     
-    NSMutableDictionary *playTime = [NSMutableDictionary dictionary];
-    [playTime setValue:_dateWhenGameBegin forKey:@"startTime"];
-    [playTime setValue:[NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSince1970]] forKey:@"totalTime"];
-    [playTime setValue:[NSNumber numberWithFloat:self.opPanelVC.userSpendTime] forKey:@"selfTotalTime"];
-    [playTime setValue:[NSNumber numberWithFloat:self.opPanelVC.competitorSpendTime] forKey:@"enemyTotalTime"];
-    
-    recordMgr.playTime = playTime;//startTime, totalTime, selfTotalTime, enemyTotalTime
+        AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
+        recordMgr.selfAttackRecords = self.battleFldVCEnemy.attackRecordAry;
+        recordMgr.enemyAttackRecords = self.battleFldVCSelf.attackRecordAry;
+        recordMgr.isMyTurn = [NSNumber numberWithBool:_whosTurn == AWhosTurnUser ? YES : NO];
+        
+        NSMutableDictionary *playTime = [NSMutableDictionary dictionary];
+        [playTime setValue:[NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSince1970]] forKey:@"startTime"];
+        [playTime setValue:[NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSinceNow]] forKey:@"totalTime"];
+        [playTime setValue:[NSNumber numberWithFloat:self.opPanelVC.userSpendTime] forKey:@"selfTotalTime"];
+        [playTime setValue:[NSNumber numberWithFloat:self.opPanelVC.competitorSpendTime] forKey:@"enemyTotalTime"];
+        recordMgr.playTime = playTime;//startTime, totalTime, selfTotalTime, enemyTotalTime
+        
+        [recordMgr saveGameToFile];
+//    }
+//    else
+//        [self.chatVC addNewMessage:ALocalisedString(@"save_only_after_game_begin") toChattingTableWithType:AChattingMsgTypeHelpMsg];
 }
 
 - (void)userPressedTool2Button
@@ -562,21 +582,55 @@
         return nil;
 }
 
-- (void)aircraftDestroyed
+- (void)aircraftDestroyedAtField:(BattleFieldType)fieldType
 {
-    if (!_numberOfAircraftDestroyed) 
-        _numberOfAircraftDestroyed = [NSNumber numberWithInt:1];
-    else
-        _numberOfAircraftDestroyed = [NSNumber numberWithInt:([_numberOfAircraftDestroyed intValue] + 1)]; 
-    
-    NSInteger numberOfAircraftDestroyed = [_numberOfAircraftDestroyed intValue];
-    if (numberOfAircraftDestroyed <= 2)
+    if (fieldType == BattleFieldEnemy) 
     {
-        AUIPopView *popView = [AUIPopView popViewWithText:[NSString stringWithFormat:@"%@\n%d %@", ALocalisedString(@"you_destoryed_aircraft"), 3 - numberOfAircraftDestroyed, ALocalisedString(@"n_to_go")] 
-                                                    image:[UIImage imageForBlueRectBackground] 
-                                                     size:CGSizeMake(260, 90) 
-                                         dissmissDuration:3.5];
-        [popView show];
+        if (!_numberOfAircraftDestroyed) 
+            _numberOfAircraftDestroyed = [NSNumber numberWithInt:1];
+        else
+            _numberOfAircraftDestroyed = [NSNumber numberWithInt:([_numberOfAircraftDestroyed intValue] + 1)]; 
+        
+        NSInteger numberOfAircraftDestroyed = [_numberOfAircraftDestroyed intValue];
+        if (numberOfAircraftDestroyed <= 2)
+        {
+            AUIPopView *popView = [AUIPopView popViewWithText:[NSString stringWithFormat:@"%@\n%d %@", ALocalisedString(@"you_destoryed_aircraft"), 3 - numberOfAircraftDestroyed, ALocalisedString(@"n_to_go")] 
+                                                        image:[UIImage imageForBlueRectBackground] 
+                                                         size:CGSizeMake(260, 90) 
+                                             dissmissDuration:3.5];
+            [popView show];
+        }
+//        else
+//            win message will be checked/called when receive surrender Msg
+    }
+    else if (fieldType == BattleFieldSelf)// if self aircraft has been destroyed
+    {
+        if (!_numberOfSelfAircraftDestroyed) 
+            _numberOfSelfAircraftDestroyed = [NSNumber numberWithInt:1];
+        else
+            _numberOfSelfAircraftDestroyed = [NSNumber numberWithInt:([_numberOfSelfAircraftDestroyed intValue] + 1)]; 
+        
+        NSInteger numberOfSelfAircraftDestroyed = [_numberOfSelfAircraftDestroyed intValue];
+        if (numberOfSelfAircraftDestroyed <= 2)
+        {
+            AUIPopView *popView = [AUIPopView popViewWithText:[NSString stringWithFormat:@"%@\n%d %@", ALocalisedString(@"your_aircraft_destoryed"), 3 - numberOfSelfAircraftDestroyed, ALocalisedString(@"n_left")] 
+                                                        image:[UIImage imageForBlueRectBackground] 
+                                                         size:CGSizeMake(260, 90) 
+                                             dissmissDuration:3.5];
+            [popView show];
+        }
+        else
+        {
+            ANetMessageSurrender *surrenderMsg = [[ANetMessageSurrender alloc] init];
+            surrenderMsg.type = kSurrenderTypeLost;
+            ANetMessage *netMessage = [ANetMessage messageWithFlag:kFlagSurrender message:surrenderMsg];
+            [self.communicator sendMessage:netMessage];
+            [self endBattleWithResult:kBattleEndResultLost keepConnectionAlive:YES];
+        }
+    }
+    else if (fieldType == BattleFieldNone)
+    {
+        // here would be an error
     }
 }
 

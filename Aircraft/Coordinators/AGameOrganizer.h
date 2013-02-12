@@ -29,6 +29,7 @@ typedef enum
     // game status data
     NSNumber *_numberOfAircraftPlaced;
     NSNumber *_numberOfAircraftDestroyed;       // default: 0
+    NSNumber *_numberOfSelfAircraftDestroyed;   // default: 0
     
     BOOL _isGameBegin;  // default is NO
     NSDate *_dateWhenGameBegin;
