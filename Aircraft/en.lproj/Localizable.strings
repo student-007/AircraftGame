@@ -43,6 +43,9 @@
 "restart_battle" = "Please restart a battle.";
 "you_destoryed_aircraft" = "You just destoryed an aircraft!";
 "n_to_go" = "to go.";
+"your_aircraft_destoryed" = "One of your aircrafts has been destoryed.";
+"n_left" = "left.";
+"save_only_after_game_begin" = "You can save a game only after battle starts.";
 
 // guide
 "drag_to_place_aircraft_tip" = "You can drag and release an aircraft to place it here, or drag it out of the field to remove.";

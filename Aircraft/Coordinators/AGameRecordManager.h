@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSMutableDictionary *playTime;    //keys: startTime, totalTime, selfTotalTime, enemyTotalTime
 
 @property (nonatomic, strong) NSNumber *isMyTurn;
+@property (nonatomic, strong) NSString *competitorName;
 
 + (AGameRecordManager *)sharedInstance;
 

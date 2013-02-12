@@ -90,6 +90,7 @@
 @optional
 - (void)attackPositionMarked:(BOOL)onPreviousAttackedPos;
 - (void)attackPositionUnmarked;
+- (void)aircraftDestroyedAtField:(BattleFieldType)fieldType;
 /*!
  @discussion this will be called when display a destroy result of an attack.
  */
