@@ -14,6 +14,7 @@
 #import "AChattingMessageItem.h"
 #import "AGuideViewController.h"
 #import "AUIPopView.h"
+#import "AGameRecordManager.h"
 #import "ASetting.h"
 
 typedef enum

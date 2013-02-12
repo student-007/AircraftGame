@@ -21,6 +21,7 @@
 }
 
 @property (nonatomic, readonly) NSMutableArray *aircraftModelAry;
+@property (nonatomic, readonly) NSMutableArray *attackRecordAry;
 
 @property (nonatomic) BattleFieldType faction;
 @property (assign, nonatomic) id<ABattleFieldVCDelegate> delegate;
@@ -30,6 +31,11 @@
 
 
 - (BOOL)addAircraft:(AAircraftModel *)aircraft;
+
+/*!
+ @discussion call this method for self field only, this can save enemy attack records
+ */
+- (void)addEnemyAttackRecord:(CGPoint)attPt;
 
 /*!
  @discussion set to display the battle field(self/enemy) in scroll view

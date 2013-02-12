@@ -22,4 +22,7 @@
 
 + (AGameRecordManager *)sharedInstance;
 
+- (void)saveGameToFile;
+
 @end
+ 

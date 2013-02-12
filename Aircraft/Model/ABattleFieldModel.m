@@ -10,8 +10,7 @@
 
 @interface ABattleFieldModel()
 
-// array of [NSNumber, NSNumber]
-@property (nonatomic, strong) NSMutableArray *attackRecord;
+
 
 @end
 
