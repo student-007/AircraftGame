@@ -25,6 +25,9 @@
 #define kAttackRHit         @"hit"
 #define kAttackRDestroy     @"destroy"
 
+#define kSurrenderTypeLost  @"surrenderTypeLost"
+#define kSurrenderTypeEscape  @"surrenderTypeEscape"
+
 @interface ANetMessage : NSObject
 
 @property (strong, nonatomic) NSString *sender;
