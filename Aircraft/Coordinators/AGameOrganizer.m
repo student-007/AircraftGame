@@ -8,8 +8,9 @@
 
 #import "AGameOrganizer.h"
 
-#define kBattleEndResultWon        @"won"
-#define kBattleEndResultLost       @"lost"
+#define kBattleEndResultWon             @"won"
+#define kBattleEndResultWonEnemyEscape  @"wonEscape"
+#define kBattleEndResultLost            @"lost"
 
 @interface AGameOrganizer ()
 {
@@ -152,6 +153,20 @@
     _isGameBegin = NO;
     NSDate *endBattleDate = [NSDate date];
     NSTimeInterval totalPlayingTime = [endBattleDate timeIntervalSinceDate:_dateWhenGameBegin];
+    
+    if ([resString caseInsensitiveCompare:kBattleEndResultWon] == NSOrderedSame) 
+    {
+#warning TODO: user won (normal)
+    }
+    else if ([resString caseInsensitiveCompare:kBattleEndResultWonEnemyEscape] == NSOrderedSame) 
+    {
+#warning TODO: user won (competitor escape)
+    }
+    else if ([resString caseInsensitiveCompare:kBattleEndResultLost] == NSOrderedSame) 
+    {
+#warning TODO: user lost
+    }
+    
     if (!YesOrNo)
         [self reset];
 }
@@ -306,11 +321,11 @@
         NSString *surrenderType = surrenderMsg.type;
         if ([surrenderType caseInsensitiveCompare:kSurrenderTypeLost] == NSOrderedSame)
         {
-#warning TODO: tell user that "You won!"
+            [self endBattleWithResult:kBattleEndResultWon keepConnectionAlive:YES];
         }
         else if ([surrenderType caseInsensitiveCompare:kSurrenderTypeEscape] == NSOrderedSame)
         {
-#warning TODO: tell user that "competitor escaped, you won"
+            [self endBattleWithResult:kBattleEndResultWonEnemyEscape keepConnectionAlive:YES];
         }
     }
     else if ([netMessage.flag isEqualToString:kFlagSurrenderR])
@@ -479,8 +494,9 @@
     if (_competitorStatus && self.communicator != nil)
     {
         ANetMessageSurrender *surrenderMsg = [[ANetMessageSurrender alloc] init];
-        surrenderMsg.type = @"escape";
+        surrenderMsg.type = kSurrenderTypeEscape;
         [self.communicator sendMessage:[ANetMessage messageWithFlag:kFlagSurrender message:surrenderMsg]];
+        [self endBattleWithResult:kBattleEndResultWonEnemyEscape keepConnectionAlive:NO];
     }
     else
     {
