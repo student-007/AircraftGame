@@ -41,14 +41,14 @@
     NSNumber *startTime = [self.playTime valueForKey:@"startTime"];// use start time (seconds since 1970) as saved game file name
     savedGameDirPath = [savedGameDirPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%.fwith%@.sav", [startTime floatValue], self.competitorName]];
     
-    NSDictionary *gameRecord = [NSDictionary dictionaryWithObjectsAndKeys:
-                                self.selfAircrafts, @"selfAircrafts",
-                                self.enemyAircrafts, @"enemyAircrafts",
-                                self.selfAttackRecords, @"selfAttackRecords",
-                                self.enemyAttackRecords, @"enemyAttackRecords",
-                                self.playTime, @"playTime",
-                                self.isMyTurn, @"isMyTurn", 
-                                self.competitorName, @"competitorName", nil];
+    NSDictionary *gameRecord = [NSDictionary dictionary];
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.selfAircrafts, @"selfAircrafts");
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.enemyAircrafts, @"enemyAircrafts");
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.selfAttackRecords, @"selfAttackRecords");
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.enemyAttackRecords, @"enemyAttackRecords");
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.playTime, @"playTime");
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.isMyTurn, @"isMyTurn");
+    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.competitorName, @"competitorName");
     
     BOOL isSaved = [gameRecord writeToFile:savedGameDirPath atomically:YES];
 //    NSFileManager *fileMgr = [NSFileManager defaultManager];
