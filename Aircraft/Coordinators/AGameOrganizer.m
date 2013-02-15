@@ -630,7 +630,7 @@
         if (numberOfSelfAircraftDestroyed <= 2)
         {
             AUIPopView *popView = [AUIPopView popViewWithText:[NSString stringWithFormat:@"%@\n%d %@", ALocalisedString(@"your_aircraft_destoryed"), 3 - numberOfSelfAircraftDestroyed, ALocalisedString(@"n_left")] 
-                                                        image:[UIImage imageForBlueRectBackground] 
+                                                        image:[UIImage imageForOrangeRectBackground] 
                                                          size:CGSizeMake(260, 90) 
                                              dissmissDuration:3.5];
             [popView show];
