@@ -8,6 +8,8 @@
 
 #import "AGameRecordManager.h"
 
+#define kSavedFileNameSeparator     @"$with$"
+
 @interface AGameRecordManager()
 {
 }
@@ -23,6 +25,8 @@
 @synthesize playTime = _playTime;    //keys: startTime, totalTime, selfTotalTime, enemyTotalTime
 @synthesize isMyTurn = _isMyTurn;
 @synthesize competitorName = _competitorName;
+@synthesize gameId = _gameId;
+@synthesize actionType = _actionType;
 
 + (AGameRecordManager *)sharedInstance
 {
@@ -34,24 +38,67 @@
     return sharedInstance;
 }
 
+- (id)init
+{
+    if (self = [super init]) 
+    {
+        _actionType = AActionTypeNone;
+    }
+    
+    return self;
+}
+
 - (void)saveGameToFile
 {
+    NSFileManager *fileMgr = [NSFileManager defaultManager];
+    
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0];
     NSString *savedGameDirPath = [documentPath stringByAppendingPathComponent:@"savedGame"];
-    NSNumber *startTime = [self.playTime valueForKey:@"startTime"];// use start time (seconds since 1970) as saved game file name
-    savedGameDirPath = [savedGameDirPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%.fwith%@.sav", [startTime floatValue], self.competitorName]];
+    BOOL isDirectory = NO;
+    if (![fileMgr fileExistsAtPath:savedGameDirPath isDirectory:&isDirectory]) 
+    {
+        NSError *error = nil;
+        if (![fileMgr createDirectoryAtPath:savedGameDirPath withIntermediateDirectories:YES attributes:nil error:&error])
+        {
+            [AErrorFacade LogError:error];
+            return;
+        }
+    }
+    else
+    {
+        if (!isDirectory) // in case it is a normal file but directory
+        {
+            NSError *error = nil;
+            if (![fileMgr createDirectoryAtPath:savedGameDirPath withIntermediateDirectories:YES attributes:nil error:&error])
+            {
+                [AErrorFacade LogError:error];
+                return;
+            }
+        }
+    }
     
-    NSDictionary *gameRecord = [NSDictionary dictionary];
-    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.selfAircrafts, @"selfAircrafts");
-    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.enemyAircrafts, @"enemyAircrafts");
-    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.selfAttackRecords, @"selfAttackRecords");
-    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.enemyAttackRecords, @"enemyAttackRecords");
-    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.playTime, @"playTime");
-    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.isMyTurn, @"isMyTurn");
-    DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(gameRecord, self.competitorName, @"competitorName");
+    savedGameDirPath = [savedGameDirPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@%@.sav", 
+                                                                         self.gameId, kSavedFileNameSeparator, self.competitorName]];
+    
+    NSMutableDictionary *gameRecord = [NSMutableDictionary dictionary];
+    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.selfAircrafts, @"selfAircrafts");
+    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.enemyAircrafts, @"enemyAircrafts");
+    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.selfAttackRecords, @"selfAttackRecords");
+    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.enemyAttackRecords, @"enemyAttackRecords");
+    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.playTime, @"playTime");
+    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.isMyTurn, @"isMyTurn");
+    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.competitorName, @"competitorName");
+    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.gameId, @"gameId");
     
     BOOL isSaved = [gameRecord writeToFile:savedGameDirPath atomically:YES];
-//    NSFileManager *fileMgr = [NSFileManager defaultManager];
+    if (isSaved) 
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationGameSaved object:self userInfo:nil];
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSaveGameFailed object:self userInfo:nil];
+    }
 }
 
 @end

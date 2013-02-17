@@ -34,6 +34,7 @@ typedef enum
     BOOL _isGameBegin;  // default is NO
     NSDate *_dateWhenGameBegin;
     NSDate *_dateWhenGameEnd;
+    NSString *_gameId;  // this should be the time(seconds in string) when sending init msg
     
     NSMutableDictionary *_userStatus;
     NSMutableDictionary *_competitorStatus;
