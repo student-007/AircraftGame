@@ -53,6 +53,7 @@
 @interface ANetMessageInitial : ANetMessageBaseMessage
 @property (nonatomic) BOOL isHost;
 @property (strong, nonatomic) NSArray *aircrafts;
+@property (strong, nonatomic) NSString *gameId;
 @end
 
 @interface ANetMessageInitialR : ANetMessageBaseReply

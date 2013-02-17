@@ -47,6 +47,7 @@
 @implementation ANetMessageInitial
 @synthesize isHost = _isHost;
 @synthesize aircrafts = _aircrafts;
+@synthesize gameId = _gameId;
 @end
 
 @implementation ANetMessageInitialR

@@ -41,11 +41,20 @@
 "connection_lost_due_to" = "Your connection was lost due to:";
 "connection_lost" = "Your connection was lost.";
 "restart_battle" = "Please restart a battle.";
+// Opponent's attack missed at \n row: 3 col: 2 \n Your turn now.
+"hit_missed_at" = "Opponent's attack missed at";
+// Opponent's attack hits an aircraft at \n row: 3 col: 2 \n Your turn now.
+"hit_at" = "Opponent's attack hits an aircraft at";
+"row" = "Row";
+"column" = "Column";
+"your_turn_now" = "Your turn now.";
 "you_destoryed_aircraft" = "You just destoryed an aircraft!";
 "n_to_go" = "to go.";
 "your_aircraft_destoryed" = "One of your aircrafts has been destoryed.";
 "n_left" = "left.";
 "save_only_after_game_begin" = "You can save a game only after battle starts.";
+"game_record_saved" = "You have saved current gaming status.";
+"game_saved_request_by_competitor" = "Opponent has just saved game status, so do you :)";
 
 // guide
 "drag_to_place_aircraft_tip" = "You can drag and release an aircraft to place it here, or drag it out of the field to remove.";

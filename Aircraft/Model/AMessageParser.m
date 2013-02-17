@@ -112,6 +112,7 @@
         resDic = [NSMutableDictionary dictionary];
         ANetMessageInitial *msg = InternalMsg;
         NSNumber *isHost = [NSNumber numberWithBool:msg.isHost];
+        DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(resDic, msg.gameId, @"GAME_ID");
         DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(resDic, isHost, @"IS_HOST");
         DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(resDic, msg.aircrafts, @"AIRCRAFTS");
         return resDic;
@@ -217,6 +218,7 @@
         DICT_GET_OBJECT(source, isHost, @"IS_HOST");
         msg.isHost = isHost ? [isHost boolValue] : NO;
         DICT_GET_OBJECT(source, msg.aircrafts, @"AIRCRAFTS");
+        DICT_GET_OBJECT(source, msg.gameId, @"GAME_ID");
         return msg;
     }
     else if ([className isEqualToString:@"ANetMessageInitialR"])

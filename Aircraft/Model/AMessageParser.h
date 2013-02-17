@@ -78,6 +78,47 @@ _obj = _value;\
 } while (0)
 
 /*!
+ @discussion set the value(_obj) to a dictionary(_dict) on the given key(_key) only when the value if not nil
+ */
+#define DICT_SETOBJECT_IFAVAILABLE(_dict, _obj, _key)\
+do {\
+\
+if (nil == _obj)\
+{\
+break;\
+}\
+\
+if ([_obj respondsToSelector:@selector(length)])\
+{\
+if ([(id)_obj length] <= 0)\
+{\
+break;\
+}\
+}\
+\
+if ([_obj respondsToSelector:@selector(count)])\
+{\
+if ([_obj isKindOfClass:[NSArray class]])\
+{\
+if ([(NSArray *)_obj count] <= 0)\
+{\
+break;\
+}\
+}\
+else if ([_obj isKindOfClass:[NSDictionary class]]) \
+{\
+if ([(NSDictionary *)_obj count] <= 0)\
+{\
+break;\
+}\
+}\
+}\
+\
+[_dict setValue:(_obj) forKeyPath:(_key)];\
+\
+} while (0)
+
+/*!
  @discussion set the value(_obj) to a dictionary(_dict) on the given key(_key)
  */
 #define DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(_dict, _obj, _key)\

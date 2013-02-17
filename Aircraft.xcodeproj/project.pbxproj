@@ -69,6 +69,10 @@
 		0C64582416BF99CE001EBD9E /* ribbon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64582116BF99CE001EBD9E /* ribbon2.png */; };
 		0C64582516BF99CE001EBD9E /* ribbon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64582216BF99CE001EBD9E /* ribbon2@2x.png */; };
 		0C64582616BF99CE001EBD9E /* ribbon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C64582216BF99CE001EBD9E /* ribbon2@2x.png */; };
+		0C6CED8116CDE42400B9C069 /* rectBackground_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6CED7F16CDE42400B9C069 /* rectBackground_orange.png */; };
+		0C6CED8216CDE42400B9C069 /* rectBackground_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6CED7F16CDE42400B9C069 /* rectBackground_orange.png */; };
+		0C6CED8316CDE42400B9C069 /* rectBackground_orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6CED8016CDE42400B9C069 /* rectBackground_orange@2x.png */; };
+		0C6CED8416CDE42400B9C069 /* rectBackground_orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6CED8016CDE42400B9C069 /* rectBackground_orange@2x.png */; };
 		0C6F8DD016C099950043DF30 /* attackMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F8DCE16C099950043DF30 /* attackMark.png */; };
 		0C6F8DD116C099950043DF30 /* attackMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F8DCE16C099950043DF30 /* attackMark.png */; };
 		0C6F8DD216C099950043DF30 /* attackMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6F8DCF16C099950043DF30 /* attackMark@2x.png */; };
@@ -438,6 +442,8 @@
 		0C64581816BF904A001EBD9E /* turnIndicator_target@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "turnIndicator_target@2x.png"; path = "Aircraft/res/turnIndicator_target@2x.png"; sourceTree = "<group>"; };
 		0C64582116BF99CE001EBD9E /* ribbon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ribbon2.png; path = Aircraft/res/ribbon2.png; sourceTree = "<group>"; };
 		0C64582216BF99CE001EBD9E /* ribbon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ribbon2@2x.png"; path = "Aircraft/res/ribbon2@2x.png"; sourceTree = "<group>"; };
+		0C6CED7F16CDE42400B9C069 /* rectBackground_orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rectBackground_orange.png; path = Aircraft/res/rectBackground_orange.png; sourceTree = "<group>"; };
+		0C6CED8016CDE42400B9C069 /* rectBackground_orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rectBackground_orange@2x.png"; path = "Aircraft/res/rectBackground_orange@2x.png"; sourceTree = "<group>"; };
 		0C6F8DCE16C099950043DF30 /* attackMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = attackMark.png; path = Aircraft/res/attackMark.png; sourceTree = "<group>"; };
 		0C6F8DCF16C099950043DF30 /* attackMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "attackMark@2x.png"; path = "Aircraft/res/attackMark@2x.png"; sourceTree = "<group>"; };
 		0C6F8DD516C0AF220043DF30 /* attackBtn_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = attackBtn_highlighted.png; path = Aircraft/res/attackBtn_highlighted.png; sourceTree = "<group>"; };
@@ -876,6 +882,8 @@
 				0CBA9BFB16CA10290037E1A7 /* explosionAnimation */,
 				0CBA9BEF16C9A11F0037E1A7 /* guideBtn_highlighted.png */,
 				0CBA9BF016C9A11F0037E1A7 /* guideBtn_highlighted@2x.png */,
+				0C6CED7F16CDE42400B9C069 /* rectBackground_orange.png */,
+				0C6CED8016CDE42400B9C069 /* rectBackground_orange@2x.png */,
 				0CBA9BF116C9A11F0037E1A7 /* guideBtn.png */,
 				0CBA9BF216C9A11F0037E1A7 /* guideBtn@2x.png */,
 				0CBA9BDB16C95CB90037E1A7 /* checkMark.png */,
@@ -1255,6 +1263,8 @@
 				0CBA9BF716C9A1200037E1A7 /* guideBtn.png in Resources */,
 				0CBA9BF916C9A1200037E1A7 /* guideBtn@2x.png in Resources */,
 				0CBA9BFC16CA10290037E1A7 /* explosionAnimation in Resources */,
+				0C6CED8116CDE42400B9C069 /* rectBackground_orange.png in Resources */,
+				0C6CED8316CDE42400B9C069 /* rectBackground_orange@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1419,6 +1429,8 @@
 				0CBA9BF816C9A1200037E1A7 /* guideBtn.png in Resources */,
 				0CBA9BFA16C9A1200037E1A7 /* guideBtn@2x.png in Resources */,
 				0CBA9BFD16CA10290037E1A7 /* explosionAnimation in Resources */,
+				0C6CED8216CDE42400B9C069 /* rectBackground_orange.png in Resources */,
+				0C6CED8416CDE42400B9C069 /* rectBackground_orange@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

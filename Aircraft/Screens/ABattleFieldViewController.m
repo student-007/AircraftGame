@@ -409,6 +409,17 @@
             resultLabel.text = @"\uE049";
             resultLabel.backgroundColor = [UIColor clearColor];
             [self.battleFieldImgView addSubview:resultLabel];
+            
+            if (self.faction == BattleFieldSelf) 
+            {
+                AUIPopView *popView = [AUIPopView popViewWithText:[NSString stringWithFormat:@"%@\n%@: %d %@: %d\n%@", ALocalisedString(@"hit_missed_at"),
+                                                                   ALocalisedString(@"row"), (int)point.x + 1, ALocalisedString(@"column"), (int)point.y + 1, 
+                                                                   ALocalisedString(@"your_turn_now")] 
+                                                            image:[UIImage imageForBlueRectBackground] 
+                                                             size:CGSizeMake(260, 110) 
+                                                 dissmissDuration:3.5];
+                [popView show];
+            }
         }
         else if ([resString caseInsensitiveCompare:kAttackRHit] == NSOrderedSame)
         {
@@ -428,6 +439,17 @@
             [UIView setAnimationDuration:1.5f];
             resultImgView.alpha = 1;
             [UIView commitAnimations];
+            
+            if (self.faction == BattleFieldSelf) 
+            {
+                AUIPopView *popView = [AUIPopView popViewWithText:[NSString stringWithFormat:@"%@\n%@: %d %@: %d\n%@", ALocalisedString(@"hit_at"),
+                                                                   ALocalisedString(@"row"), (int)point.x + 1, ALocalisedString(@"column"), (int)point.y + 1, 
+                                                                   ALocalisedString(@"your_turn_now")] 
+                                                            image:[UIImage imageForOrangeRectBackground] 
+                                                             size:CGSizeMake(260, 110) 
+                                                 dissmissDuration:4];
+                [popView show];
+            }
         }
         else if ([resString caseInsensitiveCompare:kAttackRDestroy] == NSOrderedSame)
         {
