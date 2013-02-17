@@ -90,7 +90,7 @@
 //            self.sessionConnection.available = NO;
             [self.peerPicker dismiss];
             if ([self.listener respondsToSelector:@selector(connectionEstablishedWith:)])
-                [self.listener connectionEstablishedWith:session.displayName];
+                [self.listener connectionEstablishedWith:[session displayNameForPeer:peerID]];
         }
             break;
         case GKPeerStateDisconnected:

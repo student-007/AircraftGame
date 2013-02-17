@@ -15,6 +15,7 @@
 + (UIImage *)imageForBlackRectBackground;
 + (UIImage *)imageForDarkGuideBackground;
 + (UIImage *)imageForBlueRectBackground;
++ (UIImage *)imageForOrangeRectBackground;
 + (UIImage *)imageForDarkLightRectBackground;
 
 @end

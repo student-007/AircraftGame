@@ -28,6 +28,7 @@
 - (void)setupAttackPlayGuide;
 - (void)startTheGame;
 - (void)endBattleWithResult:(NSString *)resString keepConnectionAlive:(BOOL)YesOrNo;
+- (void)saveCurrentGamingStatus;
 @end
 
 @implementation AGameOrganizer
@@ -59,12 +60,16 @@
         _numberOfAircraftDestroyed = [NSNumber numberWithInt:0];
         _numberOfSelfAircraftDestroyed  = [NSNumber numberWithInt:0];
         _whosTurn = AWhosTurnNone;
+        _gameId = @"";
     }
     return self;
 }
 
 - (void)reset
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationGameSaved object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationSaveGameFailed object:nil];
+    
     [self.communicator closeConnection];
     self.chatVC = nil;
     self.battleFldVCEnemy = nil;
@@ -77,6 +82,7 @@
     _dateWhenGameEnd = nil;
     _userStatus = nil;
     _competitorStatus = nil;
+    _gameId = nil;
 }
 
 - (NSDictionary *)gameStatus
@@ -121,6 +127,9 @@
 {
     _isGameBegin = YES;
     _dateWhenGameBegin = [NSDate date];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameRecordSaved:) name:kNotificationGameSaved object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveGameRecordFailed:) name:kNotificationSaveGameFailed object:nil];
+    
     AUIPopView *popView = [AUIPopView popViewWithText:ALocalisedString(@"battle_start")
                                                 image:[UIImage imageForBlueRectBackground] 
                                                  size:CGSizeMake(210, 90) 
@@ -148,10 +157,35 @@
     }
 }
 
+- (void)saveCurrentGamingStatus
+{
+    if (!_dateWhenGameBegin)
+        _dateWhenGameBegin = [NSDate date];
+    
+    AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
+    recordMgr.gameId = _gameId;
+    recordMgr.selfAttackRecords = self.battleFldVCEnemy.attackRecordAry;
+    recordMgr.enemyAttackRecords = self.battleFldVCSelf.attackRecordAry;
+    recordMgr.isMyTurn = [NSNumber numberWithBool:_whosTurn == AWhosTurnUser ? YES : NO];
+    
+    NSMutableDictionary *playTime = [NSMutableDictionary dictionary];
+    [playTime setValue:[NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSince1970]] forKey:@"startTime"];
+    [playTime setValue:[NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSinceNow]] forKey:@"totalTime"];
+    [playTime setValue:[NSNumber numberWithFloat:self.opPanelVC.userSpendTime] forKey:@"selfTotalTime"];
+    [playTime setValue:[NSNumber numberWithFloat:self.opPanelVC.competitorSpendTime] forKey:@"enemyTotalTime"];
+    recordMgr.playTime = playTime;//startTime, totalTime, selfTotalTime, enemyTotalTime
+    
+    [recordMgr saveGameToFile];
+}
+
 - (void)endBattleWithResult:(NSString *)resString keepConnectionAlive:(BOOL)YesOrNo;
 {
     _isGameBegin = NO;
     NSDate *endBattleDate = [NSDate date];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationGameSaved object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationSaveGameFailed object:nil];
+    
     NSTimeInterval totalPlayingTime = [endBattleDate timeIntervalSinceDate:_dateWhenGameBegin];
     
     if ([resString caseInsensitiveCompare:kBattleEndResultWon] == NSOrderedSame) 
@@ -171,10 +205,55 @@
         [self reset];
 }
 
+- (void)gameRecordSaved:(NSNotification *)notification
+{
+    AGameRecordManager *recordMgr = notification.object;
+    switch (recordMgr.actionType) 
+    {
+        case AActionTypeNone:
+        {
+        }
+            break;
+        case AActionTypeUserAction:
+        {
+            AUIPopView *popView = [AUIPopView popViewWithText:ALocalisedString(@"game_record_saved")
+                                                        image:[UIImage imageForBlueRectBackground] 
+                                                         size:CGSizeMake(240, 90) 
+                                             dissmissDuration:3.5];
+            [popView show];
+            
+            ANetMessageSave *saveMsg = [[ANetMessageSave alloc] init];
+            saveMsg.gameId = recordMgr.gameId;
+            saveMsg.isMyTurn = _whosTurn == AWhosTurnUser ? YES : NO;
+            saveMsg.attackRecords = [NSArray array];
+            ANetMessage *netMsg = [ANetMessage messageWithFlag:kFlagSave message:saveMsg];
+            [self.communicator sendMessage:netMsg];
+            [AGameRecordManager sharedInstance].actionType = AActionTypeNone;
+        }
+            break;
+        case AActionTypeCompetitorAction:
+        {
+            [self.chatVC addNewMessage:ALocalisedString(@"game_saved_request_by_competitor") toChattingTableWithType:AChattingMsgTypeHelpMsg];
+            [AGameRecordManager sharedInstance].actionType = AActionTypeNone;
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)saveGameRecordFailed:(NSNotification *)notification
+{
+#warning TODO: handle when failed to save the game
+}
+
 #pragma mark - communication controls
 
 - (void)makeConnectionWithType:(ConnectionType)type;
 {
+#warning TODO: delete the following two lines, that is only for testing
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameRecordSaved:) name:kNotificationGameSaved object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveGameRecordFailed:) name:kNotificationSaveGameFailed object:nil];
     if (!self.communicator)
     {
         self.communicator = [ACommunicator sharedInstance];
@@ -240,6 +319,11 @@
     {
         ANetMessageInitial *initialMsg = netMessage.message;
         NSDate *timestamp = netMessage.timestamp;
+        
+        NSString *receivedGameId = initialMsg.gameId;
+        if ([receivedGameId caseInsensitiveCompare:_gameId] == NSOrderedAscending)
+            _gameId = receivedGameId;
+        
         NSArray *competitorAircrafts = initialMsg.aircrafts;
         NSMutableArray *competitorAircraftModels = [NSMutableArray array];
         for (NSDictionary *aircraftDic in competitorAircrafts)
@@ -334,7 +418,9 @@
     }
     else if ([netMessage.flag isEqualToString:kFlagSave])
     {
-        
+        AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
+        recordMgr.actionType = AActionTypeCompetitorAction;
+        [self saveCurrentGamingStatus];
     }
     else if ([netMessage.flag isEqualToString:kFlagSaveR])
     {
@@ -441,6 +527,10 @@
         }
         [AGameRecordManager sharedInstance].selfAircrafts = dictionaryModelAry;
         
+        NSDate *initDate = [NSDate date];
+        _gameId = [NSString stringWithFormat:@"%d", (int)[initDate timeIntervalSince1970]];
+        
+        initialMsg.gameId = _gameId;
         initialMsg.aircrafts = dictionaryModelAry;
         ANetMessage *netMsg = [ANetMessage messageWithFlag:kFlagInitial message:initialMsg];
         
@@ -511,21 +601,9 @@
 //    if (_isGameBegin)
 //    {
         // save the game
-    _dateWhenGameBegin = [NSDate date];
-    
-        AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
-        recordMgr.selfAttackRecords = self.battleFldVCEnemy.attackRecordAry;
-        recordMgr.enemyAttackRecords = self.battleFldVCSelf.attackRecordAry;
-        recordMgr.isMyTurn = [NSNumber numberWithBool:_whosTurn == AWhosTurnUser ? YES : NO];
-        
-        NSMutableDictionary *playTime = [NSMutableDictionary dictionary];
-        [playTime setValue:[NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSince1970]] forKey:@"startTime"];
-        [playTime setValue:[NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSinceNow]] forKey:@"totalTime"];
-        [playTime setValue:[NSNumber numberWithFloat:self.opPanelVC.userSpendTime] forKey:@"selfTotalTime"];
-        [playTime setValue:[NSNumber numberWithFloat:self.opPanelVC.competitorSpendTime] forKey:@"enemyTotalTime"];
-        recordMgr.playTime = playTime;//startTime, totalTime, selfTotalTime, enemyTotalTime
-        
-        [recordMgr saveGameToFile];
+    AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
+    recordMgr.actionType = AActionTypeUserAction;
+    [self saveCurrentGamingStatus];
 //    }
 //    else
 //        [self.chatVC addNewMessage:ALocalisedString(@"save_only_after_game_begin") toChattingTableWithType:AChattingMsgTypeHelpMsg];
@@ -630,7 +708,7 @@
         if (numberOfSelfAircraftDestroyed <= 2)
         {
             AUIPopView *popView = [AUIPopView popViewWithText:[NSString stringWithFormat:@"%@\n%d %@", ALocalisedString(@"your_aircraft_destoryed"), 3 - numberOfSelfAircraftDestroyed, ALocalisedString(@"n_left")] 
-                                                        image:[UIImage imageForBlueRectBackground] 
+                                                        image:[UIImage imageForOrangeRectBackground] 
                                                          size:CGSizeMake(260, 90) 
                                              dissmissDuration:3.5];
             [popView show];
