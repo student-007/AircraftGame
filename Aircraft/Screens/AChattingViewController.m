@@ -17,10 +17,18 @@
 #define kSendBtnSendImgNameH        @"sendBtn_sent_highlighted.png"
 #define kSendBtnHideKeyboardImgNameH @"sendBtn_hideKeyboard_highlighted.png"
 
+#define kChattingMsgTypeNoneString              @"chat_type_none"
+#define kChattingMsgTypeUserSentString          @"chat_type_user"
+#define kChattingMsgTypeCompetitorSentString    @"chat_type_competitor"
+#define kChattingMsgTypeHelpMsgString           @"chat_type_help"
+#define kChattingMsgTypeSystemMsgString         @"chat_type_system"
+
 @interface AChattingViewController ()
 - (void)adjustSendHideBtnStatus;
 - (void)signTxtFldToFirstResponder;
 - (IBAction)sendMsgOrHideKeyBoard:(AUIButton *)sender;
+- (void)addMsg:(NSString *)message toChattingTableWithType:(AChattingMsgType)type;
+- (void)scrollTableViewToBottom;
 @end
 
 @implementation AChattingViewController
@@ -157,6 +165,14 @@
 
 - (void)addNewMessage:(NSString *)message toChattingTableWithType:(AChattingMsgType)type
 {
+    [self addMsg:message toChattingTableWithType:type];    
+    // scroll to the bottom
+    [self scrollTableViewToBottom];
+}
+
+// this method will do the actual work
+- (void)addMsg:(NSString *)message toChattingTableWithType:(AChattingMsgType)type
+{
     if (!_chattingRecordsArray) _chattingRecordsArray = [NSMutableArray array];
     
     NSNumber *msgIdx = [NSNumber numberWithInt:_chattingRecordsArray.count];
@@ -168,27 +184,27 @@
     {
         case AChattingMsgTypeNone:
         {
-            sender = @"type_error";
+            sender = kChattingMsgTypeNoneString;
         }
             break;
         case AChattingMsgTypeUserSent:
         {
-            sender = _userName?_userName:@"user";
+            sender = _userName?_userName:kChattingMsgTypeUserSentString;
         }
             break;
         case AChattingMsgTypeCompetitorSent:
         {
-            sender = _competitorName?_competitorName:@"competitor";
+            sender = _competitorName?_competitorName:kChattingMsgTypeCompetitorSentString;
         }
             break;
         case AChattingMsgTypeHelpMsg:
         {
-            sender = @"help_msg";
+            sender = kChattingMsgTypeHelpMsgString;
         }
             break;
         case AChattingMsgTypeSystemMsg:
         {
-            sender = @"system_msg";
+            sender = kChattingMsgTypeSystemMsgString;
         }
             break;
         default:
@@ -199,19 +215,52 @@
                              message, @"message", nil];
     
     [_chattingRecordsArray addObject:chatMsg];
-    
-    // scroll to the bottom
+}
+
+- (void)scrollTableViewToBottom
+{
     NSUInteger lastSection = [self.tableView numberOfSections] - 1;
     NSUInteger lastSectionRow = [self.tableView numberOfRowsInSection:lastSection] - 1;
     NSIndexPath *idxPath = [NSIndexPath indexPathForRow:lastSectionRow inSection:lastSection];
     [self.tableView scrollToRowAtIndexPath:idxPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
+- (NSMutableArray *)saveableChattingMessageArray
+{
+    return _chattingRecordsArray;
+}
+
+- (void)loadMessagesFromSaveableChattingMessageArray:(NSArray *)chattingMsges
+{
+    AChattingMsgType type = AChattingMsgTypeNone;
+    
+    for (NSDictionary *chatMsg in chattingMsges) 
+    {
+        NSString *sender = [chatMsg valueForKey:@"sender"];
+        NSString *message = [chatMsg valueForKey:@"message"];
+        
+        if ([sender caseInsensitiveCompare:kChattingMsgTypeNoneString] == NSOrderedSame)
+            type = AChattingMsgTypeNone;
+        else if ([sender caseInsensitiveCompare:kChattingMsgTypeUserSentString] == NSOrderedSame)
+            type = AChattingMsgTypeUserSent;
+        else if ([sender caseInsensitiveCompare:kChattingMsgTypeCompetitorSentString] == NSOrderedSame)
+            type = AChattingMsgTypeCompetitorSent;
+        else if ([sender caseInsensitiveCompare:kChattingMsgTypeHelpMsgString] == NSOrderedSame)
+            type = AChattingMsgTypeHelpMsg;
+        else if ([sender caseInsensitiveCompare:kChattingMsgTypeSystemMsgString] == NSOrderedSame)
+            type = AChattingMsgTypeSystemMsg;
+        
+        [self addMsg:message toChattingTableWithType:type];
+    }
+    
+    [self scrollTableViewToBottom];
+}
+
 - (void)adjustSendHideBtnStatus
 {
     if (self.isEmptyMsg)
     {
-#warning TODO: comment below and set button background image to "hide keyboard" image
+//#warning TODO: comment below and set button background image to "hide keyboard" image
 //        self.sendHideBtn.backgroundColor = [UIColor grayColor];
 //        [self.sendHideBtn setTitleForAllState:ALocalisedString(@"chat_view_send_btn_hide")];
         [self.sendHideBtn setImage:[UIImage imageNamed:kSendBtnHideKeyboardImgName] forState:UIControlStateNormal];
@@ -219,7 +268,7 @@
     }
     else
     {
-#warning TODO: comment below and set button background image to "send" image
+//#warning TODO: comment below and set button background image to "send" image
 //        self.sendHideBtn.backgroundColor = [UIColor greenColor];
 //        [self.sendHideBtn setTitleForAllState:ALocalisedString(@"chat_view_send_btn")];
         [self.sendHideBtn setImage:[UIImage imageNamed:kSendBtnSendImgName] forState:UIControlStateNormal];

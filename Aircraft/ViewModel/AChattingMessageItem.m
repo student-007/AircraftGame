@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Yufei Lang. All rights reserved.
 //
 
-#import "AChattingMessageItem.h"
+#import "AChattingMessageItem.h"     
 
 @implementation AChattingMessageItem
 

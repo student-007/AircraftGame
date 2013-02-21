@@ -22,6 +22,7 @@
 @synthesize enemyAircrafts = _enemyAircrafts;
 @synthesize selfAttackRecords = _selfAttackRecords;
 @synthesize enemyAttackRecords = _enemyAttackRecords;
+@synthesize chattingRecords = _chattingRecords;
 @synthesize playTime = _playTime;    //keys: startTime, totalTime, selfTotalTime, enemyTotalTime
 @synthesize isMyTurn = _isMyTurn;
 @synthesize competitorName = _competitorName;
@@ -77,7 +78,7 @@
         }
     }
     
-    savedGameDirPath = [savedGameDirPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@%@.sav", 
+    savedGameDirPath = [savedGameDirPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@%@.plist", 
                                                                          self.gameId, kSavedFileNameSeparator, self.competitorName]];
     
     NSMutableDictionary *gameRecord = [NSMutableDictionary dictionary];
@@ -85,6 +86,7 @@
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.enemyAircrafts, @"enemyAircrafts");
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.selfAttackRecords, @"selfAttackRecords");
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.enemyAttackRecords, @"enemyAttackRecords");
+    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.chattingRecords, @"chattingRecords");
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.playTime, @"playTime");
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.isMyTurn, @"isMyTurn");
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.competitorName, @"competitorName");

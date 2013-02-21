@@ -33,6 +33,7 @@
 - (void)resignTxtFldFirstResponder;
 - (void)receivedNewChattingMsg:(ANetMessageChat *)message;
 - (void)addNewMessage:(NSString *)message toChattingTableWithType:(AChattingMsgType)type;
+- (NSMutableArray *)saveableChattingMessageArray;
 @end
 
 
