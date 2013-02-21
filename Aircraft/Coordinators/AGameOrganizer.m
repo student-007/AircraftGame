@@ -15,6 +15,8 @@
 @interface AGameOrganizer ()
 {
     AGuideViewController *_guideVC;
+    NSArray *_competitorAircrafts;
+    NSArray *_selfAircrafts;
 }
 
 @property (strong, nonatomic) AChattingViewController *chatVC;
@@ -163,18 +165,21 @@
         _dateWhenGameBegin = [NSDate date];
     
     AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
-    recordMgr.gameId = _gameId;
-    recordMgr.selfAttackRecords = self.battleFldVCEnemy.attackRecordAry;
-    recordMgr.chattingRecords = [self.chatVC saveableChattingMessageArray];
-    recordMgr.enemyAttackRecords = self.battleFldVCSelf.attackRecordAry;
-    recordMgr.isMyTurn = [NSNumber numberWithBool:_whosTurn == AWhosTurnUser ? YES : NO];
     
-    NSMutableDictionary *playTime = [NSMutableDictionary dictionary];
-    [playTime setValue:[NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSince1970]] forKey:@"startTime"];
-    [playTime setValue:[NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSinceNow]] forKey:@"totalTime"];
-    [playTime setValue:[NSNumber numberWithFloat:self.opPanelVC.userSpendTime] forKey:@"selfTotalTime"];
-    [playTime setValue:[NSNumber numberWithFloat:self.opPanelVC.competitorSpendTime] forKey:@"enemyTotalTime"];
-    recordMgr.playTime = playTime;//startTime, totalTime, selfTotalTime, enemyTotalTime
+    recordMgr.sharedGameRecord.competitorName = _competitorName;
+    recordMgr.sharedGameRecord.gameId = _gameId;
+    recordMgr.sharedGameRecord.enemyAircrafts = _competitorAircrafts ? _competitorAircrafts : nil;
+    recordMgr.sharedGameRecord.selfAircrafts = _selfAircrafts ? _selfAircrafts : nil;
+    recordMgr.sharedGameRecord.selfAttackRecords = self.battleFldVCEnemy.attackRecordAry;
+    recordMgr.sharedGameRecord.chattingRecords = [self.chatVC saveableChattingMessageArray];
+    recordMgr.sharedGameRecord.enemyAttackRecords = self.battleFldVCSelf.attackRecordAry;
+    recordMgr.sharedGameRecord.isMyTurn = [NSNumber numberWithBool:_whosTurn == AWhosTurnUser ? YES : NO];
+        
+    recordMgr.sharedGameRecord.startTimeSec = [NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSince1970]];
+#warning TODO: total playing time should be added up instead of using time interval since now
+    recordMgr.sharedGameRecord.totalTimeSec = [NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSinceNow]];
+    recordMgr.sharedGameRecord.selfTotalTimeSec = [NSNumber numberWithFloat:self.opPanelVC.userSpendTime];
+    recordMgr.sharedGameRecord.enemyTotalTimeSec = [NSNumber numberWithFloat:self.opPanelVC.competitorSpendTime];
     
     [recordMgr saveGameToFile];
 }
@@ -224,7 +229,7 @@
             [popView show];
             
             ANetMessageSave *saveMsg = [[ANetMessageSave alloc] init];
-            saveMsg.gameId = recordMgr.gameId;
+            saveMsg.gameId = recordMgr.sharedGameRecord.gameId;
             saveMsg.isMyTurn = _whosTurn == AWhosTurnUser ? YES : NO;
             saveMsg.attackRecords = [NSArray array];
             ANetMessage *netMsg = [ANetMessage messageWithFlag:kFlagSave message:saveMsg];
@@ -292,7 +297,7 @@
     else
         connString = [NSString stringWithFormat:@"%@", ALocalisedString(@"youve_connected_with_NULL")];
     
-    [AGameRecordManager sharedInstance].competitorName = name;
+    _competitorName = name;
     
     [self.chatVC addNewMessage:connString toChattingTableWithType:AChattingMsgTypeSystemMsg];
     
@@ -327,14 +332,13 @@
         if ([receivedGameId caseInsensitiveCompare:_gameId] == NSOrderedAscending)
             _gameId = receivedGameId;
         
-        NSArray *competitorAircrafts = initialMsg.aircrafts;
+        _competitorAircrafts = [NSArray arrayWithArray:initialMsg.aircrafts];
 //        NSMutableArray *competitorAircraftModels = [NSMutableArray array];
 //        for (NSDictionary *aircraftDic in competitorAircrafts)
 //        {
 //            [competitorAircraftModels addObject:[AAircraftModel aircraftFromSavableDictionary:aircraftDic]];
 //        }
         // save the competitor's aircraft model for game saving
-        [AGameRecordManager sharedInstance].enemyAircrafts = competitorAircrafts;
         
         if (!_competitorStatus)
             _competitorStatus = [NSMutableDictionary dictionary];
@@ -528,7 +532,7 @@
         {
             [dictionaryModelAry addObject:[model savableDictionary]];
         }
-        [AGameRecordManager sharedInstance].selfAircrafts = dictionaryModelAry;
+        _selfAircrafts = [NSArray arrayWithArray:dictionaryModelAry];
         
         NSDate *initDate = [NSDate date];
         _gameId = [NSString stringWithFormat:@"%d", (int)[initDate timeIntervalSince1970]];

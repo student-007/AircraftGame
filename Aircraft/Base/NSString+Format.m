@@ -37,4 +37,11 @@
     return [NSString timeFormatStringFromTimeInterval:[timeIntervalStr floatValue]];
 }
 
++ (NSString *)stringForDate:(NSDate *)date inFormat:(NSString *)formatString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:formatString];
+    return [dateFormatter stringFromDate:date];
+}
+
 @end
