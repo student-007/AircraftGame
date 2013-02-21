@@ -73,6 +73,11 @@
 "about_aircraft" = "About Aircraft";
 "help_support" = "Help & support";
 
+// saved record item
+"battle_with" = "Battle with";
+"started_at" = "Started at";
+"on" = "on";
+
 // connections
 "connection_failed" = "Connection failed";
 

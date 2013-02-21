@@ -18,16 +18,18 @@
 
 @implementation AGameRecordManager
 
-@synthesize selfAircrafts = _selfAircrafts;
-@synthesize enemyAircrafts = _enemyAircrafts;
-@synthesize selfAttackRecords = _selfAttackRecords;
-@synthesize enemyAttackRecords = _enemyAttackRecords;
-@synthesize chattingRecords = _chattingRecords;
-@synthesize playTime = _playTime;    //keys: startTime, totalTime, selfTotalTime, enemyTotalTime
-@synthesize isMyTurn = _isMyTurn;
-@synthesize competitorName = _competitorName;
-@synthesize gameId = _gameId;
+//@synthesize selfAircrafts = _selfAircrafts;
+//@synthesize enemyAircrafts = _enemyAircrafts;
+//@synthesize selfAttackRecords = _selfAttackRecords;
+//@synthesize enemyAttackRecords = _enemyAttackRecords;
+//@synthesize chattingRecords = _chattingRecords;
+//@synthesize playTime = _playTime;    //keys: startTime, totalTime, selfTotalTime, enemyTotalTime
+//@synthesize isMyTurn = _isMyTurn;
+//@synthesize competitorName = _competitorName;
+//@synthesize gameId = _gameId;
+//@synthesize isFavorite = _isFavorite;
 @synthesize actionType = _actionType;
+@synthesize sharedGameRecord = _sharedGameRecord;
 
 + (AGameRecordManager *)sharedInstance
 {
@@ -51,6 +53,7 @@
 
 - (void)saveGameToFile
 {
+    // deal with file path and file name
     NSFileManager *fileMgr = [NSFileManager defaultManager];
     
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0];
@@ -79,20 +82,10 @@
     }
     
     savedGameDirPath = [savedGameDirPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@%@.plist", 
-                                                                         self.gameId, kSavedFileNameSeparator, self.competitorName]];
+                                                                         self.sharedGameRecord.gameId, kSavedFileNameSeparator, self.sharedGameRecord.competitorName]];
     
-    NSMutableDictionary *gameRecord = [NSMutableDictionary dictionary];
-    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.selfAircrafts, @"selfAircrafts");
-    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.enemyAircrafts, @"enemyAircrafts");
-    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.selfAttackRecords, @"selfAttackRecords");
-    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.enemyAttackRecords, @"enemyAttackRecords");
-    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.chattingRecords, @"chattingRecords");
-    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.playTime, @"playTime");
-    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.isMyTurn, @"isMyTurn");
-    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.competitorName, @"competitorName");
-    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.gameId, @"gameId");
     
-    BOOL isSaved = [gameRecord writeToFile:savedGameDirPath atomically:YES];
+    BOOL isSaved = [[self.sharedGameRecord savableDictionaryRecord] writeToFile:savedGameDirPath atomically:YES];
     if (isSaved) 
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationGameSaved object:self userInfo:nil];

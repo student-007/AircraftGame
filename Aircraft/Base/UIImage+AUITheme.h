@@ -17,5 +17,7 @@
 + (UIImage *)imageForBlueRectBackground;
 + (UIImage *)imageForOrangeRectBackground;
 + (UIImage *)imageForDarkLightRectBackground;
++ (UIImage *)imageForUncoloredStar;
++ (UIImage *)imageForColoredStar;
 
 @end

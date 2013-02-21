@@ -17,7 +17,7 @@
     #import "AErrorFacade.h"
     #import "AUIButton.h"
     #import "AUITextField.h"
-
+    #import "UIImage+AUITheme.h"
 
     #import "AAppDelegate.h"
 #endif

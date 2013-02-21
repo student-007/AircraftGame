@@ -215,6 +215,24 @@
 		0C71792016C224240017080F /* placeAircraftGuideBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71791C16C224240017080F /* placeAircraftGuideBkg.png */; };
 		0C71792316C224240017080F /* playScreenGuideBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71791E16C224240017080F /* playScreenGuideBkg.png */; };
 		0C71792416C224240017080F /* playScreenGuideBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C71791E16C224240017080F /* playScreenGuideBkg.png */; };
+		0CA9D30E16D5B7A00059D7D4 /* ALoadSavedGameScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9D30C16D5B79F0059D7D4 /* ALoadSavedGameScreenViewController.m */; };
+		0CA9D30F16D5B7A00059D7D4 /* ALoadSavedGameScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9D30C16D5B79F0059D7D4 /* ALoadSavedGameScreenViewController.m */; };
+		0CA9D31016D5B7A00059D7D4 /* ALoadSavedGameScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9D30D16D5B79F0059D7D4 /* ALoadSavedGameScreenViewController.xib */; };
+		0CA9D31116D5B7A00059D7D4 /* ALoadSavedGameScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9D30D16D5B79F0059D7D4 /* ALoadSavedGameScreenViewController.xib */; };
+		0CA9D31616D5E1190059D7D4 /* ASavedRecordItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9D31416D5E1190059D7D4 /* ASavedRecordItem.m */; };
+		0CA9D31716D5E1190059D7D4 /* ASavedRecordItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9D31416D5E1190059D7D4 /* ASavedRecordItem.m */; };
+		0CA9D31816D5E1190059D7D4 /* ASavedRecordItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9D31516D5E1190059D7D4 /* ASavedRecordItem.xib */; };
+		0CA9D31916D5E1190059D7D4 /* ASavedRecordItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9D31516D5E1190059D7D4 /* ASavedRecordItem.xib */; };
+		0CA9D31E16D5EB010059D7D4 /* star_colored.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9D31A16D5EB010059D7D4 /* star_colored.png */; };
+		0CA9D31F16D5EB010059D7D4 /* star_colored.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9D31A16D5EB010059D7D4 /* star_colored.png */; };
+		0CA9D32016D5EB010059D7D4 /* star_colored@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9D31B16D5EB010059D7D4 /* star_colored@2x.png */; };
+		0CA9D32116D5EB010059D7D4 /* star_colored@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9D31B16D5EB010059D7D4 /* star_colored@2x.png */; };
+		0CA9D32216D5EB010059D7D4 /* star_uncolored.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9D31C16D5EB010059D7D4 /* star_uncolored.png */; };
+		0CA9D32316D5EB010059D7D4 /* star_uncolored.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9D31C16D5EB010059D7D4 /* star_uncolored.png */; };
+		0CA9D32416D5EB010059D7D4 /* star_uncolored@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9D31D16D5EB010059D7D4 /* star_uncolored@2x.png */; };
+		0CA9D32516D5EB010059D7D4 /* star_uncolored@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9D31D16D5EB010059D7D4 /* star_uncolored@2x.png */; };
+		0CA9D32D16D5F0870059D7D4 /* ASavedGameRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9D32C16D5F0870059D7D4 /* ASavedGameRecord.m */; };
+		0CA9D32E16D5F0870059D7D4 /* ASavedGameRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9D32C16D5F0870059D7D4 /* ASavedGameRecord.m */; };
 		0CBA9BD616C950D30037E1A7 /* ALanguageScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9BD416C950D30037E1A7 /* ALanguageScreenViewController.m */; };
 		0CBA9BD716C950D30037E1A7 /* ALanguageScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA9BD416C950D30037E1A7 /* ALanguageScreenViewController.m */; };
 		0CBA9BD816C950D30037E1A7 /* ALanguageScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA9BD516C950D30037E1A7 /* ALanguageScreenViewController.xib */; };
@@ -519,6 +537,18 @@
 		0C71791716C2204F0017080F /* AGuideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AGuideViewController.xib; path = Screens/AGuideViewController.xib; sourceTree = "<group>"; };
 		0C71791C16C224240017080F /* placeAircraftGuideBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeAircraftGuideBkg.png; path = Aircraft/res/placeAircraftGuideBkg.png; sourceTree = "<group>"; };
 		0C71791E16C224240017080F /* playScreenGuideBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playScreenGuideBkg.png; path = Aircraft/res/playScreenGuideBkg.png; sourceTree = "<group>"; };
+		0CA9D30B16D5B79F0059D7D4 /* ALoadSavedGameScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALoadSavedGameScreenViewController.h; path = Screens/ALoadSavedGameScreenViewController.h; sourceTree = "<group>"; };
+		0CA9D30C16D5B79F0059D7D4 /* ALoadSavedGameScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALoadSavedGameScreenViewController.m; path = Screens/ALoadSavedGameScreenViewController.m; sourceTree = "<group>"; };
+		0CA9D30D16D5B79F0059D7D4 /* ALoadSavedGameScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ALoadSavedGameScreenViewController.xib; path = Screens/ALoadSavedGameScreenViewController.xib; sourceTree = "<group>"; };
+		0CA9D31316D5E1190059D7D4 /* ASavedRecordItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASavedRecordItem.h; path = ViewModel/ASavedRecordItem.h; sourceTree = "<group>"; };
+		0CA9D31416D5E1190059D7D4 /* ASavedRecordItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASavedRecordItem.m; path = ViewModel/ASavedRecordItem.m; sourceTree = "<group>"; };
+		0CA9D31516D5E1190059D7D4 /* ASavedRecordItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ASavedRecordItem.xib; path = ViewModel/ASavedRecordItem.xib; sourceTree = "<group>"; };
+		0CA9D31A16D5EB010059D7D4 /* star_colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_colored.png; path = Aircraft/res/star_colored.png; sourceTree = "<group>"; };
+		0CA9D31B16D5EB010059D7D4 /* star_colored@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star_colored@2x.png"; path = "Aircraft/res/star_colored@2x.png"; sourceTree = "<group>"; };
+		0CA9D31C16D5EB010059D7D4 /* star_uncolored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_uncolored.png; path = Aircraft/res/star_uncolored.png; sourceTree = "<group>"; };
+		0CA9D31D16D5EB010059D7D4 /* star_uncolored@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star_uncolored@2x.png"; path = "Aircraft/res/star_uncolored@2x.png"; sourceTree = "<group>"; };
+		0CA9D32B16D5F0870059D7D4 /* ASavedGameRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASavedGameRecord.h; path = Model/ASavedGameRecord.h; sourceTree = "<group>"; };
+		0CA9D32C16D5F0870059D7D4 /* ASavedGameRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASavedGameRecord.m; path = Model/ASavedGameRecord.m; sourceTree = "<group>"; };
 		0CBA9BD316C950D30037E1A7 /* ALanguageScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALanguageScreenViewController.h; path = Screens/ALanguageScreenViewController.h; sourceTree = "<group>"; };
 		0CBA9BD416C950D30037E1A7 /* ALanguageScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALanguageScreenViewController.m; path = Screens/ALanguageScreenViewController.m; sourceTree = "<group>"; };
 		0CBA9BD516C950D30037E1A7 /* ALanguageScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ALanguageScreenViewController.xib; path = Screens/ALanguageScreenViewController.xib; sourceTree = "<group>"; };
@@ -815,6 +845,9 @@
 				0CBA9BE816C96C9F0037E1A7 /* AHelpSupportScreenViewController.h */,
 				0CBA9BE916C96C9F0037E1A7 /* AHelpSupportScreenViewController.m */,
 				0CBA9BEA16C96C9F0037E1A7 /* AHelpSupportScreenViewController.xib */,
+				0CA9D30B16D5B79F0059D7D4 /* ALoadSavedGameScreenViewController.h */,
+				0CA9D30C16D5B79F0059D7D4 /* ALoadSavedGameScreenViewController.m */,
+				0CA9D30D16D5B79F0059D7D4 /* ALoadSavedGameScreenViewController.xib */,
 				0C71791516C2204F0017080F /* AGuideViewController.h */,
 				0C71791616C2204F0017080F /* AGuideViewController.m */,
 				0C71791716C2204F0017080F /* AGuideViewController.xib */,
@@ -846,6 +879,8 @@
 		9F57A0061685164D0069DA95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0CA9D32B16D5F0870059D7D4 /* ASavedGameRecord.h */,
+				0CA9D32C16D5F0870059D7D4 /* ASavedGameRecord.m */,
 				9F99BE8C168AAB1500A0FD2F /* ANetMessage.h */,
 				9F99BE8D168AAB1500A0FD2F /* ANetMessage.m */,
 				9F99BE9B168B6E2900A0FD2F /* AMessageParser.h */,
@@ -872,6 +907,9 @@
 				9F10927816B0B2F4000A8149 /* AAircraftHolderImageView.m */,
 				0C708FB716C735E800A7BB10 /* AUIPopView.h */,
 				0C708FB816C735E800A7BB10 /* AUIPopView.m */,
+				0CA9D31316D5E1190059D7D4 /* ASavedRecordItem.h */,
+				0CA9D31416D5E1190059D7D4 /* ASavedRecordItem.m */,
+				0CA9D31516D5E1190059D7D4 /* ASavedRecordItem.xib */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -879,6 +917,10 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				0CA9D31A16D5EB010059D7D4 /* star_colored.png */,
+				0CA9D31B16D5EB010059D7D4 /* star_colored@2x.png */,
+				0CA9D31C16D5EB010059D7D4 /* star_uncolored.png */,
+				0CA9D31D16D5EB010059D7D4 /* star_uncolored@2x.png */,
 				0CBA9BFB16CA10290037E1A7 /* explosionAnimation */,
 				0CBA9BEF16C9A11F0037E1A7 /* guideBtn_highlighted.png */,
 				0CBA9BF016C9A11F0037E1A7 /* guideBtn_highlighted@2x.png */,
@@ -1265,6 +1307,12 @@
 				0CBA9BFC16CA10290037E1A7 /* explosionAnimation in Resources */,
 				0C6CED8116CDE42400B9C069 /* rectBackground_orange.png in Resources */,
 				0C6CED8316CDE42400B9C069 /* rectBackground_orange@2x.png in Resources */,
+				0CA9D31016D5B7A00059D7D4 /* ALoadSavedGameScreenViewController.xib in Resources */,
+				0CA9D31816D5E1190059D7D4 /* ASavedRecordItem.xib in Resources */,
+				0CA9D31E16D5EB010059D7D4 /* star_colored.png in Resources */,
+				0CA9D32016D5EB010059D7D4 /* star_colored@2x.png in Resources */,
+				0CA9D32216D5EB010059D7D4 /* star_uncolored.png in Resources */,
+				0CA9D32416D5EB010059D7D4 /* star_uncolored@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1431,6 +1479,12 @@
 				0CBA9BFD16CA10290037E1A7 /* explosionAnimation in Resources */,
 				0C6CED8216CDE42400B9C069 /* rectBackground_orange.png in Resources */,
 				0C6CED8416CDE42400B9C069 /* rectBackground_orange@2x.png in Resources */,
+				0CA9D31116D5B7A00059D7D4 /* ALoadSavedGameScreenViewController.xib in Resources */,
+				0CA9D31916D5E1190059D7D4 /* ASavedRecordItem.xib in Resources */,
+				0CA9D31F16D5EB010059D7D4 /* star_colored.png in Resources */,
+				0CA9D32116D5EB010059D7D4 /* star_colored@2x.png in Resources */,
+				0CA9D32316D5EB010059D7D4 /* star_uncolored.png in Resources */,
+				0CA9D32516D5EB010059D7D4 /* star_uncolored@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1478,6 +1532,9 @@
 				0CBA9BD616C950D30037E1A7 /* ALanguageScreenViewController.m in Sources */,
 				0CBA9BE416C96C780037E1A7 /* AAboutAircraftScreenController.m in Sources */,
 				0CBA9BEB16C96C9F0037E1A7 /* AHelpSupportScreenViewController.m in Sources */,
+				0CA9D30E16D5B7A00059D7D4 /* ALoadSavedGameScreenViewController.m in Sources */,
+				0CA9D31616D5E1190059D7D4 /* ASavedRecordItem.m in Sources */,
+				0CA9D32D16D5F0870059D7D4 /* ASavedGameRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1522,6 +1579,9 @@
 				0CBA9BD716C950D30037E1A7 /* ALanguageScreenViewController.m in Sources */,
 				0CBA9BE516C96C780037E1A7 /* AAboutAircraftScreenController.m in Sources */,
 				0CBA9BEC16C96C9F0037E1A7 /* AHelpSupportScreenViewController.m in Sources */,
+				0CA9D30F16D5B7A00059D7D4 /* ALoadSavedGameScreenViewController.m in Sources */,
+				0CA9D31716D5E1190059D7D4 /* ASavedRecordItem.m in Sources */,
+				0CA9D32E16D5F0870059D7D4 /* ASavedGameRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
