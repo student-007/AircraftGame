@@ -32,6 +32,8 @@ typedef enum
 @property (nonatomic, strong) NSArray *selfAttackRecords;
 @property (nonatomic, strong) NSArray *enemyAttackRecords;
 
+@property (nonatomic, strong) NSArray *chattingRecords;
+
 @property (nonatomic, strong) NSMutableDictionary *playTime;    //keys: startTime, totalTime, selfTotalTime, enemyTotalTime
 
 @property (nonatomic, strong) NSNumber *isMyTurn;

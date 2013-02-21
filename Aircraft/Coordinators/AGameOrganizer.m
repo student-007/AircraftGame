@@ -165,6 +165,7 @@
     AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
     recordMgr.gameId = _gameId;
     recordMgr.selfAttackRecords = self.battleFldVCEnemy.attackRecordAry;
+    recordMgr.chattingRecords = [self.chatVC saveableChattingMessageArray];
     recordMgr.enemyAttackRecords = self.battleFldVCSelf.attackRecordAry;
     recordMgr.isMyTurn = [NSNumber numberWithBool:_whosTurn == AWhosTurnUser ? YES : NO];
     
@@ -291,6 +292,8 @@
     else
         connString = [NSString stringWithFormat:@"%@", ALocalisedString(@"youve_connected_with_NULL")];
     
+    [AGameRecordManager sharedInstance].competitorName = name;
+    
     [self.chatVC addNewMessage:connString toChattingTableWithType:AChattingMsgTypeSystemMsg];
     
     [self setupPlacingAircraftGuide];
@@ -325,13 +328,13 @@
             _gameId = receivedGameId;
         
         NSArray *competitorAircrafts = initialMsg.aircrafts;
-        NSMutableArray *competitorAircraftModels = [NSMutableArray array];
-        for (NSDictionary *aircraftDic in competitorAircrafts)
-        {
-            [competitorAircraftModels addObject:[AAircraftModel aircraftFromSavableDictionary:aircraftDic]];
-        }
+//        NSMutableArray *competitorAircraftModels = [NSMutableArray array];
+//        for (NSDictionary *aircraftDic in competitorAircrafts)
+//        {
+//            [competitorAircraftModels addObject:[AAircraftModel aircraftFromSavableDictionary:aircraftDic]];
+//        }
         // save the competitor's aircraft model for game saving
-        [AGameRecordManager sharedInstance].enemyAircrafts = competitorAircraftModels;
+        [AGameRecordManager sharedInstance].enemyAircrafts = competitorAircrafts;
         
         if (!_competitorStatus)
             _competitorStatus = [NSMutableDictionary dictionary];
