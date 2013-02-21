@@ -20,4 +20,6 @@
  */
 + (NSString *)timeFormatStringFromSecondString:(NSString *)timeIntervalStr;
 
+
++ (NSString *)stringForDate:(NSDate *)date inFormat:(NSString *)formatString;
 @end

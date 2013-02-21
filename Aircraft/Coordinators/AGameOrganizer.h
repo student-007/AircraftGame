@@ -35,7 +35,7 @@ typedef enum
     NSDate *_dateWhenGameBegin;
     NSDate *_dateWhenGameEnd;
     NSString *_gameId;  // this should be the time(seconds in string) when sending init msg
-    
+    NSString *_competitorName;
     NSMutableDictionary *_userStatus;
     NSMutableDictionary *_competitorStatus;
 }

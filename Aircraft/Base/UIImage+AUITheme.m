@@ -65,4 +65,14 @@
     return [UIImage imageNamed:@"lightBlackBackground.png"];
 }
 
++ (UIImage *)imageForUncoloredStar
+{
+    return [UIImage imageNamed:@"star_uncolored.png"];
+}
+
++ (UIImage *)imageForColoredStar
+{
+    return [UIImage imageNamed:@"star_colored.png"];
+}
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ASavedGameRecord.h"
 
 typedef enum
 {
@@ -24,21 +25,10 @@ typedef enum
 #define kNotificationSaveGameFailed     @"saveGameFailed"
 
 // if saving game is user's will or response the save message. Default: AActionTypeNone
-@property (nonatomic) ASaveGameActionType actionType;    
+@property (nonatomic) ASaveGameActionType actionType;
 
-@property (nonatomic, strong) NSArray *selfAircrafts;
-@property (nonatomic, strong) NSArray *enemyAircrafts;
+@property (nonatomic, strong) ASavedGameRecord *sharedGameRecord;
 
-@property (nonatomic, strong) NSArray *selfAttackRecords;
-@property (nonatomic, strong) NSArray *enemyAttackRecords;
-
-@property (nonatomic, strong) NSArray *chattingRecords;
-
-@property (nonatomic, strong) NSMutableDictionary *playTime;    //keys: startTime, totalTime, selfTotalTime, enemyTotalTime
-
-@property (nonatomic, strong) NSNumber *isMyTurn;
-@property (nonatomic, strong) NSString *competitorName;
-@property (nonatomic, strong) NSString *gameId;
 + (AGameRecordManager *)sharedInstance;
 
 - (void)saveGameToFile;
