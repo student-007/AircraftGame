@@ -19,10 +19,20 @@
 @synthesize totalTimeSec = _totalTimeSec;
 @synthesize selfTotalTimeSec = _selfTotalTimeSec;
 @synthesize enemyTotalTimeSec = _enemyTotalTimeSec;
+@synthesize isRegularRecord = _isRegularRecord;
 @synthesize isMyTurn = _isMyTurn;
 @synthesize competitorName = _competitorName;
 @synthesize gameId = _gameId;
 @synthesize isFavorite = _isFavorite;
+
+- (id)init
+{
+    if (self = [super init])
+    {
+        _isRegularRecord = [NSNumber numberWithBool:YES];
+    }
+    return self;
+}
 
 - (NSDictionary *)savableDictionaryRecord
 {
@@ -37,9 +47,18 @@
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.selfTotalTimeSec, @"selfTotalTimeSec");
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.enemyTotalTimeSec, @"enemyTotalTimeSec");
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.isMyTurn, @"isMyTurn");
+    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.isFavorite, @"isFavorite");
+    DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.isRegularRecord, @"isRegularRecord");
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.competitorName, @"competitorName");
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.gameId, @"gameId");
     return gameRecord;
+}
+
++ (ASavedGameRecord *)recordFromSavableDictionary:(NSDictionary *)gameRecord
+{
+    ASavedGameRecord *record = [[ASavedGameRecord alloc] init];
+    [record fillWithDictionaryRecord:gameRecord];
+    return record;
 }
 
 - (void)fillWithDictionaryRecord:(NSDictionary *)gameRecord
@@ -54,6 +73,8 @@
     DICT_GET_OBJECT(gameRecord, self.selfTotalTimeSec, @"selfTotalTimeSec");
     DICT_GET_OBJECT(gameRecord, self.enemyTotalTimeSec, @"enemyTotalTimeSec");
     DICT_GET_OBJECT(gameRecord, self.isMyTurn, @"isMyTurn");
+    DICT_GET_OBJECT(gameRecord, self.isFavorite, @"isFavorite");
+    DICT_GET_OBJECT(gameRecord, self.isRegularRecord, @"isRegularRecord");
     DICT_GET_OBJECT(gameRecord, self.competitorName, @"competitorName");
     DICT_GET_OBJECT(gameRecord, self.gameId, @"gameId");
 }

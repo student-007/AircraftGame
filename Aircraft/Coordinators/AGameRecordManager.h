@@ -31,7 +31,15 @@ typedef enum
 
 + (AGameRecordManager *)sharedInstance;
 
+/*!
+ @discussion save the self.sharedGameRecord to file
+ */
 - (void)saveGameToFile;
+
+/*!
+ @discussion load all saved records from file
+ */
+- (NSArray *)loadGameRecordsFromFile;
 
 @end
  

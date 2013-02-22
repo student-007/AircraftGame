@@ -96,4 +96,50 @@
     }
 }
 
+- (NSArray *)loadGameRecordsFromFile
+{
+    NSMutableArray *resArray = [NSMutableArray array];
+    
+    NSFileManager *fileMgr = [NSFileManager defaultManager];
+    
+    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex: 0];
+    NSString *savedGameDirPath = [documentPath stringByAppendingPathComponent:@"savedGame"];
+    BOOL isDirectory = NO;
+    if (![fileMgr fileExistsAtPath:savedGameDirPath isDirectory:&isDirectory])// if path or file not exist
+    {
+        NSError *error = nil;
+        if (![fileMgr createDirectoryAtPath:savedGameDirPath withIntermediateDirectories:YES attributes:nil error:&error])
+        {
+            [AErrorFacade LogError:error];
+        }
+        return resArray;
+    }
+    else
+    {
+        if (!isDirectory) // in case it is a normal file but directory
+        {
+            NSError *error = nil;
+            if (![fileMgr createDirectoryAtPath:savedGameDirPath withIntermediateDirectories:YES attributes:nil error:&error])
+            {
+                [AErrorFacade LogError:error];
+            }
+            return resArray;
+        }
+        else
+        {
+            NSError *error = nil;
+            NSArray *recordPathesArray = [fileMgr contentsOfDirectoryAtPath:savedGameDirPath error:&error];
+            if (!error)
+            {
+                for (NSString *fileName in recordPathesArray)
+                {
+                    NSDictionary *savableGameRecord = [NSDictionary dictionaryWithContentsOfFile:[savedGameDirPath stringByAppendingPathComponent:fileName]];
+                    [resArray addObject:[ASavedGameRecord recordFromSavableDictionary:savableGameRecord]];
+                }
+            }
+            return resArray;
+        }
+    }
+}
+
 @end

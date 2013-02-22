@@ -10,6 +10,7 @@
 #import "AGameOrganizer.h"
 #import "APlayScreenViewController.h"
 #import "ASettingScreenViewController.h"
+#import "ALoadSavedGameScreenViewController.h"
 
 @interface AWelcomeScreenViewController : UIViewController
 

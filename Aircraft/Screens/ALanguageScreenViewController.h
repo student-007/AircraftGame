@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) IBOutlet ATableViewAdapter *tableViewAdapter;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *bkgImageView;
 
 @property (strong, nonatomic) IBOutlet UIView *languageEnglishPanel;
 @property (strong, nonatomic) IBOutlet UIView *languageSimplifiedChinesePanel;

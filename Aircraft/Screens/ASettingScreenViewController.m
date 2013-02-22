@@ -102,10 +102,10 @@
     [self loadLocalisedString];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self.navigationController setNavigationBarHidden:YES];
-}
+//- (void)viewWillDisappear:(BOOL)animated
+//{
+//    [self.navigationController setNavigationBarHidden:YES];
+//}
 
 - (void)viewDidUnload
 {

@@ -530,9 +530,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"adapterCell"];
     }
     
-//    cell.backgroundColor = [UIColor clearColor];
-//    cell.contentView.backgroundColor = [UIColor clearColor];
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    
+
     
     // remove the previously attached views
     while ([cell.contentView.subviews count])
@@ -552,6 +553,79 @@
         
         if (view)
         {
+            if (tableView.style == UITableViewStyleGrouped)
+            {
+                
+                // Create the path (with all four corner rounded with radius rate) [Yufei Lang]
+                UIBezierPath *maskPathCornerRounded;
+                NSInteger numberOfRowsInSection = [tableView numberOfRowsInSection:indexPath.section];
+                if (numberOfRowsInSection == 1) // only one row in section
+                {
+                    maskPathCornerRounded = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:
+                                             UIRectCornerTopLeft |
+                                             UIRectCornerTopRight |
+                                             UIRectCornerBottomLeft |
+                                             UIRectCornerBottomRight cornerRadii:CGSizeMake(7.5, 7.5)];
+                    // Create the shape layer and set its path [Yufei Lang]
+                    CAShapeLayer *maskLayerCornerRounded = [CAShapeLayer layer];
+                    CGRect rect = view.bounds;
+                    rect.size.height -= 1;
+                    maskLayerCornerRounded.frame = rect;
+                    maskLayerCornerRounded.path = maskPathCornerRounded.CGPath;
+                    
+                    // Apply the mask to the view/layer [Yufei Lang]
+                    view.layer.mask = maskLayerCornerRounded;
+                }
+                else
+                {
+                    if (indexPath.row == 0)
+                    {
+                        maskPathCornerRounded = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:
+                                                 UIRectCornerTopLeft |
+                                                 UIRectCornerTopRight cornerRadii:CGSizeMake(7.5, 7.5)];
+                        // Create the shape layer and set its path [Yufei Lang]
+                        CAShapeLayer *maskLayerCornerRounded = [CAShapeLayer layer];
+                        CGRect rect = view.bounds;
+                        maskLayerCornerRounded.frame = rect;
+                        maskLayerCornerRounded.path = maskPathCornerRounded.CGPath;
+                        
+                        // Apply the mask to the view/layer [Yufei Lang]
+                        view.layer.mask = maskLayerCornerRounded;
+                    }
+                    else if (indexPath.row == numberOfRowsInSection - 1)
+                    {
+                        maskPathCornerRounded = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:
+                                                 UIRectCornerBottomLeft |
+                                                 UIRectCornerBottomRight cornerRadii:CGSizeMake(8, 8)];
+                        // Create the shape layer and set its path [Yufei Lang]
+                        CAShapeLayer *maskLayerCornerRounded = [CAShapeLayer layer];
+                        CGRect rect = view.bounds;
+                        rect.origin.y += 1;
+                        rect.size.height -= 2;
+                        maskLayerCornerRounded.frame = rect;
+                        maskLayerCornerRounded.path = maskPathCornerRounded.CGPath;
+                        
+                        // Apply the mask to the view/layer [Yufei Lang]
+                        view.layer.mask = maskLayerCornerRounded;
+                    }
+                    else
+                    {
+                        maskPathCornerRounded = [UIBezierPath bezierPathWithRect:view.bounds];
+                        // Create the shape layer and set its path [Yufei Lang]
+                        CAShapeLayer *maskLayerCornerRounded = [CAShapeLayer layer];
+                        CGRect rect = view.bounds;
+                        rect.origin.y += 1;
+                        maskLayerCornerRounded.frame = rect;
+                        maskLayerCornerRounded.path = maskPathCornerRounded.CGPath;
+                        
+                        // Apply the mask to the view/layer [Yufei Lang]
+                        view.layer.mask = maskLayerCornerRounded;
+                    }
+                }
+                
+                
+            }
+            
             [cell.contentView addSubview:view];
         }
         else
@@ -572,7 +646,7 @@
         }
         else
         {
-            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+            cell.selectionStyle = UITableViewCellSelectionStyleGray;
         }
     }
     

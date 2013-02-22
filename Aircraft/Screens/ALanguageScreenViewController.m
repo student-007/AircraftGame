@@ -48,6 +48,8 @@
 {
     [super viewDidLoad];
     
+    [self.bkgImageView setImage:[UIImage imageForDarkLightRectBackground]];
+    
     [self.tableViewAdapter addView:[ATableViewAdapterView viewWithView:self.languageEnglishPanel target:self action:@selector(actionSelectedEnglish)] forKey:@"languageEnglishPanel" withStyle:ATableViewAdapterPanelStyleGrouped];
     [self.tableViewAdapter addView:[ATableViewAdapterView viewWithView:self.languageSimplifiedChinesePanel target:self action:@selector(actionSelectedSimplifiedChinese)] forKey:@"languageSimplifiedChinesePanel" withStyle:ATableViewAdapterPanelStyleGrouped];
 }
@@ -60,6 +62,7 @@
     [self setCheckMarkImgViewEnglish:nil];
     [self setTableViewAdapter:nil];
     [self setTableView:nil];
+    [self setBkgImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

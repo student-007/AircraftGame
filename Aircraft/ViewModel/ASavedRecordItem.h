@@ -15,7 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (strong, nonatomic) ASavedGameRecord *gameRecord;
 
-@property (strong, nonatomic) IBOutlet UIButton *favoriteIcon;
+@property (strong, nonatomic) IBOutlet AUIButton *favoriteIcon;
 @property (strong, nonatomic) IBOutlet UILabel *battleWithLabel;
 @property (strong, nonatomic) IBOutlet UILabel *beganOnLabel;
 

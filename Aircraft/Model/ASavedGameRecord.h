@@ -23,12 +23,14 @@
 @property (nonatomic, strong) NSNumber *selfTotalTimeSec;
 @property (nonatomic, strong) NSNumber *enemyTotalTimeSec;
 
+@property (nonatomic, strong) NSNumber *isRegularRecord;    // default: YES
 @property (nonatomic, strong) NSNumber *isMyTurn;
 @property (nonatomic, strong) NSNumber *isFavorite;
 @property (nonatomic, strong) NSString *competitorName;
 @property (nonatomic, strong) NSString *gameId;
 
 - (NSDictionary *)savableDictionaryRecord;
++ (ASavedGameRecord *)recordFromSavableDictionary:(NSDictionary *)gameRecord;
 - (void)fillWithDictionaryRecord:(NSDictionary *)gameRecord;
 
 @end

@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AGameRecordManager.h"
+#import "ASavedRecordItem.h"
 
 @interface ALoadSavedGameScreenViewController : UIViewController
 {
-    NSArray *_recentUnsavedRecords;
-    NSArray *_savedRecords;
+    NSMutableArray *_recentUnsavedRecords;
+    NSMutableArray *_savedRecords;
 }
+@property (strong, nonatomic) IBOutlet ATableViewAdapter *tableViewAdapter;
 
+@property (weak, nonatomic) IBOutlet UIImageView *bkgImageView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *recentUnsavedPanel;
 @property (strong, nonatomic) IBOutlet UIView *savedGamePanel;

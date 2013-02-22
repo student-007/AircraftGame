@@ -73,6 +73,11 @@
 "about_aircraft" = "About Aircraft";
 "help_support" = "Help & support";
 
+// load saved game screen
+"recent_unsaved_game" = "Recent unsaved game";
+"saved_game" = "Saved game";
+"game_records" = "Game records";
+
 // saved record item
 "battle_with" = "Battle with";
 "started_at" = "Started at";

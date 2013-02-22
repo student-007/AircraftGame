@@ -31,6 +31,11 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -45,6 +50,12 @@
     APlayScreenViewController *playScreenVC = [[APlayScreenViewController alloc]
                                                initWithNibName:@"APlayScreenViewController" bundle:nil];
     [[AAppDelegate sharedInstance] pushScreen:playScreenVC animated:YES];
+}
+
+- (IBAction)actionSavedGameButtonClicked:(id)sender
+{
+    ALoadSavedGameScreenViewController *vc = [[ALoadSavedGameScreenViewController alloc] initWithNibName:@"ALoadSavedGameScreenViewController" bundle:nil];
+    [[AAppDelegate sharedInstance] pushScreen:vc animated:YES];
 }
 
 - (IBAction)actionSetting:(id)sender 
