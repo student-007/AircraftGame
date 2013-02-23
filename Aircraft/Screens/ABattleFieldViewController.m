@@ -191,6 +191,21 @@
         else
             return NO;
     }
+    else if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && _battleFldModel.type == BattleFieldEnemy)
+    {
+        AAircraftImageView *aircraftImgView = (AAircraftImageView *)gestureRecognizer.view;
+        CGPoint touchPoint = [touch locationInView:gestureRecognizer.view];
+        if ([aircraftImgView isTouchingAircraftBodyForPoint:touchPoint])
+        {
+            _tempAircraftImgViewFrame = aircraftImgView.frame;
+            return YES;
+        }
+        else
+        {
+            _tempAircraftImgViewFrame = CGRectNull;
+            return NO;
+        }
+    }
     else if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]] /*&& _battleFldModel.type == BattleFieldEnemy*/)
     {
         return YES;
@@ -252,7 +267,19 @@
         
         CGPoint imgCenterPt = aircraftImgView.center;
         if (imgCenterPt.y > 10 * kMappingFactor)
-            aircraftImgView.alpha = 0.7;
+        {
+            switch (aircraftImgView.imgType)
+            {
+                case AAircraftImgRegularType:
+                    aircraftImgView.alpha = 0.5;
+                    break;
+                case AAircraftImgDottedType:
+                    aircraftImgView.alpha = 0.2;
+                    break;
+                default:
+                    break;
+            }
+        }
         else
             aircraftImgView.alpha = 1.0;
     }
@@ -297,13 +324,20 @@
         // if user wants to remove this aircraft [Yufei Lang 4/14/2012]
         else if (aircraftImgView.center.y > 10 * kMappingFactor)
         {
-            NSAssert([self.organizerDelegate respondsToSelector:@selector(userWantsToRemoveAircraft:)], @"[error]: Delegate method userWantsToRemoveAircraft: not implenment.");
-            if ([self.organizerDelegate userWantsToRemoveAircraft:aircraftImgView.aircraft])
+            if (aircraftImgView.imgType == AAircraftImgDottedType)
             {
-                [_battleFldModel removeAircraft:aircraftImgView.aircraft];
                 [aircraftImgView removeFromSuperview];
-                if ([self.organizerDelegate respondsToSelector:@selector(aircraftRemoved)])
-                    [self.organizerDelegate aircraftRemoved];
+            }
+            else
+            {
+                NSAssert([self.organizerDelegate respondsToSelector:@selector(userWantsToRemoveAircraft:)], @"[error]: Delegate method userWantsToRemoveAircraft: not implenment.");
+                if ([self.organizerDelegate userWantsToRemoveAircraft:aircraftImgView.aircraft])
+                {
+                    [_battleFldModel removeAircraft:aircraftImgView.aircraft];
+                    [aircraftImgView removeFromSuperview];
+                    if ([self.organizerDelegate respondsToSelector:@selector(aircraftRemoved)])
+                        [self.organizerDelegate aircraftRemoved];
+                }
             }
         }
         else
@@ -337,7 +371,14 @@
             break;
         case AAircraftImgDottedType:
         {
-#warning TODO: add dotted type aircraft image to the field
+            // add the aircraft image view to battle field
+            AAircraftImageView *aircraftImgView = [[AAircraftImageView alloc] initWithAircraftModel:aircraft imageType:AAircraftImgDottedType ];
+            if (withGesture)
+                [self addPanGestureToView:aircraftImgView];
+            if (onBottom)
+                [self.battleFieldImgView insertSubview:aircraftImgView atIndex:0];
+            else
+                [self.battleFieldImgView addSubview:aircraftImgView];
         }
             break;
         default:

@@ -382,6 +382,10 @@
 		9F84C5E416B9FA01005D971F /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5E116B9FA01005D971F /* clock.png */; };
 		9F84C5E516B9FA01005D971F /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5E216B9FA01005D971F /* clock@2x.png */; };
 		9F84C5E616B9FA01005D971F /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F84C5E216B9FA01005D971F /* clock@2x.png */; };
+		9F92B39116D9529900C49ADB /* aircraftDotted.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F92B38F16D9529900C49ADB /* aircraftDotted.png */; };
+		9F92B39216D9529900C49ADB /* aircraftDotted.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F92B38F16D9529900C49ADB /* aircraftDotted.png */; };
+		9F92B39316D9529900C49ADB /* aircraftDotted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F92B39016D9529900C49ADB /* aircraftDotted@2x.png */; };
+		9F92B39416D9529900C49ADB /* aircraftDotted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F92B39016D9529900C49ADB /* aircraftDotted@2x.png */; };
 		9F96CCB916D6E6FE009BE16F /* explosion1_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F96CC5E16D6E6FE009BE16F /* explosion1_0001.png */; };
 		9F96CCBA16D6E6FE009BE16F /* explosion1_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F96CC5E16D6E6FE009BE16F /* explosion1_0001.png */; };
 		9F96CCBB16D6E6FE009BE16F /* explosion1_0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F96CC5F16D6E6FE009BE16F /* explosion1_0002.png */; };
@@ -835,6 +839,8 @@
 		9F84C5DC16B9F951005D971F /* comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "comment@2x.png"; path = "Aircraft/res/comment@2x.png"; sourceTree = "<group>"; };
 		9F84C5E116B9FA01005D971F /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clock.png; path = Aircraft/res/clock.png; sourceTree = "<group>"; };
 		9F84C5E216B9FA01005D971F /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock@2x.png"; path = "Aircraft/res/clock@2x.png"; sourceTree = "<group>"; };
+		9F92B38F16D9529900C49ADB /* aircraftDotted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aircraftDotted.png; path = Aircraft/res/aircraftDotted.png; sourceTree = "<group>"; };
+		9F92B39016D9529900C49ADB /* aircraftDotted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraftDotted@2x.png"; path = "Aircraft/res/aircraftDotted@2x.png"; sourceTree = "<group>"; };
 		9F96CC5E16D6E6FE009BE16F /* explosion1_0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion1_0001.png; sourceTree = "<group>"; };
 		9F96CC5F16D6E6FE009BE16F /* explosion1_0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion1_0002.png; sourceTree = "<group>"; };
 		9F96CC6016D6E6FE009BE16F /* explosion1_0003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion1_0003.png; sourceTree = "<group>"; };
@@ -1285,6 +1291,8 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				9F92B38F16D9529900C49ADB /* aircraftDotted.png */,
+				9F92B39016D9529900C49ADB /* aircraftDotted@2x.png */,
 				9F96CC5D16D6E6FE009BE16F /* explosionAnimation */,
 				0CA9D31A16D5EB010059D7D4 /* star_colored.png */,
 				0CA9D31B16D5EB010059D7D4 /* star_colored@2x.png */,
@@ -1771,6 +1779,8 @@
 				9F96CD6916D6E6FE009BE16F /* explosion1_0089.png in Resources */,
 				9F96CD6B16D6E6FE009BE16F /* explosion1_0090.png in Resources */,
 				9F96CD6D16D6E6FE009BE16F /* Thumbs.db in Resources */,
+				9F92B39116D9529900C49ADB /* aircraftDotted.png in Resources */,
+				9F92B39316D9529900C49ADB /* aircraftDotted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2033,6 +2043,8 @@
 				9F96CD6A16D6E6FE009BE16F /* explosion1_0089.png in Resources */,
 				9F96CD6C16D6E6FE009BE16F /* explosion1_0090.png in Resources */,
 				9F96CD6E16D6E6FE009BE16F /* Thumbs.db in Resources */,
+				9F92B39216D9529900C49ADB /* aircraftDotted.png in Resources */,
+				9F92B39416D9529900C49ADB /* aircraftDotted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

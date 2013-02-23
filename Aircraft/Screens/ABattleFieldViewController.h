@@ -15,12 +15,6 @@
 @protocol ABattleFieldVCDelegate;
 @protocol ABattleFieldOrganizerDelegate;
 
-typedef enum
-{
-    AAircraftImgRegularType     = 1,
-    AAircraftImgDottedType     = 2
-}AAircraftImgType;
-
 @interface ABattleFieldViewController : UIViewController <UIGestureRecognizerDelegate>
 {
     ABattleFieldModel *_battleFldModel;

@@ -46,7 +46,7 @@ typedef enum
 #define kGameStatusBeginEndGame     @"beginGameStatus"          // keys: isGameOn, beginDate, endDate
 #define kGameStatusPlayer           @"playerStatus"             // keys: user(isReady, date), competitor(isReady, date)
 @property (strong, nonatomic, readonly) NSDictionary *gameStatus;
-
+@property (readonly) BOOL isGameBegin;
 @property (nonatomic, readonly) AWhosTurn whosTurn;             // default: AWhosTurnNone
 
 @property (nonatomic) ConnectionType connectionType;

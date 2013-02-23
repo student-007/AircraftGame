@@ -136,7 +136,12 @@
     {
         AAircraftHolderImageView *theView = (AAircraftHolderImageView *)longPressRecognizer.view;
         AAircraftModel *aircraft = [AAircraftModel aircraftWithOrgin:CGPointZero direction:theView.direction];
-        _tempAircraftForAdding = [[AAircraftImageView alloc] initWithAircraftModel:aircraft];
+        
+        if (self.organizer.isGameBegin)
+            _tempAircraftForAdding = [[AAircraftImageView alloc] initWithAircraftModel:aircraft imageType:AAircraftImgDottedType];
+        else
+            _tempAircraftForAdding = [[AAircraftImageView alloc] initWithAircraftModel:aircraft];
+        
         _tempAircraftForAdding.alpha = 0.7;
         
         CGSize smallerSize = _tempAircraftSize = _tempAircraftForAdding.frame.size;
@@ -185,7 +190,7 @@
         {
             // only analysis if touching point within self battle field
             CGPoint touchPt = [panRecognizer locationInView:self.battleFldSelf.view];
-            if ([self.battleFldSelf.view pointInside:touchPt withEvent:nil])
+            if ([self.battleFldSelf.view pointInside:touchPt withEvent:nil] && !self.organizer.isGameBegin)
             {
                 AircraftDirection direction = ((AAircraftHolderImageView *)panRecognizer.view).direction;
                 CGPoint oldOrgin = [self.view convertPoint:_tempAircraftForAdding.frame.origin toView:self.battleFldSelf.view];
@@ -206,6 +211,34 @@
                     
                     AAircraftModel *newAircraft = [AAircraftModel aircraftWithOrgin:newAircraftOrginPos direction:direction];
                     [self.battleFldSelf addAircraft:newAircraft];
+                }
+            }
+            else
+            {
+                // this is for adding a dotted aircraft image into enemy field when battle already start
+                CGPoint touchPt = [panRecognizer locationInView:self.battleFldEnemy.view];
+                if ([self.battleFldEnemy.view pointInside:touchPt withEvent:nil] && self.organizer.isGameBegin)
+                {
+                    AircraftDirection direction = ((AAircraftHolderImageView *)panRecognizer.view).direction;
+                    CGPoint oldOrgin = [self.view convertPoint:_tempAircraftForAdding.frame.origin toView:self.battleFldEnemy.view];
+                    
+                    // check if inside the field grid
+                    if (oldOrgin.x >= -5 && oldOrgin.y >= -5 &&
+                        oldOrgin.x + _tempAircraftSize.width <= 10 * kMappingFactor + 5 &&
+                        oldOrgin.y + _tempAircraftSize.height <= 10 * kMappingFactor + 5)
+                    {
+                        CGPoint newAircraftOrginPos;
+                        newAircraftOrginPos.x = (int)(oldOrgin.x / kMappingFactor);
+                        newAircraftOrginPos.y = (int)(oldOrgin.y / kMappingFactor);
+                        
+                        if (((int)oldOrgin.x % kMappingFactor) > kMappingFactor / 2)
+                            newAircraftOrginPos.x += 1;
+                        if (((int)oldOrgin.y % kMappingFactor) > kMappingFactor / 2)
+                            newAircraftOrginPos.y += 1;
+                        
+                        AAircraftModel *newAircraft = [AAircraftModel aircraftWithOrgin:newAircraftOrginPos direction:direction];
+                        [self.battleFldEnemy addAircraft:newAircraft toFieldAsType:AAircraftImgDottedType withGesture:YES onBottom:NO];
+                    }
                 }
             }
             

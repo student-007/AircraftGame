@@ -22,8 +22,9 @@
 
 @synthesize aircraft = _aircraft;
 
-- (AAircraftImageView *)initWithAircraftModel:(AAircraftModel *)aircraft
+- (AAircraftImageView *)initWithAircraftModel:(AAircraftModel *)aircraft imageType:(AAircraftImgType)imgType
 {
+    _imgType = imgType;
     UIImage *aircraftImg = nil;
     switch (aircraft.direction)
     {
@@ -34,25 +35,62 @@
             break;
         case AircraftDirectionUp:
         {
-            aircraftImg = [UIImage imageNamed:kAircraftUpImageName];
+            switch (imgType)
+            {
+                case AAircraftImgRegularType:
+                    aircraftImg = [UIImage imageNamed:kAircraftUpImageName];
+                    break;
+                case AAircraftImgDottedType:
+                    aircraftImg = [UIImage imageNamed:kAircraftDottedImageName];
+                    break;
+                default:
+                    break;
+            }
         }
             break;
         case AircraftDirectionDown:
         {
-            
-            aircraftImg = [UIImage imageNamed:kAircraftDownImageName];
+            switch (imgType)
+            {
+                case AAircraftImgRegularType:
+                    aircraftImg = [UIImage imageNamed:kAircraftDownImageName];
+                    break;
+                case AAircraftImgDottedType:
+                    aircraftImg = [UIImage imageNamed:kAircraftDottedImageName];
+                    break;
+                default:
+                    break;
+            }
         }
             break;
         case AircraftDirectionLeft:
         {
-            
-            aircraftImg = [UIImage imageNamed:kAircraftLeftImageName];
+            switch (imgType)
+            {
+                case AAircraftImgRegularType:
+                    aircraftImg = [UIImage imageNamed:kAircraftLeftImageName];
+                    break;
+                case AAircraftImgDottedType:
+                    aircraftImg = [UIImage imageNamed:kAircraftDottedImageName];
+                    break;
+                default:
+                    break;
+            }
         }
             break;
         case AircraftDirectionRight:
         {
-            
-            aircraftImg = [UIImage imageNamed:kAircraftRightImageName];
+            switch (imgType)
+            {
+                case AAircraftImgRegularType:
+                    aircraftImg = [UIImage imageNamed:kAircraftRightImageName];
+                    break;
+                case AAircraftImgDottedType:
+                    aircraftImg = [UIImage imageNamed:kAircraftDottedImageName];
+                    break;
+                default:
+                    break;
+            }
         }
             break;
             
@@ -95,6 +133,11 @@
         [self adjustFrameBasedOnAircraftOrginPos:aircraft.orginPos];
     }
     return self;
+}
+
+- (AAircraftImageView *)initWithAircraftModel:(AAircraftModel *)aircraft
+{
+    return [self initWithAircraftModel:aircraft imageType:AAircraftImgRegularType];
 }
 
 - (void)releasePath
@@ -200,6 +243,11 @@
 - (AAircraftModel *)aircraft
 {
     return _aircraft ? _aircraft : nil;
+}
+
+- (AAircraftImgType)imgType
+{
+    return _imgType;
 }
 
 @end

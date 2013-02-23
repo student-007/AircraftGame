@@ -12,6 +12,7 @@
 #define kAircraftDownInHolderImgName    @"aircraftDownInHolder.png"
 #define kAircraftLeftInHolderImgName    @"aircraftLeftInHolder.png"
 #define kAircraftRightInHolderImgName   @"aircraftRightInHolder.png"
+#define kAircraftDottedImgName          @"aircraftDotted.png"
 
 #define kTurnIndicatorCompetitorTurnImgName     @"turnIndicator_coffee.png"
 #define kTurnIndicatorMyTurnImgName             @"turnIndicator_target.png"
@@ -81,20 +82,7 @@
     
     [self setupAircraftHolders];
 
-    
-    [self.view addSubview:self.aircraftHolderView];
-    
-//    NSArray *imgAry = [NSArray arrayWithObjects:
-//                       [UIImage imageNamed:@"attackBtn_highlighted.png"], 
-//                       [UIImage imageNamed:@"attackBtn.png"], nil];
-//    [self.attackButton.imageView setAnimationImages:imgAry];
-//    [self.attackButton.imageView setAnimationDuration:0.5f];
-//    [self.attackButton.imageView startAnimating];
-    
-//    [self.view addSubview:self.operationPanelView];
-//    
-//    [self.view bringSubviewToFront:self.aircraftHolderView];
-    
+    [self.view addSubview:self.aircraftHolderView];   
 }
 
 - (void)didReceiveMemoryWarning

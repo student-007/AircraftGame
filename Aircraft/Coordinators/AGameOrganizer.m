@@ -130,6 +130,11 @@
     return [NSDictionary dictionaryWithDictionary:statusDic];
 }
 
+- (BOOL)isGameBegin
+{
+    return _isGameBegin;
+}
+
 - (void)startTheGame
 {
     _isGameBegin = YES;

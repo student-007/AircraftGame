@@ -15,9 +15,17 @@
 #define kAircraftDownImageName     @"aircraftDown.png"
 #define kAircraftLeftImageName     @"aircraftLeft.png"
 #define kAircraftRightImageName    @"aircraftRight.png"
+#define kAircraftDottedImageName   @"aircraftDotted.png"
+
+typedef enum
+{
+    AAircraftImgRegularType     = 1,
+    AAircraftImgDottedType     = 2
+}AAircraftImgType;
 
 @interface AAircraftImageView : UIImageView
 {
+    AAircraftImgType _imgType;
     AAircraftModel *_aircraft;
     CGMutablePathRef _pathRef;
 }
@@ -29,9 +37,14 @@
  */
 @property (nonatomic, readonly) AAircraftModel *aircraft;
 
-#pragma mark - methods
+/*!
+ @discussion aircraft image type
+ */
+@property (readonly) AAircraftImgType imgType;
 
-- (AAircraftImageView *)initWithAircraftModel:(AAircraftModel *)aircraft;
+#pragma mark - methods
+- (AAircraftImageView *)initWithAircraftModel:(AAircraftModel *)aircraft imageType:(AAircraftImgType)imgType;
+- (AAircraftImageView *)initWithAircraftModel:(AAircraftModel *)aircraft; // default aircraft image
 - (void)releasePath;
 
 /*!
