@@ -15,6 +15,12 @@
 @protocol ABattleFieldVCDelegate;
 @protocol ABattleFieldOrganizerDelegate;
 
+typedef enum
+{
+    AAircraftImgRegularType     = 1,
+    AAircraftImgDottedType     = 2
+}AAircraftImgType;
+
 @interface ABattleFieldViewController : UIViewController <UIGestureRecognizerDelegate>
 {
     ABattleFieldModel *_battleFldModel;
@@ -29,7 +35,14 @@
 @property (strong, nonatomic) IBOutlet UIButton *switchBarButton;
 @property (strong, nonatomic) IBOutlet UIImageView *battleFieldImgView;
 
+/*!
+ @discussion add aircraft image (based on type) to field, no condition will be checked
+ */
+- (void)addAircraft:(AAircraftModel *)aircraft toFieldAsType:(AAircraftImgType)type withGesture:(BOOL)withGesture onBottom:(BOOL)onBottom;
 
+/*!
+ @discussion add aircraft image to field, conditions will be checked, delegate methods will also be called
+ */
 - (BOOL)addAircraft:(AAircraftModel *)aircraft;
 
 /*!

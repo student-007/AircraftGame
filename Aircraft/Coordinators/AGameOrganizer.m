@@ -79,12 +79,17 @@
     self.opPanelVC = nil;
     
     _numberOfAircraftPlaced = nil;
+    _numberOfAircraftDestroyed = nil;
+    _numberOfSelfAircraftDestroyed = nil;
     _isGameBegin = NO;  // default is NO
     _dateWhenGameBegin = nil;
     _dateWhenGameEnd = nil;
     _userStatus = nil;
+    _competitorAircrafts = nil;
+    _selfAircrafts = nil;
     _competitorStatus = nil;
     _gameId = nil;
+    _competitorName = nil;
 }
 
 - (NSDictionary *)gameStatus
@@ -205,6 +210,13 @@
     else if ([resString caseInsensitiveCompare:kBattleEndResultLost] == NSOrderedSame) 
     {
 #warning TODO: user lost
+    }
+    
+    // show user how competitor placed aircrafts
+    for (NSDictionary *aircraftDictionaty in _competitorAircrafts)
+    {
+        AAircraftModel *aircraftModel = [AAircraftModel aircraftFromSavableDictionary:aircraftDictionaty];
+        [self.battleFldVCEnemy addAircraft:aircraftModel toFieldAsType:AAircraftImgRegularType withGesture:NO onBottom:YES];
     }
     
     if (!YesOrNo)

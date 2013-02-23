@@ -319,6 +319,32 @@
     return [_battleFldModel checkPositionForAircraft:aircraft];
 }
 
+- (void)addAircraft:(AAircraftModel *)aircraft toFieldAsType:(AAircraftImgType)type withGesture:(BOOL)withGesture onBottom:(BOOL)onBottom;
+{
+    switch (type)
+    {
+        case AAircraftImgRegularType:
+        {
+            // add the aircraft image view to battle field
+            AAircraftImageView *aircraftImgView = [[AAircraftImageView alloc] initWithAircraftModel:aircraft];
+            if (withGesture)
+                [self addPanGestureToView:aircraftImgView];
+            if (onBottom)
+                [self.battleFieldImgView insertSubview:aircraftImgView atIndex:0];
+            else
+                [self.battleFieldImgView addSubview:aircraftImgView];
+        }
+            break;
+        case AAircraftImgDottedType:
+        {
+#warning TODO: add dotted type aircraft image to the field
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 - (BOOL)addAircraft:(AAircraftModel *)aircraft
 {
     if ([self.organizerDelegate userWantsToAddAircraft:aircraft])
@@ -327,11 +353,11 @@
         {
             // add aircraft model to battle field model
             [_battleFldModel addAircraft:aircraft];
-            
-            // add the aircraft image view to battle field
-            AAircraftImageView *aircraftImgView = [[AAircraftImageView alloc] initWithAircraftModel:aircraft];
-            [self addPanGestureToView:aircraftImgView];
-            [self.battleFieldImgView addSubview:aircraftImgView];
+            [self addAircraft:aircraft toFieldAsType:AAircraftImgRegularType withGesture:YES onBottom:YES];
+//            // add the aircraft image view to battle field
+//            AAircraftImageView *aircraftImgView = [[AAircraftImageView alloc] initWithAircraftModel:aircraft];
+//            [self addPanGestureToView:aircraftImgView];
+//            [self.battleFieldImgView addSubview:aircraftImgView];
             if ([self.organizerDelegate respondsToSelector:@selector(aircraftAdded)])
                 [self.organizerDelegate aircraftAdded];
             
