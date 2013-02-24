@@ -2,6 +2,7 @@
 ./Aircraft.xcodeproj/project.xcworkspace/xcuserdata/ylang.xcuserdatad/*.xcuserstate
 # Can ignore specific files
 .DS_Store
+.DS_Store?
 
 # Use wildcards as well
 *~
