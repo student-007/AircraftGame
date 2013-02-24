@@ -1,1 +1,11 @@
 ./Aircraft.xcodeproj/project.xcworkspace/xcuserdata/ylang.xcuserdatad/UserInterfaceState.xcuserstate
+./Aircraft.xcodeproj/project.xcworkspace/xcuserdata/ylang.xcuserdatad/*.xcuserstate
+# Can ignore specific files
+.DS_Store
+
+# Use wildcards as well
+*~
+*.swp
+
+# Can also ignore all directories and files in a directory.
+tmp/**/*
