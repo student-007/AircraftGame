@@ -35,6 +35,7 @@ typedef enum
 - (void)makeConnWithType:(ConnectionType)type;
 - (void)closeConnection;
 - (BOOL)sendMessage:(id)message;
+
 @end
 
 
