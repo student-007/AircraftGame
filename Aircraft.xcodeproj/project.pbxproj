@@ -338,6 +338,16 @@
 		9F4436DF168FA6AA0006D521 /* AChattingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436DB168FA6AA0006D521 /* AChattingViewController.xib */; };
 		9F4436E7168FB32D0006D521 /* UIFont+AUIColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */; };
 		9F4436E8168FB32D0006D521 /* UIFont+AUIColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */; };
+		9F4E154916DB3E29008691DB /* ABattleResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E154716DB3E29008691DB /* ABattleResultViewController.m */; };
+		9F4E154A16DB3E29008691DB /* ABattleResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E154716DB3E29008691DB /* ABattleResultViewController.m */; };
+		9F4E154B16DB3E29008691DB /* ABattleResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4E154816DB3E29008691DB /* ABattleResultViewController.xib */; };
+		9F4E154C16DB3E29008691DB /* ABattleResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4E154816DB3E29008691DB /* ABattleResultViewController.xib */; };
+		9F4E154F16DB3E3F008691DB /* BattleResult.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4E154D16DB3E3F008691DB /* BattleResult.png */; };
+		9F4E155016DB3E3F008691DB /* BattleResult.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4E154D16DB3E3F008691DB /* BattleResult.png */; };
+		9F4E155116DB3E3F008691DB /* BattleResult@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4E154E16DB3E3F008691DB /* BattleResult@2x.png */; };
+		9F4E155216DB3E3F008691DB /* BattleResult@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4E154E16DB3E3F008691DB /* BattleResult@2x.png */; };
+		9F4E155516DB3FC1008691DB /* ABattleResultInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E155416DB3FC1008691DB /* ABattleResultInfoModel.m */; };
+		9F4E155616DB3FC1008691DB /* ABattleResultInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E155416DB3FC1008691DB /* ABattleResultInfoModel.m */; };
 		9F4F8AB91692A9F5006254D4 /* AGameOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8AB81692A9F5006254D4 /* AGameOrganizer.m */; };
 		9F4F8ABA1692A9F5006254D4 /* AGameOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8AB81692A9F5006254D4 /* AGameOrganizer.m */; };
 		9F4F8AD116936B71006254D4 /* APlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4F8ACF16936B71006254D4 /* APlayViewController.m */; };
@@ -807,6 +817,13 @@
 		9F4436DB168FA6AA0006D521 /* AChattingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AChattingViewController.xib; path = Screens/AChattingViewController.xib; sourceTree = "<group>"; };
 		9F4436E5168FB32D0006D521 /* UIFont+AUIColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+AUIColorTheme.h"; path = "Base/UIFont+AUIColorTheme.h"; sourceTree = "<group>"; };
 		9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+AUIColorTheme.m"; path = "Base/UIFont+AUIColorTheme.m"; sourceTree = "<group>"; };
+		9F4E154616DB3E29008691DB /* ABattleResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABattleResultViewController.h; path = Screens/ABattleResultViewController.h; sourceTree = "<group>"; };
+		9F4E154716DB3E29008691DB /* ABattleResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABattleResultViewController.m; path = Screens/ABattleResultViewController.m; sourceTree = "<group>"; };
+		9F4E154816DB3E29008691DB /* ABattleResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ABattleResultViewController.xib; path = Screens/ABattleResultViewController.xib; sourceTree = "<group>"; };
+		9F4E154D16DB3E3F008691DB /* BattleResult.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = BattleResult.png; path = Aircraft/res/BattleResult.png; sourceTree = "<group>"; };
+		9F4E154E16DB3E3F008691DB /* BattleResult@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BattleResult@2x.png"; path = "Aircraft/res/BattleResult@2x.png"; sourceTree = "<group>"; };
+		9F4E155316DB3FC1008691DB /* ABattleResultInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABattleResultInfoModel.h; path = Model/ABattleResultInfoModel.h; sourceTree = "<group>"; };
+		9F4E155416DB3FC1008691DB /* ABattleResultInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABattleResultInfoModel.m; path = Model/ABattleResultInfoModel.m; sourceTree = "<group>"; };
 		9F4F8AB71692A9F5006254D4 /* AGameOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AGameOrganizer.h; path = Coordinators/AGameOrganizer.h; sourceTree = "<group>"; };
 		9F4F8AB81692A9F5006254D4 /* AGameOrganizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AGameOrganizer.m; path = Coordinators/AGameOrganizer.m; sourceTree = "<group>"; };
 		9F4F8ACE16936B71006254D4 /* APlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APlayViewController.h; path = Screens/APlayViewController.h; sourceTree = "<group>"; };
@@ -1091,6 +1108,9 @@
 		9F4436D8168FA6540006D521 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				9F4E154616DB3E29008691DB /* ABattleResultViewController.h */,
+				9F4E154716DB3E29008691DB /* ABattleResultViewController.m */,
+				9F4E154816DB3E29008691DB /* ABattleResultViewController.xib */,
 				9F4436D9168FA6AA0006D521 /* AChattingViewController.h */,
 				9F4436DA168FA6AA0006D521 /* AChattingViewController.m */,
 				9F4436DB168FA6AA0006D521 /* AChattingViewController.xib */,
@@ -1165,6 +1185,8 @@
 				9F57A009168516C20069DA95 /* AAircraftModel.m */,
 				9FB0B4F3169CFBAC00416B93 /* ABattleFieldModel.h */,
 				9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */,
+				9F4E155316DB3FC1008691DB /* ABattleResultInfoModel.h */,
+				9F4E155416DB3FC1008691DB /* ABattleResultInfoModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1291,6 +1313,8 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				9F4E154D16DB3E3F008691DB /* BattleResult.png */,
+				9F4E154E16DB3E3F008691DB /* BattleResult@2x.png */,
 				9F92B38F16D9529900C49ADB /* aircraftDotted.png */,
 				9F92B39016D9529900C49ADB /* aircraftDotted@2x.png */,
 				9F96CC5D16D6E6FE009BE16F /* explosionAnimation */,
@@ -1781,6 +1805,9 @@
 				9F96CD6D16D6E6FE009BE16F /* Thumbs.db in Resources */,
 				9F92B39116D9529900C49ADB /* aircraftDotted.png in Resources */,
 				9F92B39316D9529900C49ADB /* aircraftDotted@2x.png in Resources */,
+				9F4E154B16DB3E29008691DB /* ABattleResultViewController.xib in Resources */,
+				9F4E154F16DB3E3F008691DB /* BattleResult.png in Resources */,
+				9F4E155116DB3E3F008691DB /* BattleResult@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2045,6 +2072,9 @@
 				9F96CD6E16D6E6FE009BE16F /* Thumbs.db in Resources */,
 				9F92B39216D9529900C49ADB /* aircraftDotted.png in Resources */,
 				9F92B39416D9529900C49ADB /* aircraftDotted@2x.png in Resources */,
+				9F4E154C16DB3E29008691DB /* ABattleResultViewController.xib in Resources */,
+				9F4E155016DB3E3F008691DB /* BattleResult.png in Resources */,
+				9F4E155216DB3E3F008691DB /* BattleResult@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2095,6 +2125,8 @@
 				0CA9D30E16D5B7A00059D7D4 /* ALoadSavedGameScreenViewController.m in Sources */,
 				0CA9D31616D5E1190059D7D4 /* ASavedRecordItem.m in Sources */,
 				0CA9D32D16D5F0870059D7D4 /* ASavedGameRecord.m in Sources */,
+				9F4E154916DB3E29008691DB /* ABattleResultViewController.m in Sources */,
+				9F4E155516DB3FC1008691DB /* ABattleResultInfoModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2142,6 +2174,8 @@
 				0CA9D30F16D5B7A00059D7D4 /* ALoadSavedGameScreenViewController.m in Sources */,
 				0CA9D31716D5E1190059D7D4 /* ASavedRecordItem.m in Sources */,
 				0CA9D32E16D5F0870059D7D4 /* ASavedGameRecord.m in Sources */,
+				9F4E154A16DB3E29008691DB /* ABattleResultViewController.m in Sources */,
+				9F4E155616DB3FC1008691DB /* ABattleResultInfoModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
