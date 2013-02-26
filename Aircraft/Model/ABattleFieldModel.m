@@ -51,6 +51,41 @@
     }
 }
 
+- (NSInteger)numberOfHits
+{
+    if (_attackRecord)
+    {
+        if (_attackRecord.count > 0)
+        {
+            if (_aircraftModelAry)
+            {
+                if (_aircraftModelAry.count > 0)
+                {
+                    NSInteger *hitNumber = 0;
+                    for (NSArray *attackPtAry in _attackRecord)
+                    {
+                        CGPoint attackPt = CGPointMake([((NSNumber *)[attackPtAry objectAtIndex:0]) intValue],
+                                                       [((NSNumber *)[attackPtAry objectAtIndex:1]) intValue]);
+                        
+                        if (![[self attackResultInGridAtPoint:attackPt] caseInsensitiveCompare:kAttackRMiss] == NSOrderedSame)
+                            hitNumber ++;
+                    }
+                    
+                    return hitNumber;
+                }
+                else
+                    return 0;
+            }
+            else
+                return 0;
+        }
+        else
+            return 0;
+    }
+    else
+        return 0;
+}
+
 - (BOOL)addAttackRecordPoint//:(CGPoint)attackPoint
 {
 //    NSAssert(, @"[error]: set 'attackPoint' before calling method 'addAttackRecordPoint'");

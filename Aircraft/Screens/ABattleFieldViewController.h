@@ -28,6 +28,7 @@
 @property (assign, nonatomic) id<ABattleFieldOrganizerDelegate> organizerDelegate;
 @property (strong, nonatomic) IBOutlet UIButton *switchBarButton;
 @property (strong, nonatomic) IBOutlet UIImageView *battleFieldImgView;
+@property (nonatomic, readonly) NSInteger numberOfHits; // number of time for hit amount attacks
 
 /*!
  @discussion add aircraft image (based on type) to field, no condition will be checked

@@ -113,6 +113,11 @@
     return _battleFldModel.attackRecord ? _battleFldModel.attackRecord : nil;
 }
 
+- (NSInteger)numberOfHits
+{
+    return _battleFldModel.numberOfHits;
+}
+
 - (void)displayBattleField
 {
     if ([self.delegate respondsToSelector:@selector(displayBattleField:)])

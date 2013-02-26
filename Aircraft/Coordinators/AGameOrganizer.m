@@ -203,6 +203,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationSaveGameFailed object:nil];
     
     NSTimeInterval totalPlayingTime = [endBattleDate timeIntervalSinceDate:_dateWhenGameBegin];
+    NSInteger numberOfHits = self.battleFldVCEnemy.numberOfHits;
     
     if ([resString caseInsensitiveCompare:kBattleEndResultWon] == NSOrderedSame) 
     {
