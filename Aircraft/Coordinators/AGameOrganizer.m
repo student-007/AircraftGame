@@ -7,10 +7,7 @@
 //
 
 #import "AGameOrganizer.h"
-
-#define kBattleEndResultWon             @"won"
-#define kBattleEndResultWonEnemyEscape  @"wonEscape"
-#define kBattleEndResultLost            @"lost"
+#import "ABattleResultViewController.h"
 
 @interface AGameOrganizer ()
 {

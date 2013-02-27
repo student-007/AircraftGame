@@ -19,5 +19,7 @@
 @synthesize selfNumberOfHits = _selfNumberOfHits;
 @synthesize enemyNumberOfAttacks = _enemyNumberOfAttacks;
 @synthesize enemyNumberOfHits = _enemyNumberOfHits;
+@synthesize timeSpentUser = _timeSpentUser;
+@synthesize timeSpentOpponent = _timeSpentOpponent;
 
 @end

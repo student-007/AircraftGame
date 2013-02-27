@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#define kBattleEndResultWon             @"won"
+#define kBattleEndResultWonEnemyEscape  @"wonEscape"
+#define kBattleEndResultLost            @"lost"
+
 @interface ABattleResultInfoModel : NSObject
 
 @property (strong, nonatomic) NSString *gameId; // battle start time. seconds from year 1970
@@ -15,6 +19,9 @@
 @property (strong, nonatomic) NSString *resultString;
 @property (strong, nonatomic) NSDate *battleBeginDate;
 @property (strong, nonatomic) NSDate *battleEndDate;
+
+@property (nonatomic) NSTimeInterval timeSpentUser;
+@property (nonatomic) NSTimeInterval timeSpentOpponent;
 
 @property (nonatomic) NSInteger selfNumberOfAttacks;
 @property (nonatomic) NSInteger selfNumberOfHits;

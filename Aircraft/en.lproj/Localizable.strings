@@ -63,6 +63,20 @@
 "battle_begins_try_shoot" = "Battle begins.\n\nPlease think and analysis where your opponent placed aircrafts and try to shoot them.\nHit the head of an aircraft will destory it.";
 "destory_to_win" = "* destory 3 aircrafts to win *";
 
+// battle result screen
+"you_won" = "You won!"; // main titles
+"you_lost" = "You lost.";
+"awesome" = "Awesome!"; // secondary titles
+"opponent_escaped" = "Opponent escaped.";
+"sorry_dont_be_sad" = "Sorry, don't be sad.";
+"total_play_time" = "Total play time:";
+"time_spent_for_me" = "Time spent for me:";
+"time_spent_for_opponent" = "Time spent for opponent:";
+"number_of_attacks" = "Number of attack(s):";
+"number_of_hits" = "Number of hit(s):";
+"hit_rate" = "Hit rate:";
+"oppoents_hit_rate" = "Oppoents hit rate:";
+
 // setting screen
 "setting_title" = "Setting";
 "user_preference" = "User preference";
