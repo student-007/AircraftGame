@@ -47,9 +47,9 @@
         else if ([msg.flag isEqualToString:kFlagSaveR])
             msg.message = CREATE_INTERNAL_MSG(ANetMessageSaveR, internalMsgDic);
         else if ([msg.flag isEqualToString:kFlagLoad])
-            msg.message = [NSNull null];//CREATE_INTERNAL_MSG(ANetMessageLoad, internalMsgDic);
+            msg.message = CREATE_INTERNAL_MSG(ANetMessageLoad, internalMsgDic);
         else if ([msg.flag isEqualToString:kFlagLoadR])
-            msg.message = [NSNull null];//CREATE_INTERNAL_MSG(ANetMessageLoadR, internalMsgDic);
+            msg.message = CREATE_INTERNAL_MSG(ANetMessageLoadR, internalMsgDic);
         else
             NSAssert(NO, [AErrorFacade errorMessageFromKnownErrorCode:kECParserCantFindFlag]);
         
@@ -201,6 +201,22 @@
         DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(resDic, msg.attackRecords, @"ATTACK_RECORDS");
         return resDic;
     }
+    else if ([InternalMsg isKindOfClass:[ANetMessageLoad class]])
+    {
+        resDic = [NSMutableDictionary dictionary];
+        ANetMessageLoad *msg = InternalMsg;
+        NSDictionary *savebleRecord = msg.gameRecord.savableDictionaryRecord;
+        DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(resDic, savebleRecord, @"GAME_RECORD");
+        return resDic;
+    }
+    else if ([InternalMsg isKindOfClass:[ANetMessageLoadR class]])
+    {
+        resDic = [NSMutableDictionary dictionary];
+        ANetMessageLoadR *msg = InternalMsg;
+        NSNumber *isDelivered = [NSNumber numberWithBool:msg.isDelivered];
+        DICT_SET_OBJECT_NULL_IFNOTAVAILABLE(resDic, isDelivered, @"IS_DELIVERED");
+        return resDic;
+    }
     else
     {
         NSAssert(NO, [AErrorFacade errorMessageFromKnownErrorCode:kECParserCantFindInternalClass]);
@@ -301,6 +317,22 @@
         msg.isDelivered = isDelivered ? [isDelivered boolValue] : NO;
         DICT_GET_OBJECT(source, msg.gameId, @"GAME_ID");
         DICT_GET_OBJECT(source, msg.attackRecords, @"ATTACK_RECORDS");
+        return msg;
+    }
+    else if ([className isEqualToString:@"ANetMessageLoad"])
+    {
+        ANetMessageLoad *msg = [[msgClass alloc] init];
+        NSDictionary *saveableRecord = nil;
+        DICT_GET_OBJECT(source, saveableRecord, @"GAME_RECORD");
+        msg.gameRecord = saveableRecord ? [ASavedGameRecord recordFromSavableDictionary:saveableRecord] : nil;
+        return msg;
+    }
+    else if ([className isEqualToString:@"ANetMessageLoadR"])
+    {
+        ANetMessageLoadR *msg = [[msgClass alloc] init];
+        NSNumber *isDelivered = nil;
+        DICT_GET_OBJECT(source, isDelivered, @"IS_DELIVERED");
+        msg.isDelivered = isDelivered ? [isDelivered boolValue] : NO;
         return msg;
     }
     else

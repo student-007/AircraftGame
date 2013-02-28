@@ -60,10 +60,15 @@
     [self setupChattingField];
     [self setupShadowView];
     
-//    AAircraftModel *aircraft = [AAircraftModel aircraftWithOrgin:CGPointMake(4, 0) direction:AircraftDirectionLeft];
-//    [self.battleFldSelf addAircraft:aircraft];
-    
-    [self.organizer makeConnectionWithType:ConnectionTypeBluetooth];
+    if (!self.gameRecord)
+    {
+        self.connectionType = ConnectionTypeBluetooth;
+        [self.organizer makeConnectionWithType:self.connectionType];
+    }
+    else
+    {
+        [self.organizer loadGameFromGameRecord:self.gameRecord];
+    }
 }
 
 - (void)didReceiveMemoryWarning

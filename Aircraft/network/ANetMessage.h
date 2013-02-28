@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ASavedGameRecord.h"
 
 #define kFlagInitial        @"initial"
 #define kFlagInitialR       @"initialR"
@@ -108,4 +109,13 @@
 @property (nonatomic) BOOL isMyTurn;
 @property (strong, nonatomic) NSString *gameId;
 @property (strong, nonatomic) NSArray *attackRecords;
+@end
+
+#pragma mark - load game message
+
+@interface ANetMessageLoad : ANetMessageBaseMessage
+@property (strong, nonatomic) ASavedGameRecord *gameRecord;
+@end
+
+@interface ANetMessageLoadR : ANetMessageBaseReply
 @end

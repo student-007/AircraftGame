@@ -13,8 +13,14 @@
 #import "ABattleFieldViewController.h"
 #import "AOperationPanelViewController.h"
 #import "AAircraftHolderImageView.h"
+#import "ASavedGameRecord.h"
 
 @interface APlayScreenViewController : UIViewController <UIScrollViewDelegate, ABattleFieldVCDelegate, AOperationPanelViewControllerViewDelegate>
+
+// view controller will try to load the unfinished game if this property is NOT nil
+@property (strong, nonatomic) ASavedGameRecord *gameRecord;
+
+@property (nonatomic) ConnectionType connectionType; // this will be ingored if property gameRecord is provided
 
 // organizer
 @property (strong, nonatomic) AGameOrganizer *organizer;

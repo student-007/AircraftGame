@@ -10,12 +10,7 @@
 #import "ANetConnBluetooth.h"
 #import "AMessageParser.h"
 #import "ANetMessage.h"
-
-typedef enum
-{
-    ConnectionTypeNone          = 0,
-    ConnectionTypeBluetooth     = 1
-}ConnectionType;
+#import "ACommunicationDetail.h"
 
 @protocol communicatorListenerDelegate;
 

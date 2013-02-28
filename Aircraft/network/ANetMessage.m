@@ -110,4 +110,11 @@
 @synthesize attackRecords = _attackRecords;
 @end
 
+#pragma mark - load game message
 
+@implementation ANetMessageLoad
+@synthesize gameRecord = _gameRecord;
+@end
+
+@implementation ANetMessageLoadR
+@end

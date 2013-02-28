@@ -24,12 +24,14 @@
 @synthesize competitorName = _competitorName;
 @synthesize gameId = _gameId;
 @synthesize isFavorite = _isFavorite;
+@synthesize connectionType = _connectionType;
 
 - (id)init
 {
     if (self = [super init])
     {
         _isRegularRecord = [NSNumber numberWithBool:YES];
+        _connectionType = ConnectionTypeNone;
     }
     return self;
 }
@@ -51,6 +53,7 @@
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.isRegularRecord, @"isRegularRecord");
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.competitorName, @"competitorName");
     DICT_SETOBJECT_IFAVAILABLE(gameRecord, self.gameId, @"gameId");
+    DICT_SETOBJECT_IFAVAILABLE(gameRecord, [NSNumber numberWithInt:self.connectionType], @"connectionType");
     return gameRecord;
 }
 
@@ -77,6 +80,9 @@
     DICT_GET_OBJECT(gameRecord, self.isRegularRecord, @"isRegularRecord");
     DICT_GET_OBJECT(gameRecord, self.competitorName, @"competitorName");
     DICT_GET_OBJECT(gameRecord, self.gameId, @"gameId");
+    NSNumber *connectionType = nil;
+    DICT_GET_OBJECT(gameRecord, connectionType, @"connectionType");
+    self.connectionType = connectionType;
 }
 
 @end

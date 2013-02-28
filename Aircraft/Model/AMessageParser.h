@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ANetMessage.h"
+#import "ASavedGameRecord.h"
 
 #define kKeyFlag            @"MSG_FLAG"
 #define kKeySender          @"MSG_SENDER"

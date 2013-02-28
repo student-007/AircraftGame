@@ -13,6 +13,7 @@
 {
     AGuideViewController *_guideVC;
     ABattleResultViewController *_resultVC;
+    ASavedGameRecord *_gameRecord;
     NSArray *_competitorAircrafts;
     NSArray *_selfAircrafts;
 }
@@ -56,6 +57,7 @@
     if (self = [super init])
     {
         self.connectionType = ConnectionTypeNone;
+        _gameRecord = nil;
         _numberOfAircraftPlaced = [NSNumber numberWithInt:0];
         _numberOfAircraftDestroyed = [NSNumber numberWithInt:0];
         _numberOfSelfAircraftDestroyed  = [NSNumber numberWithInt:0];
@@ -162,31 +164,6 @@
     }
 }
 
-- (void)saveCurrentGamingStatus
-{
-    if (!_dateWhenGameBegin)
-        _dateWhenGameBegin = [NSDate date];
-    
-    AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
-    
-    recordMgr.sharedGameRecord.competitorName = _competitorName;
-    recordMgr.sharedGameRecord.gameId = _gameId;
-    recordMgr.sharedGameRecord.enemyAircrafts = _competitorAircrafts ? _competitorAircrafts : nil;
-    recordMgr.sharedGameRecord.selfAircrafts = _selfAircrafts ? _selfAircrafts : nil;
-    recordMgr.sharedGameRecord.selfAttackRecords = self.battleFldVCEnemy.attackRecordAry;
-    recordMgr.sharedGameRecord.chattingRecords = [self.chatVC saveableChattingMessageArray];
-    recordMgr.sharedGameRecord.enemyAttackRecords = self.battleFldVCSelf.attackRecordAry;
-    recordMgr.sharedGameRecord.isMyTurn = [NSNumber numberWithBool:_whosTurn == AWhosTurnUser ? YES : NO];
-        
-    recordMgr.sharedGameRecord.startTimeSec = [NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSince1970]];
-#warning TODO: total playing time should be added up instead of using time interval since now
-    recordMgr.sharedGameRecord.totalTimeSec = [NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSinceNow]];
-    recordMgr.sharedGameRecord.selfTotalTimeSec = [NSNumber numberWithFloat:self.opPanelVC.userSpendTime];
-    recordMgr.sharedGameRecord.enemyTotalTimeSec = [NSNumber numberWithFloat:self.opPanelVC.competitorSpendTime];
-    
-    [recordMgr saveGameToFile];
-}
-
 - (void)endBattleWithResult:(NSString *)resString keepConnectionAlive:(BOOL)YesOrNo;
 {
     _isGameBegin = NO;
@@ -230,7 +207,32 @@
         [self reset];
 }
 
-#pragma mark - save game listener
+#pragma mark - save/load game
+
+- (void)saveCurrentGamingStatus
+{
+    if (!_dateWhenGameBegin)
+        _dateWhenGameBegin = [NSDate date];
+    
+    AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
+    
+    recordMgr.sharedGameRecord.competitorName = _competitorName;
+    recordMgr.sharedGameRecord.gameId = _gameId;
+    recordMgr.sharedGameRecord.enemyAircrafts = _competitorAircrafts ? _competitorAircrafts : nil;
+    recordMgr.sharedGameRecord.selfAircrafts = _selfAircrafts ? _selfAircrafts : nil;
+    recordMgr.sharedGameRecord.selfAttackRecords = self.battleFldVCEnemy.attackRecordAry;
+    recordMgr.sharedGameRecord.chattingRecords = [self.chatVC saveableChattingMessageArray];
+    recordMgr.sharedGameRecord.enemyAttackRecords = self.battleFldVCSelf.attackRecordAry;
+    recordMgr.sharedGameRecord.isMyTurn = [NSNumber numberWithBool:_whosTurn == AWhosTurnUser ? YES : NO];
+    
+    recordMgr.sharedGameRecord.startTimeSec = [NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSince1970]];
+#warning TODO: total playing time should be added up instead of using time interval since now
+    recordMgr.sharedGameRecord.totalTimeSec = [NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSinceNow]];
+    recordMgr.sharedGameRecord.selfTotalTimeSec = [NSNumber numberWithFloat:self.opPanelVC.userSpendTime];
+    recordMgr.sharedGameRecord.enemyTotalTimeSec = [NSNumber numberWithFloat:self.opPanelVC.competitorSpendTime];
+    
+    [recordMgr saveGameToFile];
+}
 
 - (void)gameRecordSaved:(NSNotification *)notification
 {
@@ -277,6 +279,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationGameSaved object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationSaveGameFailed object:nil];
 #warning TODO: handle when failed to save the game
+}
+
+- (void)loadGameFromGameRecord:(ASavedGameRecord *)gameRecord
+{
+    [self makeConnectionWithType:gameRecord.connectionType];
 }
 
 #pragma mark - battle result screen
@@ -466,7 +473,9 @@
     }
     else if ([netMessage.flag isEqualToString:kFlagLoad])
     {
-        // netMessage.message is nil here
+        ANetMessageLoad *loadMsg = netMessage.message;
+        ASavedGameRecord *gameRecord = loadMsg.gameRecord;
+#warning TODO: deal with game record, but be noticed that self and enemy are opposite 'cause the message is sent by opponent
     }
     else if ([netMessage.flag isEqualToString:kFlagLoadR])
     {

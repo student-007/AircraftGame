@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ACommunicationDetail.h"
 
 @interface ASavedGameRecord : NSObject
 
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) NSNumber *isFavorite;
 @property (nonatomic, strong) NSString *competitorName;
 @property (nonatomic, strong) NSString *gameId;
+@property (nonatomic) ConnectionType connectionType;
 
 - (NSDictionary *)savableDictionaryRecord;
 + (ASavedGameRecord *)recordFromSavableDictionary:(NSDictionary *)gameRecord;

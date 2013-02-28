@@ -16,6 +16,7 @@
 #import "AUIPopView.h"
 #import "AGameRecordManager.h"
 #import "ASetting.h"
+#import "ASavedGameRecord.h"
 #import "ABattleResultViewController.h"
 
 typedef enum
@@ -62,5 +63,6 @@ typedef enum
 - (void)reset;
 
 - (void)makeConnectionWithType:(ConnectionType)type;
+- (void)loadGameFromGameRecord:(ASavedGameRecord *)gameRecord;
 
 @end

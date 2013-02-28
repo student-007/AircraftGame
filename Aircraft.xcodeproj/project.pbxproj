@@ -977,6 +977,7 @@
 		9FB043E516B9D93D0067A04F /* battleFieldBar_self@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battleFieldBar_self@2x.png"; path = "Aircraft/res/battleFieldBar_self@2x.png"; sourceTree = "<group>"; };
 		9FB0B4F3169CFBAC00416B93 /* ABattleFieldModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABattleFieldModel.h; path = Model/ABattleFieldModel.h; sourceTree = "<group>"; };
 		9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABattleFieldModel.m; path = Model/ABattleFieldModel.m; sourceTree = "<group>"; };
+		9FCE56BD16DF26F40009A789 /* ACommunicationDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACommunicationDetail.h; path = Coordinators/ACommunicationDetail.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1088,6 +1089,7 @@
 			children = (
 				0C70614716C45D6A005A48FF /* AGameRecordManager.h */,
 				0C70614816C45D6A005A48FF /* AGameRecordManager.m */,
+				9FCE56BD16DF26F40009A789 /* ACommunicationDetail.h */,
 				9F4436CB168E48350006D521 /* ACommunicator.h */,
 				9F4436CC168E48350006D521 /* ACommunicator.m */,
 				9F4F8AB71692A9F5006254D4 /* AGameOrganizer.h */,
