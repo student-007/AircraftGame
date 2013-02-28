@@ -16,6 +16,7 @@
 #import "AUIPopView.h"
 #import "AGameRecordManager.h"
 #import "ASetting.h"
+#import "ABattleResultViewController.h"
 
 typedef enum
 {
@@ -24,7 +25,7 @@ typedef enum
     AWhosTurnCompetitor     = 2
 }AWhosTurn;
 
-@interface AGameOrganizer : NSObject<ChatViewDelegate, communicatorListenerDelegate, AOperationPanelViewControllerOperationDelegate, ABattleFieldOrganizerDelegate, AGuideViewControllerDelegate>
+@interface AGameOrganizer : NSObject<ChatViewDelegate, communicatorListenerDelegate, AOperationPanelViewControllerOperationDelegate, ABattleFieldOrganizerDelegate, AGuideViewControllerDelegate, ABattleResultViewControllerDelegate>
 {
     // game status data
     NSNumber *_numberOfAircraftPlaced;

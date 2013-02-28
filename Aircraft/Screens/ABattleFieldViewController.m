@@ -418,6 +418,12 @@
         return NO;
 }
 
+- (void)addAircraftModelToBattleFieldModel:(AAircraftModel *)aircraft
+{
+    if (_battleFldModel)
+        [_battleFldModel addAircraft:aircraft];
+}
+
 - (void)addEnemyAttackRecord:(CGPoint)attPt
 {
     NSArray *attRecord = [NSArray arrayWithObjects:[NSNumber numberWithInt:(int)attPt.x], [NSNumber numberWithInt:(int)attPt.y], nil];

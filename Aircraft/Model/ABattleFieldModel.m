@@ -61,13 +61,13 @@
             {
                 if (_aircraftModelAry.count > 0)
                 {
-                    NSInteger *hitNumber = 0;
+                    NSInteger hitNumber = 0;
                     for (NSArray *attackPtAry in _attackRecord)
                     {
                         CGPoint attackPt = CGPointMake([((NSNumber *)[attackPtAry objectAtIndex:0]) intValue],
                                                        [((NSNumber *)[attackPtAry objectAtIndex:1]) intValue]);
                         
-                        if (![[self attackResultInGridAtPoint:attackPt] caseInsensitiveCompare:kAttackRMiss] == NSOrderedSame)
+                        if (!([[self attackResultInGridAtPoint:attackPt] caseInsensitiveCompare:kAttackRMiss] == NSOrderedSame))
                             hitNumber ++;
                     }
                     
@@ -148,6 +148,8 @@
     else
     {
         _aircraftModelAry = [NSMutableArray arrayWithObject:aircraft];
+        
+        [self fillGridForAircraft:aircraft];
     }
 }
 

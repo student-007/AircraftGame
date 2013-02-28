@@ -41,6 +41,11 @@
 - (BOOL)addAircraft:(AAircraftModel *)aircraft;
 
 /*!
+ @discussion add aircraft model to battle field model, no image will be added
+ */
+- (void)addAircraftModelToBattleFieldModel:(AAircraftModel *)aircraft;
+
+/*!
  @discussion call this method for self field only, this can save enemy attack records
  */
 - (void)addEnemyAttackRecord:(CGPoint)attPt;

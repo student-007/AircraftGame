@@ -12,6 +12,7 @@
 @interface AGameOrganizer ()
 {
     AGuideViewController *_guideVC;
+    ABattleResultViewController *_resultVC;
     NSArray *_competitorAircrafts;
     NSArray *_selfAircrafts;
 }
@@ -66,9 +67,6 @@
 
 - (void)reset
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationGameSaved object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationSaveGameFailed object:nil];
-    
     [self.communicator closeConnection];
     self.chatVC = nil;
     self.battleFldVCEnemy = nil;
@@ -136,8 +134,6 @@
 {
     _isGameBegin = YES;
     _dateWhenGameBegin = [NSDate date];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameRecordSaved:) name:kNotificationGameSaved object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveGameRecordFailed:) name:kNotificationSaveGameFailed object:nil];
     
     AUIPopView *popView = [AUIPopView popViewWithText:ALocalisedString(@"battle_start")
                                                 image:[UIImage imageForBlueRectBackground] 
@@ -194,26 +190,34 @@
 - (void)endBattleWithResult:(NSString *)resString keepConnectionAlive:(BOOL)YesOrNo;
 {
     _isGameBegin = NO;
-    NSDate *endBattleDate = [NSDate date];
+    NSDate *endGameDate = [NSDate date];
+    [self.opPanelVC endTheGame];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationGameSaved object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationSaveGameFailed object:nil];
+    ABattleResultInfoModel *resultModel = [[ABattleResultInfoModel alloc] init];
+    resultModel.gameId = _gameId;
+    resultModel.competitorName = _competitorName;
+    resultModel.resultString = resString;
+    resultModel.battleBeginDate = _dateWhenGameBegin;
+    resultModel.battleEndDate = endGameDate;
+    resultModel.timeSpentUser = self.opPanelVC.userSpendTime;
+    resultModel.timeSpentOpponent = self.opPanelVC.competitorSpendTime;
+    resultModel.selfNumberOfAttacks = self.battleFldVCEnemy.attackRecordAry.count;
+    resultModel.selfNumberOfHits = self.battleFldVCEnemy.numberOfHits;
+    resultModel.enemyNumberOfAttacks = self.battleFldVCSelf.attackRecordAry.count;
+    resultModel.enemyNumberOfHits = self.battleFldVCSelf.numberOfHits;
     
-    NSTimeInterval totalPlayingTime = [endBattleDate timeIntervalSinceDate:_dateWhenGameBegin];
-    NSInteger numberOfHits = self.battleFldVCEnemy.numberOfHits;
+    if (!_resultVC)
+    {
+        _resultVC = [[ABattleResultViewController alloc] initWithResultModel:resultModel];
+        _resultVC.delegate = self;
+    }
+    else
+    {
+        _resultVC.resultModel = resultModel;
+        _resultVC.delegate = self;
+    }
     
-    if ([resString caseInsensitiveCompare:kBattleEndResultWon] == NSOrderedSame) 
-    {
-#warning TODO: user won (normal)
-    }
-    else if ([resString caseInsensitiveCompare:kBattleEndResultWonEnemyEscape] == NSOrderedSame) 
-    {
-#warning TODO: user won (competitor escape)
-    }
-    else if ([resString caseInsensitiveCompare:kBattleEndResultLost] == NSOrderedSame) 
-    {
-#warning TODO: user lost
-    }
+    [[AAppDelegate sharedInstance].navigationController.view addSubview:_resultVC.view];
     
     // show user how competitor placed aircrafts
     for (NSDictionary *aircraftDictionaty in _competitorAircrafts)
@@ -226,8 +230,13 @@
         [self reset];
 }
 
+#pragma mark - save game listener
+
 - (void)gameRecordSaved:(NSNotification *)notification
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationGameSaved object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationSaveGameFailed object:nil];
+    
     AGameRecordManager *recordMgr = notification.object;
     switch (recordMgr.actionType) 
     {
@@ -265,16 +274,27 @@
 
 - (void)saveGameRecordFailed:(NSNotification *)notification
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationGameSaved object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationSaveGameFailed object:nil];
 #warning TODO: handle when failed to save the game
+}
+
+#pragma mark - battle result screen
+
+- (void)resultViewController:(ABattleResultViewController *)resultVC userPressOkBtnForResult:(ABattleResultInfoModel *)resultModel
+{
+    [resultVC.view removeFromSuperview];
+}
+
+- (void)resultViewController:(ABattleResultViewController *)resultVC userPressRematchBtnForResult:(ABattleResultInfoModel *)resultModel
+{
+#warning TODO: do the rematch here
 }
 
 #pragma mark - communication controls
 
 - (void)makeConnectionWithType:(ConnectionType)type;
 {
-#warning TODO: delete the following two lines, that is only for testing
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameRecordSaved:) name:kNotificationGameSaved object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveGameRecordFailed:) name:kNotificationSaveGameFailed object:nil];
     if (!self.communicator)
     {
         self.communicator = [ACommunicator sharedInstance];
@@ -348,12 +368,8 @@
             _gameId = receivedGameId;
         
         _competitorAircrafts = [NSArray arrayWithArray:initialMsg.aircrafts];
-//        NSMutableArray *competitorAircraftModels = [NSMutableArray array];
-//        for (NSDictionary *aircraftDic in competitorAircrafts)
-//        {
-//            [competitorAircraftModels addObject:[AAircraftModel aircraftFromSavableDictionary:aircraftDic]];
-//        }
-        // save the competitor's aircraft model for game saving
+        for (NSDictionary *aircraftDic in _competitorAircrafts)
+            [self.battleFldVCEnemy addAircraftModelToBattleFieldModel:[AAircraftModel aircraftFromSavableDictionary:aircraftDic]];
         
         if (!_competitorStatus)
             _competitorStatus = [NSMutableDictionary dictionary];
@@ -622,6 +638,9 @@
 {
 //    if (_isGameBegin)
 //    {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameRecordSaved:) name:kNotificationGameSaved object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveGameRecordFailed:) name:kNotificationSaveGameFailed object:nil];
+    
         // save the game
     AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
     recordMgr.actionType = AActionTypeUserAction;
