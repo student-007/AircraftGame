@@ -51,6 +51,14 @@
     return self;
 }
 
+- (ASavedGameRecord *)sharedGameRecord
+{
+    if (!_sharedGameRecord)
+        _sharedGameRecord = [[ASavedGameRecord alloc] init];
+    
+    return _sharedGameRecord;
+}
+
 - (void)saveGameToFile
 {
     // deal with file path and file name

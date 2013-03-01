@@ -10,6 +10,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AGameOrganizer.h"
 #import "AAircraftHolderImageView.h"
+#import "ASavedGameRecord.h"
+#import "AUserInfo.h"
 #import "NSString+Format.h"
 
 @protocol AOperationPanelViewControllerViewDelegate;
@@ -64,6 +66,11 @@
  @discussion based on the property "whosTurn" in game organizer
  */
 - (void)switchTurn;
+
+/*!
+ @discussion load data from saved game record
+ */
+- (void)loadDataFromGameRecord:(ASavedGameRecord *)gameRecord sentBy:(AUserType)userType;
 
 @end
 

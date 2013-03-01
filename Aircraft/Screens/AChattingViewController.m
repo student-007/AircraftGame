@@ -189,12 +189,12 @@
             break;
         case AChattingMsgTypeUserSent:
         {
-            sender = _userName?_userName:kChattingMsgTypeUserSentString;
+            sender = _userName ? _userName:kChattingMsgTypeUserSentString;
         }
             break;
         case AChattingMsgTypeCompetitorSent:
         {
-            sender = _competitorName?_competitorName:kChattingMsgTypeCompetitorSentString;
+            sender = _competitorName ? _competitorName:kChattingMsgTypeCompetitorSentString;
         }
             break;
         case AChattingMsgTypeHelpMsg:
@@ -329,6 +329,40 @@
 - (BOOL)isEmptyMsg
 {
     return [self.chatTxtFld.text isEqualToString:@""] ? YES : NO;
+}
+
+- (void)loadDataFromGameRecord:(ASavedGameRecord *)gameRecord sentBy:(AUserType)userType
+{
+    switch (userType)
+    {
+        case AUserTypeUser:
+        {
+            [self loadMessagesFromSaveableChattingMessageArray:gameRecord.chattingRecords];
+        }
+            break;
+        case AUserTypeOpponent:
+        {
+            NSArray *chattingMsgArray = gameRecord.chattingRecords;
+            for (NSDictionary *chatDictionary in chattingMsgArray)
+            {
+                NSString *sender = [chatDictionary valueForKey:@"sender"];
+                
+                if ([sender caseInsensitiveCompare:kChattingMsgTypeUserSentString] == NSOrderedSame)
+                    [self addMsg:[chatDictionary valueForKey:@"message"] toChattingTableWithType:AChattingMsgTypeCompetitorSent];
+                else if ([sender caseInsensitiveCompare:kChattingMsgTypeCompetitorSentString] == NSOrderedSame)
+                    [self addMsg:[chatDictionary valueForKey:@"message"] toChattingTableWithType:AChattingMsgTypeUserSent];
+            }
+            
+            [self scrollTableViewToBottom];
+        }
+            break;
+        case AUserTypeNone:
+        {
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - keyboard frame change operation

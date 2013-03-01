@@ -28,7 +28,7 @@ typedef enum
 @property (nonatomic) BattleFieldType type;     // default: BattleFieldNone
 @property (strong, nonatomic, readonly) NSMutableArray *aircraftModelAry;
 @property (nonatomic, readonly) NSInteger numberOfHits; // number of time for hit amount attacks
-
+@property (nonatomic, readonly) NSInteger numberOfAircraftDestroyed;
 // array of [NSNumber, NSNumber]
 @property (nonatomic, strong) NSMutableArray *attackRecord;
 

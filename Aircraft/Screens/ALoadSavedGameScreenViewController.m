@@ -134,7 +134,9 @@
 
 - (void)userTappedRecord:(ASavedRecordItem *)recordItem
 {
-    
+    APlayScreenViewController *playScreenVC = [[APlayScreenViewController alloc] initWithNibName:@"APlayScreenViewController" bundle:nil];
+    playScreenVC.gameRecord = recordItem.gameRecord;
+    [[AAppDelegate sharedInstance] pushScreen:playScreenVC animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

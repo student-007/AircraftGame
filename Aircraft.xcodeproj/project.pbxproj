@@ -620,6 +620,8 @@
 		9FB043F516B9D93D0067A04F /* battleFieldBar_self@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E516B9D93D0067A04F /* battleFieldBar_self@2x.png */; };
 		9FB0B4F5169CFBAD00416B93 /* ABattleFieldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */; };
 		9FB0B4F6169CFBAD00416B93 /* ABattleFieldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */; };
+		9FCF042216E041FB002008A1 /* AUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCF042116E041FB002008A1 /* AUserInfo.m */; };
+		9FCF042316E041FB002008A1 /* AUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FCF042116E041FB002008A1 /* AUserInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -978,6 +980,8 @@
 		9FB0B4F3169CFBAC00416B93 /* ABattleFieldModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABattleFieldModel.h; path = Model/ABattleFieldModel.h; sourceTree = "<group>"; };
 		9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABattleFieldModel.m; path = Model/ABattleFieldModel.m; sourceTree = "<group>"; };
 		9FCE56BD16DF26F40009A789 /* ACommunicationDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACommunicationDetail.h; path = Coordinators/ACommunicationDetail.h; sourceTree = "<group>"; };
+		9FCF042016E041FB002008A1 /* AUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUserInfo.h; path = Model/AUserInfo.h; sourceTree = "<group>"; };
+		9FCF042116E041FB002008A1 /* AUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AUserInfo.m; path = Model/AUserInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1189,6 +1193,8 @@
 				9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */,
 				9F4E155316DB3FC1008691DB /* ABattleResultInfoModel.h */,
 				9F4E155416DB3FC1008691DB /* ABattleResultInfoModel.m */,
+				9FCF042016E041FB002008A1 /* AUserInfo.h */,
+				9FCF042116E041FB002008A1 /* AUserInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2129,6 +2135,7 @@
 				0CA9D32D16D5F0870059D7D4 /* ASavedGameRecord.m in Sources */,
 				9F4E154916DB3E29008691DB /* ABattleResultViewController.m in Sources */,
 				9F4E155516DB3FC1008691DB /* ABattleResultInfoModel.m in Sources */,
+				9FCF042216E041FB002008A1 /* AUserInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2178,6 +2185,7 @@
 				0CA9D32E16D5F0870059D7D4 /* ASavedGameRecord.m in Sources */,
 				9F4E154A16DB3E29008691DB /* ABattleResultViewController.m in Sources */,
 				9F4E155616DB3FC1008691DB /* ABattleResultInfoModel.m in Sources */,
+				9FCF042316E041FB002008A1 /* AUserInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

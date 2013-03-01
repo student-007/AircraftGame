@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AGameRecordManager.h"
 #import "ASavedRecordItem.h"
+#import "APlayScreenViewController.h"
 
 @interface ALoadSavedGameScreenViewController : UIViewController
 {

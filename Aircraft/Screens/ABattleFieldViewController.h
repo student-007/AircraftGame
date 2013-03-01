@@ -21,7 +21,7 @@
 }
 
 @property (nonatomic, readonly) NSMutableArray *aircraftModelAry;
-@property (nonatomic, readonly) NSMutableArray *attackRecordAry;
+@property (nonatomic) NSMutableArray *attackRecordAry;
 
 @property (nonatomic) BattleFieldType faction;
 @property (assign, nonatomic) id<ABattleFieldVCDelegate> delegate;
@@ -29,7 +29,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *switchBarButton;
 @property (strong, nonatomic) IBOutlet UIImageView *battleFieldImgView;
 @property (nonatomic, readonly) NSInteger numberOfHits; // number of time for hit amount attacks
-
+@property (nonatomic, readonly) NSInteger numberOfAircraftDestroyed;
 /*!
  @discussion add aircraft image (based on type) to field, no condition will be checked
  */
@@ -47,6 +47,7 @@
 
 /*!
  @discussion call this method for self field only, this can save enemy attack records
+ @updated this method can be called for both self/enemy field in order to add an attack record
  */
 - (void)addEnemyAttackRecord:(CGPoint)attPt;
 
@@ -75,6 +76,8 @@
  @discussion display the result in enemy field based on last object of attack record array, if can not find previous attack mark, return NO
  */
 - (BOOL)displayPreviousAttackResultForString:(NSString *)resString;
+
+- (void)loadDataFromGameRecord:(ASavedGameRecord *)gameRecord sentBy:(AUserType)userType;
 
 @end
 

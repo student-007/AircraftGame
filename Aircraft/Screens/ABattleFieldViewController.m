@@ -113,9 +113,19 @@
     return _battleFldModel.attackRecord ? _battleFldModel.attackRecord : nil;
 }
 
+- (void)setAttackRecordAry:(NSMutableArray *)attackRecordAry
+{
+    _battleFldModel.attackRecord = [NSMutableArray arrayWithArray:attackRecordAry];
+}
+
 - (NSInteger)numberOfHits
 {
     return _battleFldModel.numberOfHits;
+}
+
+- (NSInteger)numberOfAircraftDestroyed
+{
+    return _battleFldModel.numberOfAircraftDestroyed;
 }
 
 - (void)displayBattleField
@@ -356,6 +366,89 @@
 - (BOOL)checkPositionForAircraft:(AAircraftModel *)aircraft
 {
     return [_battleFldModel checkPositionForAircraft:aircraft];
+}
+
+- (void)loadDataFromGameRecord:(ASavedGameRecord *)gameRecord sentBy:(AUserType)userType
+{
+    switch (userType)
+    {
+        case AUserTypeUser:
+        {
+            switch (self.faction)
+            {
+                case BattleFieldSelf:
+                {
+                    // self battle field setup
+                    NSArray *selfAircrafts = gameRecord.selfAircrafts;
+                    for (NSDictionary *aircraftDic in selfAircrafts)
+                    {
+                        AAircraftModel *aircraftModel = [AAircraftModel aircraftFromSavableDictionary:aircraftDic];
+                        [self addAircraft:aircraftModel];
+                    }
+                    NSArray *enemyAttackRecords = gameRecord.enemyAttackRecords;
+                    self.attackRecordAry = [enemyAttackRecords mutableCopy];
+                }
+                    break;
+                case BattleFieldEnemy:
+                {
+                    // enemy battle field setup
+                    NSArray *enemyAircrafts = gameRecord.enemyAircrafts;
+                    for (NSDictionary *aircraftDic in enemyAircrafts)
+                    {
+                        AAircraftModel *aircraftModel = [AAircraftModel aircraftFromSavableDictionary:aircraftDic];
+                        [self addAircraftModelToBattleFieldModel:aircraftModel];
+                    }
+                    NSArray *selfAttackRecords = gameRecord.selfAttackRecords;
+                    self.attackRecordAry = [selfAttackRecords mutableCopy];
+                }
+                    break;
+                default:
+                    break;
+            } 
+        }
+            break;
+        case AUserTypeOpponent:
+        {
+            switch (self.faction)
+            {
+                case BattleFieldEnemy:
+                {
+                    // self battle field setup
+                    NSArray *selfAircrafts = gameRecord.selfAircrafts;
+                    for (NSDictionary *aircraftDic in selfAircrafts)
+                    {
+                        AAircraftModel *aircraftModel = [AAircraftModel aircraftFromSavableDictionary:aircraftDic];
+                        [self addAircraft:aircraftModel];
+                    }
+                    NSArray *enemyAttackRecords = gameRecord.enemyAttackRecords;
+                    self.attackRecordAry = [enemyAttackRecords mutableCopy];
+                }
+                    break;
+                case BattleFieldSelf:
+                {
+                    // enemy battle field setup
+                    NSArray *enemyAircrafts = gameRecord.enemyAircrafts;
+                    for (NSDictionary *aircraftDic in enemyAircrafts)
+                    {
+                        AAircraftModel *aircraftModel = [AAircraftModel aircraftFromSavableDictionary:aircraftDic];
+                        [self addAircraftModelToBattleFieldModel:aircraftModel];
+                    }
+                    NSArray *selfAttackRecords = gameRecord.selfAttackRecords;
+                    self.attackRecordAry = [selfAttackRecords mutableCopy];
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+            break;
+        case AUserTypeNone:
+        {
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)addAircraft:(AAircraftModel *)aircraft toFieldAsType:(AAircraftImgType)type withGesture:(BOOL)withGesture onBottom:(BOOL)onBottom;

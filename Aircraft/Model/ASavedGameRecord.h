@@ -11,7 +11,7 @@
 
 @interface ASavedGameRecord : NSObject
 
-@property (nonatomic, strong) NSArray *selfAircrafts;
+@property (nonatomic, strong) NSArray *selfAircrafts;   // saveable dictionary, not aircraft model
 @property (nonatomic, strong) NSArray *enemyAircrafts;
 
 @property (nonatomic, strong) NSArray *selfAttackRecords;

@@ -216,6 +216,7 @@
     
     AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
     
+    recordMgr.sharedGameRecord.connectionType = self.communicator.type;
     recordMgr.sharedGameRecord.competitorName = _competitorName;
     recordMgr.sharedGameRecord.gameId = _gameId;
     recordMgr.sharedGameRecord.enemyAircrafts = _competitorAircrafts ? _competitorAircrafts : nil;
@@ -284,6 +285,64 @@
 - (void)loadGameFromGameRecord:(ASavedGameRecord *)gameRecord
 {
     [self makeConnectionWithType:gameRecord.connectionType];
+    [self loadGameInfoFromGameRecord:gameRecord sentBy:AUserTypeUser];
+}
+
+- (void)loadGameInfoFromGameRecord:(ASavedGameRecord *)gameRecord sentBy:(AUserType)userType
+{
+    if (userType != AUserTypeNone)
+    {
+        // battle field self
+        [self.battleFldVCSelf loadDataFromGameRecord:gameRecord sentBy:userType];
+        
+        // battle field enemy
+        [self.battleFldVCEnemy loadDataFromGameRecord:gameRecord sentBy:userType];
+        
+        // operation panel setup
+        [self.opPanelVC loadDataFromGameRecord:gameRecord sentBy:userType];
+        
+        // chatting view setup
+        [self.chatVC loadDataFromGameRecord:gameRecord sentBy:userType];
+        
+        [self loadDataFromGameRecord:gameRecord sentBy:userType];
+    }
+}
+
+- (void)loadDataFromGameRecord:(ASavedGameRecord *)gameRecord sentBy:(AUserType)userType
+{
+    switch (userType)
+    {
+        case AUserTypeUser:
+        {
+            _numberOfAircraftPlaced = [NSNumber numberWithInt:3];
+            _numberOfAircraftDestroyed = [NSNumber numberWithInt:self.battleFldVCEnemy.numberOfAircraftDestroyed];
+            _numberOfSelfAircraftDestroyed = [NSNumber numberWithInt:self.battleFldVCSelf.numberOfAircraftDestroyed];
+            
+            _isGameBegin = YES;
+            _dateWhenGameBegin = [NSDate dateWithTimeIntervalSince1970:[gameRecord.startTimeSec floatValue]];
+            _gameId = gameRecord.gameId;
+            
+            _competitorAircrafts = gameRecord.enemyAircrafts;
+            _selfAircrafts = gameRecord.selfAircrafts;
+        }
+            break;
+        case AUserTypeOpponent:
+        {
+            _numberOfAircraftPlaced = [NSNumber numberWithInt:3];
+            _numberOfSelfAircraftDestroyed = [NSNumber numberWithInt:self.battleFldVCEnemy.numberOfAircraftDestroyed];
+            _numberOfAircraftDestroyed = [NSNumber numberWithInt:self.battleFldVCSelf.numberOfAircraftDestroyed];
+            
+            _isGameBegin = YES;
+            _dateWhenGameBegin = [NSDate dateWithTimeIntervalSince1970:[gameRecord.startTimeSec floatValue]];
+            _gameId = gameRecord.gameId;
+            
+            _selfAircrafts = gameRecord.enemyAircrafts;
+            _competitorAircrafts = gameRecord.selfAircrafts;
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - battle result screen
@@ -475,7 +534,7 @@
     {
         ANetMessageLoad *loadMsg = netMessage.message;
         ASavedGameRecord *gameRecord = loadMsg.gameRecord;
-#warning TODO: deal with game record, but be noticed that self and enemy are opposite 'cause the message is sent by opponent
+        [self loadGameInfoFromGameRecord:gameRecord sentBy:AUserTypeOpponent];
     }
     else if ([netMessage.flag isEqualToString:kFlagLoadR])
     {

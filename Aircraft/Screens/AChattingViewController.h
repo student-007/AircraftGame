@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ANetMessage.h"
 #import "AChattingMessageItem.h"
+#import "AUserInfo.h"
 
 @protocol ChatViewDelegate;
 
@@ -32,7 +33,8 @@
 - (void)resignTxtFldFirstResponder;
 - (void)receivedNewChattingMsg:(ANetMessageChat *)message;
 - (void)addNewMessage:(NSString *)message toChattingTableWithType:(AChattingMsgType)type;
-- (NSMutableArray *)saveableChattingMessageArray;
+- (void)loadDataFromGameRecord:(ASavedGameRecord *)gameRecord sentBy:(AUserType)userType;
+- (NSMutableArray *)saveableChattingMessageArray; // array of dictionaries. keys in dictionary are: sender, message
 @end
 
 

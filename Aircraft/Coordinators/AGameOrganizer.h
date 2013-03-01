@@ -18,6 +18,7 @@
 #import "ASetting.h"
 #import "ASavedGameRecord.h"
 #import "ABattleResultViewController.h"
+#import "AUserInfo.h"
 
 typedef enum
 {
@@ -63,6 +64,10 @@ typedef enum
 - (void)reset;
 
 - (void)makeConnectionWithType:(ConnectionType)type;
+
+/*!
+ @discussion call this from play view controller
+ */
 - (void)loadGameFromGameRecord:(ASavedGameRecord *)gameRecord;
 
 @end

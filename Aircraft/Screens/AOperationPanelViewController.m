@@ -69,7 +69,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _userSpendTime = 0;
+        _competitorSpendTime = 0;
     }
     return self;
 }
@@ -130,8 +131,8 @@
 
 - (void)startTheGame
 {
-    _userSpendTime = 0;
-    _competitorSpendTime = 0;
+//    _userSpendTime = 0;
+//    _competitorSpendTime = 0;
     [self switchTurn];
     _updatePanelTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateStatusPanel) userInfo:nil repeats:YES];
 }
@@ -169,6 +170,33 @@
         case AWhosTurnNone:
         {
             
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)loadDataFromGameRecord:(ASavedGameRecord *)gameRecord sentBy:(AUserType)userType
+{
+    switch (userType)
+    {
+        case AUserTypeUser:
+        {
+            _userSpendTime = [gameRecord.selfTotalTimeSec doubleValue];
+            _competitorSpendTime = [gameRecord.enemyTotalTimeSec doubleValue];
+        }
+            break;
+        case AUserTypeOpponent:
+        {
+            _userSpendTime = [gameRecord.enemyTotalTimeSec doubleValue];
+            _competitorSpendTime = [gameRecord.selfTotalTimeSec doubleValue];
+        }
+            break;
+        case AUserTypeNone:
+        {
+            _userSpendTime = 0;
+            _competitorSpendTime = 0;
         }
             break;
         default:
