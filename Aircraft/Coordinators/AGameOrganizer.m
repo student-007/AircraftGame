@@ -211,6 +211,9 @@
 
 - (void)saveCurrentGamingStatus
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameRecordSaved:) name:kNotificationGameSaved object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveGameRecordFailed:) name:kNotificationSaveGameFailed object:nil];
+    
     if (!_dateWhenGameBegin)
         _dateWhenGameBegin = [NSDate date];
     
@@ -226,7 +229,7 @@
     recordMgr.sharedGameRecord.enemyAttackRecords = self.battleFldVCSelf.attackRecordAry;
     recordMgr.sharedGameRecord.isMyTurn = [NSNumber numberWithBool:_whosTurn == AWhosTurnUser ? YES : NO];
     
-    recordMgr.sharedGameRecord.startTimeSec = [NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSince1970]];
+    recordMgr.sharedGameRecord.startTimeSec = [NSString stringWithFormat:@"%f", [_dateWhenGameBegin timeIntervalSince1970]];
 #warning TODO: total playing time should be added up instead of using time interval since now
     recordMgr.sharedGameRecord.totalTimeSec = [NSNumber numberWithFloat:[_dateWhenGameBegin timeIntervalSinceNow]];
     recordMgr.sharedGameRecord.selfTotalTimeSec = [NSNumber numberWithFloat:self.opPanelVC.userSpendTime];
@@ -284,6 +287,7 @@
 
 - (void)loadGameFromGameRecord:(ASavedGameRecord *)gameRecord
 {
+    _gameRecord = gameRecord;
     [self makeConnectionWithType:gameRecord.connectionType];
     [self loadGameInfoFromGameRecord:gameRecord sentBy:AUserTypeUser];
 }
@@ -319,7 +323,7 @@
             _numberOfSelfAircraftDestroyed = [NSNumber numberWithInt:self.battleFldVCSelf.numberOfAircraftDestroyed];
             
             _isGameBegin = YES;
-            _dateWhenGameBegin = [NSDate dateWithTimeIntervalSince1970:[gameRecord.startTimeSec floatValue]];
+            _dateWhenGameBegin = [NSDate dateWithTimeIntervalSince1970:[gameRecord.startTimeSec doubleValue]];
             _gameId = gameRecord.gameId;
             
             _competitorAircrafts = gameRecord.enemyAircrafts;
@@ -333,7 +337,7 @@
             _numberOfAircraftDestroyed = [NSNumber numberWithInt:self.battleFldVCSelf.numberOfAircraftDestroyed];
             
             _isGameBegin = YES;
-            _dateWhenGameBegin = [NSDate dateWithTimeIntervalSince1970:[gameRecord.startTimeSec floatValue]];
+            _dateWhenGameBegin = [NSDate dateWithTimeIntervalSince1970:[gameRecord.startTimeSec doubleValue]];
             _gameId = gameRecord.gameId;
             
             _selfAircrafts = gameRecord.enemyAircrafts;
@@ -402,7 +406,15 @@
     
     [self.chatVC addNewMessage:connString toChattingTableWithType:AChattingMsgTypeSystemMsg];
     
-    [self setupPlacingAircraftGuide];
+    if (!_gameRecord)
+        [self setupPlacingAircraftGuide];
+    else
+    {
+        ANetMessageLoad *loadMsg = [[ANetMessageLoad alloc] init];
+        loadMsg.gameRecord = _gameRecord;
+        ANetMessage *netMessage = [ANetMessage messageWithFlag:kFlagLoad message:loadMsg];
+        [self.communicator sendMessage:netMessage];
+    }
 }
 
 - (void)connectionDisconnected:(NSError *)errorOrNil
@@ -706,9 +718,6 @@
 {
 //    if (_isGameBegin)
 //    {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameRecordSaved:) name:kNotificationGameSaved object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveGameRecordFailed:) name:kNotificationSaveGameFailed object:nil];
-    
         // save the game
     AGameRecordManager *recordMgr = [AGameRecordManager sharedInstance];
     recordMgr.actionType = AActionTypeUserAction;

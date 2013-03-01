@@ -82,7 +82,7 @@
     DICT_GET_OBJECT(gameRecord, self.gameId, @"gameId");
     NSNumber *connectionType = nil;
     DICT_GET_OBJECT(gameRecord, connectionType, @"connectionType");
-    self.connectionType = connectionType;
+    self.connectionType = [connectionType intValue];
 }
 
 @end

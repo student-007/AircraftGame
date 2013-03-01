@@ -19,7 +19,7 @@
 
 @property (nonatomic, strong) NSArray *chattingRecords;
 
-@property (nonatomic, strong) NSNumber *startTimeSec; // seconds since 1970
+@property (nonatomic, strong) NSString *startTimeSec; // seconds since 1970
 @property (nonatomic, strong) NSNumber *totalTimeSec;
 @property (nonatomic, strong) NSNumber *selfTotalTimeSec;
 @property (nonatomic, strong) NSNumber *enemyTotalTimeSec;
