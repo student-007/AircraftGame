@@ -146,6 +146,11 @@
     }
 }
 
+- (AircraftPart)attackResultPartInGridAtPoint:(CGPoint)point
+{
+    return _battleFieldGrid[(int)point.y][(int)point.x];
+}
+
 - (NSString *)attackResultInGridAtPoint:(CGPoint)point
 {
     AircraftPart part = _battleFieldGrid[(int)point.y][(int)point.x];

@@ -55,6 +55,7 @@
 "save_only_after_game_begin" = "You can save a game only after battle starts.";
 "game_record_saved" = "You have saved current gaming status.";
 "game_saved_request_by_competitor" = "Opponent has just saved game status, so do you :)";
+"not_able_save_try_later" = "Sorry, there was an error and system could not save the game at this time, please try again later.";
 
 // guide
 "drag_to_place_aircraft_tip" = "You can drag and release an aircraft to place it here, or drag it out of the field to remove.";

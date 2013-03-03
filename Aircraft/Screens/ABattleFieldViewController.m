@@ -187,8 +187,9 @@
 {
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && _battleFldModel.type == BattleFieldSelf)
     {
-        // only allow draging before game starts
-        if (!self.isGameOn)
+        // only allow draging before game starts and not done placing aircrafts
+        BOOL isDonePlacingAircrafts = [AGameOrganizer sharedInstance].isDonePlacingAircrafts;
+        if (!self.isGameOn && !isDonePlacingAircrafts)
         {
             AAircraftImageView *aircraftImgView = (AAircraftImageView *)gestureRecognizer.view;
             CGPoint touchPoint = [touch locationInView:gestureRecognizer.view];
@@ -310,8 +311,6 @@
         {
             targetFrame.origin.x = (int)(newOrgin.x / kMappingFactor) * kMappingFactor;
             targetFrame.origin.y = (int)(newOrgin.y / kMappingFactor) * kMappingFactor;
-            //            targetFrame.origin.x = (int)roundf(newOrgin.x > 0 ? newOrgin.x : newOrgin.x * -1);
-            //            targetFrame.origin.y = (int)roundf(newOrgin.y > 0 ? newOrgin.y : newOrgin.y * -1);
             
             if (((int)newOrgin.x % kMappingFactor) > kMappingFactor / 2)
                 targetFrame.origin.x += kMappingFactor;
@@ -320,21 +319,32 @@
             
             CGPoint newAircraftOrginPos = CGPointMake((int)(targetFrame.origin.x / kMappingFactor),
                                                       (int)(targetFrame.origin.y / kMappingFactor));
-            AAircraftModel *newAircraft = [AAircraftModel aircraftWithOrgin:newAircraftOrginPos direction:aircraftImgView.aircraft.direction];
             
-            [_battleFldModel clearGridForAircraft:aircraftImgView.aircraft];
-            
-            if ([self checkPositionForAircraft:newAircraft])
+            // check positions when operate with self aircrafts
+            if (self.faction == BattleFieldSelf)
+            {
+                AAircraftModel *newAircraft = [AAircraftModel aircraftWithOrgin:newAircraftOrginPos direction:aircraftImgView.aircraft.direction];
+                
+                [_battleFldModel clearGridForAircraft:aircraftImgView.aircraft];
+                
+                if ([self checkPositionForAircraft:newAircraft])
+                {
+                    aircraftImgView.frame = targetFrame;
+                    aircraftImgView.aircraft.orginPos = newAircraftOrginPos;
+                }
+                else
+                {
+                    aircraftImgView.frame = _tempAircraftImgViewFrame;
+                }
+                
+                [_battleFldModel fillGridForAircraft:aircraftImgView.aircraft];
+            }
+            // no positions will be checked in enemy battle field
+            else if (self.faction == BattleFieldEnemy)
             {
                 aircraftImgView.frame = targetFrame;
                 aircraftImgView.aircraft.orginPos = newAircraftOrginPos;
             }
-            else
-            {
-                aircraftImgView.frame = _tempAircraftImgViewFrame;
-            }
-            
-            [_battleFldModel fillGridForAircraft:aircraftImgView.aircraft];
         }
         // if user wants to remove this aircraft [Yufei Lang 4/14/2012]
         else if (aircraftImgView.center.y > 10 * kMappingFactor)
@@ -387,6 +397,7 @@
                     }
                     NSArray *enemyAttackRecords = gameRecord.enemyAttackRecords;
                     self.attackRecordAry = [enemyAttackRecords mutableCopy];
+                    [self displayAttackResultForAttackRecord:self.attackRecordAry];
                 }
                     break;
                 case BattleFieldEnemy:
@@ -400,6 +411,7 @@
                     }
                     NSArray *selfAttackRecords = gameRecord.selfAttackRecords;
                     self.attackRecordAry = [selfAttackRecords mutableCopy];
+                    [self displayAttackResultForAttackRecord:self.attackRecordAry];
                 }
                     break;
                 default:
@@ -413,28 +425,30 @@
             {
                 case BattleFieldEnemy:
                 {
-                    // self battle field setup
-                    NSArray *selfAircrafts = gameRecord.selfAircrafts;
-                    for (NSDictionary *aircraftDic in selfAircrafts)
-                    {
-                        AAircraftModel *aircraftModel = [AAircraftModel aircraftFromSavableDictionary:aircraftDic];
-                        [self addAircraft:aircraftModel];
-                    }
-                    NSArray *enemyAttackRecords = gameRecord.enemyAttackRecords;
-                    self.attackRecordAry = [enemyAttackRecords mutableCopy];
-                }
-                    break;
-                case BattleFieldSelf:
-                {
                     // enemy battle field setup
-                    NSArray *enemyAircrafts = gameRecord.enemyAircrafts;
+                    NSArray *enemyAircrafts = gameRecord.selfAircrafts;
                     for (NSDictionary *aircraftDic in enemyAircrafts)
                     {
                         AAircraftModel *aircraftModel = [AAircraftModel aircraftFromSavableDictionary:aircraftDic];
                         [self addAircraftModelToBattleFieldModel:aircraftModel];
                     }
-                    NSArray *selfAttackRecords = gameRecord.selfAttackRecords;
+                    NSArray *selfAttackRecords = gameRecord.enemyAttackRecords;
                     self.attackRecordAry = [selfAttackRecords mutableCopy];
+                    [self displayAttackResultForAttackRecord:self.attackRecordAry];
+                }
+                    break;
+                case BattleFieldSelf:
+                {
+                    // self battle field setup
+                    NSArray *selfAircrafts = gameRecord.enemyAircrafts;
+                    for (NSDictionary *aircraftDic in selfAircrafts)
+                    {
+                        AAircraftModel *aircraftModel = [AAircraftModel aircraftFromSavableDictionary:aircraftDic];
+                        [self addAircraft:aircraftModel];
+                    }
+                    NSArray *enemyAttackRecords = gameRecord.selfAttackRecords;
+                    self.attackRecordAry = [enemyAttackRecords mutableCopy];
+                    [self displayAttackResultForAttackRecord:self.attackRecordAry];
                 }
                     break;
                 default:
@@ -555,6 +569,94 @@
 }
 
 /*!
+ @discussion display the result image in the battle field
+ */
+- (void)displayAttackResultForAttackRecord:(NSArray *)attackRecords
+{
+    for (NSArray *recordAry in attackRecords)
+    {
+        NSNumber *x = [recordAry objectAtIndex:0];
+        NSNumber *y = [recordAry objectAtIndex:1];
+        CGPoint attackPt = CGPointMake([x intValue], [y intValue]);
+        
+        [self displayResultImageOnBattleFieldAtPoint:attackPt];
+    }
+}
+
+- (void)displayResultImageOnBattleFieldAtPoint:(CGPoint)attackPt
+{
+    if (attackPt.x >= 0 && attackPt.x <= 9 &&
+        attackPt.y >= 0 && attackPt.y <= 9)
+    {
+        CGPoint targetPoint = CGPointMake((int)attackPt.x * kMappingFactor,
+                                          (int)attackPt.y * kMappingFactor);
+        
+        CGRect markerFrame = CGRectMake(targetPoint.x, targetPoint.y, kMappingFactor, kMappingFactor);
+        
+        switch ([_battleFldModel attackResultPartInGridAtPoint:attackPt])
+        {
+            case AircraftBody:
+            {
+                UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgHit];
+                resultImgView.frame = markerFrame;
+                resultImgView.alpha = 0;
+                [self.battleFieldImgView addSubview:resultImgView];
+                
+                UIImageView *animationImgView = [[UIImageView alloc] initWithImage:[UIImage imageWithExplosionAnimation]];
+                CGRect animatedImgViewFrame = CGRectMake(0, 0, 32, 24);
+                animationImgView.frame = animatedImgViewFrame;
+                animationImgView.center = resultImgView.center;
+                [self.battleFieldImgView addSubview:animationImgView];
+                [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(removeFromSuperView:) userInfo:animationImgView repeats:NO];
+                
+                [UIView beginAnimations:@"addAttackRHit" context:nil];
+                [UIView setAnimationDuration:1.5f];
+                resultImgView.alpha = 1;
+                [UIView commitAnimations];
+            }
+                break;
+            case AircraftHead:
+            {
+                UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgDestroy];
+                resultImgView.frame = markerFrame;
+                resultImgView.alpha = 0;
+                [self.battleFieldImgView addSubview:resultImgView];
+                
+                UIImageView *animationImgView = [[UIImageView alloc] initWithImage:[UIImage imageWithExplosionAnimation]];
+                CGRect animatedImgViewFrame = CGRectMake(0, 0, 32, 24);
+                animationImgView.frame = animatedImgViewFrame;
+                animationImgView.center = resultImgView.center;
+                [self.battleFieldImgView addSubview:animationImgView];
+                [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(removeFromSuperView:) userInfo:animationImgView repeats:NO];
+                
+                [UIView beginAnimations:@"addAttackRDestroy" context:nil];
+                [UIView setAnimationDuration:1.5f];
+                resultImgView.alpha = 1;
+                [UIView commitAnimations];
+            }
+                break;
+            case AircraftNone:
+            {
+                UIImageView *bkgImgView = [[UIImageView alloc] initWithImage:[UIImage imageForBlackRectBackground]];
+                bkgImgView.frame = markerFrame;
+                [bkgImgView setBackgroundColor:[UIColor clearColor]];
+                bkgImgView.alpha = 0.4;
+                [self.battleFieldImgView addSubview:bkgImgView];
+                
+                UILabel *resultLabel = [[UILabel alloc] initWithFrame:markerFrame];
+                resultLabel.textAlignment = UITextAlignmentCenter;
+                resultLabel.text = @"\uE049";
+                resultLabel.backgroundColor = [UIColor clearColor];
+                [self.battleFieldImgView addSubview:resultLabel];
+            }
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+/*!
  @discussion display the result in self/enemy field based on the resString at given point
  */
 - (BOOL)displayAttackResultAtPoint:(CGPoint)point resultString:(NSString *)resString
@@ -569,17 +671,18 @@
         
         if ([resString caseInsensitiveCompare:kAttackRMiss] == NSOrderedSame)
         {
-            UIImageView *bkgImgView = [[UIImageView alloc] initWithImage:[UIImage imageForBlackRectBackground]];
-            bkgImgView.frame = markerFrame;
-            [bkgImgView setBackgroundColor:[UIColor clearColor]];
-            bkgImgView.alpha = 0.4;
-            [self.battleFieldImgView addSubview:bkgImgView];
-            
-            UILabel *resultLabel = [[UILabel alloc] initWithFrame:markerFrame];
-            resultLabel.textAlignment = UITextAlignmentCenter;
-            resultLabel.text = @"\uE049";
-            resultLabel.backgroundColor = [UIColor clearColor];
-            [self.battleFieldImgView addSubview:resultLabel];
+//            UIImageView *bkgImgView = [[UIImageView alloc] initWithImage:[UIImage imageForBlackRectBackground]];
+//            bkgImgView.frame = markerFrame;
+//            [bkgImgView setBackgroundColor:[UIColor clearColor]];
+//            bkgImgView.alpha = 0.4;
+//            [self.battleFieldImgView addSubview:bkgImgView];
+//            
+//            UILabel *resultLabel = [[UILabel alloc] initWithFrame:markerFrame];
+//            resultLabel.textAlignment = UITextAlignmentCenter;
+//            resultLabel.text = @"\uE049";
+//            resultLabel.backgroundColor = [UIColor clearColor];
+//            [self.battleFieldImgView addSubview:resultLabel];
+            [self displayResultImageOnBattleFieldAtPoint:point];
             
             if (self.faction == BattleFieldSelf) 
             {
@@ -594,22 +697,23 @@
         }
         else if ([resString caseInsensitiveCompare:kAttackRHit] == NSOrderedSame)
         {
-            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgHit];
-            resultImgView.frame = markerFrame;
-            resultImgView.alpha = 0;
-            [self.battleFieldImgView addSubview:resultImgView];
-            
-            UIImageView *animationImgView = [[UIImageView alloc] initWithImage:[UIImage imageWithExplosionAnimation]];
-            CGRect animatedImgViewFrame = CGRectMake(0, 0, 32, 24);
-            animationImgView.frame = animatedImgViewFrame;
-            animationImgView.center = resultImgView.center;
-            [self.battleFieldImgView addSubview:animationImgView];
-            [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(removeFromSuperView:) userInfo:animationImgView repeats:NO];
-            
-            [UIView beginAnimations:@"addAttackRHit" context:nil];
-            [UIView setAnimationDuration:1.5f];
-            resultImgView.alpha = 1;
-            [UIView commitAnimations];
+//            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgHit];
+//            resultImgView.frame = markerFrame;
+//            resultImgView.alpha = 0;
+//            [self.battleFieldImgView addSubview:resultImgView];
+//            
+//            UIImageView *animationImgView = [[UIImageView alloc] initWithImage:[UIImage imageWithExplosionAnimation]];
+//            CGRect animatedImgViewFrame = CGRectMake(0, 0, 32, 24);
+//            animationImgView.frame = animatedImgViewFrame;
+//            animationImgView.center = resultImgView.center;
+//            [self.battleFieldImgView addSubview:animationImgView];
+//            [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(removeFromSuperView:) userInfo:animationImgView repeats:NO];
+//            
+//            [UIView beginAnimations:@"addAttackRHit" context:nil];
+//            [UIView setAnimationDuration:1.5f];
+//            resultImgView.alpha = 1;
+//            [UIView commitAnimations];
+            [self displayResultImageOnBattleFieldAtPoint:point];
             
             if (self.faction == BattleFieldSelf) 
             {
@@ -624,22 +728,23 @@
         }
         else if ([resString caseInsensitiveCompare:kAttackRDestroy] == NSOrderedSame)
         {
-            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgDestroy];
-            resultImgView.frame = markerFrame;
-            resultImgView.alpha = 0;
-            [self.battleFieldImgView addSubview:resultImgView];
-            
-            UIImageView *animationImgView = [[UIImageView alloc] initWithImage:[UIImage imageWithExplosionAnimation]];
-            CGRect animatedImgViewFrame = CGRectMake(0, 0, 32, 24);
-            animationImgView.frame = animatedImgViewFrame;
-            animationImgView.center = resultImgView.center;
-            [self.battleFieldImgView addSubview:animationImgView];
-            [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(removeFromSuperView:) userInfo:animationImgView repeats:NO];
-            
-            [UIView beginAnimations:@"addAttackRDestroy" context:nil];
-            [UIView setAnimationDuration:1.5f];
-            resultImgView.alpha = 1;
-            [UIView commitAnimations];
+//            UIImageView *resultImgView = [[UIImageView alloc] initWithImage:_attackResImgDestroy];
+//            resultImgView.frame = markerFrame;
+//            resultImgView.alpha = 0;
+//            [self.battleFieldImgView addSubview:resultImgView];
+//            
+//            UIImageView *animationImgView = [[UIImageView alloc] initWithImage:[UIImage imageWithExplosionAnimation]];
+//            CGRect animatedImgViewFrame = CGRectMake(0, 0, 32, 24);
+//            animationImgView.frame = animatedImgViewFrame;
+//            animationImgView.center = resultImgView.center;
+//            [self.battleFieldImgView addSubview:animationImgView];
+//            [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(removeFromSuperView:) userInfo:animationImgView repeats:NO];
+//            
+//            [UIView beginAnimations:@"addAttackRDestroy" context:nil];
+//            [UIView setAnimationDuration:1.5f];
+//            resultImgView.alpha = 1;
+//            [UIView commitAnimations];
+            [self displayResultImageOnBattleFieldAtPoint:point];
             
             if ([self.organizerDelegate respondsToSelector:@selector(aircraftDestroyedAtField:)])
                 [self.organizerDelegate aircraftDestroyedAtField:self.faction];

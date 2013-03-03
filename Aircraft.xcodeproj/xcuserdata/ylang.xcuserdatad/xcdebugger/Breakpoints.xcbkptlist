@@ -8,25 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Aircraft/Coordinators/AGameOrganizer.m"
-         timestampString = "383848218.366439"
+         timestampString = "383984680.312708"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "241"
-         endingLineNumber = "241"
+         startingLineNumber = "247"
+         endingLineNumber = "247"
          landmarkName = "-gameRecordSaved:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Aircraft/Coordinators/AGameOrganizer.m"
-         timestampString = "383861558.857764"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "545"
-         endingLineNumber = "545"
-         landmarkName = "-receivedNetMessage:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -55,4 +55,21 @@
     NSLog(@"[error]: %@\n", error.description);
 }
 
+/*!
+ @discussion displays the alert message and asserts
+ */
+- (void)assert:(NSString *)message, ...
+{
+    
+    va_list args;
+    va_start(args, message);
+    
+    
+    NSString *assertMessage = [[NSString alloc] initWithFormat:message arguments:args];
+    
+    va_end(args);
+    
+    NSAssert(NO, assertMessage);
+}
+
 @end

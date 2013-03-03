@@ -114,6 +114,12 @@
 
 @implementation ANetMessageLoad
 @synthesize gameRecord = _gameRecord;
++ (ANetMessageLoad *)messageWIthGameRecord:(ASavedGameRecord *)gameRecord
+{
+    ANetMessageLoad *loadMsg = [[ANetMessageLoad alloc] init];
+    loadMsg.gameRecord = gameRecord;
+    return loadMsg;
+}
 @end
 
 @implementation ANetMessageLoadR

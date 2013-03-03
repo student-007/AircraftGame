@@ -35,6 +35,7 @@ typedef enum
     NSNumber *_numberOfSelfAircraftDestroyed;   // default: 0
     
     BOOL _isGameBegin;  // default is NO
+    BOOL _isDonePlacingAircrafts;
     NSDate *_dateWhenGameBegin;
     NSDate *_dateWhenGameEnd;
     NSString *_gameId;  // this should be the time(seconds in string) when sending init msg
@@ -49,6 +50,7 @@ typedef enum
 #define kGameStatusBeginEndGame     @"beginGameStatus"          // keys: isGameOn, beginDate, endDate
 #define kGameStatusPlayer           @"playerStatus"             // keys: user(isReady, date), competitor(isReady, date)
 @property (strong, nonatomic, readonly) NSDictionary *gameStatus;
+@property (readonly) BOOL isDonePlacingAircrafts;
 @property (readonly) BOOL isGameBegin;
 @property (nonatomic, readonly) AWhosTurn whosTurn;             // default: AWhosTurnNone
 

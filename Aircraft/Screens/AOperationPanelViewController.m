@@ -133,6 +133,7 @@
 {
 //    _userSpendTime = 0;
 //    _competitorSpendTime = 0;
+    [self switchViews];
     [self switchTurn];
     _updatePanelTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateStatusPanel) userInfo:nil repeats:YES];
 }
@@ -335,7 +336,8 @@
 //    {
         if ([self.operationDelegate respondsToSelector:@selector(userReadyPlacingAircrafts)])
             if ([self.operationDelegate userReadyPlacingAircrafts])
-                [self switchViews];
+                ;
+//                [self switchViews];
 //    }
 }
 

@@ -52,4 +52,15 @@ typedef enum
 + (NSString *)errorMessageFromKnownErrorCode:(NSInteger)errorCode;
 + (void)LogError:(NSError *)error;
 
+/*!
+ @discussion displays the alert message and asserts
+ */
+- (void)assert:(NSString *)message, ...;
+
 @end
+
+
+#define AAssert(condition, desc, ...) \
+do {			\
+if (!(condition)) [[AErrorFacade sharedInstance] assert:desc, ##__VA_ARGS__];\
+} while(0)

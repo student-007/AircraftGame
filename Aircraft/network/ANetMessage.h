@@ -115,6 +115,7 @@
 
 @interface ANetMessageLoad : ANetMessageBaseMessage
 @property (strong, nonatomic) ASavedGameRecord *gameRecord;
++ (ANetMessageLoad *)messageWIthGameRecord:(ASavedGameRecord *)gameRecord;
 @end
 
 @interface ANetMessageLoadR : ANetMessageBaseReply

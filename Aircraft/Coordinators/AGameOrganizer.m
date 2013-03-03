@@ -63,6 +63,7 @@
         _numberOfSelfAircraftDestroyed  = [NSNumber numberWithInt:0];
         _whosTurn = AWhosTurnNone;
         _gameId = @"";
+        _isDonePlacingAircrafts = NO;
     }
     return self;
 }
@@ -130,6 +131,11 @@
 - (BOOL)isGameBegin
 {
     return _isGameBegin;
+}
+
+- (BOOL)isDonePlacingAircrafts
+{
+    return _isDonePlacingAircrafts;
 }
 
 - (void)startTheGame
@@ -282,7 +288,8 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationGameSaved object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationSaveGameFailed object:nil];
-#warning TODO: handle when failed to save the game
+
+    [self.chatVC addNewMessage:ALocalisedString(@"not_able_save_try_later") toChattingTableWithType:AChattingMsgTypeSystemMsg];
 }
 
 - (void)loadGameFromGameRecord:(ASavedGameRecord *)gameRecord
@@ -310,6 +317,8 @@
         
         [self loadDataFromGameRecord:gameRecord sentBy:userType];
     }
+    else
+        AAssert(NO, @"No sender type is given when loading the game.");
 }
 
 - (void)loadDataFromGameRecord:(ASavedGameRecord *)gameRecord sentBy:(AUserType)userType
@@ -322,6 +331,8 @@
             _numberOfAircraftDestroyed = [NSNumber numberWithInt:self.battleFldVCEnemy.numberOfAircraftDestroyed];
             _numberOfSelfAircraftDestroyed = [NSNumber numberWithInt:self.battleFldVCSelf.numberOfAircraftDestroyed];
             
+            _whosTurn = [gameRecord.isMyTurn boolValue] ? AWhosTurnUser : AWhosTurnCompetitor;
+            _isDonePlacingAircrafts = YES;
             _isGameBegin = YES;
             _dateWhenGameBegin = [NSDate dateWithTimeIntervalSince1970:[gameRecord.startTimeSec doubleValue]];
             _gameId = gameRecord.gameId;
@@ -336,6 +347,8 @@
             _numberOfSelfAircraftDestroyed = [NSNumber numberWithInt:self.battleFldVCEnemy.numberOfAircraftDestroyed];
             _numberOfAircraftDestroyed = [NSNumber numberWithInt:self.battleFldVCSelf.numberOfAircraftDestroyed];
             
+            _whosTurn = [gameRecord.isMyTurn boolValue] ? AWhosTurnCompetitor : AWhosTurnUser;
+            _isDonePlacingAircrafts = YES;
             _isGameBegin = YES;
             _dateWhenGameBegin = [NSDate dateWithTimeIntervalSince1970:[gameRecord.startTimeSec doubleValue]];
             _gameId = gameRecord.gameId;
@@ -410,10 +423,12 @@
         [self setupPlacingAircraftGuide];
     else
     {
-        ANetMessageLoad *loadMsg = [[ANetMessageLoad alloc] init];
-        loadMsg.gameRecord = _gameRecord;
+        ANetMessageLoad *loadMsg = [ANetMessageLoad messageWIthGameRecord:_gameRecord];
         ANetMessage *netMessage = [ANetMessage messageWithFlag:kFlagLoad message:loadMsg];
-        [self.communicator sendMessage:netMessage];
+        if ([self.communicator sendMessage:netMessage])
+        {
+            [self.opPanelVC startTheGame]; // start timing
+        }
     }
 }
 
@@ -547,6 +562,7 @@
         ANetMessageLoad *loadMsg = netMessage.message;
         ASavedGameRecord *gameRecord = loadMsg.gameRecord;
         [self loadGameInfoFromGameRecord:gameRecord sentBy:AUserTypeOpponent];
+        [self dimissPlacingAircraftGuide];
     }
     else if ([netMessage.flag isEqualToString:kFlagLoadR])
     {
@@ -597,6 +613,12 @@
     }
 }
 
+- (void)dimissPlacingAircraftGuide
+{
+    if (_guideVC.view)
+        [_guideVC.view removeFromSuperview];
+}
+
 - (void)setupPlayScreenGuide
 {
 //    if ([ASetting needsForGuide:AGuideTypePlayScreen])
@@ -635,6 +657,7 @@
 {
     if ([_numberOfAircraftPlaced intValue] >= 3)
     {
+        _isDonePlacingAircrafts = YES;
         ANetMessageInitial *initialMsg = [[ANetMessageInitial alloc] init];
         
         NSArray *modelAry = self.battleFldVCSelf.aircraftModelAry;
@@ -699,18 +722,19 @@
 
 - (void)userWantsToExit
 {
+    _gameRecord = nil;
     if (_competitorStatus && self.communicator != nil)
     {
         ANetMessageSurrender *surrenderMsg = [[ANetMessageSurrender alloc] init];
         surrenderMsg.type = kSurrenderTypeEscape;
         [self.communicator sendMessage:[ANetMessage messageWithFlag:kFlagSurrender message:surrenderMsg]];
-        [self endBattleWithResult:kBattleEndResultWonEnemyEscape keepConnectionAlive:NO];
+        
     }
     else
     {
         
     }
-    
+    _isDonePlacingAircrafts = NO;
     [self reset];
 }
 

@@ -38,6 +38,11 @@ typedef enum
 - (BOOL)addAttackRecordPoint;//:(CGPoint)attackPoint;
 
 /*!
+ @discussion return AircraftPart instead of string
+ */
+- (AircraftPart)attackResultPartInGridAtPoint:(CGPoint)point;
+
+/*!
  @discussion return the defined string: kAttackRMiss kAttackRHit kAttackRDestroy. points are row and col(intgers value)
  */
 - (NSString *)attackResultInGridAtPoint:(CGPoint)point;
