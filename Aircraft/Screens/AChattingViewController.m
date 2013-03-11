@@ -63,23 +63,28 @@
 
 - (void)viewDidLoad
 {
+    if (IS_WIDESCREEN)
+    {
+        CGRect frameForWideScreen = CGRectMake(0, 0, 320, 208);
+        [self.view setFrame:frameForWideScreen];
+        
+        frameForWideScreen.size.height = 166;
+        [self.tableView setFrame:frameForWideScreen];
+    }
+    
     [super viewDidLoad];
+    
     [self loadLocalizedInfo];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChanged:) name:UIKeyboardDidShowNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.chatTxtFld];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:nil];
 
     // add a pencil icon at left of the chatting text field
     [self.chatTxtFld setLeftViewWithImageNamed:@"comment.png"];
     [self.chatTxtFld setDelegate:self];
-    
-//    // below are testing messages
-//    [self addNewMessage:@"competitor chatting message here" toChattingTableWithType:AChattingMsgTypeCompetitorSent];
-//    [self addNewMessage:@"user chatting message2 here, and this is a very very long long long message may be 2-3 lines. 3 lines" toChattingTableWithType:AChattingMsgTypeUserSent];
-//    [self addNewMessage:@"user chatting message2 here, and this is a very very long long long message may be 2-3 lines. 3 lines" toChattingTableWithType:AChattingMsgTypeHelpMsg];
 }
 
 - (void)viewDidUnload
@@ -111,6 +116,11 @@
     [self sendMsgOrHideKeyBoard:_sendHideBtn];
     return YES;
 }
+
+//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+//{
+//    return YES;
+//}
 
 - (void)receivedNewChattingMsg:(ANetMessageChat *)message
 {

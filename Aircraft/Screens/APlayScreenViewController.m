@@ -266,7 +266,8 @@
     self.chatVC = [self.organizer getChatVC];
     
     CGRect chatViewFrame = self.chatVC.view.frame;
-    chatViewFrame.origin.y = [UIScreen mainScreen].bounds.size.height - 20 - chatViewFrame.size.height;
+//    chatViewFrame.origin.y = [UIScreen mainScreen].bounds.size.height - 20 - chatViewFrame.size.height;
+    chatViewFrame.origin.y = self.opPanel.view.frame.origin.y + self.opPanel.view.frame.size.height;
     self.chatVC.view.frame = chatViewFrame;
     [self.view addSubview:self.chatVC.view];
 }

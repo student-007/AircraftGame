@@ -12,7 +12,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 
-    
+    #import "ADevice.h"
     #import "ALocale.h"
     #import "AErrorFacade.h"
     #import "AUIButton.h"

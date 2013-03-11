@@ -58,7 +58,7 @@
 - (void)startTheGame;
 
 /*!
- @discussion stop timeing the time
+ @discussion stop timeing the time, guide button will also change to show result statistics
  */
 - (void)endTheGame;
 

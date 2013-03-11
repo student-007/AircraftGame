@@ -16,6 +16,7 @@
     ASavedGameRecord *_gameRecord;
     NSArray *_competitorAircrafts;
     NSArray *_selfAircrafts;
+    ABattleResultInfoModel *_resultModel;
 }
 
 @property (strong, nonatomic) AChattingViewController *chatVC;
@@ -176,27 +177,28 @@
     NSDate *endGameDate = [NSDate date];
     [self.opPanelVC endTheGame];
     
-    ABattleResultInfoModel *resultModel = [[ABattleResultInfoModel alloc] init];
-    resultModel.gameId = _gameId;
-    resultModel.competitorName = _competitorName;
-    resultModel.resultString = resString;
-    resultModel.battleBeginDate = _dateWhenGameBegin;
-    resultModel.battleEndDate = endGameDate;
-    resultModel.timeSpentUser = self.opPanelVC.userSpendTime;
-    resultModel.timeSpentOpponent = self.opPanelVC.competitorSpendTime;
-    resultModel.selfNumberOfAttacks = self.battleFldVCEnemy.attackRecordAry.count;
-    resultModel.selfNumberOfHits = self.battleFldVCEnemy.numberOfHits;
-    resultModel.enemyNumberOfAttacks = self.battleFldVCSelf.attackRecordAry.count;
-    resultModel.enemyNumberOfHits = self.battleFldVCSelf.numberOfHits;
+    if (!_resultModel)
+        _resultModel= [[ABattleResultInfoModel alloc] init];
+    _resultModel.gameId = _gameId;
+    _resultModel.competitorName = _competitorName;
+    _resultModel.resultString = resString;
+    _resultModel.battleBeginDate = _dateWhenGameBegin;
+    _resultModel.battleEndDate = endGameDate;
+    _resultModel.timeSpentUser = self.opPanelVC.userSpendTime;
+    _resultModel.timeSpentOpponent = self.opPanelVC.competitorSpendTime;
+    _resultModel.selfNumberOfAttacks = self.battleFldVCEnemy.attackRecordAry.count;
+    _resultModel.selfNumberOfHits = self.battleFldVCEnemy.numberOfHits;
+    _resultModel.enemyNumberOfAttacks = self.battleFldVCSelf.attackRecordAry.count;
+    _resultModel.enemyNumberOfHits = self.battleFldVCSelf.numberOfHits;
     
     if (!_resultVC)
     {
-        _resultVC = [[ABattleResultViewController alloc] initWithResultModel:resultModel];
+        _resultVC = [[ABattleResultViewController alloc] initWithResultModel:_resultModel];
         _resultVC.delegate = self;
     }
     else
     {
-        _resultVC.resultModel = resultModel;
+        _resultVC.resultModel = _resultModel;
         _resultVC.delegate = self;
     }
     
@@ -753,7 +755,19 @@
 
 - (void)userPressedTool2Button
 {
-    [self setupPlayScreenGuide];
+    if (_isGameBegin)
+        [self setupPlayScreenGuide];
+    else
+    {
+        if (!_resultVC)
+        {
+            _resultVC = [[ABattleResultViewController alloc] initWithResultModel:_resultModel];
+            _resultVC.delegate = self;
+            _resultVC.resultModel = _resultModel;
+        }
+        
+        [[AAppDelegate sharedInstance].navigationController.view addSubview:_resultVC.view];
+    }
 }
 
 - (void)userPressedAttackButton

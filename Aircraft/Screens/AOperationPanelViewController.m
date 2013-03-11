@@ -17,6 +17,13 @@
 #define kTurnIndicatorCompetitorTurnImgName     @"turnIndicator_coffee.png"
 #define kTurnIndicatorMyTurnImgName             @"turnIndicator_target.png"
 
+typedef enum
+{
+    AOPToolBtn2StyleNone        = -1,   // error
+    AOPToolBtn2StyleGuide       = 1,    // show guide view
+    AOPToolBtn2StyleResult      = 2    // show result statistics
+}AOPToolBtn2Style;
+
 @interface AOperationPanelViewController ()
 {
     NSDate *_turnBeginTime;
@@ -82,6 +89,7 @@
     [super viewDidLoad];
     
     [self setupAircraftHolders];
+    [self changeToolButton2IconTo:AOPToolBtn2StyleGuide];
 
     [self.view addSubview:self.aircraftHolderView];   
 }
@@ -119,6 +127,8 @@
     [super viewDidUnload];
 }
 
+#pragma mark - methods
+
 - (NSTimeInterval)userSpendTime
 {
     return _userSpendTime;
@@ -131,6 +141,8 @@
 
 - (void)startTheGame
 {
+    [self changeToolButton2IconTo:AOPToolBtn2StyleGuide];
+    
 //    _userSpendTime = 0;
 //    _competitorSpendTime = 0;
     [self switchViews];
@@ -145,6 +157,32 @@
 {
     [_updatePanelTimer invalidate];
 #warning TODO: collect timing information and save them to a dictionary
+    [self changeToolButton2IconTo:AOPToolBtn2StyleResult];
+}
+
+- (void)changeToolButton2IconTo:(AOPToolBtn2Style)style
+{
+    switch (style)
+    {
+        case AOPToolBtn2StyleNone:
+        { AAssert(NO, @"[Error]: Tool button 2 style set to none.");
+        }
+            break;
+        case AOPToolBtn2StyleGuide:
+        {
+            [self.tool2Button setImage:[UIImage imageNamed:@"guideBtn.png"] forState:UIControlStateNormal];
+            [self.tool2Button setImage:[UIImage imageNamed:@"guideBtn.png"] forState:UIControlStateHighlighted];
+        }
+            break;
+        case AOPToolBtn2StyleResult:
+        {
+            [self.tool2Button setImage:[UIImage imageNamed:@"resultBtn.png"] forState:UIControlStateNormal];
+            [self.tool2Button setImage:[UIImage imageNamed:@"resultBtn_highlighted.png"] forState:UIControlStateHighlighted];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)switchTurn

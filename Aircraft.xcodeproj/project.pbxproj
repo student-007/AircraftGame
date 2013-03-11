@@ -338,6 +338,18 @@
 		9F4436DF168FA6AA0006D521 /* AChattingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4436DB168FA6AA0006D521 /* AChattingViewController.xib */; };
 		9F4436E7168FB32D0006D521 /* UIFont+AUIColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */; };
 		9F4436E8168FB32D0006D521 /* UIFont+AUIColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */; };
+		9F4DEE0E16ECF9460023F394 /* resultBtn_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DEE0A16ECF9450023F394 /* resultBtn_highlighted.png */; };
+		9F4DEE0F16ECF9460023F394 /* resultBtn_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DEE0A16ECF9450023F394 /* resultBtn_highlighted.png */; };
+		9F4DEE1016ECF9460023F394 /* resultBtn_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DEE0B16ECF9450023F394 /* resultBtn_highlighted@2x.png */; };
+		9F4DEE1116ECF9460023F394 /* resultBtn_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DEE0B16ECF9450023F394 /* resultBtn_highlighted@2x.png */; };
+		9F4DEE1216ECF9460023F394 /* resultBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DEE0C16ECF9450023F394 /* resultBtn.png */; };
+		9F4DEE1316ECF9460023F394 /* resultBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DEE0C16ECF9450023F394 /* resultBtn.png */; };
+		9F4DEE1416ECF9460023F394 /* resultBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DEE0D16ECF9450023F394 /* resultBtn@2x.png */; };
+		9F4DEE1516ECF9460023F394 /* resultBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4DEE0D16ECF9450023F394 /* resultBtn@2x.png */; };
+		9F4DEE1816ED00C10023F394 /* ADevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DEE1716ED00C10023F394 /* ADevice.m */; };
+		9F4DEE1916ED00C10023F394 /* ADevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4DEE1716ED00C10023F394 /* ADevice.m */; };
+		9F4DEE1A16ED07AC0023F394 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F97A4F816A4B11E00CCC9A1 /* QuartzCore.framework */; };
+		9F4DEE1B16ED07B10023F394 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F99BE94168AC77F00A0FD2F /* GameKit.framework */; };
 		9F4E154916DB3E29008691DB /* ABattleResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E154716DB3E29008691DB /* ABattleResultViewController.m */; };
 		9F4E154A16DB3E29008691DB /* ABattleResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E154716DB3E29008691DB /* ABattleResultViewController.m */; };
 		9F4E154B16DB3E29008691DB /* ABattleResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F4E154816DB3E29008691DB /* ABattleResultViewController.xib */; };
@@ -819,6 +831,12 @@
 		9F4436DB168FA6AA0006D521 /* AChattingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AChattingViewController.xib; path = Screens/AChattingViewController.xib; sourceTree = "<group>"; };
 		9F4436E5168FB32D0006D521 /* UIFont+AUIColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+AUIColorTheme.h"; path = "Base/UIFont+AUIColorTheme.h"; sourceTree = "<group>"; };
 		9F4436E6168FB32D0006D521 /* UIFont+AUIColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+AUIColorTheme.m"; path = "Base/UIFont+AUIColorTheme.m"; sourceTree = "<group>"; };
+		9F4DEE0A16ECF9450023F394 /* resultBtn_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resultBtn_highlighted.png; path = Aircraft/res/resultBtn_highlighted.png; sourceTree = "<group>"; };
+		9F4DEE0B16ECF9450023F394 /* resultBtn_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "resultBtn_highlighted@2x.png"; path = "Aircraft/res/resultBtn_highlighted@2x.png"; sourceTree = "<group>"; };
+		9F4DEE0C16ECF9450023F394 /* resultBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resultBtn.png; path = Aircraft/res/resultBtn.png; sourceTree = "<group>"; };
+		9F4DEE0D16ECF9450023F394 /* resultBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "resultBtn@2x.png"; path = "Aircraft/res/resultBtn@2x.png"; sourceTree = "<group>"; };
+		9F4DEE1616ED00C10023F394 /* ADevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADevice.h; sourceTree = "<group>"; };
+		9F4DEE1716ED00C10023F394 /* ADevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADevice.m; sourceTree = "<group>"; };
 		9F4E154616DB3E29008691DB /* ABattleResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABattleResultViewController.h; path = Screens/ABattleResultViewController.h; sourceTree = "<group>"; };
 		9F4E154716DB3E29008691DB /* ABattleResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABattleResultViewController.m; path = Screens/ABattleResultViewController.m; sourceTree = "<group>"; };
 		9F4E154816DB3E29008691DB /* ABattleResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ABattleResultViewController.xib; path = Screens/ABattleResultViewController.xib; sourceTree = "<group>"; };
@@ -1001,6 +1019,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F4DEE1B16ED07B10023F394 /* GameKit.framework in Frameworks */,
+				9F4DEE1A16ED07AC0023F394 /* QuartzCore.framework in Frameworks */,
 				9F049D301684367F007F5AC2 /* UIKit.framework in Frameworks */,
 				9F049D311684367F007F5AC2 /* Foundation.framework in Frameworks */,
 				9F049D321684367F007F5AC2 /* CoreGraphics.framework in Frameworks */,
@@ -1195,6 +1215,8 @@
 				9F4E155416DB3FC1008691DB /* ABattleResultInfoModel.m */,
 				9FCF042016E041FB002008A1 /* AUserInfo.h */,
 				9FCF042116E041FB002008A1 /* AUserInfo.m */,
+				9F4DEE1616ED00C10023F394 /* ADevice.h */,
+				9F4DEE1716ED00C10023F394 /* ADevice.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1321,6 +1343,10 @@
 		9F99BE8216879D4400A0FD2F /* res */ = {
 			isa = PBXGroup;
 			children = (
+				9F4DEE0A16ECF9450023F394 /* resultBtn_highlighted.png */,
+				9F4DEE0B16ECF9450023F394 /* resultBtn_highlighted@2x.png */,
+				9F4DEE0C16ECF9450023F394 /* resultBtn.png */,
+				9F4DEE0D16ECF9450023F394 /* resultBtn@2x.png */,
 				9F4E154D16DB3E3F008691DB /* BattleResult.png */,
 				9F4E154E16DB3E3F008691DB /* BattleResult@2x.png */,
 				9F92B38F16D9529900C49ADB /* aircraftDotted.png */,
@@ -1816,6 +1842,10 @@
 				9F4E154B16DB3E29008691DB /* ABattleResultViewController.xib in Resources */,
 				9F4E154F16DB3E3F008691DB /* BattleResult.png in Resources */,
 				9F4E155116DB3E3F008691DB /* BattleResult@2x.png in Resources */,
+				9F4DEE0E16ECF9460023F394 /* resultBtn_highlighted.png in Resources */,
+				9F4DEE1016ECF9460023F394 /* resultBtn_highlighted@2x.png in Resources */,
+				9F4DEE1216ECF9460023F394 /* resultBtn.png in Resources */,
+				9F4DEE1416ECF9460023F394 /* resultBtn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2083,6 +2113,10 @@
 				9F4E154C16DB3E29008691DB /* ABattleResultViewController.xib in Resources */,
 				9F4E155016DB3E3F008691DB /* BattleResult.png in Resources */,
 				9F4E155216DB3E3F008691DB /* BattleResult@2x.png in Resources */,
+				9F4DEE0F16ECF9460023F394 /* resultBtn_highlighted.png in Resources */,
+				9F4DEE1116ECF9460023F394 /* resultBtn_highlighted@2x.png in Resources */,
+				9F4DEE1316ECF9460023F394 /* resultBtn.png in Resources */,
+				9F4DEE1516ECF9460023F394 /* resultBtn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2136,6 +2170,7 @@
 				9F4E154916DB3E29008691DB /* ABattleResultViewController.m in Sources */,
 				9F4E155516DB3FC1008691DB /* ABattleResultInfoModel.m in Sources */,
 				9FCF042216E041FB002008A1 /* AUserInfo.m in Sources */,
+				9F4DEE1816ED00C10023F394 /* ADevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2186,6 +2221,7 @@
 				9F4E154A16DB3E29008691DB /* ABattleResultViewController.m in Sources */,
 				9F4E155616DB3FC1008691DB /* ABattleResultInfoModel.m in Sources */,
 				9FCF042316E041FB002008A1 /* AUserInfo.m in Sources */,
+				9F4DEE1916ED00C10023F394 /* ADevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
