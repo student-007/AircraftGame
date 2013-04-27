@@ -610,6 +610,8 @@
 		9FB043F516B9D93D0067A04F /* battleFieldBar_self@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB043E516B9D93D0067A04F /* battleFieldBar_self@2x.png */; };
 		9FB0B4F5169CFBAD00416B93 /* ABattleFieldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */; };
 		9FB0B4F6169CFBAD00416B93 /* ABattleFieldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */; };
+		E43FB4E41713627700C163A2 /* ADiagnostic.m in Sources */ = {isa = PBXBuildFile; fileRef = E43FB4E31713627700C163A2 /* ADiagnostic.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E43FB4E51713627700C163A2 /* ADiagnostic.m in Sources */ = {isa = PBXBuildFile; fileRef = E43FB4E31713627700C163A2 /* ADiagnostic.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -960,6 +962,8 @@
 		9FB043E516B9D93D0067A04F /* battleFieldBar_self@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battleFieldBar_self@2x.png"; path = "Aircraft/res/battleFieldBar_self@2x.png"; sourceTree = "<group>"; };
 		9FB0B4F3169CFBAC00416B93 /* ABattleFieldModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABattleFieldModel.h; path = Model/ABattleFieldModel.h; sourceTree = "<group>"; };
 		9FB0B4F4169CFBAD00416B93 /* ABattleFieldModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABattleFieldModel.m; path = Model/ABattleFieldModel.m; sourceTree = "<group>"; };
+		E43FB4E21713627700C163A2 /* ADiagnostic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADiagnostic.h; sourceTree = "<group>"; };
+		E43FB4E31713627700C163A2 /* ADiagnostic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADiagnostic.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1034,6 +1038,8 @@
 				9F049CD516842BBA007F5AC2 /* AAppDelegate.m */,
 				0CD7213116C6C73D001BAD5D /* ASetting.h */,
 				0CD7213216C6C73D001BAD5D /* ASetting.m */,
+				E43FB4E21713627700C163A2 /* ADiagnostic.h */,
+				E43FB4E31713627700C163A2 /* ADiagnostic.m */,
 				9F049CCC16842BBA007F5AC2 /* Supporting Files */,
 			);
 			path = Aircraft;
@@ -2095,6 +2101,7 @@
 				0CA9D30E16D5B7A00059D7D4 /* ALoadSavedGameScreenViewController.m in Sources */,
 				0CA9D31616D5E1190059D7D4 /* ASavedRecordItem.m in Sources */,
 				0CA9D32D16D5F0870059D7D4 /* ASavedGameRecord.m in Sources */,
+				E43FB4E41713627700C163A2 /* ADiagnostic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2142,6 +2149,7 @@
 				0CA9D30F16D5B7A00059D7D4 /* ALoadSavedGameScreenViewController.m in Sources */,
 				0CA9D31716D5E1190059D7D4 /* ASavedRecordItem.m in Sources */,
 				0CA9D32E16D5F0870059D7D4 /* ASavedGameRecord.m in Sources */,
+				E43FB4E51713627700C163A2 /* ADiagnostic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2225,8 +2233,10 @@
 				GCC_PREFIX_HEADER = "Aircraft/Aircraft-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					"A_LOG_VERBOSE=1",
+					"A_ASSERT_ENABLED=1",
 					"LITE_VERSION=1",
-					"$(inherited)",
+					"A_LOG_ERROR=1",
 				);
 				INFOPLIST_FILE = "Aircraft/Aircraft-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -2262,6 +2272,9 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"PLUS_VERSION=1",
+					"A_ASSERT_ENABLED=1",
+					"A_LOG_VERBOSE=1",
+					A_LOG_ERROR,
 				);
 				INFOPLIST_FILE = AircraftPlusInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
